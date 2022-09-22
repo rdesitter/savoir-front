@@ -102,7 +102,61 @@ Sprint1
     └── index.js (entry point)
 ```
 
+### SCSS helpers
 
+Breakpoints :
+
+```
+  'small':  ( min-width:  480px )
+  'medium': ( min-width:  768px )
+  'large':  ( min-width: 1024px )
+  'extra-large': ( min-width: 1200px )
+```
+
+Usefull mixins :
+
+  ```scss
+  @use '../../styles/mixin';
+  ```
+
+- examples for breakpoints :
+
+  ```scss
+  @include mixin.media('small') {
+    color: blue;
+  }
+
+  @include mixin.media('large') {
+    color: red;
+  }
+  ```
+
+- paddings :
+  
+  ```scss
+  @include mixin.padding;
+  ```
+
+  will return
+
+  ```css
+    .Class {
+        padding: 0.625em; /* (10px) */
+    }
+
+    @media ( min-width:  768px ) { 
+        .Class {
+            padding: 1.25em; /* (20px) */
+        }
+    } 
+
+    @media ( min-width:  1024px ) { 
+        .Class {
+            padding: 1.875em; /* (30px) */
+        }
+    } 
+  ```
+  
 ### `npm i`
 
 Install all dependencies we need to work.
