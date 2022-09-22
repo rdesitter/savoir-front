@@ -50,6 +50,59 @@ function Book(title, author) {
 }
 ```
 
+### Directory & File Structure
+
+```
+Sprint1
+│   README.md
+│   .config-files
+│   ...
+│
+└───config
+│   └── webpack config files 
+│   
+└───public
+|   └── robot.txt
+| 
+└───src (working folder)
+    ├── action
+    |   └── index.js (redux actions creator)
+    |
+    ├── assets
+    |   └── ...
+    |
+    ├── components
+    |   └── every components of our project
+    |
+    ├── pages (we want to separate pages from components for a better organization)
+    |   ├── 404
+    |   |   └── index.js
+    |   |
+    |   ├── Contact
+    |   |   └── index.js
+    |   |
+    |   ├── Home
+    |   |   └── index.js
+    |   |
+    |   └── ...
+    |
+    ├── reducers
+    |   ├── index.js
+    |   ├── posts.js
+    |   └── user.js
+    |
+    ├── store
+    |   └── index.js
+    |
+    ├── styles
+    |   ├── _reset.css
+    |   ├── _vars.scss (variables)
+    |   └── _style.scss (generic style)
+    |
+    └── index.js (entry point)
+```
+
+
 ### `npm i`
 
 Install all dependencies we need to work.
