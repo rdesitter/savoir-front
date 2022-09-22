@@ -1,12 +1,13 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
+import AppHeader from '../AppHeader';
 import './styles.css';
 
 // == Composant
 function App() {
   return (
     <div className="app">
-      <h1>Composant : App</h1>
+      <AppHeader />
       <Routes>
         <Route path="/" element={<div>Home</div>} />
         <Route path="*" element={<div>page 404</div>} />
