@@ -1,6 +1,7 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
 import Team from '../../pages/Team';
+import Connexion from '../../pages/Connexion';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
 import './styles.css';
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<div>Home</div>} />
         <Route path="/equipe" element={<Team />} />
+        <Route path="/connexion" element={<Connexion />} />
         <Route path="*" element={<div>page 404</div>} />
       </Routes>
       <AppFooter />
