@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Page from 'src/components/Page';
 import Container from '../../components/Container';
+import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 
 import './style.scss';
@@ -27,7 +28,14 @@ function Team() {
           <form className="form" onSubmit={handleSubmit}>
             <div className="form__field">
               <label htmlFor="email">Adresse email *</label>
-              <input type="email" name="email" id="email" placeholder="Votre adresse email..." />
+              <Input
+                name="email"
+                type="email"
+                required
+                placeholder="Votre adresse email..."
+                aria-label="Saisissez votre email"
+                id="email"
+              />
               <p className="form__field__error">Erreur</p>
             </div>
 
@@ -40,7 +48,13 @@ function Team() {
               >
                 {isVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
               </button>
-              <input type={isVisible ? 'text' : 'password'} name="password" id="password" placeholder="Votre mot de passe..." />
+              <Input
+                type={isVisible ? 'text' : 'password'}
+                name="password"
+                id="password"
+                placeholder="Votre mot de passe..."
+                aria-label="Saisissez votre mot de passe"
+              />
               <p className="form__field__error">Erreur</p>
             </div>
 
