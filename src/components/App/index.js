@@ -7,9 +7,12 @@ import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
 import './styles.css';
 import Policy from '../../pages/Policy';
+import useScrollTop from '../../hooks/useScrollTop';
 
 // == Composant
 function App() {
+  useScrollTop();
+
   return (
     <div className="app">
       <AppHeader />
