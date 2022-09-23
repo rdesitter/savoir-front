@@ -8,5 +8,7 @@ html {
 body {
   font-family: vars.$font-family;
   font-size: 1.6rem;
+  line-height: 2.4rem;
   background-color: vars.$light-grey-color;
+  min-height: 100vh;
 }

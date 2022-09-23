@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
-import logo from './LOGO.svg';
 import searchIcon from './search.svg';
 
 import './style.scss';
@@ -11,7 +10,7 @@ function AppHeader() {
 
   return (
     <nav className="main-nav" aria-label="Navigation">
-      <Link to="/" className="main-nav__logo"><img src={logo} alt="null" /></Link>
+      <Link to="/" className="main-nav__logo"><img src="./images/LOGO.svg" alt="null" /></Link>
       <ul className="main-nav__list">
         <li className="main-nav__item main-nav__item--search">
           <Link to="recherche" className="main-nav__link" title="Faire une recherche"><img src={searchIcon} alt="null" className="main-nav__link__icon" /> Faire une recherche</Link>
