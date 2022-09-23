@@ -94,6 +94,12 @@ Sprint1
     ├── components
     |   └── every components of our project
     |
+    ├── hooks
+    |   └── custom hooks
+    |
+    ├── middlewares
+    |   └── redux middlewares
+    |
     ├── pages (we want to separate pages from components for a better organization)
     |   ├── 404
     |   |   └── index.js
@@ -110,6 +116,9 @@ Sprint1
     |   ├── index.js
     |   ├── posts.js
     |   └── user.js
+    |
+    ├── selectors
+    |   └── custom features
     |
     ├── store
     |   └── index.js
