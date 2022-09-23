@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button';
+import Logo from '../Logo';
 import './style.scss';
 
 function AppFooter() {
@@ -10,7 +11,7 @@ function AppFooter() {
       <div className="footer__section">
         <div className="footer__logo">
           <Link to="/">
-            <img src="./images/LOGO.svg" alt="Transmission des savoirs" />
+            <Logo />
           </Link>
           <p className="footer__desc">
             Partagez ou transmettez vos savoir-faire ou connaissances gratuitement.
