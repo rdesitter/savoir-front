@@ -19,7 +19,7 @@ function AppHeader() {
         {!isLogged && (
           <>
             <li className="main-nav__item">
-              <Link to="/connection" className="main-nav__link">
+              <Link to="/connexion" className="main-nav__link">
                 <Button label="Se connecter" type="outlined" />
               </Link>
             </li>
