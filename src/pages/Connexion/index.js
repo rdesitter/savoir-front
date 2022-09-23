@@ -6,7 +6,7 @@ import Panel from '../../components/Panel';
 
 import './style.scss';
 
-function Team() {
+function Connexion() {
   /* Handle password visibility */
   const [isVisible, setIsVisible] = useState(false);
 
@@ -52,6 +52,7 @@ function Team() {
                 type={isVisible ? 'text' : 'password'}
                 name="password"
                 id="password"
+                required
                 placeholder="Votre mot de passe..."
                 aria-label="Saisissez votre mot de passe"
               />
@@ -70,4 +71,4 @@ function Team() {
   );
 }
 
-export default Team;
+export default Connexion;
