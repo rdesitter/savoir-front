@@ -19,7 +19,7 @@ function Team() {
   return (
     <Page>
       <Container>
-        <Panel>
+        <Panel maxWidth="500px">
           <header className="section__header">
             <h1 className="section__title">Connexion</h1>
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
