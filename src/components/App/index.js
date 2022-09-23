@@ -6,6 +6,7 @@ import Connexion from '../../pages/Connexion';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
 import './styles.css';
+import Policy from '../../pages/Policy';
 
 // == Composant
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/CGU" element={<CGU />} />
+        <Route path="/politique-de-confidentialite" element={<Policy />} />
         <Route path="*" element={<div>page 404</div>} />
       </Routes>
       <AppFooter />
