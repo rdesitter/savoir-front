@@ -1,5 +1,6 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
+import Team from '../../pages/Team';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
 import './styles.css';
@@ -11,6 +12,7 @@ function App() {
       <AppHeader />
       <Routes>
         <Route path="/" element={<div>Home</div>} />
+        <Route path="/equipe" element={<Team />} />
         <Route path="*" element={<div>page 404</div>} />
       </Routes>
       <AppFooter />
