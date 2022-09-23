@@ -12,3 +12,15 @@ body {
   background-color: vars.$light-grey-color;
   min-height: 100vh;
 }
+
+.section {
+  &__header {
+    margin-bottom: vars.$space-30;
+  }
+  
+  &__title {
+    font-size: vars.$font-big;
+    margin-bottom: vars.$space-10;
+    font-weight: bold;
+  }
+}
