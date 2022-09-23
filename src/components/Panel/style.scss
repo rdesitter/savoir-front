@@ -1,0 +1,10 @@
+@use '../../styles/vars';
+@use '../../styles/mixin';
+
+.panel {
+  @include mixin.padding;
+  
+  background-color: vars.$light-color;
+  border-radius: vars.$panel-radius;
+  border: 1px solid vars.$light-stroke-color;
+}
