@@ -32,6 +32,26 @@ We are using [Gitmoji](https://gitmoji.dev/) + [conventional commits](https://ww
 :gitmoji: type : commit name
 ```
 
+```bash
+:wrench: config : commit name
+```
+
+```bash
+:rocket: feat : commit name
+```
+
+```bash
+:art: style : commit name
+```
+
+```bash
+:hammer: fix : commit name
+```
+
+```bash
+:memo: doc : commit name
+```
+
 ### Comments
 
 We are using [JS DOC](https://jsdoc.app/) to comment our code.\
