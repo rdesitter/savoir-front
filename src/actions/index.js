@@ -6,6 +6,12 @@ export const changeValue = (value, name) => ({
   key: name,
 });
 
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+
+export const sendMessage = () => ({
+  type: SEND_MESSAGE,
+});
+
 export const LOGIN = 'LOGIN';
 
 export const logIn = () => ({

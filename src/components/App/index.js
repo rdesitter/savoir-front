@@ -9,6 +9,7 @@ import AppHeader from '../AppHeader';
 import './styles.css';
 import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
+import Contact from '../../pages/Contact';
 
 // == Composant
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/CGU" element={<CGU />} />
         <Route path="/politique-de-confidentialite" element={<Policy />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<div>page 404</div>} />
       </Routes>
       <AppFooter />

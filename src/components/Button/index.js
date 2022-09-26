@@ -2,21 +2,25 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-function Button({ label, type, icon }) {
+function Button({
+  label, btnstyle, isSubmit, icon,
+}) {
   return (
-    <button type="button" className={`button button--${type}`} title={label}>{icon ? <img src={`images/icones/${icon}.svg`} alt="null" className="button__icon" /> : ''}{label}</button>
+    <button type={isSubmit ? 'submit' : 'button'} className={`button button--${btnstyle}`} title={label}>{icon ? <img src={`images/icones/${icon}.svg`} alt="null" className="button__icon" /> : ''}{label}</button>
   );
 }
 
 Button.defaultProps = {
-  type: 'plain',
+  btnstyle: 'plain',
   icon: null,
+  isSubmit: false,
 };
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  btnstyle: PropTypes.string,
   icon: PropTypes.string,
+  isSubmit: PropTypes.bool,
 };
 
 export default Button;

@@ -29,3 +29,12 @@ body {
 p {
   margin-bottom: vars.$space-10;
 }
+
+.link {
+  color: vars.$primary-color;
+  transition: all linear 0.3s;
+
+  &:hover {
+    color: vars.$primary-color-alt;
+  }
+}
