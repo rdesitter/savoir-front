@@ -18,7 +18,7 @@ function ThumbnailPreview({
       <a href="/utilisateur/:id">
         <div className="thumbnail__user__infos">
           <div className="thumbnail__user__img">
-            <img className="thumbnail__user__img__avatar" src={`./images/avatars/${avatar}.png`} alt="Avatar" />
+            <img className="thumbnail__user__img__avatar" src={`./images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
           </div>
           <h3 className="thumbnail__user__name">{name}</h3>
         </div>
