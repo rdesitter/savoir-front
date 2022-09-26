@@ -1,4 +1,4 @@
-import { LOGIN, setUser } from '../actions';
+import { LOGIN, setError, setUser } from '../actions';
 import users from '../data/users';
 
 const ajax = (store) => (next) => (action) => {
@@ -6,10 +6,14 @@ const ajax = (store) => (next) => (action) => {
 
   if (action.type === LOGIN) {
     const selectedUser = users.find((user) => user.email === email);
-    if (password === selectedUser.password) {
+    if (selectedUser && (password === selectedUser.password)) {
       store.dispatch(setUser(selectedUser.username));
     }
+    else {
+      store.dispatch(setError('Mauvais utilisateur ou mot de passe'));
+    }
   }
+
   next(action);
 };
 

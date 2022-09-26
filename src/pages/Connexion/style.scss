@@ -2,10 +2,6 @@
 @use '../../styles/mixin';
 
 .form {
-  &__error {
-    color: vars.$error-color;
-    margin-bottom: vars.$space-20;
-  }
 
   &__submit {
 
