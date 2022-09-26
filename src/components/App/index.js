@@ -6,10 +6,11 @@ import Connexion from '../../pages/Connexion';
 import Inscription from '../../pages/Inscription';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
-import './styles.css';
 import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
 import Contact from '../../pages/Contact';
+import MyAccount from '../../pages/MyAccount';
+import './styles.css';
 
 // == Composant
 function App() {
@@ -29,7 +30,7 @@ function App() {
         <Route path="*" element={<div>page 404</div>} />
 
         {/* Private */}
-        <Route path="/mon-compte" element={<div>Mon compte</div>} />
+        <Route path="/mon-compte" element={<MyAccount />} />
       </Routes>
       <AppFooter />
     </div>
