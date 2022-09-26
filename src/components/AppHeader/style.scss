@@ -1,0 +1,73 @@
+@use '../../styles/vars';
+@use '../../styles/mixin';
+
+//main-nav__item--search
+
+.main-nav {
+  background-color: vars.$light-color;
+  color: vars.$light-color;
+  display: flex;
+  justify-content: space-between;
+  height: 4.6875em;
+  padding: vars.$space-10;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-left: vars.$space-30;
+
+    &--signup {
+      display: none;
+
+      @include mixin.media('small') {
+        display: flex;
+      }
+    }
+
+    &--search {
+      position: absolute;
+      top: 4.6875em;
+      left: 0;
+      width: 100%;
+      background-color: vars.$primary-color;
+      color: vars.$dark-color;
+      transition: all linear 0.3s;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      padding: vars.$space-10;
+      margin-left: 0;
+
+      &:hover {
+        background-color: vars.$primary-color-alt;
+      }
+
+      @include mixin.media('medium') {
+        position: relative;
+        top: auto;
+        background-color: transparent;
+
+        &:hover {
+          color: vars.$primary-color;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    width: max-content;
+  }
+}

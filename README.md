@@ -32,6 +32,26 @@ We are using [Gitmoji](https://gitmoji.dev/) + [conventional commits](https://ww
 :gitmoji: type : commit name
 ```
 
+```bash
+:wrench: config : commit name
+```
+
+```bash
+:rocket: feat : commit name
+```
+
+```bash
+:art: style : commit name
+```
+
+```bash
+:hammer: fix : commit name
+```
+
+```bash
+:memo: doc : commit name
+```
+
 ### Comments
 
 We are using [JS DOC](https://jsdoc.app/) to comment our code.\
@@ -74,6 +94,12 @@ Sprint1
     ├── components
     |   └── every components of our project
     |
+    ├── hooks
+    |   └── custom hooks
+    |
+    ├── middlewares
+    |   └── redux middlewares
+    |
     ├── pages (we want to separate pages from components for a better organization)
     |   ├── 404
     |   |   └── index.js
@@ -90,6 +116,9 @@ Sprint1
     |   ├── index.js
     |   ├── posts.js
     |   └── user.js
+    |
+    ├── selectors
+    |   └── custom features
     |
     ├── store
     |   └── index.js
