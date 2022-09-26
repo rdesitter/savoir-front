@@ -3,6 +3,7 @@
 .search {
   display: flex;
   flex-direction: column;
+  
 
   &-box {
     display: flex;
@@ -13,15 +14,33 @@
     display: flex;
     flex-direction: row;
     border-right: 0.063em solid vars.$light-stroke-color;
-    margin-right: vars.$space-10;
+    margin: vars.$space-10;
     padding-right: vars.$space-10;
+    color: #444444;
   }
 
   &-launch {
     display: flex;
-    flex-direction: row;
-    margin-right: vars.$space-10;
+    flex-direction: column;
+    margin: vars.$space-10;
     padding-right: vars.$space-10;
+    color: #444444;
+
+    &__box {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__button {
+      margin-top: vars.$space-20;
+      padding: vars.$space-10;
+      background: vars.$primary-color;
+      border: 0.063em solid vars.$primary-color-alt;
+      border-radius: vars.$btn-radius;
+      color: vars.$light-color;
+      font-size: vars.$font-medium;
+      font-weight: bold;
+    }
   }
 
   &-title {
@@ -30,14 +49,25 @@
     margin-bottom: vars.$space-30;
   }
 
-  &-order {
+  &-circle {
+    display:inline-block;
+    width:4.5em;
+    height:3em;
+    border-radius:50%;
+    margin-right: vars.$space-20;
+    text-align:center;
     background: vars.$primary-color;
-    color: vars.$light-color;
-    font-size: vars.$font-big;
-    font-weight: bold;
-    margin-right: vars.$space-10;
-    padding: 0.6em 0.8em;
-    border-radius: 50%;
+    
+
+    &__order {
+      display:block;
+      padding-top: 0.5em;
+      color: vars.$light-color;
+      font-size: vars.$font-big;
+      font-weight: bold;
+    }
   }
+
+  
   
 }
