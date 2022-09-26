@@ -20,7 +20,7 @@ function AppHeader() {
           <>
             <li className="main-nav__item">
               <Link to="/connexion" className="main-nav__link">
-                <Button label="Se connecter" type="outlined" />
+                <Button label="Se connecter" btnstyle="outlined" />
               </Link>
             </li>
             <li className="main-nav__item main-nav__item--signup">

@@ -39,7 +39,7 @@ function AppFooter() {
           <ul className="footer-nav__list">
             <h3 className="footer-nav__title">Besoin d'aide ?</h3>
             <li className="footer-nav__item">
-              <Link to="/a-propos" className="footer-nav__link"><Button label="Nous contacter" /></Link>
+              <Link to="/contact" className="footer-nav__link"><Button label="Nous contacter" /></Link>
             </li>
           </ul>
         </nav>
