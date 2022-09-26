@@ -4,7 +4,9 @@ import './style.scss';
 
 function Label() {
   return (
-    <div>Cuisine</div>
+    <div className="label">
+      <p className="label__title">Cuisine</p>
+    </div>
   );
 }
 

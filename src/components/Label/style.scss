@@ -1,0 +1,14 @@
+@use '../../styles/vars';
+
+.label {
+  border-radius: vars.$btn-radius;
+  background-color: aqua;
+  width: 5em;
+  height: 1.4em;
+  margin-left: .3em;
+
+  &__title {
+    font-style: oblique;
+    text-align: center;
+  }
+}

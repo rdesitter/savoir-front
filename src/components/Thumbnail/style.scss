@@ -1,0 +1,58 @@
+@use '../../styles/vars';
+@use '../../styles/mixin';
+
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+}
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+  width: 11em;
+  max-height: 20em;
+  background-color: vars.$light-grey-color;
+  margin: .5em;
+
+
+  &__user__infos {
+    display: flex;
+    padding: .5em;
+  }
+
+  &__user__img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: 1px solid vars.$light-stroke-color;
+
+    &__avatar {
+      width: 1.3em;
+      height: 1.3em;
+    }
+  }
+
+  &__user__name {
+    padding: .5em;
+  }
+
+  &__infos{
+    padding-top: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__img{
+      max-width: 95%;
+    }
+    &__title{
+      text-align: left;
+    }
+    &__description {
+      line-height: 1em;
+    }
+  }
+}
