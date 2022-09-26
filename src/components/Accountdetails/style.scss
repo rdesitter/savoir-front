@@ -1,0 +1,50 @@
+@use '../../styles/mixin';
+@use '../../styles/vars';
+
+.account {
+
+  @include mixin.media('medium') {
+    display: flex;
+    gap: vars.$space-30;
+    flex-direction: row;
+  }
+
+  &__info {
+    @include mixin.media('medium') {
+      flex-grow: 1;
+    }
+  }
+
+  &__avatar {
+    margin-bottom: vars.$space-30;
+    min-width: 20%;
+    
+    @include mixin.media('medium') {
+      margin-bottom: 0;
+      flex-grow: 0;
+    }
+
+    &__img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      border-radius: 500px;
+      background: vars.$primary-color;
+    }
+  }
+
+  &__title {
+    font-size: vars.$font-medium;
+    font-weight: bold;
+  }
+
+  &__creation {
+    opacity: 0.5;
+    margin-bottom: vars.$space-20;
+  }
+
+  &__about {
+    margin-bottom: vars.$space-20;
+  }
+
+}
