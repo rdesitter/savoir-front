@@ -4,6 +4,13 @@
   display: flex;
   flex-direction: column;
 
+  &-title {
+    font-size: vars.$font-big;
+    font-weight: bold;
+    margin-bottom: vars.$space-20;
+  }
+
+
   &-box {
     display: flex;
     flex-direction: row;
@@ -13,6 +20,7 @@
   &-choice {
     display: flex;
     flex-direction: column;
+    width: 35%;
     border-right: 0.063em solid vars.$light-stroke-color;
     margin: vars.$space-10;
     padding-right: vars.$space-10;
@@ -59,13 +67,7 @@
       font-weight: bold;
     }
   }
-
-  &-title {
-    font-size: vars.$font-big;
-    font-weight: bold;
-    margin-bottom: vars.$space-30;
-  }
-
+  
   &-circle {
     display:inline-block;
     width:3em;
