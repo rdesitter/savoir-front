@@ -19,9 +19,9 @@ function PostPreview({
         <Link to={`/annonce/${id}`}>
           <Button label="Voir l'annonce" />
         </Link>
-        <Link to={`/annonce/${id}/effacer`}>
+        {/* <Link to={`/annonce/${id}/effacer`}>
           <Button btnstyle="delete" icon="delete" />
-        </Link>
+        </Link> */}
       </div>
     </article>
   );
