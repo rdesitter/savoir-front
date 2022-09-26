@@ -49,3 +49,18 @@
   }
 }
 
+.posts {
+  display: flex;
+  flex-direction: column;
+
+  @include mixin.media('medium') {
+    flex-direction: row;
+  }
+
+}
+
+#mon-compte {
+  section {
+    margin-bottom: vars.$space-20;
+  }
+}
