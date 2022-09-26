@@ -3,20 +3,36 @@
 .search {
   display: flex;
   flex-direction: column;
-  
 
   &-box {
     display: flex;
     flex-direction: row;
+    align-items: baseline;
   }
 
   &-choice {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border-right: 0.063em solid vars.$light-stroke-color;
     margin: vars.$space-10;
     padding-right: vars.$space-10;
     color: #444444;
+
+    &__box {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+    }
+
+    &__select {
+      width: 80%;
+      margin-top: vars.$space-20;
+      padding: vars.$space-20;
+      border: 0.063em solid vars.$primary-color-alt;
+      border-radius: vars.$btn-radius;
+      color: vars.$dark-color;
+      font-size: 1em;
+    }
   }
 
   &-launch {
@@ -29,6 +45,7 @@
     &__box {
       display: flex;
       flex-direction: row;
+      align-items: baseline;
     }
 
     &__button {
@@ -51,7 +68,7 @@
 
   &-circle {
     display:inline-block;
-    width:4.5em;
+    width:3em;
     height:3em;
     border-radius:50%;
     margin-right: vars.$space-20;
