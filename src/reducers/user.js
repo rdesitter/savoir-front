@@ -1,6 +1,7 @@
 import { CHANGE_VALUE, SET_ERROR, SET_USER } from '../actions';
 
 export const initialState = {
+  userId: '',
   logged: false,
   fullname: '',
   email: '',
