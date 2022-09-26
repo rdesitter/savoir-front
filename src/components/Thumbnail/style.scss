@@ -4,6 +4,7 @@
 .thumbnails {
   display: flex;
   flex-wrap: wrap;
+  background-color: #FFFFFF;
 }
 .thumbnail {
   display: flex;
@@ -46,13 +47,17 @@
     align-items: center;
 
     &__img{
-      max-width: 95%;
+      max-width: 85%;
     }
     &__title{
       text-align: left;
+      font-size: 1em;
     }
     &__description {
+      font-size: .8em;
       line-height: 1em;
+      padding: .3em;
+
     }
   }
 }
