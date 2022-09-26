@@ -7,11 +7,14 @@ export const initialState = {
   password: '',
   passwordConfirm: '',
   username: '',
+  avatar: '',
   birthday: '',
   error: false,
   errorMsg: '',
   posts: [],
   message: '',
+  created_at: '',
+  about: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -25,7 +28,7 @@ const reducer = (state = initialState, action = {}) => {
     case SET_USER:
       return {
         ...state,
-        username: action.username,
+        ...action,
         logged: true,
         password: '',
         error: false,

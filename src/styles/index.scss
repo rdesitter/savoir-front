@@ -38,3 +38,7 @@ p {
     color: vars.$primary-color-alt;
   }
 }
+
+.spacer {
+  flex-grow: 1;
+}
