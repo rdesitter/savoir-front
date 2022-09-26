@@ -1,12 +1,12 @@
 import Page from 'src/components/Page';
-import SearchPannel from 'src/components/Home/SearchPannel';
+import Search from 'src/components/Search';
 import Container from 'src/components/Container';
 
 function Home() {
   return (
     <Page>
       <Container>
-        <SearchPannel />
+        <Search />
       </Container>
     </Page>
   );

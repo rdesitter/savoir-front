@@ -6,7 +6,7 @@ import Connexion from '../../pages/Connexion';
 import Inscription from '../../pages/Inscription';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
-import Home from '../Home';
+import Home from '../../pages/Home';
 import './styles.css';
 import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
