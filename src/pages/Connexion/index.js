@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Page from 'src/components/Page';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
+import { logIn } from '../../actions';
 
 import './style.scss';
 
@@ -10,10 +12,12 @@ function Connexion() {
   /* Handle password visibility */
   const [isVisible, setIsVisible] = useState(false);
 
+  const dispatch = useDispatch();
+
   // TODO Gérer la soumission du formulaire
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Connexion');
+    dispatch(logIn());
   };
 
   return (

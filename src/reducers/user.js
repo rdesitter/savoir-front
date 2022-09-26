@@ -1,4 +1,4 @@
-import { CHANGE_VALUE } from '../actions';
+import { CHANGE_VALUE, SET_USER } from '../actions';
 
 export const initialState = {
   logged: false,
@@ -18,6 +18,15 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.key]: action.value,
+      };
+    case SET_USER:
+      return {
+        ...state,
+        username: action.username,
+        logged: true,
+        password: '',
+        error: false,
+        errorMsg: '',
       };
     default:
       return state;
