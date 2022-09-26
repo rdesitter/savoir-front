@@ -1,5 +1,6 @@
 // == Import
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Team from '../../pages/Team';
 import CGU from '../../pages/CGU';
 import Connexion from '../../pages/Connexion';
@@ -15,6 +16,7 @@ import './styles.css';
 // == Composant
 function App() {
   useScrollTop();
+  const isLogged = useSelector((state) => state.user.logged);
 
   return (
     <div className="app">
@@ -30,7 +32,10 @@ function App() {
         <Route path="*" element={<div>page 404</div>} />
 
         {/* Private */}
+        {isLogged
+        && (
         <Route path="/mon-compte" element={<MyAccount />} />
+        )}
       </Routes>
       <AppFooter />
     </div>
