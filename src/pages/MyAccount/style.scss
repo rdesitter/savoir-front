@@ -1,54 +1,6 @@
 @use '../../styles/mixin';
 @use '../../styles/vars';
 
-.account {
-  display: flex;
-  flex-direction: column;
-
-  @include mixin.media('medium') {
-    flex-direction: row;
-  }
-
-  &__avatar {
-    width: 100%;
-    margin-bottom: vars.$space-30;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include mixin.media('medium') {
-      max-width: 250px;
-      margin-bottom: 0;
-      margin-right: vars.$space-30;
-    }
-
-    &__img {
-      max-width: 100%;
-      border-radius: 500px;
-      background: vars.$primary-color;
-    }
-  }
-
-  &__title {
-    font-size: vars.$font-medium;
-    font-weight: bold;
-  }
-
-  &__creation {
-    opacity: 0.5;
-    margin-bottom: vars.$space-20;
-  }
-
-  &__about {
-    margin-bottom: vars.$space-20;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .posts {
   display: flex;
   flex-direction: column;
