@@ -20,9 +20,14 @@ export const logIn = () => ({
 
 export const SET_USER = 'SET_USER';
 
-export const setUser = (username) => ({
+export const setUser = (user) => ({
   type: SET_USER,
-  username,
+  username: user.username,
+  avatar: user.avatar,
+  about: user.about,
+  created_at: user.created_at,
+  userId: user.id,
+  posts: user.posts,
 });
 
 export const SET_ERROR = 'SET_ERROR';

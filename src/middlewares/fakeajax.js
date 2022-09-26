@@ -7,7 +7,8 @@ const ajax = (store) => (next) => (action) => {
   if (action.type === LOGIN) {
     const selectedUser = users.find((user) => user.email === email);
     if (selectedUser && (password === selectedUser.password)) {
-      store.dispatch(setUser(selectedUser.username));
+      console.log('selec', selectedUser);
+      store.dispatch(setUser(selectedUser));
     }
     else {
       store.dispatch(setError('Mauvais utilisateur ou mot de passe'));

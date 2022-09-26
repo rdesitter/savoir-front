@@ -3,17 +3,21 @@ import {
 } from '../actions';
 
 export const initialState = {
+  userId: '',
   logged: false,
   fullname: '',
   email: '',
   password: '',
   passwordConfirm: '',
   username: '',
+  avatar: '',
   birthday: '',
   error: false,
   errorMsg: '',
   posts: [],
   message: '',
+  created_at: '',
+  about: '',
   info: {
     isDisplayed: false,
     msg: '',
@@ -31,7 +35,7 @@ const reducer = (state = initialState, action = {}) => {
     case SET_USER:
       return {
         ...state,
-        username: action.username,
+        ...action,
         logged: true,
         password: '',
         error: false,
