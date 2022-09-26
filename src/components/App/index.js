@@ -27,6 +27,9 @@ function App() {
         <Route path="/politique-de-confidentialite" element={<Policy />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<div>page 404</div>} />
+
+        {/* Private */}
+        <Route path="/mon-compte" element={<div>Mon compte</div>} />
       </Routes>
       <AppFooter />
     </div>
