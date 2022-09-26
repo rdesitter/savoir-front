@@ -19,3 +19,8 @@ textarea {
   /* will prevent resizing horizontally */
   resize:vertical;
 }
+
+.info {
+  font-size: vars.$font-medium;
+  margin-bottom: 0;
+}

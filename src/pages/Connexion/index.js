@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import Page from 'src/components/Page';
@@ -6,7 +6,7 @@ import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
-import { logIn } from '../../actions';
+import { initError, logIn } from '../../actions';
 import './style.scss';
 
 function Connexion() {
@@ -14,6 +14,11 @@ function Connexion() {
   const [isVisible, setIsVisible] = useState(false);
 
   const dispatch = useDispatch();
+
+  // initialise error msg on first render
+  useEffect(() => {
+    dispatch(initError());
+  }, []);
 
   // get error informations from state
   const isError = useSelector((state) => state.user.error);

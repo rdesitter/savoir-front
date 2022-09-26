@@ -7,6 +7,7 @@ import Connexion from '../../pages/Connexion';
 import Inscription from '../../pages/Inscription';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
+import Home from '../../pages/Home';
 import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
 import Contact from '../../pages/Contact';
@@ -23,7 +24,7 @@ function App() {
     <div className="app">
       <AppHeader />
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
+        <Route path="/" element={<Home />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
