@@ -2,6 +2,7 @@ import { CHANGE_VALUE } from '../actions';
 
 export const initialState = {
   logged: false,
+  fullname: '',
   email: '',
   password: '',
   passwordConfirm: '',
@@ -10,6 +11,7 @@ export const initialState = {
   error: false,
   errorMsg: '',
   posts: [],
+  message: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

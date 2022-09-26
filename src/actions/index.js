@@ -5,3 +5,9 @@ export const changeValue = (value, name) => ({
   value: value,
   key: name,
 });
+
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+
+export const sendMessage = () => ({
+  type: SEND_MESSAGE,
+});
