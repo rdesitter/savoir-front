@@ -31,3 +31,21 @@ export const setError = (msg) => ({
   type: SET_ERROR,
   errorMsg: msg,
 });
+
+export const INIT_ERROR = 'INIT_ERROR';
+
+export const initError = () => ({
+  type: INIT_ERROR,
+});
+
+export const SENT_MSG = 'SENT_MSG';
+
+export const sentMsg = () => ({
+  type: SENT_MSG,
+});
+
+export const INIT_INFO = 'INIT_INFO';
+
+export const initInfo = () => ({
+  type: INIT_INFO,
+});
