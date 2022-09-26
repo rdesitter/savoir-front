@@ -7,6 +7,7 @@
   padding: vars.$space-10 vars.$space-30;
   display: flex;
   align-items: center;
+  width: fit-content;
 
   &--plain {
     background-color: vars.$primary-color;
