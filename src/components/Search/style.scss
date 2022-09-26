@@ -1,0 +1,43 @@
+@use '../../styles/vars';
+
+.search {
+  display: flex;
+  flex-direction: column;
+
+  &-box {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-choice {
+    display: flex;
+    flex-direction: row;
+    border-right: 0.063em solid vars.$light-stroke-color;
+    margin-right: vars.$space-10;
+    padding-right: vars.$space-10;
+  }
+
+  &-launch {
+    display: flex;
+    flex-direction: row;
+    margin-right: vars.$space-10;
+    padding-right: vars.$space-10;
+  }
+
+  &-title {
+    font-size: vars.$font-big;
+    font-weight: bold;
+    margin-bottom: vars.$space-30;
+  }
+
+  &-order {
+    background: vars.$primary-color;
+    color: vars.$light-color;
+    font-size: vars.$font-big;
+    font-weight: bold;
+    margin-right: vars.$space-10;
+    padding: 0.6em 0.8em;
+    border-radius: 50%;
+  }
+  
+}
