@@ -45,7 +45,6 @@ ThumbnailPreview.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   postDescription: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
 };
 
 export default ThumbnailPreview;
