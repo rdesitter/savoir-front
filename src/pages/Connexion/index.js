@@ -1,20 +1,37 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import Page from 'src/components/Page';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
-
+import Error from '../../components/Error';
+import { logIn } from '../../actions';
 import './style.scss';
 
 function Connexion() {
-  /* Handle password visibility */
+  // Handle password visibility
   const [isVisible, setIsVisible] = useState(false);
 
-  // TODO Gérer la soumission du formulaire
+  const dispatch = useDispatch();
+
+  // get error informations from state
+  const isError = useSelector((state) => state.user.error);
+  const errorMsg = useSelector((state) => state.user.errorMsg);
+
+  // check logged status
+  const logged = useSelector((state) => state.user.logged);
+
+  // TODO Gérer la soumission du formulaire avec data du back
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Connexion');
+    dispatch(logIn());
   };
+
+  // If logged succesfully redirect to home page
+  if (logged) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <Page>
@@ -24,7 +41,7 @@ function Connexion() {
             <h1 className="section__title">Connexion</h1>
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
           </header>
-          <p className="form__error">Erreur</p>
+          {isError && <Error msg={errorMsg} />}
           <form className="form" onSubmit={handleSubmit}>
             <div className="form__field">
               <label htmlFor="email">Adresse email *</label>
@@ -36,7 +53,6 @@ function Connexion() {
                 aria-label="Saisissez votre email"
                 id="email"
               />
-              <p className="form__field__error">Erreur</p>
             </div>
 
             <div className="form__field">
@@ -56,7 +72,6 @@ function Connexion() {
                 placeholder="Votre mot de passe..."
                 aria-label="Saisissez votre mot de passe"
               />
-              <p className="form__field__error">Erreur</p>
             </div>
 
             <div className="form__submit">
