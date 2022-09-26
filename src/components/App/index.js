@@ -6,6 +6,7 @@ import Connexion from '../../pages/Connexion';
 import Inscription from '../../pages/Inscription';
 import AppFooter from '../AppFooter';
 import AppHeader from '../AppHeader';
+import Thumbnail from '../Thumbnail';
 import './styles.css';
 import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
@@ -18,7 +19,7 @@ function App() {
     <div className="app">
       <AppHeader />
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
+        <Route path="/" element={<Thumbnail />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
