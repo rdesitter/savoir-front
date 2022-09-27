@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function Panel({ children, maxWidth }) {
+function Panel({ children, maxWidth, ...props }) {
   return (
-    <section className="panel" style={{ maxWidth: maxWidth }}>
+    <section className="panel" style={{ maxWidth: maxWidth }} {...props}>
       {children}
     </section>
   );

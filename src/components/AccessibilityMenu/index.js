@@ -21,6 +21,9 @@ function AccessibilityMenu() {
       case '/mon-compte':
         setMenuItems(menus.myAccount);
         break;
+      case '/recherche':
+        setMenuItems(menus.search);
+        break;
       default:
         setMenuItems(menus.default);
         break;
