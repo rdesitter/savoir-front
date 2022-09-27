@@ -13,7 +13,6 @@ function ThumbnailPreview({
   postDescription,
 }) {
   return (
-    //! Est-ce judicieux de mettre une ul ici ? ou on reste sur une balise article ?
     <article className="thumbnail">
       {/* TODO: route paramétrée */}
       <Link to="/utilisateur/:id" title={`vers le profil de ${name}`}>
