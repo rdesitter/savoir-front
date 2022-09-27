@@ -21,6 +21,7 @@ function App() {
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
