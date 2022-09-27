@@ -3,6 +3,7 @@ import Label from '../Label';
 import Button from '../Button';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 function ThumbnailPreview({
   avatar,
@@ -12,30 +13,29 @@ function ThumbnailPreview({
   postDescription,
 }) {
   return (
-    //! Est-ce judicieux de mettre une ul ici ? ou on reste sur une balise article ?
-    <ul className="thumbnail">
+    <article className="thumbnail">
       {/* TODO: route paramétrée */}
-      <a href="/utilisateur/:id">
-        <div className="thumbnail__user__infos">
-          <div className="thumbnail__user__img">
-            <img className="thumbnail__user__img__avatar" src={`./images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
+      <Link to="/utilisateur/:id" title={`vers le profil de ${name}`}>
+        <div className="thumbnail-user__infos">
+          <div className="thumbnail-user__img">
+            <img className="thumbnail-user__img__avatar" src={`./images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
           </div>
-          <h3 className="thumbnail__user__name">{name}</h3>
+          <h3 className="thumbnail-user__name">{name}</h3>
         </div>
-      </a>
+      </Link>
       <Label />
       {/* TODO: route paramétrée */}
-      <a href="/annonce/:id">
-        <div className="thumbnail__infos">
-          <img className="thumbnail__infos__img" src={`./images/categories/${category}.jpg`} alt="Cuisine" />
-          <h4 className="thumbnail__infos__title">{title}</h4>
-          <p className="thumbnail__infos__description">
+      <Link to="/annonce/:id" title={`vers l'annonce "${title}"`}>
+        <div className="thumbnail-infos">
+          <img className="thumbnail-infos__img" src={`./images/categories/${category}.jpg`} alt="Cuisine" />
+          <h4 className="thumbnail-infos__title">{title}</h4>
+          <p className="thumbnail-infos__description">
             {postDescription}
           </p>
         </div>
-      </a>
-      <Button className="thumbnail__infos__btn" label="Voir l'annonce" type="outlined" />
-    </ul>
+      </Link>
+      <Button className="thumbnail-infos__btn" label="Voir l'annonce" type="outlined" />
+    </article>
   );
 }
 
