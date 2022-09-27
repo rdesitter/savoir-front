@@ -4,12 +4,13 @@ import Search from 'src/components/Search';
 import Container from 'src/components/Container';
 import Panel from '../../components/Panel';
 import Thumbnail from '../../components/Thumbnail';
+import Hero from '../../components/Hero';
 
 function Home() {
   const listOfCategories = useSelector((state) => state.categories.list);
   return (
     <Page>
-      <div>Hero section</div>
+      <Hero />
       <Container>
         <Search
           categories={listOfCategories}

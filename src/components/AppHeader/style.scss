@@ -11,6 +11,9 @@
   height: 4.6875em;
   padding: vars.$space-10;
 
+  position: relative;
+  z-index: 1;
+
   &__logo {
     display: flex;
     align-items: center;
