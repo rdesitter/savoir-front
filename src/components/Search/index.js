@@ -12,12 +12,11 @@ function Search({ ...props }) {
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event.target.category.value);
-    // console.log(event.target.learnOrShare.value);
     dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
   };
   return (
     <Panel {...props}>
+
       <form onSubmit={handleSubmit}>
         <fieldset>
 

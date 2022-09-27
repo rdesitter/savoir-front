@@ -49,7 +49,7 @@
       border-radius:50%;
       margin-right: vars.$space-10;
       text-align:center;
-      background: #07837b;
+      background: vars.$primary-color;
       @include mixin.media('medium') {
         width: 3em;
       height: 3em;
@@ -95,7 +95,7 @@
     &__button {
       margin-top: vars.$space-20;
       padding: vars.$space-10;
-      background: #07837b;
+      background: vars.$primary-color;
       border: 0.063em solid vars.$primary-color-alt;
       border-radius: vars.$btn-radius;
       color: vars.$light-color;
