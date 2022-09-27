@@ -15,6 +15,7 @@ import MyAccount from '../../pages/MyAccount';
 import Profile from '../../pages/Profile';
 import NotFound from '../../pages/404';
 import './styles.css';
+import Annonce from '../../pages/Annonce';
 
 // == Composant
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/annonce" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />

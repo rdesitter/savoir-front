@@ -25,7 +25,7 @@ function ThumbnailPreview({
         </div>
       </Link>
       <Label label="cuisine" />
-       <Link to={`/annonce/:${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link to={`/annonce/:${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`./images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
