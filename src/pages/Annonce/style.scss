@@ -1,0 +1,100 @@
+@use '../../styles/vars';
+
+.informations {
+  display: flex;
+  flex-direction: column;
+}
+
+.global-infos {
+  display: flex;
+  min-width: 100%;
+  justify-content: space-between;
+}
+
+.panel {
+  padding: 0;
+}
+.post-infos {
+  width: 60%;
+  position: relative;
+  top: 0;
+  &__label{
+    display: flex;
+  }
+
+  &__frame{
+    max-height: 5em;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  &__img{
+    border-radius: vars.$panel-radius;
+    width: 100%;
+    top: 0;
+  }
+  &__date{
+    text-align: right;
+  }
+  &__title{
+    font-weight: bold;
+    padding: .5em;
+  }
+  &__localisation{
+    font-size: .8em;
+    font-weight: bold;
+    padding: .5em;
+  }
+  &__description{
+    font-size: .7em;
+    line-height: 1.2em;
+    padding: .5em;
+  }
+}
+
+.vignettes {
+  display: flex;
+  flex-direction: column;
+  width: 38%;
+}
+
+.user-informations {
+  width: 100%;
+}
+
+.div-panel{
+  display: flex;
+  padding: 1em;
+}
+.more-infos {
+  width: 100%;
+}
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1em;
+
+  &__name{
+    font-weight: bold;
+  }
+
+  &__avatar{
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background-color: aqua;
+
+  }
+  &__avatar-img{
+    width: 20px;
+  }
+  &__date{
+    font-size: .7em;
+    margin-bottom: 1em;
+  }
+
+}
+
+
