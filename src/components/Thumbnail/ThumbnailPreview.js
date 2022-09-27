@@ -23,7 +23,7 @@ function ThumbnailPreview({
           <h3 className="thumbnail-user__name">{name}</h3>
         </div>
       </Link>
-      <Label />
+      <Label label="cuisine" />
       {/* TODO: route paramétrée */}
       <Link to="/annonce/:id" title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
@@ -45,7 +45,6 @@ ThumbnailPreview.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   postDescription: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
 };
 
 export default ThumbnailPreview;
