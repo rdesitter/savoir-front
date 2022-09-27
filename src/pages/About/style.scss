@@ -53,14 +53,14 @@ p {
     border-radius: vars.$btn-radius;
     padding: vars.$space-10 vars.$space-30;
     background-color: transparent;
-    border: 1px solid #07837b;
-    color: #07837b;
+    border: 1px solid vars.$primary-color;
+    color: vars.$primary-color;
     transition: all linear 0.3s;
 
     @include mixin.media('medium') {
       &:hover {
         color: vars.$light-color;
-        background-color: #07837b;
+        background-color: vars.$primary-color;
         border: 1px solid vars.$primary-color-alt;
         text-decoration: none;
       }
