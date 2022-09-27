@@ -12,8 +12,9 @@ import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
 import Contact from '../../pages/Contact';
 import MyAccount from '../../pages/MyAccount';
-import './styles.css';
 import Profile from '../../pages/Profile';
+import NotFound from '../../pages/404';
+import './styles.css';
 
 // == Composant
 function App() {
@@ -32,7 +33,7 @@ function App() {
         <Route path="/politique-de-confidentialite" element={<Policy />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profil/:id" element={<Profile />} />
-        <Route path="*" element={<div>page 404</div>} />
+        <Route path="*" element={<NotFound />} />
 
         {/* Private */}
         {isLogged
