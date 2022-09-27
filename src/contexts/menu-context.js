@@ -7,7 +7,7 @@ export const menus = {
     { index: 2, url: '#besoin', label: 'Voir les annonces de besoin' },
   ],
   search: [
-    { index: 0, url: '#contenu', label: 'Aller au contenu principal' },
+    { index: 0, url: '#rechercher', label: 'Aller au formulaire de recherche' },
   ],
   myAccount: [
     { index: 0, url: '#profil', label: 'Aller au profil public' },
