@@ -12,8 +12,9 @@ import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
 import Contact from '../../pages/Contact';
 import MyAccount from '../../pages/MyAccount';
-import './styles.css';
 import Profile from '../../pages/Profile';
+import AccessibilityMenu from '../AccessibilityMenu';
+import './styles.scss';
 
 // == Composant
 function App() {
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="app">
+      <AccessibilityMenu />
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
