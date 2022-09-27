@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { launchSearch } from '../../actions';
 
 import Page from '../Page';
 import Panel from '../Panel';
@@ -7,11 +8,17 @@ import './style.scss';
 
 function Search() {
   const categories = useSelector((state) => state.categories.list);
-  // gérer le handleSubmit (dans le form : onSubmit = {handleSubmit})
+
+  // action de la soumission du formulaire
+  const dispatch = useDispatch();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(launchSearch());
+  };
   return (
     <Page>
       <Panel className="search">
-        <form>
+        <form onSubmit={handleSubmit}>
           <fieldset>
 
             <legend className="search__title">Recherche rapide</legend>
@@ -23,7 +30,7 @@ function Search() {
                   <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
                   <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
                 </div>
-                <select name="selection__learn-or-share" id="select__learn-or-share" className="search__choices__select">
+                <select name="selection__learnOrShare" id="select__learn-or-share" className="search__choices__select">
                   <option value="">Choisissez une option...</option>
                   <option value="Apprendre">Apprendre</option>
                   <option value="Partager">Partager</option>
@@ -39,7 +46,7 @@ function Search() {
                 <select name="selection__category" id="select__category" className="search__choices__select">
                   <option value="">Choisissez une catégorie...</option>
                   {categories.map((category) => (
-                    <option value="{category}">{category}</option>
+                    <option value="{category}" key={category}>{category}</option>
                   ))}
                 </select>
               </div>

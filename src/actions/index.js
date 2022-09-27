@@ -54,3 +54,9 @@ export const INIT_INFO = 'INIT_INFO';
 export const initInfo = () => ({
   type: INIT_INFO,
 });
+
+export const LAUNCH_SEARCH = 'LAUNCH_SEARCH';
+
+export const launchSearch = () => ({
+  type: LAUNCH_SEARCH,
+});
