@@ -11,6 +11,7 @@ import './styles.css';
 import Policy from '../../pages/Policy';
 import useScrollTop from '../../hooks/useScrollTop';
 import Contact from '../../pages/Contact';
+import Thumbnail from '../Thumbnail';
 
 // == Composant
 function App() {
@@ -20,7 +21,7 @@ function App() {
     <div className="app">
       <AppHeader />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Thumbnail />} />
         {/* <Route path="/" element={<Home />} /> */}
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />

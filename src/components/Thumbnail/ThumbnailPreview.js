@@ -3,6 +3,7 @@ import Label from '../Label';
 import Button from '../Button';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 function ThumbnailPreview({
   avatar,
@@ -13,19 +14,19 @@ function ThumbnailPreview({
 }) {
   return (
     //! Est-ce judicieux de mettre une ul ici ? ou on reste sur une balise article ?
-    <ul className="thumbnail">
+    <article className="thumbnail">
       {/* TODO: route paramétrée */}
-      <a href="/utilisateur/:id">
+      <Link to="/utilisateur/:id" title={`vers le profil de ${name}`}>
         <div className="thumbnail-user__infos">
           <div className="thumbnail-user__img">
             <img className="thumbnail-user__img__avatar" src={`./images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
           </div>
           <h3 className="thumbnail-user__name">{name}</h3>
         </div>
-      </a>
+      </Link>
       <Label />
       {/* TODO: route paramétrée */}
-      <a href="/annonce/:id">
+      <Link to="/annonce/:id" title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`./images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
@@ -33,9 +34,9 @@ function ThumbnailPreview({
             {postDescription}
           </p>
         </div>
-      </a>
+      </Link>
       <Button className="thumbnail-infos__btn" label="Voir l'annonce" type="outlined" />
-    </ul>
+    </article>
   );
 }
 
