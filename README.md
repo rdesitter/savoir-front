@@ -52,6 +52,10 @@ We are using [Gitmoji](https://gitmoji.dev/) + [conventional commits](https://ww
 :memo: doc : commit name
 ```
 
+```bash
+:sparkles:: refacto : commit name
+```
+
 ### Comments
 
 We are using [JS DOC](https://jsdoc.app/) to comment our code.\
