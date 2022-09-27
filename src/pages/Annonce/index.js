@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import Label from '../../components/Label';
 import Container from '../../components/Container';
+import AccountDetails from '../../components/Accountdetails';
 import Button from '../../components/Button';
 import Page from '../../components/Page';
 import Panel from '../../components/Panel';
 
 import './style.scss';
+
 
 function Annonce() {
   return (
@@ -37,29 +39,29 @@ function Annonce() {
             <div className="vignettes">
               <article className="user-informations">
                 <Panel>
-                <div className="div-panel">
-                  <section className="user-infos__avatar">
-                    <img className="user-infos__avatar-img" src="./images/avatars/NOHAIR3.png" alt="avatar" />
-                  </section>
-                  <section className="user-infos">
-                    <h2 className="user-infos__name">Nom d'utilisateur</h2>
-                    <span className="user-infos__date">inscrit depuis le 12/12/22</span>
-                    <Button type="button" className="user-infos__contact" label="Contacter" />
-                  </section>
+                  <div className="div-panel">
+                    <section className="user-infos__avatar">
+                      <img className="user-infos__avatar-img" src="./images/avatars/NOHAIR3.png" alt="avatar" />
+                    </section>
+                    <section className="user-infos">
+                      <h2 className="user-infos__name">Jeanne</h2>
+                      <span className="user-infos__date">inscrit(e) depuis le 12/12/22</span>
+                      <Button type="button" className="user-infos__contact" label="Contacter" />
+                    </section>
                   </div>
                 </Panel>
               </article>
-              <article className="more-infos">
+                <article className="more-infos">
                 <Panel>
-                  <h3>Informations complémentaires</h3>
-                  <ul>
+                  <h3 className="more-infos__title">Informations complémentaires</h3>
+                  <ul className="more-infos__list">
                     <li>Bar/café</li>
-                    <li>Bar/café</li>
-                    <li>Bar/café</li>
-                    <li>Bar/café</li>
+                    <li>Non fumeur</li>
+                    <li>2+</li>
+                    <li>Vapotage accepté</li>
                   </ul>
-                </Panel>
-              </article>
+              </Panel>
+                </article>
             </div>
           </div>
         </div>
