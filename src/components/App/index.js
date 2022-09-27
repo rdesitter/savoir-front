@@ -14,8 +14,10 @@ import useScrollTop from '../../hooks/useScrollTop';
 import Contact from '../../pages/Contact';
 import MyAccount from '../../pages/MyAccount';
 import Profile from '../../pages/Profile';
+import AccessibilityMenu from '../AccessibilityMenu';
+import './styles.scss';
 import NotFound from '../../pages/404';
-import './styles.css';
+import SearchPage from '../../pages/Search';
 
 // == Composant
 function App() {
@@ -24,6 +26,7 @@ function App() {
 
   return (
     <div className="app">
+      <AccessibilityMenu />
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -35,6 +38,7 @@ function App() {
         <Route path="/politique-de-confidentialite" element={<Policy />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profil/:id" element={<Profile />} />
+        <Route path="/recherche" element={<SearchPage />} />
         <Route path="*" element={<NotFound />} />
 
         {/* Private */}

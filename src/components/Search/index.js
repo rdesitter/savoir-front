@@ -5,7 +5,7 @@ import Panel from '../Panel';
 
 import './style.scss';
 
-function Search() {
+function Search({ ...props }) {
   const categories = useSelector((state) => state.categories.list);
 
   // action de la soumission du formulaire
@@ -15,7 +15,8 @@ function Search() {
     dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
   };
   return (
-    <Panel className="search">
+    <Panel {...props}>
+
       <form onSubmit={handleSubmit}>
         <fieldset>
 
