@@ -10,7 +10,7 @@ function AccessibilityMenu() {
   const location = useLocation();
   useEffect(() => {
     // Focus .a11y-nav on location change to display accessibility menu when tab is pressed
-    document.querySelector('.a11y-nav__link').focus();
+    document.querySelector('.a11y-nav').focus();
 
     // TODO add accessibility menus depending on location pathname -> src/contexts/menu-context
     const url = location.pathname;
@@ -29,7 +29,7 @@ function AccessibilityMenu() {
   return (
     <MenuContext.Provider value={menus}>
       <nav>
-        <ul className="a11y-nav">
+        <ul className="a11y-nav" tabIndex={0}>
           {menusItems.map((menu) => (
             <li key={menu.url}>
               <Link to={`${location.pathname}${menu.url}`} className="a11y-nav__link">{menu.label}</Link>
