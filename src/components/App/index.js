@@ -15,6 +15,8 @@ import MyAccount from '../../pages/MyAccount';
 import Profile from '../../pages/Profile';
 import AccessibilityMenu from '../AccessibilityMenu';
 import './styles.scss';
+import NotFound from '../../pages/404';
+
 
 // == Composant
 function App() {
@@ -34,7 +36,7 @@ function App() {
         <Route path="/politique-de-confidentialite" element={<Policy />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profil/:id" element={<Profile />} />
-        <Route path="*" element={<div>page 404</div>} />
+        <Route path="*" element={<NotFound />} />
 
         {/* Private */}
         {isLogged

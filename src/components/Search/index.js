@@ -1,63 +1,73 @@
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { launchSearch } from '../../actions';
+
+import Page from '../Page';
 import Panel from '../Panel';
+
 import './style.scss';
 
-function Search({ categories }) {
+function Search() {
+  const categories = useSelector((state) => state.categories.list);
+
+  // action de la soumission du formulaire
+  const dispatch = useDispatch();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log(event.target.category.value);
+    // console.log(event.target.learnOrShare.value);
+    dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
+  };
   return (
-    <Panel className="search">
-      <form>
-        <fieldset>
+    <Page>
+      <Panel className="search">
+        <form onSubmit={handleSubmit}>
+          <fieldset>
 
-          <legend className="search-title">Recherche rapide</legend>
-          <div className="search-box">
+            <legend className="search__title">Recherche rapide</legend>
+            <div className="search__all-sections">
 
-            {/* Search 1st step */}
-            <div className="search-choice">
-              <div className="search-choice__box">
-                <div className="search-circle"><span className="search-circle__order">1</span></div>
-                <label htmlFor="select-learn-share" className="search-text">Souhaitez vous apprendre ou partager&nbsp;?</label>
+              {/* Search 1st step */}
+              <div className="search__choices">
+                <div className="search__choices__legend">
+                  <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
+                  <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
+                </div>
+                <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select">
+                  <option value="">Choisissez une option...</option>
+                  <option value="Apprendre">Apprendre</option>
+                  <option value="Partager">Partager</option>
+                </select>
               </div>
-              <select name="selection" id="select-learn-share" className="search-choice__select">
-                <option value="">Choisissez une option...</option>
-                <option value="Apprendre">Apprendre</option>
-                <option value="Partager">Partager</option>
-              </select>
+
+              {/* Search step 2 */}
+              <div className="search__choices">
+                <div className="search__choices__legend">
+                  <div className="search__choices__circle"><span className="search__choices__circle__order">2</span></div>
+                  <label htmlFor="select__category">Quelle catégorie vous intéresse&nbsp;?</label>
+                </div>
+                <select name="category" id="select__category" className="search__choices__select">
+                  <option value="">Choisissez une catégorie...</option>
+                  {categories.map((category) => (
+                    <option value={category} key={category}>{category}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Search step 3 */}
+              <div className="search__launch">
+                <div className="search__launch__legend">
+                  <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
+                  <span>Lancez votre recherche</span>
+                </div>
+                <button type="submit" className="search__launch__button">Rechercher</button>
+              </div>
             </div>
 
-            {/* Search step 2 */}
-            <div className="search-choice">
-              <div className="search-choice__box">
-                <div className="search-circle"><span className="search-circle__order">2</span></div>
-                <label htmlFor="select-category" className="search-text">Quelle catégorie vous intéresse&nbsp;?</label>
-              </div>
-              <select name="selection" id="select-category" className="search-choice__select">
-                <option value="">Choisissez une catégorie...</option>
-                {categories.map((category) => (
-                  <option key={category} value={category}>{category}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Search step 3 */}
-            <div className="search-launch">
-              <div className="search-launch__box">
-                <div className="search-circle"><span className="search-circle__order">3</span></div>
-                <span className="search-text">Lancez votre recherche</span>
-              </div>
-              <button type="submit" className="search-launch__button">Rechercher</button>
-            </div>
-          </div>
-
-        </fieldset>
-      </form>
-    </Panel>
+          </fieldset>
+        </form>
+      </Panel>
+    </Page>
   );
 }
-
-Search.propTypes = {
-  categories: PropTypes.arrayOf(
-    PropTypes.string,
-  ).isRequired,
-};
 
 export default Search;
