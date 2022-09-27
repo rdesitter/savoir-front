@@ -13,7 +13,9 @@ function Search() {
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(launchSearch());
+    // console.log(event.target.category.value);
+    // console.log(event.target.learnOrShare.value);
+    dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
   };
   return (
     <Page>
@@ -30,7 +32,7 @@ function Search() {
                   <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
                   <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
                 </div>
-                <select name="selection__learnOrShare" id="select__learn-or-share" className="search__choices__select">
+                <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select">
                   <option value="">Choisissez une option...</option>
                   <option value="Apprendre">Apprendre</option>
                   <option value="Partager">Partager</option>
@@ -43,10 +45,10 @@ function Search() {
                   <div className="search__choices__circle"><span className="search__choices__circle__order">2</span></div>
                   <label htmlFor="select__category">Quelle catégorie vous intéresse&nbsp;?</label>
                 </div>
-                <select name="selection__category" id="select__category" className="search__choices__select">
+                <select name="category" id="select__category" className="search__choices__select">
                   <option value="">Choisissez une catégorie...</option>
                   {categories.map((category) => (
-                    <option value="{category}" key={category}>{category}</option>
+                    <option value={category} key={category}>{category}</option>
                   ))}
                 </select>
               </div>

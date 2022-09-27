@@ -57,6 +57,8 @@ export const initInfo = () => ({
 
 export const LAUNCH_SEARCH = 'LAUNCH_SEARCH';
 
-export const launchSearch = () => ({
+export const launchSearch = (learnOrShare, category) => ({
   type: LAUNCH_SEARCH,
+  learnOrShare,
+  category,
 });

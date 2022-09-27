@@ -1,8 +1,8 @@
 import { LAUNCH_SEARCH } from '../actions';
 
 export const initialState = {
-  selection__learnOrShare: '',
-  selection__category: '',
+  learnOrShare: '',
+  category: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +10,8 @@ const reducer = (state = initialState, action = {}) => {
     case LAUNCH_SEARCH:
       return {
         ...state,
+        learnOrShare: action.learnOrShare,
+        category: action.category,
       };
     default:
       return state;
