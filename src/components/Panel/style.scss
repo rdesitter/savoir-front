@@ -3,7 +3,7 @@
 
 .panel {
   @include mixin.padding;
-  margin: 0 auto;
+  margin: vars.$space-30 auto;
   
   background-color: vars.$light-color;
   border-radius: vars.$panel-radius;

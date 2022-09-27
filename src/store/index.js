@@ -1,9 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
-
-import contactForm from '../middlewares/contactForm';
 import fakeajax from 'src/middlewares/fakeajax';
+import contactForm from '../middlewares/contactForm';
 
 const middlewares = applyMiddleware(contactForm, fakeajax);
 

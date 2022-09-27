@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import ThumbnailPreview from './ThumbnailPreview';
 
 import './style.scss';

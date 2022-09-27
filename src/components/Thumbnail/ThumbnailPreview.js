@@ -16,7 +16,6 @@ function ThumbnailPreview({
 }) {
   return (
     <article className="thumbnail">
-      {/* TODO: route paramétrée */}
       <Link to={`/utilisateur/:${userId}`} title={`vers le profil de ${name}`}>
         <div className="thumbnail-user__infos">
           <div className="thumbnail-user__img">
@@ -26,8 +25,7 @@ function ThumbnailPreview({
         </div>
       </Link>
       <Label label="cuisine" />
-      {/* TODO: route paramétrée */}
-      <Link to={`/annonce/:${postId}`} title={`vers l'annonce "${title}"`}>
+       <Link to={`/annonce/:${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`./images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
@@ -49,6 +47,7 @@ ThumbnailPreview.propTypes = {
   postDescription: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   postId: PropTypes.number.isRequired,
+
 };
 
 export default ThumbnailPreview;
