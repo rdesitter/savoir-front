@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Team from '../../pages/Team';
+import About from '../../pages/About';
 import CGU from '../../pages/CGU';
 import Connexion from '../../pages/Connexion';
 import Inscription from '../../pages/Inscription';
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/equipe" element={<Team />} />
+        <Route path="/a-propos" element={<About />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/CGU" element={<CGU />} />
