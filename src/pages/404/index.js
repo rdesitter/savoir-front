@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import error from './404.svg';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
@@ -21,8 +22,12 @@ function NotFound() {
             <p>Savez-vous que les pingouins ont des genoux ?</p>
           </Panel>
           <div className="err404__buttons">
-            <Button label="Faire une recherche" btnstyle="outlined" />
-            <Button label="Retourner à l'accueil" />
+            <Link to="/rechercher">
+              <Button label="Faire une recherche" btnstyle="outlined" />
+            </Link>
+            <Link to="/">
+              <Button label="Retourner à l'accueil" />
+            </Link>
           </div>
         </section>
       </Container>
