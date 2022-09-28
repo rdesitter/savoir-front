@@ -8,10 +8,10 @@ function PostDetails({ title, localisation, description }) {
     <article className="post-infos">
       <Panel>
         <section className="post-infos__frame">
-          <img className="post-infos__img" src="./images/categories/informatique.jpg" alt="informatique" />
+          <img className="post-infos__img" src="/images/categories/informatique.jpg" alt="informatique" />
         </section>
         <h2 className="post-infos__title">{title}</h2>
-        <span className="post-infos__location"><img className="post-infos__location-icone" src="./images/icones/location.svg" alt="location icone" />{localisation}</span>
+        <span className="post-infos__location"><img className="post-infos__location-icone" src="/images/icones/location.svg" alt="location icone" />{localisation}</span>
         <p className="post-infos__description">{description}</p>
       </Panel>
     </article>

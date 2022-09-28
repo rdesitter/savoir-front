@@ -4,7 +4,7 @@
 .panel {
   @include mixin.padding;
   margin: vars.$space-30 auto;
-  
+  position: relative;
   background-color: vars.$light-color;
   border-radius: vars.$panel-radius;
   border: 1px solid vars.$light-stroke-color;

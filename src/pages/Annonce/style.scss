@@ -12,17 +12,16 @@
   align-items: center;
   min-width: 100%;
   justify-content: space-between;
+  gap: vars.$space-20;
 
   @include mixin.media('medium') {
     flex-direction: row;
     align-items: flex-start;
   }
-}
 
-.panel {
-  padding: 0;
-  margin: .2em;
-  // max-width: 100%;
+  .panel {
+    margin: 0;
+  }
 }
 
 .post-infos{
@@ -43,20 +42,24 @@
   }
 }
 
-
 .vignettes {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: vars.$space-20;
+
+  @include mixin.media('medium') {
+  width: 30%;
+  }
+
+  .panel {
+    margin: 0;
+    padding: 1em;
+  }
 }
 
-.informations-bloc {
-  padding: 1em;
-}
 .more-infos {
   width: 100%;
-  height: fit-content;
-
   &__title{
     font-size: .8em;
     font-weight: bold;

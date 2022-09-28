@@ -27,7 +27,7 @@ function App() {
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/annonces" element={<Annonce />} />
+        <Route path="/annonces/:id" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
