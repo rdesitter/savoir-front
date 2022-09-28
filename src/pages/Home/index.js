@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import Page from 'src/components/Page';
 import Search from 'src/components/Search';
 import Container from 'src/components/Container';
@@ -6,9 +7,10 @@ import Thumbnail from '../../components/Thumbnail';
 import Hero from '../../components/Hero';
 
 function Home() {
+  const isLogged = useSelector((state) => state.user.logged);
   return (
     <Page>
-      <Hero />
+      {!isLogged && <Hero />}
       <Container>
         <Search />
         <Panel>

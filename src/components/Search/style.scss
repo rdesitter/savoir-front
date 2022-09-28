@@ -21,6 +21,13 @@
         flex-direction: row;
       }
       width: 100%;
+
+      &:last-of-type {
+        border-right: none;
+        @include mixin.media('medium') {
+          border-right: none;
+        }
+      }
   }
 
   &__choices {
@@ -35,6 +42,8 @@
       margin: vars.$space-10;
       padding-right: vars.$space-30;
     }
+
+    
 
     &__legend{
       display: flex;
