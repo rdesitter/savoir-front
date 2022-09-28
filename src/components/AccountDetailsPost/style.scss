@@ -1,0 +1,45 @@
+@use '../../styles/vars';
+@use '../../styles/mixin';
+
+.user-informations {
+  width: 100%;
+  // @include mixin.media('medium') {
+  //   width: 39%;
+  // }
+}
+
+.div-panel{
+  display: flex;
+  padding: 1em;
+}
+
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1em;
+
+  &__name{
+    font-weight: bold;
+  }
+
+  &__avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background-color: vars.$medium-grey-color;
+
+  }
+  &__avatar-img{
+    width: 2.5em;
+  }
+  &__date{
+    font-size: .7em;
+    margin-bottom: 1em;
+  }
+
+}
