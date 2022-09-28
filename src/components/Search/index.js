@@ -14,7 +14,7 @@ function Search({ ...props }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
-    console.log('submit');
+    // console.log('submit');
   };
   return (
     <Panel {...props}>

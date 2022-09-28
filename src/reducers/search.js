@@ -3,6 +3,7 @@ import { LAUNCH_SEARCH, SET_RESULTS } from '../actions';
 export const initialState = {
   learnOrShare: '',
   category: '',
+  loading: false,
   results: [],
 };
 
@@ -18,6 +19,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         results: action.results,
+        loading: false,
       };
     default:
       return state;
