@@ -1,8 +1,10 @@
-import { LAUNCH_SEARCH } from '../actions';
+import { LAUNCH_SEARCH, SET_RESULTS } from '../actions';
 
 export const initialState = {
   learnOrShare: '',
   category: '',
+  loading: true,
+  results: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -12,6 +14,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShare: action.learnOrShare,
         category: action.category,
+      };
+    case SET_RESULTS:
+      return {
+        ...state,
+        results: action.results,
+        loading: false,
       };
     default:
       return state;

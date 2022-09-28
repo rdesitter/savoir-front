@@ -12,7 +12,7 @@ function About() {
       <Container maxWidth="500px">
         <section className="about">
           <header>
-            <h1 className="about__title">A propos...</h1>
+            <h1 className="about__title">&Agrave; propos...</h1>
           </header>
           <Panel>
             <div className="about__intro">
@@ -45,7 +45,7 @@ function About() {
               <Link to="/equipe" className="about__link">
                 <Button type="button" label="Découvrez notre belle équipe&nbsp;!" style={{ width: '100%' }} />
               </Link>
-              <Link to="/rechercher" className="about__link">
+              <Link to="/recherche" className="about__link">
                 <Button type="button" label="Faites votre première recherche&nbsp;!" style={{ width: '100%' }} />
               </Link>
               <Link to="/" className="about__link">

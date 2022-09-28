@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { launchSearch } from '../../actions';
+import { useEffect } from 'react';
+import { launchSearch, setResults } from '../../actions';
 
 import Panel from '../Panel';
 import Button from '../Button';
+import Loading from '../Loading';
 
 import './style.scss';
 
@@ -11,10 +13,18 @@ function Search({ ...props }) {
 
   // action de la soumission du formulaire
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.search.loading);
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
+    // console.log('submit');
   };
+  useEffect(() => {
+    dispatch(setResults());
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <Panel {...props}>
 
@@ -57,7 +67,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
                 <span>Lancez votre recherche</span>
               </div>
-              <Button label="Rechercher" />
+              <Button label="Rechercher" type="onSubmit" />
             </div>
           </div>
 
