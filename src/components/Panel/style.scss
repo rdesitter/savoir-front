@@ -2,6 +2,9 @@
 @use '../../styles/mixin';
 
 .panel {
+  position: relative;
+  z-index: 1;
+  
   @include mixin.padding;
   margin: vars.$space-30 auto;
   position: relative;

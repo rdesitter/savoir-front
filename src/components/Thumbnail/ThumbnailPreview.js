@@ -24,7 +24,9 @@ function ThumbnailPreview({
           <h3 className="thumbnail-user__name">{name}</h3>
         </div>
       </Link>
-      <Label label="cuisine" />
+
+      <Label label={category} color="light-grey" />
+
       <Link to={`/annonce/:${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
