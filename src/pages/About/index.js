@@ -45,7 +45,7 @@ function About() {
               <Link to="/equipe" className="about__link">
                 <Button type="button" label="Découvrez notre belle équipe&nbsp;!" style={{ width: '100%' }} />
               </Link>
-              <Link to="/rechercher" className="about__link">
+              <Link to="/recherche" className="about__link">
                 <Button type="button" label="Faites votre première recherche&nbsp;!" style={{ width: '100%' }} />
               </Link>
               <Link to="/" className="about__link">
