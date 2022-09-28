@@ -19,7 +19,7 @@ const setSearchResults = (store) => (next) => (action) => {
         // eslint-disable-next-line max-len
         store.dispatch({
           type: SET_ERROR,
-          errorMsg: 'La rechercxhe n\'a pas abouti, merci de réessayer plus tard',
+          errorMsg: 'La recherche n\'a pas abouti, merci de réessayer plus tard',
         });
       });
   }
