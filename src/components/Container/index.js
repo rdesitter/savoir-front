@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import './style.scss';
 
-function Container({ children }) {
+function Container({ children, ...props }) {
   return (
-    <div className="container">
+    <div className="container" {...props}>
       {children}
     </div>
   );

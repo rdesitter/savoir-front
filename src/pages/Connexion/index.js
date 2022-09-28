@@ -6,6 +6,7 @@ import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
+import Button from '../../components/Button';
 import { initError, logIn } from '../../actions';
 import './style.scss';
 
@@ -40,8 +41,8 @@ function Connexion() {
 
   return (
     <Page>
-      <Container>
-        <Panel maxWidth="500px">
+      <Container style={{ maxWidth: '600px' }}>
+        <Panel>
           <header className="section__header">
             <h1 className="section__title">Connexion</h1>
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
@@ -85,6 +86,11 @@ function Connexion() {
             </div>
           </form>
 
+        </Panel>
+        <p className="divider">ou</p>
+        <Panel>
+          <p className="section__subtitle">Si vous n'avez pas encore de compte vous pouvez nous rejoindre.</p>
+          <Button label="Je m'inscris" />
         </Panel>
       </Container>
     </Page>
