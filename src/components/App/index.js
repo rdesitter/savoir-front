@@ -18,6 +18,7 @@ import AccessibilityMenu from '../AccessibilityMenu';
 import './styles.scss';
 import NotFound from '../../pages/404';
 import SearchPage from '../../pages/Search';
+import CreatePost from '../../pages/CreatePost';
 
 // == Composant
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profil/:id" element={<Profile />} />
         <Route path="/recherche" element={<SearchPage />} />
+        <Route path="/annonces/ajouter" element={<CreatePost />} />
         <Route path="*" element={<NotFound />} />
 
         {/* Private */}
