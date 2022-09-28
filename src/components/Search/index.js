@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { launchSearch } from '../../actions';
 
 import Panel from '../Panel';
+import Button from '../Button';
 
 import './style.scss';
 
@@ -56,7 +57,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
                 <span>Lancez votre recherche</span>
               </div>
-              <button type="submit" className="search__launch__button">Rechercher</button>
+              <Button label="Rechercher" />
             </div>
           </div>
 
