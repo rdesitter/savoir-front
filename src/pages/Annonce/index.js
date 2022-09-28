@@ -7,6 +7,7 @@ import Page from '../../components/Page';
 import Panel from '../../components/Panel';
 
 import './style.scss';
+import Thumbnail from '../../components/Thumbnail';
 
 
 function Annonce() {
@@ -37,6 +38,19 @@ function Annonce() {
               </Panel>
             </article>
             <div className="vignettes">
+              <article className="more-infos">
+                <Panel>
+                  <div className="informations-bloc">
+                    <h3 className="more-infos__title">Informations complémentaires</h3>
+                    <ul className="more-infos__list">
+                      <li className="more-infos__li"><img className="more-infos__icone" src="./images/icones/delete.svg" alt="null" />Bar/café</li>
+                      <li className="more-infos__li"><img className="more-infos__icone" src="./images/icones/delete.svg" alt="null" />Non fumeur</li>
+                      <li className="more-infos__li"><img className="more-infos__icone" src="./images/icones/delete.svg" alt="null" />2+</li>
+                      <li className="more-infos__li"><img className="more-infos__icone" src="./images/icones/delete.svg" alt="null" />Vapotage accepté</li>
+                    </ul>
+                  </div>
+                </Panel>
+              </article>
               <article className="user-informations">
                 <Panel>
                   <div className="div-panel">
@@ -51,21 +65,14 @@ function Annonce() {
                   </div>
                 </Panel>
               </article>
-                <article className="more-infos">
-                <Panel>
-                  <h3 className="more-infos__title">Informations complémentaires</h3>
-                  <ul className="more-infos__list">
-                    <li>Bar/café</li>
-                    <li>Non fumeur</li>
-                    <li>2+</li>
-                    <li>Vapotage accepté</li>
-                  </ul>
-              </Panel>
-                </article>
             </div>
           </div>
         </div>
       </Container>
+      <section className="more-posts">
+        <h2 className="more-posts__title">Annonces similaires</h2>
+        <Thumbnail />
+      </section>
     </Page>
 
   );
