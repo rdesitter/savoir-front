@@ -18,8 +18,11 @@ import AccessibilityMenu from '../AccessibilityMenu';
 import './styles.scss';
 import NotFound from '../../pages/404';
 import Annonce from '../../pages/Annonce';
+
+import AnnoncesCategorie from '../../pages/AnnoncesCategorie';
 import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
+
 
 
 // == Composant
@@ -33,6 +36,7 @@ function App() {
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/categories" element={<AnnoncesCategorie />} />
         <Route path="/annonces/:id" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/a-propos" element={<About />} />
