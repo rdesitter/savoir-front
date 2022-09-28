@@ -47,6 +47,9 @@ function About() {
               <Link to="/rechercher" className="about__link">
                 <button type="button" label="Faites votre première recherche&nbsp;!" className="about__one-button">Faites votre première recherche&nbsp;!</button>
               </Link>
+              <Link to="/" className="about__link">
+                <button type="button" label="Retourner à l'accueil" className="about__one-button">Retourner à l'accueil</button>
+              </Link>
             </div>
           </Panel>
         </section>
