@@ -3,6 +3,7 @@ import { launchSearch } from '../../actions';
 
 import Panel from '../Panel';
 import Button from '../Button';
+import Loading from '../Loading';
 
 import './style.scss';
 
