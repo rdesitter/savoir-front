@@ -16,6 +16,7 @@ import Profile from '../../pages/Profile';
 import NotFound from '../../pages/404';
 import './styles.css';
 import Annonce from '../../pages/Annonce';
+import AnnoncesCategorie from '../../pages/AnnoncesCategorie';
 
 // == Composant
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/annonces" element={<Annonce />} />
+        <Route path="/categories" element={<AnnoncesCategorie />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />

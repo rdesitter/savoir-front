@@ -32,6 +32,60 @@ function Thumbnail() {
         title="Le pro de la pizza"
         postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
       />
+      <ThumbnailPreview
+        avatar="BEARD2"
+        name="Paulo"
+        userId={98362987}
+        category="cooking"
+        postId={79643}
+        title="Le pro de la pizza"
+        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+      />
+      <ThumbnailPreview
+        avatar="BEARD2"
+        name="Paulo"
+        userId={98362987}
+        category="cooking"
+        postId={79643}
+        title="Le pro de la pizza"
+        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+      />
+      <ThumbnailPreview
+        avatar="BEARD2"
+        name="Paulo"
+        userId={98362987}
+        category="cooking"
+        postId={79643}
+        title="Le pro de la pizza"
+        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+      />
+      <ThumbnailPreview
+        avatar="BEARD2"
+        name="Paulo"
+        userId={98362987}
+        category="cooking"
+        postId={79643}
+        title="Le pro de la pizza"
+        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+      />
+      <ThumbnailPreview
+        avatar="BEARD2"
+        name="Paulo"
+        userId={98362987}
+        category="cooking"
+        postId={79643}
+        title="Le pro de la pizza"
+        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+      />
+      <ThumbnailPreview
+        avatar="BEARD2"
+        name="Paulo"
+        userId={98362987}
+        category="cooking"
+        postId={79643}
+        title="Le pro de la pizza"
+        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+      />
     </div>
   );
 }
