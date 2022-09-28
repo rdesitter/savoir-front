@@ -9,7 +9,7 @@ function Thumbnail() {
         avatar="NOHAIR1"
         name="Michel"
         userId={4578}
-        category="cooking"
+        category="cuisine"
         postId={79663}
         title="Cuisiner la choucroute"
         postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
@@ -18,7 +18,7 @@ function Thumbnail() {
         avatar="LONG3"
         name="Bibi-du-22"
         userId={865987}
-        category="cooking"
+        category="cuisine"
         postId={79693}
         title="Besoin d'aide nems !"
         postDescription="Est-ce que quelqu'un peut m'apprendre à rouler les nems SVP ?"
@@ -27,7 +27,7 @@ function Thumbnail() {
         avatar="BEARD2"
         name="Paulo"
         userId={98362987}
-        category="cooking"
+        category="cuisine"
         postId={79643}
         title="Le pro de la pizza"
         postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
