@@ -1,0 +1,58 @@
+@use '../../styles/vars';
+@use '../../styles/mixin';
+
+.user-informations {
+  width: 100%;
+  // @include mixin.media('medium') {
+  //   width: 39%;
+  // }
+}
+
+.div-panel{
+  display: flex;
+}
+
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1em;
+
+  &__name{
+    font-weight: bold;
+  }
+
+  &__avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    height: 4em;
+
+  }
+  &__avatar-img{
+    width: 2.5em;
+    border-radius: 50%;
+    background-color: vars.$medium-grey-color;
+  }
+  &__date{
+    font-size: .8em;
+    margin-bottom: 1em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__contact-btn{
+    background-color: vars.$primary-color;
+    border-radius: vars.$btn-radius;
+  }
+  &__mail{
+    width: fit-content;
+    padding: 0 .5em;
+    margin: 1em;
+    border: 1px solid vars.$medium-grey-color;
+    border-radius: vars.$btn-radius;
+    font-size: .8em;
+    text-align: center;
+  }
+}

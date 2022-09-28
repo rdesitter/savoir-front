@@ -17,8 +17,10 @@ import Profile from '../../pages/Profile';
 import AccessibilityMenu from '../AccessibilityMenu';
 import './styles.scss';
 import NotFound from '../../pages/404';
+import Annonce from '../../pages/Annonce';
 import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
+
 
 // == Composant
 function App() {
@@ -31,6 +33,7 @@ function App() {
       <AppHeader />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/annonces/:id" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/a-propos" element={<About />} />
         <Route path="/connexion" element={<Connexion />} />
