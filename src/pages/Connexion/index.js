@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Page from 'src/components/Page';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
@@ -41,7 +41,7 @@ function Connexion() {
 
   return (
     <Page>
-      <Container style={{ maxWidth: '600px' }}>
+      <Container style={{ maxWidth: '37.5em' }}>
         <Panel>
           <header className="section__header">
             <h1 className="section__title">Connexion</h1>
@@ -90,7 +90,9 @@ function Connexion() {
         <p className="divider">ou</p>
         <Panel>
           <p className="section__subtitle">Si vous n'avez pas encore de compte vous pouvez nous rejoindre.</p>
-          <Button label="Je m'inscris" />
+          <Link to="/inscription" aria-label="Vers la page d'inscription">
+            <Button label="Je m'inscris" />
+          </Link>
         </Panel>
       </Container>
     </Page>
