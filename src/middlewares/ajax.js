@@ -7,14 +7,24 @@ const instance = axios.create({
 
 const ajax = (store) => (next) => (action) => {
   if (action.type === LOGIN) {
-    const { user: { email, password } } = store.getState();
-    instance.post('/login', { email, password }).then((response) => {
-      // console.log(response.data);
-      store.dispatch(setUser(response.data));
-    }).catch((error) => {
-      // console.log(error);
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const { user: { email, password } } = store.getState();
+      instance.post('/login', { email, password }, config).then((response) => {
+        console.log(response.data);
+        store.dispatch(setUser(response.data));
+      }).catch((error) => {
+        console.log(error);
+        store.dispatch(setError(error.message));
+      });
+    }
+    catch (error) {
       store.dispatch(setError(error.message));
-    });
+    }
   }
   next(action);
 };
