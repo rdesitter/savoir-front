@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { launchSearch } from '../../actions';
+import { useEffect } from 'react';
+import { launchSearch, setResults } from '../../actions';
 
 import Panel from '../Panel';
 import Button from '../Button';
@@ -12,11 +13,18 @@ function Search({ ...props }) {
 
   // action de la soumission du formulaire
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.search.loading);
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
     // console.log('submit');
   };
+  useEffect(() => {
+    dispatch(setResults());
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <Panel {...props}>
 

@@ -3,7 +3,7 @@ import { LAUNCH_SEARCH, SET_RESULTS } from '../actions';
 export const initialState = {
   learnOrShare: '',
   category: '',
-  loading: false,
+  loading: true,
   results: [],
 };
 
