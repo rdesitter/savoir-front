@@ -110,18 +110,9 @@
       flex-direction: row;
       align-items: center;
       gap: vars.$space-10;
+      margin-bottom: vars.$space-20;
     }
 
-    &__button {
-      margin-top: vars.$space-20;
-      padding: vars.$space-10;
-      background: vars.$primary-color;
-      border: 0.063em solid vars.$primary-color-alt;
-      border-radius: vars.$btn-radius;
-      color: vars.$light-color;
-      font-size: vars.$font-medium;
-      font-weight: bold;
-    }
   }
   
 }

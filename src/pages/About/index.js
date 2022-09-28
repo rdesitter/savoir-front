@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
 import Panel from '../../components/Panel';
+import Button from '../../components/Button';
 import './style.scss';
 
 function About() {
@@ -42,13 +43,13 @@ function About() {
             </header>
             <div className="about__buttons">
               <Link to="/equipe" className="about__link">
-                <button type="button" label="Découvrez notre belle équipe&nbsp;!" className="about__one-button">Découvrez notre belle équipe&nbsp;!</button>
+                <Button type="button" label="Découvrez notre belle équipe&nbsp;!" style={{ width: '100%' }} />
               </Link>
               <Link to="/rechercher" className="about__link">
-                <button type="button" label="Faites votre première recherche&nbsp;!" className="about__one-button">Faites votre première recherche&nbsp;!</button>
+                <Button type="button" label="Faites votre première recherche&nbsp;!" style={{ width: '100%' }} />
               </Link>
               <Link to="/" className="about__link">
-                <button type="button" label="Retourner à l'accueil" className="about__one-button">Retourner à l'accueil</button>
+                <Button type="button" label="Retourner à l'accueil" style={{ width: '100%' }} />
               </Link>
             </div>
           </Panel>
