@@ -19,7 +19,7 @@ function ThumbnailPreview({
       <Link to={`/utilisateur/:${userId}`} title={`vers le profil de ${name}`}>
         <div className="thumbnail-user__infos">
           <div className="thumbnail-user__img">
-            <img className="thumbnail-user__img__avatar" src={`./images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
+            <img className="thumbnail-user__img__avatar" src={`/images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
           </div>
           <h3 className="thumbnail-user__name">{name}</h3>
         </div>
@@ -27,7 +27,7 @@ function ThumbnailPreview({
       <Label label="cuisine" />
       <Link to={`/annonce/:${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
-          <img className="thumbnail-infos__img" src={`./images/categories/${category}.jpg`} alt="Cuisine" />
+          <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
           <p className="thumbnail-infos__description">
             {postDescription}
