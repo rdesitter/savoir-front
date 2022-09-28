@@ -62,3 +62,9 @@ export const launchSearch = (learnOrShare, category) => ({
   learnOrShare,
   category,
 });
+
+export const SET_RESULTS = 'SET_RESULTS';
+
+export const setResults = () => ({
+  type: SET_RESULTS,
+});

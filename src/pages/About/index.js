@@ -12,7 +12,7 @@ function About() {
       <Container maxWidth="500px">
         <section className="about">
           <header>
-            <h1 className="about__title">A propos...</h1>
+            <h1 className="about__title">&Agrave; propos...</h1>
           </header>
           <Panel>
             <div className="about__intro">

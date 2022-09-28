@@ -14,6 +14,7 @@ function Search({ ...props }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
+    console.log('submit');
   };
   return (
     <Panel {...props}>
@@ -57,7 +58,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
                 <span>Lancez votre recherche</span>
               </div>
-              <Button label="Rechercher" />
+              <Button label="Rechercher" type="onSubmit" />
             </div>
           </div>
 
