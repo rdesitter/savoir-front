@@ -22,8 +22,8 @@ function Inscription() {
 
   return (
     <Page>
-      <Container>
-        <Panel maxWidth="500px">
+      <Container style={{ maxWidth: '37.5em' }}>
+        <Panel>
           <header className="section__header">
             <h1 className="section__title">Inscription</h1>
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>

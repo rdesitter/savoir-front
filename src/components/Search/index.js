@@ -1,23 +1,46 @@
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { launchSearch, setResults } from '../../actions';
+
 import Panel from '../Panel';
+import Button from '../Button';
+import Loading from '../Loading';
+
 import './style.scss';
 
-function Search({ categories }) {
+function Search({ ...props }) {
+  const categories = useSelector((state) => state.categories.list);
+
+  // action de la soumission du formulaire
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.search.loading);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
+    // console.log('submit');
+  };
+  useEffect(() => {
+    dispatch(setResults());
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
-    <Panel className="search">
-      <form>
+    <Panel {...props}>
+
+      <form onSubmit={handleSubmit}>
         <fieldset>
 
-          <legend className="search-title">Recherche rapide</legend>
-          <div className="search-box">
+          <legend className="search__title">Recherche rapide</legend>
+          <div className="search__all-sections">
 
             {/* Search 1st step */}
-            <div className="search-choice">
-              <div className="search-choice__box">
-                <div className="search-circle"><span className="search-circle__order">1</span></div>
-                <label htmlFor="select-learn-share" className="search-text">Souhaitez vous apprendre ou partager&nbsp;?</label>
+            <div className="search__choices">
+              <div className="search__choices__legend">
+                <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
+                <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
               </div>
-              <select name="selection" id="select-learn-share" className="search-choice__select">
+              <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select">
                 <option value="">Choisissez une option...</option>
                 <option value="Apprendre">Apprendre</option>
                 <option value="Partager">Partager</option>
@@ -25,26 +48,26 @@ function Search({ categories }) {
             </div>
 
             {/* Search step 2 */}
-            <div className="search-choice">
-              <div className="search-choice__box">
-                <div className="search-circle"><span className="search-circle__order">2</span></div>
-                <label htmlFor="select-category" className="search-text">Quelle catégorie vous intéresse&nbsp;?</label>
+            <div className="search__choices">
+              <div className="search__choices__legend">
+                <div className="search__choices__circle"><span className="search__choices__circle__order">2</span></div>
+                <label htmlFor="select__category">Quelle catégorie vous intéresse&nbsp;?</label>
               </div>
-              <select name="selection" id="select-category" className="search-choice__select">
+              <select name="category" id="select__category" className="search__choices__select">
                 <option value="">Choisissez une catégorie...</option>
                 {categories.map((category) => (
-                  <option key={category} value={category}>{category}</option>
+                  <option value={category} key={category}>{category}</option>
                 ))}
               </select>
             </div>
 
             {/* Search step 3 */}
-            <div className="search-launch">
-              <div className="search-launch__box">
-                <div className="search-circle"><span className="search-circle__order">3</span></div>
-                <span className="search-text">Lancez votre recherche</span>
+            <div className="search__launch">
+              <div className="search__launch__legend">
+                <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
+                <span>Lancez votre recherche</span>
               </div>
-              <button type="submit" className="search-launch__button">Rechercher</button>
+              <Button label="Rechercher" type="onSubmit" />
             </div>
           </div>
 
@@ -53,11 +76,5 @@ function Search({ categories }) {
     </Panel>
   );
 }
-
-Search.propTypes = {
-  categories: PropTypes.arrayOf(
-    PropTypes.string,
-  ).isRequired,
-};
 
 export default Search;

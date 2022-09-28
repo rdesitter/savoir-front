@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Label from '../../components/Label';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -6,10 +8,18 @@ import Thumbnail from '../../components/Thumbnail';
 import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
 import MorePostInfos from '../../components/MorePostInfos';
-
 import './style.scss';
 
 function Annonce({ createdAt }) {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const selectedPost = useSelector((state) => state.posts.selectedPost);
+  dispatch({
+    type: 'DISPLAY_POST',
+    id,
+  });
+
+  console.log(selectedPost);
   return (
     <Page>
       <Container>
@@ -21,7 +31,7 @@ function Annonce({ createdAt }) {
           <p className="post-infos__date">Annonce publiée le {createdAt}</p>
           <div className="global-infos">
             <PostDetails
-              title="Envie d'apprendre Gimp"
+              title={selectedPost.title}
               localisation="Montpellier"
               description="J'aimerais apprendre à me servir de Gimp. Je suis totalement débutant mais
           j'ai déja installé le logiciel (je suis sur Ibook).

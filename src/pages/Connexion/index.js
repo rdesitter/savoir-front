@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Page from 'src/components/Page';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
+import Button from '../../components/Button';
 import { initError, logIn } from '../../actions';
 import './style.scss';
 
@@ -40,8 +41,8 @@ function Connexion() {
 
   return (
     <Page>
-      <Container>
-        <Panel maxWidth="500px">
+      <Container style={{ maxWidth: '37.5em' }}>
+        <Panel>
           <header className="section__header">
             <h1 className="section__title">Connexion</h1>
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
@@ -85,6 +86,13 @@ function Connexion() {
             </div>
           </form>
 
+        </Panel>
+        <p className="divider">ou</p>
+        <Panel>
+          <p className="section__subtitle">Si vous n'avez pas encore de compte vous pouvez nous rejoindre.</p>
+          <Link to="/inscription" aria-label="Vers la page d'inscription">
+            <Button label="Je m'inscris" />
+          </Link>
         </Panel>
       </Container>
     </Page>
