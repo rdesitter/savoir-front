@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Label from '../../components/Label';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
+import Button from '../../components/Button';
 import Thumbnail from '../../components/Thumbnail';
 import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
@@ -13,9 +14,9 @@ import useScrollTop from '../../hooks/useScrollTop';
 
 function Annonce() {
   useScrollTop();
-  const isLogged = useSelector((state) => state.user.logged);
   const { id } = useParams();
   const dispatch = useDispatch();
+  const isAdmin = useSelector((state) => state.user.admin);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   dispatch({
     type: 'DISPLAY_POST',
@@ -32,6 +33,9 @@ function Annonce() {
             <Label label="rencontre" />
           </section>
           <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
+          {isAdmin && (
+            <Button label="Supprimer cette annonce" style={{ backgroundColor: 'red' }} />
+          )}
           <div className="global-infos">
             <PostDetails
               title={selectedPost.title}

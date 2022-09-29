@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AccountDetails from '../../components/Accountdetails';
+import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
 import Panel from '../../components/Panel';
@@ -9,6 +11,8 @@ import getUSerProfile from '../../selectors/getUserProfile';
 import './style.scss';
 
 function Profile() {
+  const isAdmin = useSelector((state) => state.user.admin);
+
   const { id } = useParams();
   const [userProfile, setUserProfile] = useState({});
   const [loading, setLoading] = useState(true);
@@ -22,6 +26,10 @@ function Profile() {
   return (
     <Page id="profil">
       <Container>
+        {isAdmin && (
+        <Button label="Supprimer cet utilisateur" style={{ backgroundColor: 'red' }} />
+        )}
+
         <Panel>
           {loading && <div>Loading...</div>}
           {!loading
