@@ -12,6 +12,7 @@ export const initialState = {
   username: '',
   avatar: '',
   birthday: '',
+  birthdate: '',
   error: false,
   errorMsg: '',
   posts: [],

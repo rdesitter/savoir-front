@@ -29,11 +29,12 @@ function AccountDetails({
 
 AccountDetails.defaultProps = {
   about: '',
+  avatar: 'null',
 };
 
 AccountDetails.propTypes = {
   username: PropTypes.string.isRequired,
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   created_at: PropTypes.string.isRequired,
   about: PropTypes.string,
   id: PropTypes.number.isRequired,
