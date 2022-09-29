@@ -24,7 +24,7 @@
     @include mixin.media('medium') {
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      // align-items: center;
     }
   }
 
@@ -36,6 +36,7 @@
     color: #444444;
     // responsive
     @include mixin.media('medium') {
+      justify-content: space-between;
       border-right: 0.063em solid vars.$light-stroke-color;
       margin: vars.$space-10;
       padding-right: vars.$space-30;
@@ -46,7 +47,7 @@
     &__legend{
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       gap: vars.$space-10;
 
     }
@@ -64,6 +65,7 @@
       @include mixin.media('medium') {
         width: 3em;
         height: 3em;
+        
       }
       
       &__order {
@@ -105,6 +107,7 @@
     // responsive
     @include mixin.media('medium') {
       margin: vars.$space-10;
+      justify-content: space-between;
     }
 
     &__legend {

@@ -16,18 +16,21 @@ function Search({ ...props }) {
   const loading = useSelector((state) => state.search.loading);
   const categoryValue = useSelector((state) => state.search.categoryValue);
   const learnOrShareValue = useSelector((state) => state.search.learnOrShareValue);
-  // const results = useSelector((state) => state.search.results);
+
+  // handle submit when click on button
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(launchSearch(categoryValue, learnOrShareValue));
     // console.log('submit');
   };
 
+  // save the choice of category to fetch right posts
   const handleCategoryChange = (event) => {
     dispatch(changeCategoryValue(event.target.value));
     // console.log(event.target.value)
   };
 
+  // save the choice of condition learn/share to fetch right posts
   const handleLearnOrShareChange = (event) => {
     dispatch(changeLearnOrShareValue(event.target.value));
     // console.log(event.target.value)
