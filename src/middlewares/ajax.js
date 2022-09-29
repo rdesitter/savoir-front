@@ -1,6 +1,7 @@
+/* eslint-disable camelcase */
 import axios from 'axios';
 import {
-  LOGIN, setError, setUser, toggleLoading,
+  LOGIN, setError, setUser, SIGNUP, toggleLoading,
 } from '../actions';
 
 const instance = axios.create({
@@ -21,9 +22,42 @@ const ajax = (store) => (next) => (action) => {
         const token = response.data.tokens.accessToken;
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
+        // console.log(response.data.user[0]);
         localStorage.setItem('user', JSON.stringify(response.data.user[0]));
-        const user = { user: response.data.user[0], token };
-        store.dispatch(setUser(user));
+        const data = { user: response.data.user[0], token };
+        store.dispatch(setUser(data));
+      }).catch((error) => {
+        store.dispatch(setError(error.message));
+      });
+    }
+    catch (error) {
+      store.dispatch(setError(error.message));
+    }
+  }
+  else if (action.type === SIGNUP) {
+    store.dispatch(toggleLoading());
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const {
+        user: {
+          email, password, username: pseudo, birthdate,
+        },
+      } = store.getState();
+      const role_id = '1';
+      instance.post('/register', {
+        email, password, pseudo, birthdate, role_id,
+      }, config).then((response) => {
+        const token = response.data.accessToken;
+        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify({
+          email, password, pseudo, birthdate,
+        }));
+        store.dispatch(toggleLoading());
       }).catch((error) => {
         store.dispatch(setError(error.message));
       });
