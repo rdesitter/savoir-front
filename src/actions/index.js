@@ -55,6 +55,13 @@ export const initInfo = () => ({
   type: INIT_INFO,
 });
 
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+
+export const fetchCategories = (list) => ({
+  type: FETCH_CATEGORIES,
+  list,
+});
+
 export const LAUNCH_SEARCH = 'LAUNCH_SEARCH';
 
 export const launchSearch = (learnOrShare, category) => ({
