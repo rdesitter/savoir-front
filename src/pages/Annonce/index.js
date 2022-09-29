@@ -11,9 +11,10 @@ import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 
 function Annonce() {
+
+  // const [copy, setCopy] = useState
   const { id } = useParams();
   const dispatch = useDispatch();
-  const connectedUser = useSelector((state) => state.user);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   dispatch({
     type: 'DISPLAY_POST',
@@ -40,9 +41,10 @@ function Annonce() {
               <MorePostInfos info="Animaux acceptés" />
 
               <AccountDetailsPost
-                avatar={connectedUser.avatar}
-                name={connectedUser.username}
-                createdAt={connectedUser.created_at}
+                avatar={selectedPost.user.avatar}
+                name={selectedPost.user.username}
+                createdAt={selectedPost.user.createdAt}
+                email={selectedPost.user.email}
               />
             </div>
           </div>

@@ -15,14 +15,10 @@ function AccountDetailsPost({ avatar, name, createdAt, email }) {
     setBtnVisible(false);
   };
 
-  // TODO : Fonctionnalité de copie du mail au clic
-  // const text = document.querySelector('#inputText');
 
-  // const handleClickCopy = () => {
-  //   const textTest = text.value;
-  //   console.log(textTest);
-  //   // document.execCommand('copy');
-  // };
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+  };
 
   return (
     <article className="user-informations">
@@ -40,7 +36,7 @@ function AccountDetailsPost({ avatar, name, createdAt, email }) {
             {isVisible && (
               <div className="user-infos__contact-btn">
                 <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
-                <button className="user-infos__copy" id="copyText" type="button" title="copier">Copier</button>
+                <button className="user-infos__copy" id="copyText" type="button" title="copier" onClick={handleCopy}>Copier</button>
               </div>
             )}
           </section>
