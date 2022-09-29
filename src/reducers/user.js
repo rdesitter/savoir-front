@@ -1,8 +1,9 @@
 import {
-  CHANGE_VALUE, INIT_ERROR, INIT_INFO, SENT_MSG, SET_ERROR, SET_USER,
+  CHANGE_VALUE, INIT_ERROR, INIT_INFO, SENT_MSG, SET_ERROR, SET_USER, TOOGLE_LOADING,
 } from '../actions';
 
 export const initialState = {
+  loading: false,
   userId: '',
   logged: false,
   fullname: '',
@@ -11,7 +12,7 @@ export const initialState = {
   passwordConfirm: '',
   username: '',
   avatar: '',
-  birthday: '',
+  birthdate: '',
   error: false,
   errorMsg: '',
   posts: [],
@@ -40,6 +41,7 @@ const reducer = (state = initialState, action = {}) => {
         password: '',
         error: false,
         errorMsg: '',
+        loading: false,
       };
     case INIT_ERROR:
       return {
@@ -52,6 +54,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         error: true,
         errorMsg: action.errorMsg,
+        loading: false,
       };
     case SENT_MSG:
       return {
@@ -68,6 +71,11 @@ const reducer = (state = initialState, action = {}) => {
           isDisplayed: false,
           msg: '',
         },
+      };
+    case TOOGLE_LOADING:
+      return {
+        ...state,
+        loading: !state.loading,
       };
     default:
       return state;

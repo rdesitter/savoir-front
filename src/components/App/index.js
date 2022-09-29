@@ -1,6 +1,7 @@
 // == Import
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Team from '../../pages/Team';
 import About from '../../pages/About';
 import CGU from '../../pages/CGU';
@@ -22,6 +23,7 @@ import Annonce from '../../pages/Annonce';
 import AnnoncesCategorie from '../../pages/AnnoncesCategorie';
 import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
+import { setUser } from '../../actions';
 
 
 
@@ -29,6 +31,14 @@ import CreatePost from '../../pages/CreatePost';
 function App() {
   useScrollTop();
   const isLogged = useSelector((state) => state.user.logged);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (token) {
+      dispatch(setUser({ user, token }));
+    }
+  }, []);
 
   return (
     <div className="app">

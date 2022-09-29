@@ -20,14 +20,21 @@ export const logIn = () => ({
 
 export const SET_USER = 'SET_USER';
 
-export const setUser = (user) => ({
+export const setUser = (data) => ({
   type: SET_USER,
-  username: user.username,
-  avatar: user.avatar,
-  about: user.about,
-  created_at: user.created_at,
-  userId: user.id,
-  posts: user.posts,
+  username: data.user.pseudo,
+  description: data.user.description,
+  firstname: data.user.firstname,
+  lastname: data.user.lastname,
+  avatar: data.user.picture_id,
+  about: data.user.about,
+  created_at: data.user.created_at,
+  userId: data.user.id,
+  posts: data.user.posts,
+  postalCode: data.user.postal_code,
+  roleId: data.user.role_id,
+  birthdate: data.user.birthdate,
+  toker: data.token,
 });
 
 export const SET_ERROR = 'SET_ERROR';
@@ -95,4 +102,16 @@ export const CHANGE_LEARNORSHARE_VALUE = 'CHANGE_LEARNORSHARE_VALUE';
 export const changeLearnOrShareValue = (value) => ({
   type: CHANGE_LEARNORSHARE_VALUE,
   value,
+});
+
+export const TOOGLE_LOADING = 'TOOGLE_LOADING';
+
+export const toggleLoading = () => ({
+  type: TOOGLE_LOADING,
+});
+
+export const SIGNUP = 'SIGNUP';
+
+export const signUp = () => ({
+  type: SIGNUP,
 });

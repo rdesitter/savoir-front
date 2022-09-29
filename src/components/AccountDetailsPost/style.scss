@@ -43,16 +43,23 @@
   }
 
   &__contact-btn{
-    background-color: vars.$primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid vars.$primary-color;
     border-radius: vars.$btn-radius;
+    padding: .4em;
   }
   &__mail{
     width: fit-content;
-    padding: 0 .5em;
-    margin: 1em;
-    border: 1px solid vars.$medium-grey-color;
-    border-radius: vars.$btn-radius;
     font-size: .8em;
     text-align: center;
+    text-decoration: underline;
+  }
+
+  &__copy{
+    background-color: white;
+    border-radius: vars.$btn-radius;
+    border: 2px solid rgba(0, 0, 0, 0.5);
   }
 }

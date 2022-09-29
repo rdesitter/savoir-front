@@ -28,6 +28,8 @@ function Connexion() {
   // check logged status
   const logged = useSelector((state) => state.user.logged);
 
+  const loading = useSelector((state) => state.user.loading);
+
   // TODO Gérer la soumission du formulaire avec data du back
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,43 +50,46 @@ function Connexion() {
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
           </header>
           {isError && <Error msg={errorMsg} />}
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="form__field">
-              <label htmlFor="email">Adresse email *</label>
-              <Input
-                name="email"
-                type="email"
-                required
-                placeholder="Votre adresse email..."
-                aria-label="Saisissez votre email"
-                id="email"
-              />
-            </div>
+          {!loading && (
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="form__field">
+                <label htmlFor="email">Adresse email *</label>
+                <Input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Votre adresse email..."
+                  aria-label="Saisissez votre email"
+                  id="email"
+                />
+              </div>
 
-            <div className="form__field">
-              <label htmlFor="password">Mot de passe *</label>
-              <button
-                className="password__helper"
-                type="button"
-                onClick={() => setIsVisible(!isVisible)}
-              >
-                {isVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
-              </button>
-              <Input
-                type={isVisible ? 'text' : 'password'}
-                name="password"
-                id="password"
-                required
-                placeholder="Votre mot de passe..."
-                aria-label="Saisissez votre mot de passe"
-              />
-            </div>
+              <div className="form__field">
+                <label htmlFor="password">Mot de passe *</label>
+                <button
+                  className="password__helper"
+                  type="button"
+                  onClick={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+                </button>
+                <Input
+                  type={isVisible ? 'text' : 'password'}
+                  name="password"
+                  id="password"
+                  required
+                  placeholder="Votre mot de passe..."
+                  aria-label="Saisissez votre mot de passe"
+                />
+              </div>
 
-            <div className="form__submit">
-              <button type="submit" className="button button--plain" title="Je me connecte">Je me connecte</button>
-              <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>
-            </div>
-          </form>
+              <div className="form__submit">
+                <button type="submit" className="button button--plain" title="Je me connecte">Je me connecte</button>
+                <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>
+              </div>
+            </form>
+          )}
+          {loading && <p>Chargement en cours...</p> }
 
         </Panel>
         <p className="divider">ou</p>

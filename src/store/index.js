@@ -1,11 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from 'src/reducers';
-import fakeajax from 'src/middlewares/fakeajax';
 import contactForm from '../middlewares/contactForm';
 import search from '../middlewares/search';
+import ajax from '../middlewares/ajax';
 
-const middlewares = applyMiddleware(contactForm, fakeajax, search);
+const middlewares = applyMiddleware(contactForm, ajax, search);
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(middlewares);
