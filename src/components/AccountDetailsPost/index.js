@@ -5,7 +5,7 @@ import Panel from '../Panel';
 
 import './style.scss';
 
-function AccountDetailsPost({ avatar, name, createdAt, mail }) {
+function AccountDetailsPost({ avatar, name, createdAt, email }) {
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
@@ -14,6 +14,15 @@ function AccountDetailsPost({ avatar, name, createdAt, mail }) {
     setIsVisible(true);
     setBtnVisible(false);
   };
+
+  // TODO : Fonctionnalité de copie du mail au clic
+  // const text = document.querySelector('#inputText');
+
+  // const handleClickCopy = () => {
+  //   const textTest = text.value;
+  //   console.log(textTest);
+  //   // document.execCommand('copy');
+  // };
 
   return (
     <article className="user-informations">
@@ -30,8 +39,8 @@ function AccountDetailsPost({ avatar, name, createdAt, mail }) {
             )}
             {isVisible && (
               <div className="user-infos__contact-btn">
-                <a className="user-infos__mail" href={`mailto:${mail}`} title={`envoyer un mail à ${name}`}>{mail}</a>
-                <button className="user-infos__copy" type="button" title="copier">Copier</button>
+                <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
+                <button className="user-infos__copy" id="copyText" type="button" title="copier">Copier</button>
               </div>
             )}
           </section>
@@ -45,7 +54,7 @@ AccountDetailsPost.propTypes = {
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
-  mail: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default AccountDetailsPost;

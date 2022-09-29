@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: vars.$primary-color;
+    border: 2px solid vars.$primary-color;
     border-radius: vars.$btn-radius;
     padding: .4em;
   }
