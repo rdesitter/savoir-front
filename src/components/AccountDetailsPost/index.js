@@ -5,9 +5,15 @@ import Panel from '../Panel';
 
 import './style.scss';
 
-function AccountDetailsPost({ avatar, name, createdAt }) {
+function AccountDetailsPost({ avatar, name, createdAt, mail }) {
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
+  const [btnVisible, setBtnVisible] = useState(true);
+
+  const handleClick = () => {
+    setIsVisible(true);
+    setBtnVisible(false);
+  };
 
   return (
     <article className="user-informations">
@@ -19,10 +25,12 @@ function AccountDetailsPost({ avatar, name, createdAt }) {
           <section className="user-infos">
             <h2 className="user-infos__name">{name}</h2>
             <span className="user-infos__date">inscrit(e) depuis le {createdAt}</span>
-            <button onClick={() => setIsVisible(true)} type="button" className="user-infos__contact" title="Contacter">Contacter</button>
+            {btnVisible && (
+            <button onClick={handleClick} type="button" className="user-infos__contact" title="Contacter">Contacter</button>
+            )}
             {isVisible && (
               <div className="user-infos__contact-btn">
-                <a href="mailto:jeanne-du-33@mail.com">jeanne-du-33@mail.com</a>
+                <a className="user-infos__mail" href={`mailto:${mail}`} title={`envoyer un mail à ${name}`}>{mail}</a>
                 <button className="user-infos__copy" type="button" title="copier">Copier</button>
               </div>
             )}
@@ -37,6 +45,7 @@ AccountDetailsPost.propTypes = {
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
+  mail: PropTypes.string.isRequired,
 };
 
 export default AccountDetailsPost;

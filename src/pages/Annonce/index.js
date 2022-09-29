@@ -41,7 +41,7 @@ function Annonce({ createdAt }) {
             />
             <div className="vignettes">
               <MorePostInfos info="Animaux acceptés" />
-              <AccountDetailsPost avatar="NOHAIR3" name="Jeanne" createdAt="20/06/2022" />
+              <AccountDetailsPost avatar="NOHAIR3" name="Jeanne" createdAt="20/06/2022" mail="jeanne-du-12@mail.com" />
             </div>
           </div>
         </div>
