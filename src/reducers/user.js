@@ -23,7 +23,7 @@ export const initialState = {
     isDisplayed: false,
     msg: '',
   },
-  admin: false,
+  admin: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
