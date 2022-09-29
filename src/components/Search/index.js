@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getCategories, launchSearch, setResults } from '../../actions';
+import { getCategories, launchSearch } from '../../actions';
 
 import Panel from '../Panel';
 import Button from '../Button';
@@ -19,8 +19,12 @@ function Search({ ...props }) {
     // console.log('submit');
   };
 
+  // const handleCategoryChange = () => {
+  //   console.log('test handle')
+  // };
+
   useEffect(() => {
-    dispatch(getCategories);
+    dispatch(getCategories());
   }, []);
 
   if (loading) {
