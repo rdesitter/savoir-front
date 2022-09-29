@@ -62,6 +62,19 @@ export const initInfo = () => ({
   type: INIT_INFO,
 });
 
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+
+export const getCategories = () => ({
+  type: GET_CATEGORIES,
+});
+
+export const SET_CATEGORIES = 'SET_CATEGORIES';
+
+export const setCategories = (categories) => ({
+  type: SET_CATEGORIES,
+  categories,
+});
+
 export const LAUNCH_SEARCH = 'LAUNCH_SEARCH';
 
 export const launchSearch = (learnOrShare, category) => ({
@@ -75,6 +88,20 @@ export const SET_RESULTS = 'SET_RESULTS';
 export const setResults = (results) => ({
   type: SET_RESULTS,
   results,
+});
+
+export const CHANGE_CATEGORY_VALUE = 'CHANGE_CATEGORY_VALUE';
+
+export const changeCategoryValue = (value) => ({
+  type: CHANGE_CATEGORY_VALUE,
+  value,
+});
+
+export const CHANGE_LEARNORSHARE_VALUE = 'CHANGE_LEARNORSHARE_VALUE';
+
+export const changeLearnOrShareValue = (value) => ({
+  type: CHANGE_LEARNORSHARE_VALUE,
+  value,
 });
 
 export const TOOGLE_LOADING = 'TOOGLE_LOADING';

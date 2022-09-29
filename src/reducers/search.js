@@ -1,10 +1,15 @@
-import { LAUNCH_SEARCH, SET_RESULTS } from '../actions';
+import {
+  CHANGE_CATEGORY_VALUE, CHANGE_LEARNORSHARE_VALUE, LAUNCH_SEARCH, SET_RESULTS,
+} from '../actions';
+import posts from '../data/posts';
 
 export const initialState = {
   learnOrShare: '',
   category: '',
-  loading: true,
-  results: [],
+  loading: false,
+  results: posts,
+  categoryValue: '',
+  learnOrShareValue: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +25,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         results: action.results,
         loading: false,
+      };
+    case CHANGE_CATEGORY_VALUE:
+      return {
+        ...state,
+        categoryValue: action.value,
+      };
+    case CHANGE_LEARNORSHARE_VALUE:
+      return {
+        ...state,
+        learnOrShareValue: action.value,
       };
     default:
       return state;

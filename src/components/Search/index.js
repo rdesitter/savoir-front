@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { launchSearch, setResults } from '../../actions';
+import {
+  changeCategoryValue, getCategories, launchSearch, changeLearnOrShareValue,
+} from '../../actions';
 
 import Panel from '../Panel';
 import Button from '../Button';
@@ -10,18 +12,31 @@ import './style.scss';
 
 function Search({ ...props }) {
   const categories = useSelector((state) => state.categories.list);
-
-  // action de la soumission du formulaire
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.search.loading);
+  const categoryValue = useSelector((state) => state.search.categoryValue);
+  const learnOrShareValue = useSelector((state) => state.search.learnOrShareValue);
+  // const results = useSelector((state) => state.search.results);
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
+    dispatch(launchSearch(categoryValue, learnOrShareValue));
     // console.log('submit');
   };
+
+  const handleCategoryChange = (event) => {
+    dispatch(changeCategoryValue(event.target.value));
+    // console.log(event.target.value)
+  };
+
+  const handleLearnOrShareChange = (event) => {
+    dispatch(changeLearnOrShareValue(event.target.value));
+    // console.log(event.target.value)
+  };
+
   useEffect(() => {
-    dispatch(setResults());
+    dispatch(getCategories());
   }, []);
+
   if (loading) {
     return <Loading />;
   }
@@ -40,7 +55,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
                 <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
               </div>
-              <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select">
+              <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select" onChange={handleLearnOrShareChange}>
                 <option value="">Choisissez une option...</option>
                 <option value="Apprendre">Apprendre</option>
                 <option value="Partager">Partager</option>
@@ -53,10 +68,10 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">2</span></div>
                 <label htmlFor="select__category">Quelle catégorie vous intéresse&nbsp;?</label>
               </div>
-              <select name="category" id="select__category" className="search__choices__select">
+              <select name="category" id="select__category" className="search__choices__select" onChange={handleCategoryChange}>
                 <option value="">Choisissez une catégorie...</option>
                 {categories.map((category) => (
-                  <option value={category} key={category}>{category}</option>
+                  <option value={category.name} key={category.id}>{category.name}</option>
                 ))}
               </select>
             </div>
@@ -67,7 +82,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
                 <span>Lancez votre recherche</span>
               </div>
-              <Button label="Rechercher" type="onSubmit" />
+              <Button label="Rechercher" type="submit" />
             </div>
           </div>
 
