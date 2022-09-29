@@ -10,7 +10,7 @@ import AccountDetailsPost from '../../components/AccountDetailsPost';
 import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 
-function Annonce({ createdAt }) {
+function Annonce() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const selectedPost = useSelector((state) => state.posts.selectedPost);
@@ -28,16 +28,12 @@ function Annonce({ createdAt }) {
             <Label label="informatique" />
             <Label label="rencontre" />
           </section>
-          <p className="post-infos__date">Annonce publiée le {createdAt}</p>
+          <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           <div className="global-infos">
             <PostDetails
               title={selectedPost.title}
-              localisation="Montpellier"
-              description="J'aimerais apprendre à me servir de Gimp. Je suis totalement débutant mais
-          j'ai déja installé le logiciel (je suis sur Ibook).
-          J'aimerais organiser ça dans un café ou un bar. J'offre la première consommation !
-          Pour info, j'ai de bonnes notions Photoshop.
-          Ça serait sympa de profiter du beau temps pour organiser ça !"
+              localisation={selectedPost.location}
+              description={selectedPost.description}
             />
             <div className="vignettes">
               <MorePostInfos info="Animaux acceptés" />
@@ -56,7 +52,7 @@ function Annonce({ createdAt }) {
 }
 
 Annonce.propTypes = {
-  createdAt: PropTypes.string.isRequired,
+
 };
 
 export default Annonce;
