@@ -1,20 +1,16 @@
-import { FETCH_CATEGORIES } from '../actions';
+import { SET_CATEGORIES } from '../actions';
 
 export const initialState = {
-  list: [
-    'Cuisine',
-    'Informatique',
-    'Sport',
-  ],
+  list: [],
   // loading: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case FETCH_CATEGORIES:
+    case SET_CATEGORIES:
       return {
         ...state,
-        list: action.list,
+        list: action.categories,
       };
     default:
       return state;

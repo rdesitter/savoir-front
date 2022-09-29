@@ -1,10 +1,11 @@
 import { LAUNCH_SEARCH, SET_RESULTS } from '../actions';
+import posts from '../data/posts';
 
 export const initialState = {
   learnOrShare: '',
   category: '',
-  loading: true,
-  results: [],
+  loading: false,
+  results: posts,
 };
 
 const reducer = (state = initialState, action = {}) => {

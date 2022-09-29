@@ -55,11 +55,17 @@ export const initInfo = () => ({
   type: INIT_INFO,
 });
 
-export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
 
-export const fetchCategories = (list) => ({
-  type: FETCH_CATEGORIES,
-  list,
+export const getCategories = () => ({
+  type: GET_CATEGORIES,
+});
+
+export const SET_CATEGORIES = 'SET_CATEGORIES';
+
+export const setCategories = (categories) => ({
+  type: SET_CATEGORIES,
+  categories,
 });
 
 export const LAUNCH_SEARCH = 'LAUNCH_SEARCH';

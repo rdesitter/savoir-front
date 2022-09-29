@@ -1,20 +1,15 @@
-import { LAUNCH_SEARCH } from '../actions';
-import posts from '../data/posts';
+import { GET_CATEGORIES, LAUNCH_SEARCH, setCategories } from '../actions';
+import categories from '../data/categories';
 
 
 
 const search = (store) => (next) => (action) => {
-  const { post: { titre, condition } } = store.getState();
+  if (action.type === GET_CATEGORIES) {
+    store.dispatch(setCategories(categories)),
+ }
 
   if (action.type === LAUNCH_SEARCH) {
-    const results = posts.map((post) => user.email === email);
-    if (results && (condition === results.password)) {
-      console.log('selec', selectedUser);
-      store.dispatch(setUser(selectedUser));
-    }
-    else {
-      store.dispatch(setError('Mauvais utilisateur ou mot de passe'));
-    }
+    
   }
 
   next(action);
