@@ -38,6 +38,7 @@ function Annonce() {
             />
             <div className="vignettes">
               <MorePostInfos info="Animaux acceptés" />
+
               <AccountDetailsPost
                 avatar={connectedUser.avatar}
                 name={connectedUser.username}
