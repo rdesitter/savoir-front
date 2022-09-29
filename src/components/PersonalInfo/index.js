@@ -3,7 +3,7 @@ import Button from '../Button';
 import './style.scss';
 
 function PersonalInfo({
-  email, firstname, lastname, birthdate, postalCode, pronoun,
+  firstname, lastname, birthdate, postalCode, pronoun,
 }) {
   return (
     <>
@@ -12,7 +12,6 @@ function PersonalInfo({
         <h2 className="section__subtitle">Ces informations sont strictement confidentielles et nous servent à vous contacter ou à personnaliser votre interface.</h2>
       </header>
       <ul className="perso-infos__list">
-        <li className="perso-infos__item"><span className="perso-infos__label">Adresse email :</span>{email}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Nom :</span>{lastname}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Prénom :</span>{firstname}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Date de naissance :</span>{birthdate}</li>
@@ -32,7 +31,6 @@ PersonalInfo.defaultProps = {
 };
 
 PersonalInfo.propTypes = {
-  email: PropTypes.string.isRequired,
   firstname: PropTypes.string,
   lastname: PropTypes.string,
   birthdate: PropTypes.string.isRequired,
