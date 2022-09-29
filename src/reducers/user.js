@@ -12,7 +12,6 @@ export const initialState = {
   passwordConfirm: '',
   username: '',
   avatar: '',
-  birthday: '',
   birthdate: '',
   error: false,
   errorMsg: '',

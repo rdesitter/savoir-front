@@ -82,3 +82,9 @@ export const TOOGLE_LOADING = 'TOOGLE_LOADING';
 export const toggleLoading = () => ({
   type: TOOGLE_LOADING,
 });
+
+export const SIGNUP = 'SIGNUP';
+
+export const signUp = () => ({
+  type: SIGNUP,
+});
