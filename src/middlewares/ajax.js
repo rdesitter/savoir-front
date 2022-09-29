@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { LOGIN, setError, setUser } from '../actions';
+import {
+  LOGIN, setError, setUser, toggleLoading,
+} from '../actions';
 
 const instance = axios.create({
   baseURL: 'https://savoirs.onrender.com/api',
@@ -7,6 +9,7 @@ const instance = axios.create({
 
 const ajax = (store) => (next) => (action) => {
   if (action.type === LOGIN) {
+    store.dispatch(toggleLoading());
     try {
       const config = {
         headers: {
