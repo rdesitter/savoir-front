@@ -11,8 +11,6 @@ import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 
 function Annonce() {
-
-  // const [copy, setCopy] = useState
   const { id } = useParams();
   const dispatch = useDispatch();
   const selectedPost = useSelector((state) => state.posts.selectedPost);

@@ -15,9 +15,11 @@ function AccountDetailsPost({ avatar, name, createdAt, email }) {
     setBtnVisible(false);
   };
 
-
+  // btn copy
+  const [copy, setCopy] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
+    setCopy(true);
   };
 
   return (
@@ -36,7 +38,13 @@ function AccountDetailsPost({ avatar, name, createdAt, email }) {
             {isVisible && (
               <div className="user-infos__contact-btn">
                 <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
-                <button className="user-infos__copy" id="copyText" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                {!copy && (
+                <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                )}
+                {copy && (
+                <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                )}
+
               </div>
             )}
           </section>
