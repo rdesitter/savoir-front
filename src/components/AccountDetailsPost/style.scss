@@ -61,5 +61,15 @@
     background-color: white;
     border-radius: vars.$btn-radius;
     border: 2px solid rgba(0, 0, 0, 0.5);
+    &-ok{
+      background-color: white;
+      border-radius: vars.$btn-radius;
+      border: 2px solid vars.$success-color;
+    }
   }
 }
+// copy-ok{
+//   background-color: white;
+//   border-radius: vars.$btn-radius;
+//   border: 2px solid green
+// }

@@ -1,11 +1,22 @@
 import PropTypes from 'prop-types';
 
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Button from '../Button';
 import Panel from '../Panel';
 
 import './style.scss';
 
-function AccountDetailsPost({ avatar, name, createdAt, email }) {
+function AccountDetailsPost({
+  avatar,
+  name,
+  createdAt,
+  email,
+}) {
+  // condition logged
+  const isLogged = useSelector((state) => state.user.logged);
+
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
@@ -15,14 +26,12 @@ function AccountDetailsPost({ avatar, name, createdAt, email }) {
     setBtnVisible(false);
   };
 
-  // TODO : Fonctionnalité de copie du mail au clic
-  // const text = document.querySelector('#inputText');
-
-  // const handleClickCopy = () => {
-  //   const textTest = text.value;
-  //   console.log(textTest);
-  //   // document.execCommand('copy');
-  // };
+  // btn copy
+  const [copy, setCopy] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopy(true);
+  };
 
   return (
     <article className="user-informations">
@@ -37,10 +46,28 @@ function AccountDetailsPost({ avatar, name, createdAt, email }) {
             {btnVisible && (
             <button onClick={handleClick} type="button" className="user-infos__contact" title="Contacter">Contacter</button>
             )}
-            {isVisible && (
+            {isLogged && (
+            <div>
+              {isVisible && (
               <div className="user-infos__contact-btn">
                 <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
-                <button className="user-infos__copy" id="copyText" type="button" title="copier">Copier</button>
+                {!copy && (
+                <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                )}
+                {copy && (
+                <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                )}
+              </div>
+              )}
+            </div>
+            )}
+            {!isLogged && (
+              <div>
+                {isVisible && (
+                <Link to="/connexion">
+                  <Button label="Connexion" />
+                </Link>
+                )}
               </div>
             )}
           </section>

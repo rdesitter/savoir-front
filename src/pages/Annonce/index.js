@@ -9,18 +9,20 @@ import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
 import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
+import useScrollTop from '../../hooks/useScrollTop';
 
 function Annonce() {
+  useScrollTop();
+  const isLogged = useSelector((state) => state.user.logged);
   const { id } = useParams();
   const dispatch = useDispatch();
-  const connectedUser = useSelector((state) => state.user);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   dispatch({
     type: 'DISPLAY_POST',
     id,
   });
 
-  console.log(selectedPost);
+  // console.log(selectedPost);
   return (
     <Page>
       <Container>
@@ -40,9 +42,10 @@ function Annonce() {
               <MorePostInfos info="Animaux acceptés" />
 
               <AccountDetailsPost
-                avatar={connectedUser.avatar}
-                name={connectedUser.username}
-                createdAt={connectedUser.created_at}
+                avatar={selectedPost.user.avatar}
+                name={selectedPost.user.username}
+                createdAt={selectedPost.user.createdAt}
+                email={selectedPost.user.email}
               />
             </div>
           </div>

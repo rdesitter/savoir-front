@@ -7,6 +7,12 @@ export const initialState = {
     createdAt: '12/15/2022',
     location: 'Montpellier',
     description: 'Je souhaite apprendre à me servir (...)',
+    user: {
+      username: 'Jeanne',
+      email: 'jeanette@mail.fr',
+      createdAt: '23/05/2022',
+      avatar: 'NOHAIR1',
+    },
   },
 };
 
