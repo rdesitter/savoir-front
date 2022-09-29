@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getCategories, launchSearch } from '../../actions';
+import {
+  changeCategoryValue, getCategories, launchSearch, changeLearnOrShareValue,
+} from '../../actions';
 
 import Panel from '../Panel';
 import Button from '../Button';
@@ -19,9 +21,15 @@ function Search({ ...props }) {
     // console.log('submit');
   };
 
-  // const handleCategoryChange = () => {
-  //   console.log('test handle')
-  // };
+  const handleCategoryChange = (event) => {
+    dispatch(changeCategoryValue(event.target.value));
+    // console.log(event.target.value)
+  };
+
+  const handleLearnOrShareChange = (event) => {
+    dispatch(changeLearnOrShareValue(event.target.value));
+    // console.log(event.target.value)
+  };
 
   useEffect(() => {
     dispatch(getCategories());
@@ -45,7 +53,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
                 <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
               </div>
-              <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select">
+              <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select" onChange={handleLearnOrShareChange}>
                 <option value="">Choisissez une option...</option>
                 <option value="Apprendre">Apprendre</option>
                 <option value="Partager">Partager</option>
@@ -58,7 +66,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">2</span></div>
                 <label htmlFor="select__category">Quelle catégorie vous intéresse&nbsp;?</label>
               </div>
-              <select name="category" id="select__category" className="search__choices__select">
+              <select name="category" id="select__category" className="search__choices__select" onChange={handleCategoryChange}>
                 <option value="">Choisissez une catégorie...</option>
                 {categories.map((category) => (
                   <option value={category.name} key={category.id}>{category.name}</option>

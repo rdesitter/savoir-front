@@ -82,3 +82,17 @@ export const setResults = (results) => ({
   type: SET_RESULTS,
   results,
 });
+
+export const CHANGE_CATEGORY_VALUE = 'CHANGE_CATEGORY_VALUE';
+
+export const changeCategoryValue = (value) => ({
+  type: CHANGE_CATEGORY_VALUE,
+  value,
+});
+
+export const CHANGE_LEARNORSHARE_VALUE = 'CHANGE_LEARNORSHARE_VALUE';
+
+export const changeLearnOrShareValue = (value) => ({
+  type: CHANGE_LEARNORSHARE_VALUE,
+  value,
+});
