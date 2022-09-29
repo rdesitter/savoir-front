@@ -115,3 +115,9 @@ export const SIGNUP = 'SIGNUP';
 export const signUp = () => ({
   type: SIGNUP,
 });
+
+export const LOGOUT = 'LOGOUT';
+
+export const logOut = () => ({
+  type: LOGOUT,
+});

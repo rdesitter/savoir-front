@@ -1,15 +1,27 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Button from '../Button';
-
+import variables from '../../styles/variables.module.scss';
 import './style.scss';
+import { logOut } from '../../actions';
 
 function AccountDetails({
   id, username, avatar, created_at, about,
 }) {
   const userId = useSelector((state) => state.user.userId);
   const logged = useSelector((state) => state.user.logged);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { space20, redColor } = variables;
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+    navigate('/');
+  };
+
   return (
     <div className="account">
       <div className="account__avatar">
@@ -21,7 +33,12 @@ function AccountDetails({
         <h3 className="account__title">Description</h3>
         <p className="account__about">{about}</p>
         <span className="spacer" />
-        {logged && userId === id && <Button label="Modifier mon profil public" />}
+        {logged && userId === id && (
+          <>
+            <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} />
+            <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />
+          </>
+        )}
       </div>
     </div>
   );
