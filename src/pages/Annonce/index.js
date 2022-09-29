@@ -13,7 +13,6 @@ import useScrollTop from '../../hooks/useScrollTop';
 
 function Annonce() {
   useScrollTop();
-  const isLogged = useSelector((state) => state.user.logged);
   const { id } = useParams();
   const dispatch = useDispatch();
   const selectedPost = useSelector((state) => state.posts.selectedPost);
