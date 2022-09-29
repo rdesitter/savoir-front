@@ -24,7 +24,6 @@
     @include mixin.media('medium') {
       flex-direction: row;
       justify-content: space-between;
-      // align-items: center;
     }
   }
 
@@ -42,14 +41,11 @@
       padding-right: vars.$space-30;
     }
 
-    
-
     &__legend{
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       gap: vars.$space-10;
-
     }
 
     &__circle {
@@ -88,9 +84,9 @@
     }
 
     &__select {
-      width: 100%;
+      width: fit-content;
       margin-top: vars.$space-20;
-      padding: vars.$space-20;
+      padding: vars.$space-10 vars.$space-30;
       border: 0.063em solid vars.$primary-color-alt;
       border-radius: vars.$btn-radius;
       color: vars.$dark-color;
