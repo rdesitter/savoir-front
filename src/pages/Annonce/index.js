@@ -9,8 +9,11 @@ import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
 import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
+import useScrollTop from '../../hooks/useScrollTop';
 
 function Annonce() {
+  useScrollTop();
+  const isLogged = useSelector((state) => state.user.logged);
   const { id } = useParams();
   const dispatch = useDispatch();
   const selectedPost = useSelector((state) => state.posts.selectedPost);
@@ -19,7 +22,7 @@ function Annonce() {
     id,
   });
 
-  console.log(selectedPost);
+  // console.log(selectedPost);
   return (
     <Page>
       <Container>

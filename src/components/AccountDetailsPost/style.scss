@@ -64,7 +64,7 @@
     &-ok{
       background-color: white;
       border-radius: vars.$btn-radius;
-      border: 2px solid rgba(6, 131, 16, 0.5);
+      border: 2px solid vars.$success-color;
     }
   }
 }
