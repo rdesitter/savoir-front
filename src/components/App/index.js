@@ -25,8 +25,6 @@ import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
 import { setUser } from '../../actions';
 
-
-
 // == Composant
 function App() {
   useScrollTop();

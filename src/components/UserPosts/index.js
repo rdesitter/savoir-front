@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import Button from '../Button';
 import PostPreview from '../PostPreview';
 
 import './style.scss';
 
-function UserPosts({ posts, title }) {
+function UserPosts({ posts, title, isOwner }) {
   const hasPosts = posts.length;
   return (
     <>
@@ -25,18 +27,25 @@ function UserPosts({ posts, title }) {
           </div>
         </>
       )}
-      {hasPosts === 0 && <p>Cette utilisateur n'a pas publié d'annonces</p> }
+      {hasPosts === 0 && <p>Aucune annonce publiée.</p> }
+      {isOwner && (
+        <Link to="/annonces/ajouter">
+          <Button label="Créer une annonce" />
+        </Link>
+      )}
     </>
   );
 }
 
 UserPosts.defaultProps = {
   posts: [],
+  isOwner: false,
 };
 
 UserPosts.propTypes = {
   posts: PropTypes.array,
   title: PropTypes.string.isRequired,
+  isOwner: PropTypes.bool,
 };
 
 export default UserPosts;
