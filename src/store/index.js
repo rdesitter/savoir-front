@@ -4,9 +4,9 @@ import reducer from 'src/reducers';
 import contactForm from '../middlewares/contactForm';
 import search from '../middlewares/search';
 import ajax from '../middlewares/ajax';
+import logOutSession from '../middlewares/logOutSession';
 
-const middlewares = applyMiddleware(contactForm, ajax, search);
-
+const middlewares = applyMiddleware(contactForm, ajax, search, logOutSession);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(middlewares);

@@ -1,5 +1,5 @@
 import {
-  CHANGE_VALUE, INIT_ERROR, INIT_INFO, SENT_MSG, SET_ERROR, SET_USER, TOOGLE_LOADING,
+  CHANGE_VALUE, INIT_ERROR, INIT_INFO, LOGOUT, SENT_MSG, SET_ERROR, SET_USER, TOOGLE_LOADING,
 } from '../actions';
 
 export const initialState = {
@@ -76,6 +76,21 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: !state.loading,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        loading: false,
+        userId: '',
+        logged: false,
+        fullname: '',
+        email: '',
+        username: '',
+        avatar: '',
+        birthdate: '',
+        posts: [],
+        message: '',
+        created_at: '',
       };
     default:
       return state;
