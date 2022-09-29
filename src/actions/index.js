@@ -76,3 +76,9 @@ export const setResults = (results) => ({
   type: SET_RESULTS,
   results,
 });
+
+export const TOOGLE_LOADING = 'TOOGLE_LOADING';
+
+export const toggleLoading = () => ({
+  type: TOOGLE_LOADING,
+});
