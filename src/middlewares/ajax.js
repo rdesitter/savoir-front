@@ -15,10 +15,8 @@ const ajax = (store) => (next) => (action) => {
       };
       const { user: { email, password } } = store.getState();
       instance.post('/login', { email, password }, config).then((response) => {
-        console.log(response.data);
-        store.dispatch(setUser(response.data));
+        store.dispatch(setUser(response.data.user[0]));
       }).catch((error) => {
-        console.log(error);
         store.dispatch(setError(error.message));
       });
     }

@@ -9,7 +9,7 @@ import './style.scss';
 
 function MyAccount() {
   const {
-    username, avatar, created_at, about, posts,
+    username, avatar, created_at, about, posts, userId,
   } = useSelector((state) => state.user);
   return (
     <Page id="mon-compte">
@@ -20,6 +20,7 @@ function MyAccount() {
             avatar={avatar}
             created_at={created_at}
             about={about}
+            id={userId}
           />
         </Panel>
         <Panel>
