@@ -13,6 +13,7 @@ import './style.scss';
 function Annonce() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const connectedUser = useSelector((state) => state.user);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   dispatch({
     type: 'DISPLAY_POST',
@@ -37,7 +38,11 @@ function Annonce() {
             />
             <div className="vignettes">
               <MorePostInfos info="Animaux acceptés" />
-              <AccountDetailsPost avatar="NOHAIR3" name="Jeanne" createdAt="20/06/2022" />
+              <AccountDetailsPost
+                avatar={connectedUser.avatar}
+                name={connectedUser.username}
+                createdAt={connectedUser.created_at}
+              />
             </div>
           </div>
         </div>
