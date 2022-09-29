@@ -7,7 +7,7 @@ const search = (store) => (next) => (action) => {
   }
 
   if (action.type === LAUNCH_SEARCH) {
-    console.log('lauchSearch');
+    console.log('lauchSearch', action.learnOrShare, action.category);
   }
 
   next(action);

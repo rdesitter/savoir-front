@@ -29,7 +29,7 @@ const reducer = (state = initialState, action = {}) => {
     case CHANGE_CATEGORY_VALUE:
       return {
         ...state,
-        categorieValue: action.value,
+        categoryValue: action.value,
       };
     case CHANGE_LEARNORSHARE_VALUE:
       return {

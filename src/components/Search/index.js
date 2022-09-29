@@ -14,10 +14,12 @@ function Search({ ...props }) {
   const categories = useSelector((state) => state.categories.list);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.search.loading);
+  const categoryValue = useSelector((state) => state.search.categoryValue);
+  const learnOrShareValue = useSelector((state) => state.search.learnOrShareValue);
   // const results = useSelector((state) => state.search.results);
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(launchSearch(event.target.category.value, event.target.learnOrShare.value));
+    dispatch(launchSearch(categoryValue, learnOrShareValue));
     // console.log('submit');
   };
 
