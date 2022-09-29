@@ -6,6 +6,7 @@ import Button from '../Button';
 import variables from '../../styles/variables.module.scss';
 import './style.scss';
 import { logOut } from '../../actions';
+import rectifyFormat from '../../selectors/rectifyFormat';
 
 function AccountDetails({
   id, username, avatar, created_at, about,
@@ -21,6 +22,7 @@ function AccountDetails({
     dispatch(logOut());
     navigate('/');
   };
+  const date = rectifyFormat(created_at);
 
   return (
     <div className="account">
@@ -29,7 +31,7 @@ function AccountDetails({
       </div>
       <div className="account__info">
         <h2 className="account__title">{username}</h2>
-        <p className="account__creation">Inscrit depuis le {created_at}</p>
+        <p className="account__creation">Inscrit depuis le {date}</p>
         <h3 className="account__title">Description</h3>
         <p className="account__about">{about}</p>
         <span className="spacer" />

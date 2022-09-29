@@ -10,6 +10,9 @@
   }
 
   &__info {
+    display: flex;
+    flex-direction: column;
+
     @include mixin.media('medium') {
       flex-grow: 1;
     }
@@ -25,11 +28,11 @@
     }
 
     &__img {
-      max-width: 100%;
+      max-width: 80%;
       display: block;
       margin: 0 auto;
       border-radius: 500px;
-      background: vars.$primary-color;
+      background: vars.$light-color;
     }
   }
 

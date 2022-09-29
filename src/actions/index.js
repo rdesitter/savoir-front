@@ -22,6 +22,7 @@ export const SET_USER = 'SET_USER';
 
 export const setUser = (data) => ({
   type: SET_USER,
+  email: data.user.email,
   username: data.user.pseudo,
   description: data.user.description,
   firstname: data.user.firstname,
@@ -34,7 +35,8 @@ export const setUser = (data) => ({
   postalCode: data.user.postal_code,
   roleId: data.user.role_id,
   birthdate: data.user.birthdate,
-  toker: data.token,
+  pronoun: data.user.pronoun,
+  token: data.token,
 });
 
 export const SET_ERROR = 'SET_ERROR';

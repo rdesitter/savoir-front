@@ -26,6 +26,11 @@ body {
   }
 }
 
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
 p {
   margin-bottom: vars.$space-10;
 }
