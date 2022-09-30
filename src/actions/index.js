@@ -124,6 +124,7 @@ export const logOut = () => ({
   type: LOGOUT,
 });
 
+
 export const GET_SELECTED_POST = 'GET_SELECTED_POST';
 
 export const getSelectedPost = () => ({
@@ -148,4 +149,10 @@ export const SET_POSTS = 'SET_POSTS';
 export const setPosts = (posts) => ({
   type: SET_POSTS,
   posts,
+
+export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
+
+export const toggleLogged = () => ({
+  type: TOGGLE_LOGGED,
+
 });

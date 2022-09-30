@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from 'src/components/Page';
 import { setError, signUp } from '../../actions';
@@ -17,15 +18,11 @@ function Inscription() {
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
   const loading = useSelector((state) => state.user.loading);
+  const logged = useSelector((state) => state.user.logged);
   const dispatch = useDispatch();
 
-  // TODO Gérer la soumission du formulaire
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO checker si les mots de passe sont identiques
-    // TODO checker si l'email est ok (regex)
-    // TODO côté back checker si email & username sont déjà utilisés
-
     if (password !== passwordConfirm) {
       dispatch(setError('Les mots de passe ne sont pas identiques'));
     }
@@ -33,6 +30,10 @@ function Inscription() {
       dispatch(signUp());
     }
   };
+
+  if (logged) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <Page>
