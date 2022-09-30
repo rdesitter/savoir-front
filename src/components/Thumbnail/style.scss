@@ -9,6 +9,7 @@
 .thumbnail {
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 11em;
   max-height: 20em;
   background-color: vars.$light-grey-color;
@@ -58,6 +59,9 @@
       line-height: 1em;
       padding: .3em;
 
+    }
+    &__btn{
+      bottom: 0;
     }
   }
 }
