@@ -18,7 +18,7 @@ function PersonalInfo({
         <li className="perso-infos__item"><span className="perso-infos__label">Code postal :</span>{postalCode}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Pronom :</span>{pronoun}</li>
       </ul>
-      <Button label="Modifier mes informations personnelles" />
+      <Button label="Modifier mes informations personnelles" btnstyle="outlined" />
     </>
   );
 }

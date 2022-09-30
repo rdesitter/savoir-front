@@ -16,8 +16,8 @@ function MyAccountPanel({ email }) {
         <p>{email}</p>
       </div>
       <div className="account-panel__bloc">
-        <Button label="Modifier mon email" />
-        <Button label="Modifier mon mot de passe" />
+        <Button label="Modifier mon email" btnstyle="outlined" />
+        <Button label="Modifier mon mot de passe" btnstyle="outlined" />
         <Button label="Supprimer mon compte" style={{ backgroundColor: redColor }} />
       </div>
     </div>

@@ -18,7 +18,7 @@ function MyAccount() {
           <AccountDetails
             username={user.username}
             avatar={user.avatar}
-            created_at={user.created_at}
+            created_at={user.created_at || ''}
             about={user.about || 'Non renseignée'}
             id={user.userId}
           />

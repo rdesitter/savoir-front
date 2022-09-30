@@ -37,7 +37,7 @@ function AccountDetails({
         <span className="spacer" />
         {logged && userId === id && (
           <>
-            <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} />
+            <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} btnstyle="outlined" />
             <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />
           </>
         )}
