@@ -123,3 +123,9 @@ export const LOGOUT = 'LOGOUT';
 export const logOut = () => ({
   type: LOGOUT,
 });
+
+export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
+
+export const toggleLogged = () => ({
+  type: TOGGLE_LOGGED,
+});

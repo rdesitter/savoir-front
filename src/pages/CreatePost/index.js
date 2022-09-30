@@ -36,13 +36,13 @@ function CreatePost() {
                   type="radio"
                   name="learnOrShare"
                   id="learn"
-                  value="learn"
+                  value="1"
                   required
                 />
                 <label className="radio__label" htmlFor="learn" aria-label="Apprendre">Apprendre</label>
                 {/* <input type="radio" name="learnOrShare" id="learn" value="learn" required /> */}
                 <span>ou</span>
-                <Input className="radio__label" type="radio" name="learnOrShare" id="share" value="share" required />
+                <Input className="radio__label" type="radio" name="learnOrShare" id="share" value="2" required />
                 <label className="radio__label" htmlFor="share" aria-label="Partager">Partager</label>
                 {/* <input type="radio" name="learnOrShare" id="share" value="share" required /> */}
               </div>
@@ -64,8 +64,8 @@ function CreatePost() {
                 <label htmlFor="category">Catégorie *</label>
                 <select name="category" id="category" className="select-input" onChange={handleSelectCategory}>
                   <option value="">Choisissez une option...</option>
-                  <option value="Categorie 1">Categorie 1</option>
-                  <option value="Categorie 2">Categorie 2</option>
+                  <option value="12">Categorie 1</option>
+                  <option value="14">Categorie 2</option>
                 </select>
               </div>
 
