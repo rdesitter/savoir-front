@@ -48,5 +48,4 @@ export default [
     content: 'Saviez-vous que la toute première personne a avoir été verbalisée pour excès de vitesse roulait à 13 Km/h ? A l\'époque, la limitation de vitesse pour les "carrioles sans chevaux" était de seulement 3 Km/h.',
   },
 
-
 ];
