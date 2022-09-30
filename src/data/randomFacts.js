@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    content: 'Saviez-vous que les poissons peuvent vomir ? Il leur arrive de régurgiter les aliments lorsqu\'ils sont stressés ou qu\'ils n\'arrivent pas à les avaler. ',
+    content: 'Saviez-vous que les poissons peuvent vomir ? Il leur arrive de régurgiter les aliments lorsqu\'ils sont stressés ou qu\'ils n\'arrivent pas à les avaler. Les lapins, en revanche, ne peuvent pas !',
   },
   {
     id: 2,
@@ -47,6 +47,5 @@ export default [
     id: 12,
     content: 'Saviez-vous que la toute première personne a avoir été verbalisée pour excès de vitesse roulait à 13 Km/h ? A l\'époque, la limitation de vitesse pour les "carrioles sans chevaux" était de seulement 3 Km/h.',
   },
-
 
 ];
