@@ -124,6 +124,19 @@ export const logOut = () => ({
   type: LOGOUT,
 });
 
+export const GET_SELECTED_POST = 'GET_SELECTED_POST';
+
+export const getSelectedPost = () => ({
+  type: GET_SELECTED_POST,
+});
+
+export const SET_SELECTED_POST = 'SET_SELECTED_POST';
+
+export const setSelectedPost = (selectedPost) => ({
+  type: SET_SELECTED_POST,
+  selectedPost,
+});
+
 export const GET_POSTS = 'GET_POSTS';
 
 export const getPosts = () => ({
@@ -132,7 +145,7 @@ export const getPosts = () => ({
 
 export const SET_POSTS = 'SET_POSTS';
 
-export const setPosts = (selectedPosts) => ({
+export const setPosts = (posts) => ({
   type: SET_POSTS,
-  selectedPosts,
+  posts,
 });

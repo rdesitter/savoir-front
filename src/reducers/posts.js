@@ -3,15 +3,7 @@ import { SET_POSTS } from '../actions';
 export const initialState = {
   posts: [],
   loading: true,
-  selectedPost: {
-    id: '',
-    title: '',
-    createdAt: '',
-    category: '',
-    location: '',
-    description: '',
-    user: {},
-  },
+  selectedPost: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -19,7 +11,7 @@ const reducer = (state = initialState, action = {}) => {
     case SET_POSTS:
       return {
         ...state,
-        infos: action.selectedPost,
+        posts: action.posts,
       };
     default:
       return state;
