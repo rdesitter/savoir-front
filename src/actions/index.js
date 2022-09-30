@@ -123,3 +123,16 @@ export const LOGOUT = 'LOGOUT';
 export const logOut = () => ({
   type: LOGOUT,
 });
+
+export const GET_POSTS = 'GET_POSTS';
+
+export const getPosts = () => ({
+  type: GET_POSTS,
+});
+
+export const SET_POSTS = 'SET_POSTS';
+
+export const setPosts = (selectedPosts) => ({
+  type: SET_POSTS,
+  selectedPosts,
+});

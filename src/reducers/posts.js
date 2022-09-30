@@ -1,3 +1,5 @@
+import { SET_POSTS } from '../actions';
+
 export const initialState = {
   posts: [],
   loading: true,
@@ -14,6 +16,11 @@ export const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SET_POSTS:
+      return {
+        ...state,
+        infos: action.selectedPost,
+      };
     default:
       return state;
   }
