@@ -56,15 +56,15 @@ const ajax = (store) => (next) => (action) => {
       instance.post('/register', {
         email, password, pseudo, birthdate,
       }, config).then((response) => {
-        const token = response.data.accessToken;
+        const token = response.data.newTokens.accessToken;
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({
-          email, password, pseudo, birthdate, created_at: date,
+          email, password, pseudo, birthdate, created_at: date, id: response.data.newUser,
         }));
         store.dispatch(setUser({
           user: {
-            email, password, pseudo, birthdate, created_at: date,
+            email, pseudo, birthdate, created_at: date, userId: response.data.newUser,
           },
         }));
         store.dispatch(toggleLoading());
