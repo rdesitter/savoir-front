@@ -47,6 +47,7 @@
 
   &__icon {
     width: vars.$space-20;
+    margin-right: vars.$space-10;
   }
 
   :has(.button__icon) span {
