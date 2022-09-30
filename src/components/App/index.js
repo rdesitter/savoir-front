@@ -24,6 +24,7 @@ import AnnoncesCategorie from '../../pages/AnnoncesCategorie';
 import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
 import { setUser } from '../../actions';
+import ForgottenPassword from '../../pages/ForgottenPassword';
 
 // == Composant
 function App() {
@@ -56,6 +57,7 @@ function App() {
         <Route path="/profil/:id" element={<Profile />} />
         <Route path="/recherche" element={<SearchPage />} />
         <Route path="/annonces/ajouter" element={<CreatePost />} />
+        <Route path="/oubli-mot-de-passe" element={<ForgottenPassword />} />
         <Route path="*" element={<NotFound />} />
 
         {/* Private */}

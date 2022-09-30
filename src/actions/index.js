@@ -123,3 +123,10 @@ export const LOGOUT = 'LOGOUT';
 export const logOut = () => ({
   type: LOGOUT,
 });
+
+export const RESET_PASSWORD = 'RESET_PASSWORD';
+
+export const resetPassword = (email) => ({
+  type: RESET_PASSWORD,
+  email,
+});

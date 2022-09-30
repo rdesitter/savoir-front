@@ -59,3 +59,16 @@
   border: none;
   opacity: 0.5;
 }
+
+
+.reset-password {
+  text-decoration: underline;
+  color: vars.$primary-color;
+  margin-bottom: vars.$space-20;
+  display: block;
+  transition: all linear 0.3s;
+
+  &:hover {
+    color: vars.$primary-color-alt;
+  }
+}

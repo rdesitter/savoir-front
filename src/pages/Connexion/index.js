@@ -82,7 +82,7 @@ function Connexion() {
                   aria-label="Saisissez votre mot de passe"
                 />
               </div>
-
+              <Link to="/oubli-mot-de-passe" className="reset-password">J'ai oublié mon mot de passe</Link>
               <div className="form__submit">
                 <button type="submit" className="button button--plain" title="Je me connecte">Je me connecte</button>
                 <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>
