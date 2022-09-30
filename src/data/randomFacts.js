@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    content: 'Saviez-vous que les poissons peuvent vomir ? Il leur arrive de régurgiter les aliments lorsqu\'ils sont stressés ou qu\'ils n\'arrivent pas à les avaler. ',
+    content: 'Saviez-vous que les poissons peuvent vomir ? Il leur arrive de régurgiter les aliments lorsqu\'ils sont stressés ou qu\'ils n\'arrivent pas à les avaler. Les lapins, en revanche, ne peuvent pas !',
   },
   {
     id: 2,
