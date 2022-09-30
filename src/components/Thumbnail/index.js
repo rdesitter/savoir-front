@@ -1,43 +1,31 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import ThumbnailPreview from './ThumbnailPreview';
+import { getPosts } from '../../actions';
 
 import './style.scss';
 
 function Thumbnail() {
   const dispatch = useDispatch();
-  const selectedPost = useSelector((state) => state.posts.selectedPost);
-  dispatch({
-    type: 'DISPLAY_POST',
-  });
+  useEffect(() => {
+    dispatch(getPosts());
+  }, []);
+  const listOfPosts = useSelector((state) => state.posts.posts);
+  // console.log(post);
+
   return (
     <div className="thumbnails">
-      <ThumbnailPreview
-        avatar={selectedPost.user.avatar}
-        name={selectedPost.user.username}
-        userId={selectedPost.user.userId}
-        category={selectedPost.category}
-        postId={selectedPost.id}
-        title={selectedPost.title}
-        postDescription={selectedPost.description}
-      />
-      <ThumbnailPreview
-        avatar={selectedPost.user.avatar}
-        name={selectedPost.user.username}
-        userId={selectedPost.user.userId}
-        category={selectedPost.category}
-        postId={selectedPost.id}
-        title={selectedPost.title}
-        postDescription={selectedPost.description}
-      />
-      <ThumbnailPreview
-        avatar={selectedPost.user.avatar}
-        name={selectedPost.user.username}
-        userId={selectedPost.user.userId}
-        category={selectedPost.category}
-        postId={selectedPost.id}
-        title={selectedPost.title}
-        postDescription={selectedPost.description}
-      />
+      {listOfPosts.map((post) => (
+        <ThumbnailPreview
+          avatar={post.user.avatar}
+          name={post.user.username}
+          userId={post.user.userId}
+          category={post.category}
+          postId={post.id}
+          title={post.title}
+          postDescription={post.description}
+        />
+      ))}
     </div>
   );
 }
