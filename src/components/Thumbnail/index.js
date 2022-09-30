@@ -1,90 +1,42 @@
+import { useSelector, useDispatch } from 'react-redux';
 import ThumbnailPreview from './ThumbnailPreview';
 
 import './style.scss';
 
 function Thumbnail() {
+  const dispatch = useDispatch();
+  const selectedPost = useSelector((state) => state.posts.selectedPost);
+  dispatch({
+    type: 'DISPLAY_POST',
+  });
   return (
     <div className="thumbnails">
       <ThumbnailPreview
-        avatar="NOHAIR1"
-        name="Michel"
-        userId={4578}
-        category="cuisine"
-        postId={79663}
-        title="Cuisiner la choucroute"
-        postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
+        avatar={selectedPost.user.avatar}
+        name={selectedPost.user.username}
+        userId={selectedPost.user.userId}
+        category={selectedPost.category}
+        postId={selectedPost.id}
+        title={selectedPost.title}
+        postDescription={selectedPost.description}
       />
       <ThumbnailPreview
-        avatar="LONG3"
-        name="Bibi-du-22"
-        userId={865987}
-        category="cuisine"
-        postId={79693}
-        title="Besoin d'aide nems !"
-        postDescription="Est-ce que quelqu'un peut m'apprendre à rouler les nems SVP ?"
+        avatar={selectedPost.user.avatar}
+        name={selectedPost.user.username}
+        userId={selectedPost.user.userId}
+        category={selectedPost.category}
+        postId={selectedPost.id}
+        title={selectedPost.title}
+        postDescription={selectedPost.description}
       />
       <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cuisine"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
-      />
-      <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cooking"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
-      />
-      <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cooking"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
-      />
-      <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cooking"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
-      />
-      <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cooking"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
-      />
-      <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cooking"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
-      />
-      <ThumbnailPreview
-        avatar="BEARD2"
-        name="Paulo"
-        userId={98362987}
-        category="cooking"
-        postId={79643}
-        title="Le pro de la pizza"
-        postDescription="Je vous propose de vous montrer comment je fais mes pizzas"
+        avatar={selectedPost.user.avatar}
+        name={selectedPost.user.username}
+        userId={selectedPost.user.userId}
+        category={selectedPost.category}
+        postId={selectedPost.id}
+        title={selectedPost.title}
+        postDescription={selectedPost.description}
       />
     </div>
   );

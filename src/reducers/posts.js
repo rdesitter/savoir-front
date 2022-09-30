@@ -5,6 +5,7 @@ export const initialState = {
     id: 1,
     title: 'Mon annonce',
     createdAt: '12/15/2022',
+    category: 'cuisine',
     location: 'Montpellier',
     description: 'Je souhaite apprendre à me servir (...)',
     user: {
@@ -12,6 +13,7 @@ export const initialState = {
       email: 'jeanette@mail.fr',
       createdAt: '23/05/2022',
       avatar: 'NOHAIR1',
+      userId: 576,
     },
   },
 };
