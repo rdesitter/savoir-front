@@ -1,5 +1,13 @@
 import {
-  CHANGE_VALUE, INIT_ERROR, INIT_INFO, LOGOUT, SENT_MSG, SET_ERROR, SET_USER, TOOGLE_LOADING,
+  CHANGE_VALUE,
+  INIT_ERROR,
+  INIT_INFO,
+  LOGOUT,
+  SENT_MSG,
+  SET_ERROR,
+  SET_USER,
+  TOGGLE_LOGGED,
+  TOOGLE_LOADING,
 } from '../actions';
 
 export const initialState = {
@@ -92,6 +100,11 @@ const reducer = (state = initialState, action = {}) => {
         posts: [],
         message: '',
         created_at: '',
+      };
+    case TOGGLE_LOGGED:
+      return {
+        ...state,
+        logged: !state.logged,
       };
     default:
       return state;
