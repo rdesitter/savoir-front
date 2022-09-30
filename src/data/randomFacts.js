@@ -47,5 +47,17 @@ export default [
     id: 12,
     content: 'Saviez-vous que la toute première personne a avoir été verbalisée pour excès de vitesse roulait à 13 Km/h ? A l\'époque, la limitation de vitesse pour les "carrioles sans chevaux" était de seulement 3 Km/h.',
   },
+  {
+    id: 13,
+    content: 'Saviez-vous que l\'humain est le seul être sur Terre à avoir un menton ? Anatomiquement parlant, nous sommes le seul animal à posséder une protubérance osseuse spécifique pour le former.',
+  },
+  {
+    id: 14,
+    content: 'Saviez-vous que vous pouviez entendre la rhubarbe pousser ? Elle se développe tellement vite que l\'on peut l\'entendre craquer lorsqu\'elle grandit.',
+  },
+  {
+    id: 15,
+    content: 'Saviez-vous que McDonald avait inventé un chewing-gum goût brocoli pour inciter les enfants à mieux manger ? Il n\'a jamais été commercialisé face aux echecs durant les tests de dégustation !',
+  },
 
 ];
