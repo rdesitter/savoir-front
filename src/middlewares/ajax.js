@@ -27,7 +27,13 @@ const ajax = (store) => (next) => (action) => {
         const data = { user: response.data.user[0], token };
         store.dispatch(setUser(data));
       }).catch((error) => {
-        store.dispatch(setError(error.message));
+        // console.log(error);
+        if (error.response.status === 401) {
+          store.dispatch(setError('Email ou mot de  passe incorrect.'));
+        }
+        else {
+          store.dispatch(setError(error.message));
+        }
       });
     }
     catch (error) {
