@@ -5,9 +5,7 @@ import {
 } from '../actions';
 
 const instance = axios.create({
-  // baseURL: 'https://savoirs.onrender.com/api',
-  baseURL: 'http://localhost:5050/api',
-
+  baseURL: process.env.REACT_APP_URL,
 });
 
 const ajax = (store) => (next) => (action) => {
@@ -20,7 +18,7 @@ const ajax = (store) => (next) => (action) => {
         },
       };
       const { user: { email, password } } = store.getState();
-      instance.post('/login', { email, password }, config).then((response) => {
+      instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
@@ -55,7 +53,7 @@ const ajax = (store) => (next) => (action) => {
           email, password, username: pseudo, birthdate,
         },
       } = store.getState();
-      instance.post('/register', {
+      instance.post('/api/register', {
         email, password, pseudo, birthdate,
       }, config).then((response) => {
         const token = response.data.newTokens.accessToken;

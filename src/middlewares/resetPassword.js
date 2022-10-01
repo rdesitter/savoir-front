@@ -6,7 +6,7 @@ import {
 } from '../actions';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5050/',
+  baseURL: process.env.REACT_APP_URL,
 });
 
 const resetPassword = (store) => (next) => (action) => {
@@ -19,7 +19,7 @@ const resetPassword = (store) => (next) => (action) => {
         },
       };
       const { user: { email } } = store.getState();
-      instance.post('user/resetpassword', { email }, config)
+      instance.post('/user/resetpassword', { email }, config)
         .then((response) => {
           store.dispatch(msgSent(response.data.status));
           store.dispatch(toggleLoading());
@@ -41,7 +41,6 @@ const resetPassword = (store) => (next) => (action) => {
     }
   }
   else if (action.type === SUBMIT_NEW_PASSWORD) {
-    // console.log(action.token)
     try {
       store.dispatch(toggleLoading());
       const { user: { password } } = store.getState();
@@ -51,7 +50,7 @@ const resetPassword = (store) => (next) => (action) => {
           'Authorization': `${action.token}`,
         },
       };
-      instance.post('api/newpassword', { password }, config)
+      instance.post('/api/newpassword', { password }, config)
         .then((response) => {
           store.dispatch(msgSent(response.data.message));
           store.dispatch(displayElement());
