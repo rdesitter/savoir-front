@@ -7,7 +7,7 @@ import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
-import { initError, logIn } from '../../actions';
+import { initError, logIn, initUser } from '../../actions';
 import './style.scss';
 
 function Connexion() {
@@ -19,6 +19,7 @@ function Connexion() {
   // initialise error msg on first render
   useEffect(() => {
     dispatch(initError());
+    dispatch(initUser());
   }, []);
 
   // get error informations from state
@@ -82,7 +83,7 @@ function Connexion() {
                   aria-label="Saisissez votre mot de passe"
                 />
               </div>
-
+              <Link to="/oubli-mot-de-passe" className="reset-password">J'ai oublié mon mot de passe</Link>
               <div className="form__submit">
                 <button type="submit" className="button button--plain" title="Je me connecte">Je me connecte</button>
                 <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>

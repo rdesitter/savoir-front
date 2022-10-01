@@ -124,6 +124,44 @@ export const logOut = () => ({
   type: LOGOUT,
 });
 
+export const RESET_PASSWORD = 'RESET_PASSWORD';
+
+export const resetPassword = (email) => ({
+  type: RESET_PASSWORD,
+  email,
+});
+
+export const MSG_SENT = 'MSG_SENT';
+
+export const msgSent = (msg) => ({
+  type: MSG_SENT,
+  msg,
+});
+
+export const MSG_INIT = 'MSG_INIT';
+
+export const msgInit = () => ({
+  type: MSG_INIT,
+});
+
+export const SUBMIT_NEW_PASSWORD = 'SUBMIT_NEW_PASSWORD';
+
+export const submitNewPasssword = (token) => ({
+  type: SUBMIT_NEW_PASSWORD,
+  token,
+});
+
+export const DISPLAY_ELEMENT = 'DISPLAY_ELEMENT';
+
+export const displayElement = () => ({
+  type: DISPLAY_ELEMENT,
+});
+
+export const INIT_USER = 'INIT_USER';
+
+export const initUser = () => ({
+  type: INIT_USER,
+});
 
 export const GET_SELECTED_POST = 'GET_SELECTED_POST';
 
@@ -154,5 +192,4 @@ export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
 
 export const toggleLogged = () => ({
   type: TOGGLE_LOGGED,
-
 });

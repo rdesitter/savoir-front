@@ -1,7 +1,9 @@
 import {
   CHANGE_VALUE,
+  DISPLAY_ELEMENT,
   INIT_ERROR,
   INIT_INFO,
+  INIT_USER,
   LOGOUT,
   SENT_MSG,
   SET_ERROR,
@@ -32,6 +34,7 @@ export const initialState = {
     msg: '',
   },
   admin: false,
+  displayElement: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -100,6 +103,37 @@ const reducer = (state = initialState, action = {}) => {
         posts: [],
         message: '',
         created_at: '',
+      };
+    case DISPLAY_ELEMENT:
+      return {
+        ...state,
+        displayElement: !state.displayElement,
+      };
+    case INIT_USER:
+      return {
+        ...state,
+        loading: false,
+        userId: '',
+        logged: false,
+        fullname: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+        username: '',
+        avatar: '',
+        birthdate: '',
+        error: false,
+        errorMsg: '',
+        posts: [],
+        message: '',
+        created_at: '',
+        about: '',
+        info: {
+          isDisplayed: false,
+          msg: '',
+        },
+        admin: false,
+        displayElement: false,
       };
     case TOGGLE_LOGGED:
       return {

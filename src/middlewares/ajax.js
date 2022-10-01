@@ -5,7 +5,9 @@ import {
 } from '../actions';
 
 const instance = axios.create({
-  baseURL: 'https://savoirs.onrender.com/api',
+  // baseURL: 'https://savoirs.onrender.com/api',
+  baseURL: 'http://localhost:5050/api',
+
 });
 
 const ajax = (store) => (next) => (action) => {
