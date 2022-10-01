@@ -34,8 +34,8 @@ function App() {
   const isLogged = useSelector((state) => state.user.logged);
   const dispatch = useDispatch();
   const location = useLocation();
+  const token = localStorage.getItem('token');
   useEffect(() => {
-    const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user'));
     if (token) {
       dispatch(setUser({ user, token }));
@@ -73,7 +73,10 @@ function App() {
         {/* Private */}
         {isLogged
         && (
-        <Route path="/mon-compte" element={<MyAccount />} />
+          <>
+            <Route path="/mon-compte" element={<MyAccount />} />
+            <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
+          </>
         )}
       </Routes>
       <AppFooter />
