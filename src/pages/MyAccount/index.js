@@ -11,7 +11,6 @@ import './style.scss';
 
 function MyAccount() {
   const user = useSelector((state) => state.user);
-  console.log(user)
   return (
     <Page id="mon-compte">
       <Container>

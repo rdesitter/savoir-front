@@ -19,6 +19,7 @@ function ResetPassword({ token }) {
   const loading = useSelector((state) => state.user.loading);
   const displayElt = useSelector((state) => state.user.displayElement);
   const msg = useSelector((state) => state.informations.msg);
+  const logged = useSelector((state) => state.user.logged);
 
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
@@ -82,7 +83,8 @@ function ResetPassword({ token }) {
           {displayElt && (
             <>
               <p>{msg}</p>
-              <Link to="/connexion"><Button label="Se connecter" /></Link>
+              {!logged && <Link to="/connexion"><Button label="Se connecter" /></Link>}
+              {logged && <Link to="/"><Button label="Retourner à l'accueil" /></Link>}
             </>
           )}
         </Panel>
