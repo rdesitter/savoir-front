@@ -9,7 +9,7 @@ import Button from '../../components/Button';
 function NotFound() {
   return (
     <Page id="error">
-      <Container maxWidth="500px">
+      <Container>
         <section className="section err404">
           <header className="section__header">
             <h1 className="err404__title">404</h1>
