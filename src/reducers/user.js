@@ -8,6 +8,7 @@ import {
   SENT_MSG,
   SET_ERROR,
   SET_USER,
+  TOGGLE_LOGGED,
   TOOGLE_LOADING,
 } from '../actions';
 
@@ -133,6 +134,11 @@ const reducer = (state = initialState, action = {}) => {
         },
         admin: false,
         displayElement: false,
+      };
+    case TOGGLE_LOGGED:
+      return {
+        ...state,
+        logged: !state.logged,
       };
     default:
       return state;

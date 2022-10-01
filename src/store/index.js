@@ -6,8 +6,9 @@ import search from '../middlewares/search';
 import ajax from '../middlewares/ajax';
 import logOutSession from '../middlewares/logOutSession';
 import resetPassword from '../middlewares/resetPassword';
+import posts from '../middlewares/posts';
 
-const middlewares = applyMiddleware(contactForm, ajax, search, logOutSession, resetPassword);
+const middlewares = applyMiddleware(contactForm, ajax, search, logOutSession, posts, resetPassword);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancers = composeEnhancers(middlewares);

@@ -162,3 +162,34 @@ export const INIT_USER = 'INIT_USER';
 export const initUser = () => ({
   type: INIT_USER,
 });
+
+export const GET_SELECTED_POST = 'GET_SELECTED_POST';
+
+export const getSelectedPost = () => ({
+  type: GET_SELECTED_POST,
+});
+
+export const SET_SELECTED_POST = 'SET_SELECTED_POST';
+
+export const setSelectedPost = (selectedPost) => ({
+  type: SET_SELECTED_POST,
+  selectedPost,
+});
+
+export const GET_POSTS = 'GET_POSTS';
+
+export const getPosts = () => ({
+  type: GET_POSTS,
+});
+
+export const SET_POSTS = 'SET_POSTS';
+
+export const setPosts = (posts) => ({
+  type: SET_POSTS,
+  posts,
+
+export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
+
+export const toggleLogged = () => ({
+  type: TOGGLE_LOGGED,
+});

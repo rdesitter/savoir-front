@@ -21,7 +21,7 @@
     flex-direction: column;
     width: 100%;
     // responsive
-    @include mixin.media('medium') {
+    @include mixin.media('large') {
       flex-direction: row;
       justify-content: space-between;
     }
