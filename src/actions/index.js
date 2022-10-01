@@ -143,3 +143,22 @@ export const MSG_INIT = 'MSG_INIT';
 export const msgInit = () => ({
   type: MSG_INIT,
 });
+
+export const SUBMIT_NEW_PASSWORD = 'SUBMIT_NEW_PASSWORD';
+
+export const submitNewPasssword = (token) => ({
+  type: SUBMIT_NEW_PASSWORD,
+  token,
+});
+
+export const DISPLAY_ELEMENT = 'DISPLAY_ELEMENT';
+
+export const displayElement = () => ({
+  type: DISPLAY_ELEMENT,
+});
+
+export const INIT_USER = 'INIT_USER';
+
+export const initUser = () => ({
+  type: INIT_USER,
+});

@@ -7,7 +7,7 @@ import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
-import { initError, logIn } from '../../actions';
+import { initError, logIn, initUser } from '../../actions';
 import './style.scss';
 
 function Connexion() {
@@ -19,6 +19,7 @@ function Connexion() {
   // initialise error msg on first render
   useEffect(() => {
     dispatch(initError());
+    dispatch(initUser());
   }, []);
 
   // get error informations from state

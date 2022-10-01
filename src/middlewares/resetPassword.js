@@ -1,10 +1,12 @@
+/* eslint-disable quote-props */
 import axios from 'axios';
 import {
-  msgSent, RESET_PASSWORD, setError, toggleLoading,
+  displayElement,
+  msgSent, RESET_PASSWORD, setError, SUBMIT_NEW_PASSWORD, toggleLoading,
 } from '../actions';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5050/user',
+  baseURL: 'http://localhost:5050/',
 });
 
 const resetPassword = (store) => (next) => (action) => {
@@ -17,7 +19,7 @@ const resetPassword = (store) => (next) => (action) => {
         },
       };
       const { user: { email } } = store.getState();
-      instance.post('/resetpassword', { email }, config)
+      instance.post('user/resetpassword', { email }, config)
         .then((response) => {
           store.dispatch(msgSent(response.data.status));
           store.dispatch(toggleLoading());
@@ -35,6 +37,31 @@ const resetPassword = (store) => (next) => (action) => {
     }
     catch (error) {
       // console.error(error);
+      store.dispatch(setError(error.message));
+    }
+  }
+  else if (action.type === SUBMIT_NEW_PASSWORD) {
+    // console.log(action.token)
+    try {
+      store.dispatch(toggleLoading());
+      const { user: { password } } = store.getState();
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `${action.token}`,
+        },
+      };
+      instance.post('api/newpassword', { password }, config)
+        .then((response) => {
+          store.dispatch(msgSent(response.data.message));
+          store.dispatch(displayElement());
+          store.dispatch(toggleLoading());
+        })
+        .catch((error) => {
+          store.dispatch(setError(error.message));
+        });
+    }
+    catch (error) {
       store.dispatch(setError(error.message));
     }
   }
