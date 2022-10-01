@@ -130,3 +130,16 @@ export const resetPassword = (email) => ({
   type: RESET_PASSWORD,
   email,
 });
+
+export const MSG_SENT = 'MSG_SENT';
+
+export const msgSent = (msg) => ({
+  type: MSG_SENT,
+  msg,
+});
+
+export const MSG_INIT = 'MSG_INIT';
+
+export const msgInit = () => ({
+  type: MSG_INIT,
+});

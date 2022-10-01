@@ -5,7 +5,7 @@ import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
-import { initError, resetPassword } from '../../actions';
+import { initError, msgInit, resetPassword } from '../../actions';
 import './style.scss';
 
 function ForgottenPassword() {
@@ -22,6 +22,11 @@ function ForgottenPassword() {
 
   const loading = useSelector((state) => state.user.loading);
   const email = useSelector((state) => state.user.email);
+  const msg = useSelector((state) => state.informations.msg);
+
+  useEffect(() => {
+    dispatch(msgInit());
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,7 +42,8 @@ function ForgottenPassword() {
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
           </header>
           {isError && <Error msg={errorMsg} />}
-          {!loading && (
+          {msg && <p>{msg}</p>}
+          {(!loading && !msg) && (
             <form className="form" onSubmit={handleSubmit}>
               <div className="form__field">
                 <label htmlFor="email">Adresse email *</label>
