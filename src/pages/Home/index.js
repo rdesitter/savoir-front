@@ -18,10 +18,10 @@ function Home() {
       <Container>
         <Search />
         <Panel>
-          <Thumbnail list={data} title="Ils vous proposent" url="besoin" />
+          <Thumbnail list={data} title="Ils vous proposent" url="partage" />
         </Panel>
         <Panel>
-          <Thumbnail list={data} title="Ils recherchent" url="recherche" />
+          <Thumbnail list={data} title="Ils recherchent" url="besoin" />
         </Panel>
       </Container>
     </Page>
