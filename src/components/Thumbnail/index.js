@@ -1,26 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ThumbnailPreview from './ThumbnailPreview';
 import { getPosts } from '../../actions';
 import './style.scss';
 
-function Thumbnail() {
+function Thumbnail(list, title, url) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
   }, []);
-  const listOfPosts = useSelector((state) => state.posts.posts);
-  // console.log(post);
+  // console.log(listOfPosts);
 
   return (
     <>
       <div className="thumbnails-type">
-        <h2 className="thumbnails-type__title">Ils vous proposent</h2>
-        <Link className="thumbnails-type__link" to="/besoin">Voir toutes les annonces</Link>
+        <h2 className="thumbnails-type__title">{title}</h2>
+        <Link className="thumbnails-type__link" to={`/${url}`}>voir toutes les annonces</Link>
       </div>
       <div className="thumbnails">
-        {listOfPosts.map((post) => (
+        {list.map((post) => (
           <ThumbnailPreview
             key={post.id}
             avatar={post.user.avatar}
