@@ -21,7 +21,7 @@ function Home() {
           <Thumbnail list={data} title="Ils vous proposent" url="besoin" />
         </Panel>
         <Panel>
-          <Thumbnail />
+          <Thumbnail list={data} title="Ils recherchent" url="recherche" />
         </Panel>
       </Container>
     </Page>
