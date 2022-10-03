@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import {
-  GET_CATEGORIES, launchSearch, LAUNCH_SEARCH, setCategories, toggleLoading,
+  GET_CATEGORIES, LAUNCH_SEARCH, setCategories, toggleLoading, setResults,
 } from '../actions';
 // import categories from '../data/categories';
 
@@ -32,14 +32,10 @@ const search = (store) => (next) => (action) => {
   }
 
   if (action.type === LAUNCH_SEARCH) {
-    const navigate = useNavigate();
-    instance.get('/api/annonces/category/:category_id')
+    instance.get(`/api/annonces/category/${action.category}`)
       .then((response) => {
-        store.dispatch(launchSearch(response.data.learnOrShare, response.data));
-        store.dispatch(toggleLoading());
-        const learnOrShareValue = response.data.learnOrShareInfo;
-        const categoryValue = response.data.name;
-        navigate(`/recherche?learnOrShare=${learnOrShareValue}&category=${categoryValue}`);
+        // console.log('ma reponse', response);
+        store.dispatch(setResults(response.data));
       })
       .catch((error) => {
       // en cas d’échec de la requête
