@@ -1,8 +1,8 @@
 export default [
   {
     id: 1,
-    name: 'Arts',
-    slug: 'arts',
+    name: 'Administration',
+    slug: 'administration',
   },
   {
     id: 2,
@@ -11,7 +11,7 @@ export default [
   },
   {
     id: 3,
-    name: 'Sports',
-    slug: 'sports',
+    name: 'Sport',
+    slug: 'sport',
   },
 ];
