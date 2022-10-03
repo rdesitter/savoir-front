@@ -1,0 +1,75 @@
+@use '../../styles/vars';
+@use '../../styles/mixin';
+
+.user-informations {
+  width: 100%;
+  // @include mixin.media('medium') {
+  //   width: 39%;
+  // }
+}
+
+.div-panel{
+  display: flex;
+}
+
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1em;
+
+  &__name{
+    font-weight: bold;
+  }
+
+  &__avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    height: 4em;
+
+  }
+  &__avatar-img{
+    width: 2.5em;
+    border-radius: 50%;
+    background-color: vars.$medium-grey-color;
+  }
+  &__date{
+    font-size: .8em;
+    margin-bottom: 1em;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  &__contact-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid vars.$primary-color;
+    border-radius: vars.$btn-radius;
+    padding: .4em;
+  }
+  &__mail{
+    width: fit-content;
+    font-size: .8em;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  &__copy{
+    background-color: white;
+    border-radius: vars.$btn-radius;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    &-ok{
+      background-color: white;
+      border-radius: vars.$btn-radius;
+      border: 2px solid vars.$success-color;
+    }
+  }
+}
+// copy-ok{
+//   background-color: white;
+//   border-radius: vars.$btn-radius;
+//   border: 2px solid green
+// }

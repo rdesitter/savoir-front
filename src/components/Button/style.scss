@@ -1,0 +1,56 @@
+@use '../../styles/vars';
+
+.button {
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: vars.$btn-radius;
+  padding: vars.$space-10 vars.$space-30;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  &--plain {
+    background-color: vars.$primary-color;
+    color: vars.$light-color;
+    transition: all linear 0.3s;
+    border: 1px solid vars.$primary-color-alt;
+
+    &:hover {
+      background-color: vars.$primary-color-alt;
+    }
+  }
+
+  &--outlined {
+    background-color: transparent;
+    border: 1px solid vars.$primary-color;
+    color: vars.$primary-color;
+    transition: all linear 0.3s;
+
+    &:hover {
+      color: vars.$primary-color-alt;
+      border: 1px solid vars.$primary-color-alt;
+      text-decoration: none;
+    }
+  }
+
+  &--delete {
+    background-color: vars.$error-color;
+    color: vars.$dark-color;
+    transition: all linear 0.3s;
+    border: 1px solid vars.$error-color-alt;
+    padding: vars.$space-10;
+
+    &:hover {
+      background-color: vars.$error-color;
+    }
+  }
+
+  &__icon {
+    width: vars.$space-20;
+    margin-right: vars.$space-10;
+  }
+
+  :has(.button__icon) span {
+    margin-right: vars.$space-10;
+  }
+}

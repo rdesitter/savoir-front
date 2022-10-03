@@ -1,0 +1,12 @@
+@use '../../styles/mixin';
+@use '../../styles/vars';
+
+.posts {
+  display: flex;
+  flex-direction: column;
+
+  @include mixin.media('medium') {
+    flex-direction: row;
+  }
+
+}

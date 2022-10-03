@@ -1,0 +1,64 @@
+@use '../../styles/mixin';
+@use '../../styles/vars';
+
+.post-preview {
+  width: 100%;
+  margin-right: vars.$space-20;
+  border: 1px solid vars.$light-stroke-color;
+  border-radius: vars.$panel-radius;
+
+  @include mixin.media('small') {
+    max-width: 250px;
+  }
+
+  &__cover {
+    overflow: hidden;
+    border-top-left-radius: vars.$panel-radius;
+    border-top-right-radius: vars.$panel-radius;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__title {
+    padding-left: vars.$space-10;
+    font-size: vars.$font-medium;
+    font-weight: bold;
+  }
+
+  &__date {
+    opacity: 0.5;
+    padding-left: vars.$space-10;
+  }
+
+  &__buttons {
+    display: flex;
+    padding-left: vars.$space-10;
+    padding-right: vars.$space-10;
+    padding-bottom: vars.$space-10;
+
+    button, a {
+      flex-grow: 1;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
+
+.delete-btn {
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: vars.$btn-radius;
+  padding: vars.$space-10;
+  display: flex;
+  align-items: center;
+  background-color: vars.$error-color;
+  color: vars.$dark-color;
+  transition: all linear 0.3s;
+  border: 1px solid vars.$error-color;
+
+  img {
+    width: 24px;
+  }
+}

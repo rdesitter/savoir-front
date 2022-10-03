@@ -1,0 +1,64 @@
+@use 'reset';
+@use 'vars';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: vars.$font-family;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  background-color: vars.$light-grey-color;
+  min-height: 100vh;
+}
+
+.section {
+  padding: vars.$space-20 0;
+  &__header {
+    margin-bottom: vars.$space-30;
+  }
+  
+  &__title {
+    font-size: vars.$font-big;
+    margin-bottom: vars.$space-10;
+    font-weight: bold;
+  }
+}
+
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: vars.$space-10;
+}
+
+.link {
+  color: vars.$primary-color;
+  transition: all linear 0.3s;
+
+  &:hover {
+    color: vars.$primary-color-alt;
+  }
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.divider {
+  margin: 0;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    content: "";
+    height: 1px;
+    width: calc(100% - 40px);
+    background-color: vars.$medium-grey-color;
+  }
+}
