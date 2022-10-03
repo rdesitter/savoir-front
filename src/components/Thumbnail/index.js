@@ -4,6 +4,8 @@ import ThumbnailPreview from './ThumbnailPreview';
 import { getPosts } from '../../actions';
 
 import './style.scss';
+import { Link } from 'react-router-dom';
+import Button from '../Button';
 
 function Thumbnail() {
   const dispatch = useDispatch();
@@ -16,16 +18,18 @@ function Thumbnail() {
   return (
     <div className="thumbnails">
       {listOfPosts.map((post) => (
-        <ThumbnailPreview
-          key={post.id}
-          avatar={post.user.avatar}
-          name={post.user.username}
-          userId={post.user.userId}
-          category={post.category}
-          postId={post.id}
-          title={post.title}
-          postDescription={post.description}
-        />
+        <>
+          <ThumbnailPreview
+            key={post.id}
+            avatar={post.user.avatar}
+            name={post.user.username}
+            userId={post.user.userId}
+            category={post.category}
+            postId={post.id}
+            title={post.title}
+          />
+
+        </>
       ))}
     </div>
   );
