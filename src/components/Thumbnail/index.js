@@ -1,11 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ThumbnailPreview from './ThumbnailPreview';
 import { getPosts } from '../../actions';
-
 import './style.scss';
-import { Link } from 'react-router-dom';
-import Button from '../Button';
 
 function Thumbnail() {
   const dispatch = useDispatch();
@@ -16,9 +14,13 @@ function Thumbnail() {
   // console.log(post);
 
   return (
-    <div className="thumbnails">
-      {listOfPosts.map((post) => (
-        <>
+    <>
+      <div className="thumbnails-type">
+        <h2 className="thumbnails-type__title">Ils vous proposent</h2>
+        <Link className="thumbnails-type__link" to="/besoin">Voir toutes les annonces</Link>
+      </div>
+      <div className="thumbnails">
+        {listOfPosts.map((post) => (
           <ThumbnailPreview
             key={post.id}
             avatar={post.user.avatar}
@@ -28,10 +30,9 @@ function Thumbnail() {
             postId={post.id}
             title={post.title}
           />
-
-        </>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
 

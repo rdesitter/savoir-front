@@ -5,6 +5,16 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #FFFFFF;
+
+  &-type{
+
+    display: flex;
+    &__link{
+      text-decoration: underline;
+      color: skyblue;
+      margin-left: vars.$space-10;
+    }
+  }
 }
 .thumbnail {
   display: flex;
