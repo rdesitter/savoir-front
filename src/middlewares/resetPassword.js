@@ -19,7 +19,7 @@ const resetPassword = (store) => (next) => (action) => {
         },
       };
       const { user: { email } } = store.getState();
-      instance.post('/user/resetpassword', { email }, config)
+      instance.post('/api/resetpassword', { email }, config)
         .then((response) => {
           store.dispatch(msgSent(response.data.status));
           store.dispatch(toggleLoading());
@@ -50,7 +50,7 @@ const resetPassword = (store) => (next) => (action) => {
           'Authorization': `${action.token}`,
         },
       };
-      instance.post('/api/newpassword', { password }, config)
+      instance.patch('/api/newpassword', { password }, config)
         .then((response) => {
           store.dispatch(msgSent(response.data.message));
           store.dispatch(displayElement());
