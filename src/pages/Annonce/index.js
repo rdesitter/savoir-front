@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -28,34 +27,34 @@ function Annonce() {
     id,
   });
 
-  // console.log('SELECTEDPOST', selectedPost[0].category);
+  console.log('SELECTEDPOST', selectedPost);
 
   return (
     <Page>
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label="informatique" />
-            <Label label="rencontre" />
+            <Label label="informatique" color="grey" />
+            <Label label="rencontre" color="grey" />
           </section>
-          <p className="post-infos__date">Annonce publiée le {selectedPost[0].createdAt}</p>
+          <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           {isAdmin && (
             <Button label="Supprimer cette annonce" style={{ backgroundColor: 'red' }} />
           )}
           <div className="global-infos">
             <PostDetails
-              title={selectedPost[0].title}
-              localisation={selectedPost[0].location}
-              description={selectedPost[0].description}
+              title={selectedPost.title}
+              localisation={selectedPost.location}
+              description={selectedPost.description}
             />
             <div className="vignettes">
               <MorePostInfos info="Animaux acceptés" />
 
               <AccountDetailsPost
-                avatar={selectedPost[0].user.avatar}
-                name={selectedPost[0].user.username}
-                createdAt={selectedPost[0].user.createdAt}
-                email={selectedPost[0].user.email}
+                avatar={selectedPost.user.avatar}
+                name={selectedPost.user.username}
+                createdAt={selectedPost.user.createdAt}
+                email={selectedPost.user.email}
               />
             </div>
           </div>
@@ -69,9 +68,5 @@ function Annonce() {
 
   );
 }
-
-Annonce.propTypes = {
-
-};
 
 export default Annonce;
