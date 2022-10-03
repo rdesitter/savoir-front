@@ -5,7 +5,7 @@ import {
 } from '../actions';
 
 const instance = axios.create({
-  baseURL: 'https://savoirs.onrender.com/api',
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 const ajax = (store) => (next) => (action) => {
@@ -18,11 +18,10 @@ const ajax = (store) => (next) => (action) => {
         },
       };
       const { user: { email, password } } = store.getState();
-      instance.post('/login', { email, password }, config).then((response) => {
+      instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
-        // console.log(response.data.user[0]);
         localStorage.setItem('user', JSON.stringify(response.data.user[0]));
         const data = { user: response.data.user[0], token };
         store.dispatch(setUser(data));
@@ -48,20 +47,25 @@ const ajax = (store) => (next) => (action) => {
           'Content-Type': 'application/json',
         },
       };
+      const date = new Date().toISOString().split('T')[0];
       const {
         user: {
           email, password, username: pseudo, birthdate,
         },
       } = store.getState();
-      const role_id = '1';
-      instance.post('/register', {
-        email, password, pseudo, birthdate, role_id,
+      instance.post('/api/register', {
+        email, password, pseudo, birthdate,
       }, config).then((response) => {
-        const token = response.data.accessToken;
+        const token = response.data.newTokens.accessToken;
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({
-          email, password, pseudo, birthdate,
+          email, password, pseudo, birthdate, created_at: date, id: response.data.newUser,
+        }));
+        store.dispatch(setUser({
+          user: {
+            email, pseudo, birthdate, created_at: date, userId: response.data.newUser,
+          },
         }));
         store.dispatch(toggleLoading());
       }).catch((error) => {

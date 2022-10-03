@@ -9,7 +9,7 @@ import './style.scss';
 function About() {
   return (
     <Page>
-      <Container maxWidth="500px">
+      <Container>
         <section className="about">
           <header>
             <h1 className="about__title">&Agrave; propos...</h1>

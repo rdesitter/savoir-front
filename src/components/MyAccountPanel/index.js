@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import './style.scss';
@@ -17,7 +18,9 @@ function MyAccountPanel({ email }) {
       </div>
       <div className="account-panel__bloc">
         <Button label="Modifier mon email" btnstyle="outlined" />
-        <Button label="Modifier mon mot de passe" btnstyle="outlined" />
+        <Link to="/modifier-mot-de-passe">
+          <Button label="Modifier mon mot de passe" btnstyle="outlined" />
+        </Link>
         <Button label="Supprimer mon compte" style={{ backgroundColor: redColor }} />
       </div>
     </div>

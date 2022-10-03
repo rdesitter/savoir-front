@@ -23,44 +23,18 @@
   &__buttons {
     display: flex;
     flex-direction: column;
+    @include mixin.media('medium') {
+      width: 50%;
+    }
     
   }
 
   &__link {
-    width: 100%;
     margin-bottom: vars.$space-20;
     @include mixin.media('medium') {
-      width:50%;
       margin-bottom: vars.$space-20;
     }
   }
 
-  &__one-button {
-    width: 100%;
-    margin: auto;
-    font-weight: bold;
-    font-size: 1em;
-    border-radius: vars.$btn-radius;
-    padding: vars.$space-10 vars.$space-30;
-    background-color: transparent;
-    border: 1px solid vars.$primary-color;
-    color: vars.$primary-color;
-    transition: all linear 0.3s;
-
-    @include mixin.media('medium') {
-      &:hover {
-        color: vars.$light-color;
-        background-color: vars.$primary-color;
-        border: 1px solid vars.$primary-color-alt;
-        text-decoration: none;
-      }
-      // &:focus{
-      //   color: vars.$light-color;
-      //   background-color: #07837b;
-      //   border: 1px solid vars.$primary-color-alt;
-      //   text-decoration: none;
-      // }
-    }
-  }
 }
 

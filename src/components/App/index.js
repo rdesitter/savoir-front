@@ -1,6 +1,6 @@
 // == Import
-import { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Team from '../../pages/Team';
 import About from '../../pages/About';
@@ -24,19 +24,29 @@ import AnnoncesCategorie from '../../pages/AnnoncesCategorie';
 import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
 import { setUser } from '../../actions';
+import ForgottenPassword from '../../pages/ForgottenPassword';
+import ResetPassword from '../../pages/ResetPassword';
 
 // == Composant
 function App() {
   useScrollTop();
+  const [passwordToken, setPasswordToken] = useState(null);
   const isLogged = useSelector((state) => state.user.logged);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const token = localStorage.getItem('token');
   useEffect(() => {
-    const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user'));
     if (token) {
       dispatch(setUser({ user, token }));
     }
   }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/nouveau-mot-de-passe') {
+      setPasswordToken(location.search.slice(1));
+    }
+  }, [passwordToken]);
 
   return (
     <div className="app">
@@ -56,12 +66,17 @@ function App() {
         <Route path="/profil/:id" element={<Profile />} />
         <Route path="/recherche" element={<SearchPage />} />
         <Route path="/annonces/ajouter" element={<CreatePost />} />
+        <Route path="/oubli-mot-de-passe" element={<ForgottenPassword />} />
+        {passwordToken && <Route path="/nouveau-mot-de-passe" element={<ResetPassword token={passwordToken} />} />}
         <Route path="*" element={<NotFound />} />
 
         {/* Private */}
         {isLogged
         && (
-        <Route path="/mon-compte" element={<MyAccount />} />
+          <>
+            <Route path="/mon-compte" element={<MyAccount />} />
+            <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
+          </>
         )}
       </Routes>
       <AppFooter />
