@@ -3,7 +3,7 @@ export default [
     id: 1,
     createdAt: '15/12/22',
     title: 'Balade avec les toutous !',
-    condition: 'recherche',
+    condition: 'besoin',
     category: 'animaux',
     location: 'Bordeaux',
     zipcode: 33000,

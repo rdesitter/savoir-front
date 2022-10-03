@@ -10,7 +10,6 @@ function ThumbnailPreview({
   name,
   category,
   title,
-  postDescription,
   userId,
   postId,
 }) {
@@ -31,9 +30,6 @@ function ThumbnailPreview({
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
-          <p className="thumbnail-infos__description">
-            {postDescription}
-          </p>
         </div>
       </Link>
       <span className="spacer" />
@@ -49,7 +45,6 @@ ThumbnailPreview.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  postDescription: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   postId: PropTypes.number.isRequired,
 

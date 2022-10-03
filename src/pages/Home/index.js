@@ -5,6 +5,10 @@ import Container from 'src/components/Container';
 import Panel from '../../components/Panel';
 import Thumbnail from '../../components/Thumbnail';
 import Hero from '../../components/Hero';
+// import fake data
+import data from '../../data/posts';
+
+console.log(data);
 
 function Home() {
   const isLogged = useSelector((state) => state.user.logged);
@@ -14,10 +18,10 @@ function Home() {
       <Container>
         <Search />
         <Panel>
-          <Thumbnail />
+          <Thumbnail list={data} title="Ils vous proposent" url="partage" />
         </Panel>
         <Panel>
-          <Thumbnail />
+          <Thumbnail list={data} title="Ils recherchent" url="besoin" />
         </Panel>
       </Container>
     </Page>
