@@ -34,7 +34,7 @@
     padding-bottom: vars.$space-30;
     color: #444444;
     // responsive
-    @include mixin.media('medium') {
+    @include mixin.media('large') {
       justify-content: space-between;
       border-right: 0.063em solid vars.$light-stroke-color;
       margin: vars.$space-10;
