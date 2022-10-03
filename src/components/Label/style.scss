@@ -1,12 +1,14 @@
 @use '../../styles/vars';
 
 .label {
+  all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: vars.$btn-radius;
   background-color: rgb(169, 169, 169);
   width: fit-content;
+  padding: 0 .5em;
   height: 1.4em;
   margin-left: .3em;
   font-style: italic;
