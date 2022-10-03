@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Label from '../../components/Label';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -11,26 +11,31 @@ import AccountDetailsPost from '../../components/AccountDetailsPost';
 import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 import useScrollTop from '../../hooks/useScrollTop';
+import { getSelectedPost } from '../../actions';
 
 function Annonce() {
   useScrollTop();
   const { id } = useParams();
   const dispatch = useDispatch();
   const isAdmin = useSelector((state) => state.user.admin);
+  useEffect(() => {
+    dispatch(getSelectedPost());
+  }, []);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   dispatch({
-    type: 'DISPLAY_POST',
+    type: 'GET_SELECTED_POST',
     id,
   });
 
-  // console.log(selectedPost);
+  console.log('SELECTEDPOST', selectedPost);
+
   return (
     <Page>
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label="informatique" />
-            <Label label="rencontre" />
+            <Label label="informatique" color="grey" />
+            <Label label="rencontre" color="grey" />
           </section>
           <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           {isAdmin && (
@@ -63,9 +68,5 @@ function Annonce() {
 
   );
 }
-
-Annonce.propTypes = {
-
-};
 
 export default Annonce;

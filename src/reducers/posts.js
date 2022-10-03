@@ -1,4 +1,7 @@
-import { SET_POSTS } from '../actions';
+import {
+  SET_POSTS,
+  SET_SELECTED_POST,
+} from '../actions';
 
 export const initialState = {
   posts: [],
@@ -12,6 +15,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         posts: action.posts,
+      };
+    case SET_SELECTED_POST:
+      return {
+        ...state,
+        selectedPost: action.selectedPost,
       };
     default:
       return state;

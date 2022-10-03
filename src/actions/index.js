@@ -189,6 +189,19 @@ export const setPosts = (posts) => ({
   posts,
 });
 
+export const GET_SELECTED_POST = 'GET_SELECTED_POST';
+
+export const getSelectedPost = () => ({
+  type: GET_SELECTED_POST,
+});
+
+export const SET_SELECTED_POST = 'SET_SELECTED_POST';
+
+export const setSelectedPost = (selectedPost) => ({
+  type: SET_SELECTED_POST,
+  selectedPost,
+});
+  
 export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
 
 export const toggleLogged = () => ({
