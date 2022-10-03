@@ -18,7 +18,6 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
       });
   }
 
