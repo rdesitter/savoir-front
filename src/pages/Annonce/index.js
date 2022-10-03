@@ -62,7 +62,7 @@ function Annonce() {
       </Container>
       <section className="more-posts">
         <h2 className="more-posts__title">Annonces similaires</h2>
-        <Thumbnail />
+        {/* <Thumbnail /> */}
       </section>
     </Page>
 
