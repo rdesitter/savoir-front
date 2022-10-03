@@ -29,7 +29,7 @@ export default [
   },
   {
     id: 8,
-    content: 'Saviez-vous que vous pouviez créer une étincelle en croquant dans un bonbon dur ? Lorsque vous mordez dedans, vous brisé les molécules de sucre et séparé les charges positives des charges négatives, ce qui peut provoquer une étincelle.',
+    content: 'Saviez-vous que Hawaii se rapproche de l\'Alaska chaque année ? A cause de la tectonique des plaques, l\'archipel se déplace en effet d\'environ 7,5cm par an',
   },
   {
     id: 9,
@@ -58,6 +58,10 @@ export default [
   {
     id: 15,
     content: 'Saviez-vous que McDonald avait inventé un chewing-gum goût brocoli pour inciter les enfants à mieux manger ? Il n\'a jamais été commercialisé face aux echecs durant les tests de dégustation !',
+  },
+  {
+    id: 16,
+    content: 'Saviez-vous que l`oxygène avait une couleur ? Sous forme gazeuse, l\'oxygène n\'a ni odeur, ni couleur. Mais sous forme liquide, il est bleu pâle.',
   },
 
 ];
