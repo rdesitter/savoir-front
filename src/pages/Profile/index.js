@@ -16,7 +16,7 @@ function Profile() {
   const { id } = useParams();
   const [userProfile, setUserProfile] = useState({});
   const [loading, setLoading] = useState(true);
-
+  console.log('USER', userProfile);
   useEffect(() => {
     const user = getUSerProfile(id);
     setUserProfile(user);
