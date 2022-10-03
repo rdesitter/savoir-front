@@ -73,7 +73,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         info: {
           isDisplayed: true,
-          msg: 'Merci, votre message a bien été envoyé. Nous vous contacterons dans les plus brefs délais.',
+          msg: action.msg,
         },
       };
     case INIT_INFO:

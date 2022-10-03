@@ -62,8 +62,9 @@ export const initError = () => ({
 
 export const SENT_MSG = 'SENT_MSG';
 
-export const sentMsg = () => ({
+export const sentMsg = (msg) => ({
   type: SENT_MSG,
+  msg,
 });
 
 export const INIT_INFO = 'INIT_INFO';
