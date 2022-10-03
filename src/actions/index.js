@@ -6,6 +6,14 @@ export const changeValue = (value, name) => ({
   key: name,
 });
 
+export const CHANGE_VALUE_POST = 'CHANGE_VALUE_POST';
+
+export const changeValuePost = (value, name) => ({
+  type: CHANGE_VALUE_POST,
+  value: value,
+  key: name,
+});
+
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 
 export const sendMessage = () => ({
@@ -193,4 +201,24 @@ export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
 
 export const toggleLogged = () => ({
   type: TOGGLE_LOGGED,
+});
+
+export const NEW_POST = 'NEW_POST';
+
+export const newPost = (dataObject) => ({
+  type: NEW_POST,
+  data: dataObject,
+});
+
+export const SET_NEW_POST = 'SET_NEW_POST';
+
+export const setNewPost = (dataObject) => ({
+  type: SET_NEW_POST,
+  data: dataObject,
+});
+
+export const RESET_NEW_POST = 'RESET_NEW_POST';
+
+export const resetNewPost = () => ({
+  type: RESET_NEW_POST,
 });

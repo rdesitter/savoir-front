@@ -20,7 +20,7 @@ const ajax = (store) => (next) => (action) => {
       const { user: { email, password } } = store.getState();
       instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
-        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+        instance.defaults.headers.common.Authorization = `${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user[0]));
         const data = { user: response.data.user[0], token };
