@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
   GET_CATEGORIES, LAUNCH_SEARCH, setCategories, toggleLoading, setResults,
 } from '../actions';
