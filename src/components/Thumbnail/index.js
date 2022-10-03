@@ -17,6 +17,7 @@ function Thumbnail() {
     <div className="thumbnails">
       {listOfPosts.map((post) => (
         <ThumbnailPreview
+          key={post.id}
           avatar={post.user.avatar}
           name={post.user.username}
           userId={post.user.userId}
