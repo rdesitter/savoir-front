@@ -5,7 +5,7 @@ import Container from 'src/components/Container';
 import Panel from '../../components/Panel';
 import Thumbnail from '../../components/Thumbnail';
 import Hero from '../../components/Hero';
-
+// import fake data
 import data from '../../data/posts';
 
 console.log(data);
