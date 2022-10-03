@@ -15,7 +15,7 @@ function ThumbnailPreview({
 }) {
   return (
     <article className="thumbnail">
-      <Link to={`/utilisateur/${userId}`} title={`vers le profil de ${name}`}>
+      <Link to={`/profil/${userId}`} title={`vers le profil de ${name}`}>
         <div className="thumbnail-user__infos">
           <div className="thumbnail-user__img">
             <img className="thumbnail-user__img__avatar" src={`/images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
@@ -26,14 +26,14 @@ function ThumbnailPreview({
 
       <Label label={category} color="light-grey" />
 
-      <Link to={`/annonce/${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
         </div>
       </Link>
       <span className="spacer" />
-      <Link to={`/annonce/${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <Button label="Voir l'annonce" btnstyle="outlined" />
       </Link>
     </article>
