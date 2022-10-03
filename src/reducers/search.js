@@ -1,7 +1,6 @@
 import {
   CHANGE_CATEGORY_VALUE, CHANGE_LEARNORSHARE_VALUE, LAUNCH_SEARCH, SET_RESULTS,
 } from '../actions';
-// import posts from '../data/posts';
 
 export const initialState = {
   learnOrShare: '',
