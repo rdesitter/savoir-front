@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -5,7 +6,7 @@ import ThumbnailPreview from './ThumbnailPreview';
 import { getPosts } from '../../actions';
 import './style.scss';
 
-function Thumbnail(list, title, url) {
+function Thumbnail({ list, title, url }) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
@@ -34,5 +35,11 @@ function Thumbnail(list, title, url) {
     </>
   );
 }
+
+Thumbnail.propTypes = {
+  list: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+};
 
 export default Thumbnail;

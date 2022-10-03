@@ -6,6 +6,10 @@ import Panel from '../../components/Panel';
 import Thumbnail from '../../components/Thumbnail';
 import Hero from '../../components/Hero';
 
+import data from '../../data/posts';
+
+console.log(data);
+
 function Home() {
   const isLogged = useSelector((state) => state.user.logged);
   return (
@@ -14,7 +18,7 @@ function Home() {
       <Container>
         <Search />
         <Panel>
-          <Thumbnail />
+          <Thumbnail list={data} title="Ils vous proposent" url="besoin" />
         </Panel>
         <Panel>
           <Thumbnail />
