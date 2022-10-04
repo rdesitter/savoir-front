@@ -25,6 +25,7 @@ import ForgottenPassword from '../../pages/ForgottenPassword';
 import ResetPassword from '../../pages/ResetPassword';
 import Categories from '../../pages/Categories';
 import './styles.scss';
+import Category from '../../pages/Category';
 import Type from '../../pages/Type';
 
 // == Composant
@@ -55,6 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:slug" element={<Category />} />
         <Route path="/annonces/:id" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/a-propos" element={<About />} />

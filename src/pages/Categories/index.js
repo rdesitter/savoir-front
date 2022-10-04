@@ -25,7 +25,7 @@ function Categories() {
           {categories.map((category) => (
             <li className="categories__item" key={category.id}>
               <Link
-                to={`categories/${category.id}`}
+                to={`/categories/${category.slug}`}
                 className="categories__link"
                 title="Voir les annonces de la catégorie"
               >

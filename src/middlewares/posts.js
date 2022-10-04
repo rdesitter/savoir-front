@@ -6,6 +6,7 @@ import {
   setSelectedPost,
   setSimilarPosts,
   togglePostError,
+  GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
 } from '../actions';
 
@@ -21,6 +22,7 @@ const selectPost = (store) => (next) => (action) => {
     // AXIOS - posts from back
     store.dispatch(setPosts(posts));
   }
+  
   else if (action.type === GET_SELECTED_POST) {
     instance(`/api/annonces/${action.id}`)
       .then((response) => {
@@ -33,6 +35,17 @@ const selectPost = (store) => (next) => (action) => {
       });
     // store.dispatch(setSelectedPost(selectedPost));
   }
+
+  else if (action.type === GET_POSTS_BY_CATEGORY) {
+    instance(`/api/annonces/type/${action.id}`)
+      .then((response) => {
+        store.dispatch(setPosts(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   else if (action.type === GET_TYPE_POSTS) {
     instance(`/api/annonces/type/${action.id}`)
       .then((response) => {
