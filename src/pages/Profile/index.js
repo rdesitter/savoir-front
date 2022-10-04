@@ -21,11 +21,9 @@ function Profile() {
   // const [loading, setLoading] = useState(true);
   // console.log('USER', userProfile);
 
-  // GET_USERS => set user (id)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers(id));
-
     // setUserProfile(user);
     // setLoading(false);
   }, []);

@@ -4,10 +4,10 @@ import { GET_USERS, setSelectedUserPost, setSelectedUser } from '../actions';
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
-
 const selectUser = (store) => (next) => (action) => {
+  console.log('GETUSER', action.type);
   if (action.type === GET_USERS) {
-    instance('/api/user/1')
+    instance(`/api/user/${action.id}`)
       .then((response) => {
         store.dispatch(setSelectedUser(response.data.user));
         store.dispatch(setSelectedUserPost(response.data.adsOfUser));

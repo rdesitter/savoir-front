@@ -28,8 +28,9 @@ export const logIn = () => ({
 
 export const GET_USERS = 'GET_USERS';
 
-export const getUsers = () => ({
+export const getUsers = (id) => ({
   type: GET_USERS,
+  id,
 });
 
 export const SET_SELECTED_USER = 'SET_SELECTED_USER';
