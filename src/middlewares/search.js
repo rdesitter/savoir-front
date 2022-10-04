@@ -9,7 +9,7 @@ import {
   toggleLoading,
 } from '../actions';
 
-import results from '../data/posts';
+// import results from '../data/posts';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -41,7 +41,15 @@ const search = (store) => (next) => (action) => {
   }
 
   if (action.type === GET_POSTS_RESULTS) {
-    store.dispatch(setPostsResults(results));
+    instance.get(`/api/annonces/category/${action.category}/type/${action.learnOrShare}`)
+      .then((response) => {
+        store.dispatch(setPostsResults(response.data));
+      })
+      .catch((error) => {
+      // en cas d’échec de la requête
+        console.log(error);
+        alert('Erreur de chargement, veuillez réessayer');
+      });
   }
 
   next(action);

@@ -6,12 +6,10 @@ import { getPostsResults } from '../../actions';
 import './style.scss';
 
 function SearchResults({ results }) {
-  console.log('premier test', results);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPostsResults());
   }, []);
-  // console.log(list);
 
   const displayResults = useSelector((state) => state.search.results);
   console.log('mes résultats', displayResults);
@@ -22,7 +20,7 @@ function SearchResults({ results }) {
         <h2 className="thumbnails-type__title">Résultats de la recherche</h2>
       </div>
       <div className="thumbnails">
-        {results.map((post) => (
+        {displayResults.map((post) => (
           <OneSearchResult
             key={post.id}
             avatar={post.user.avatar}
