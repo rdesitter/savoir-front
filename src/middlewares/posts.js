@@ -6,6 +6,7 @@ import {
   setSelectedPost,
   setSimilarPosts,
   togglePostError,
+  GET_TYPE_POSTS,
 } from '../actions';
 
 import posts from '../data/posts';
@@ -31,6 +32,15 @@ const selectPost = (store) => (next) => (action) => {
         store.dispatch(togglePostError());
       });
     // store.dispatch(setSelectedPost(selectedPost));
+  }
+  else if (action.type === GET_TYPE_POSTS) {
+    instance(`/api/annonces/type/${action.id}`)
+      .then((response) => {
+        store.dispatch(setPosts(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   next(action);
