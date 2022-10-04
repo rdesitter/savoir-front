@@ -174,8 +174,9 @@ export const initUser = () => ({
 
 export const GET_SELECTED_POST = 'GET_SELECTED_POST';
 
-export const getSelectedPost = () => ({
+export const getSelectedPost = (id) => ({
   type: GET_SELECTED_POST,
+  id,
 });
 
 export const SET_SELECTED_POST = 'SET_SELECTED_POST';
@@ -183,6 +184,13 @@ export const SET_SELECTED_POST = 'SET_SELECTED_POST';
 export const setSelectedPost = (selectedPost) => ({
   type: SET_SELECTED_POST,
   selectedPost,
+});
+
+export const SET_SIMILAR_POSTS = 'SET_SIMILAR_POSTS';
+
+export const setSimilarPosts = (posts) => ({
+  type: SET_SIMILAR_POSTS,
+  similarPosts: posts,
 });
 
 export const GET_POSTS = 'GET_POSTS';
@@ -222,4 +230,10 @@ export const RESET_NEW_POST = 'RESET_NEW_POST';
 
 export const resetNewPost = () => ({
   type: RESET_NEW_POST,
+});
+
+export const TOGGLE_POST_ERROR = 'TOGGLE_POST_ERROR';
+
+export const togglePostError = () => ({
+  type: TOGGLE_POST_ERROR,
 });
