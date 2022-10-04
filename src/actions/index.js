@@ -223,3 +223,9 @@ export const RESET_NEW_POST = 'RESET_NEW_POST';
 export const resetNewPost = () => ({
   type: RESET_NEW_POST,
 });
+
+export const GET_POSTS_RESULTS = 'GET_POSTS_RESULTS';
+
+export const getPostsResults = () => ({
+  type: GET_POSTS_RESULTS,
+});
