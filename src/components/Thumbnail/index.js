@@ -1,18 +1,9 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ThumbnailPreview from './ThumbnailPreview';
-import { getPosts } from '../../actions';
 import './style.scss';
 
 function Thumbnail({ list, title, url }) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPosts());
-  }, []);
-  // console.log(listOfPosts);
-
   return (
     <>
       <div className="thumbnails-type">
