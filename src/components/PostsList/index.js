@@ -1,18 +1,14 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-import Button from '../Button';
 import Panel from '../Panel';
 import ThumbnailPreview from '../Thumbnail/ThumbnailPreview';
 import './style.scss';
 
-function PostsList() {
+function PostsList({ posts }) {
   const [isLearn, setIsLearn] = useState(true);
-  /*
-    TODO :
-    - requete ajax pour récupérer les annonces BACK
-    - les enregistrer dans le state search
-    - gérer l'affichage dans posts-list
-    - gérer le bouton charger plus
-  */
+
+  const postsLearn = posts.filter((post) => post.type_id === 1);
+  const postsShare = posts.filter((post) => post.type_id === 2);
 
   return (
     <>
@@ -29,83 +25,42 @@ function PostsList() {
           <h1 className="section__title">{isLearn ? 'Ils vous proposent' : 'Ils ont besoin de vous'}</h1>
         </header>
         <div className="posts-list">
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
-          <ThumbnailPreview
-            avatar="NOHAIR1"
-            name="Michel"
-            userId={4578}
-            category="cuisine"
-            postId={79663}
-            title="Cuisiner la choucroute"
-            postDescription="J'aimerais apprendre à cuisine une choucroute pour mes amis."
-          />
+          {isLearn && (
+            postsLearn.map((post) => (
+              <ThumbnailPreview
+                key={post.id}
+                avatar="avatar"
+                name="pseudo"
+                userId={post.user_id}
+                category="category"
+                postId={post.id}
+                title={post.title}
+              />
+            ))
+          )}
+          {isLearn && postsLearn.length === 0 && <p>Aucune annonce.</p>}
+          {!isLearn && (
+            postsShare.map((post) => (
+              <ThumbnailPreview
+                key={post.id}
+                avatar="avatar"
+                name="pseudo"
+                userId={post.user_id}
+                category="category"
+                postId={post.id}
+                title={post.title}
+              />
+            ))
+          )}
+          {!isLearn && postsShare.length === 0 && <p>Aucune annonce.</p>}
         </div>
-        <Button label="Charger plus d'annonces" />
       </Panel>
     </>
   );
 }
+
+PostsList.propTypes = {
+  posts: PropTypes.array.isRequired,
+};
 
 export default PostsList;

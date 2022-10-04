@@ -237,3 +237,10 @@ export const TOGGLE_POST_ERROR = 'TOGGLE_POST_ERROR';
 export const togglePostError = () => ({
   type: TOGGLE_POST_ERROR,
 });
+
+export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY';
+
+export const getPostByCategory = (id) => ({
+  type: GET_POSTS_BY_CATEGORY,
+  id,
+});
