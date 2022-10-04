@@ -48,5 +48,5 @@
 .posts-list {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: vars.$space-30;
+  gap: vars.$space-10;
 }
