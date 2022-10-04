@@ -7,6 +7,7 @@ import {
   LOGOUT,
   SENT_MSG,
   SET_ERROR,
+  SET_SELECTED_USER,
   SET_USER,
   TOGGLE_LOGGED,
   TOOGLE_LOADING,
@@ -35,6 +36,14 @@ export const initialState = {
   },
   admin: false,
   displayElement: false,
+  userProfil: {
+    userId: '',
+    username: '',
+    avatar: '',
+    posts: [],
+    created_at: '',
+    description: '',
+  },
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -139,6 +148,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: !state.logged,
+      };
+    case SET_SELECTED_USER:
+      return {
+        ...state,
+        userProfil: action.user,
       };
     default:
       return state;

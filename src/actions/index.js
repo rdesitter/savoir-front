@@ -26,6 +26,25 @@ export const logIn = () => ({
   type: LOGIN,
 });
 
+export const GET_USERS = 'GET_USERS';
+
+export const getUsers = () => ({
+  type: GET_USERS,
+});
+
+export const SET_SELECTED_USER = 'SET_SELECTED_USER';
+
+export const setSelectedUser = (user) => ({
+  type: SET_SELECTED_USER,
+  user,
+});
+export const SET_SELECTED_USER_POST = 'SET_SELECTED_USER_POST';
+
+export const setSelectedUserPost = (selectedUserPost) => ({
+  type: SET_SELECTED_USER_POST,
+  selectedUserPost,
+});
+
 export const SET_USER = 'SET_USER';
 
 export const setUser = (data) => ({

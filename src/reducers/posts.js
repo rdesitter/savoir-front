@@ -3,6 +3,7 @@ import {
   SET_POSTS,
   SET_SELECTED_POST,
   SET_SIMILAR_POSTS,
+  SET_SELECTED_USER_POST,
 } from '../actions';
 
 export const initialState = {
@@ -11,6 +12,7 @@ export const initialState = {
   selectedPost: {},
   similarPosts: [],
   isError: false,
+  selectedUserPost: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -34,6 +36,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isError: !state.isError,
+      };
+    case SET_SELECTED_USER_POST:
+      return {
+        ...state,
+        selectedUserPost: action.selectedUserPost,
       };
     default:
       return state;

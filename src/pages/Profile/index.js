@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import AccountDetails from '../../components/Accountdetails';
 import Button from '../../components/Button';
@@ -7,20 +7,27 @@ import Container from '../../components/Container';
 import Page from '../../components/Page';
 import Panel from '../../components/Panel';
 import UserPosts from '../../components/UserPosts';
-import getUSerProfile from '../../selectors/getUserProfile';
+// import getUSerProfile from '../../selectors/getUserProfile';
+import { getUsers } from '../../actions';
 import './style.scss';
 
 function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
-
+  const user = useSelector((state) => state.user.userProfil);
+  const userPosts = useSelector((state) => state.posts.selectedUserPost);
+  console.log('USERPOST', userPosts);
   const { id } = useParams();
-  const [userProfile, setUserProfile] = useState({});
-  const [loading, setLoading] = useState(true);
-  console.log('USER', userProfile);
+  // const [userProfile, setUserProfile] = useState({});
+  // const [loading, setLoading] = useState(true);
+  // console.log('USER', userProfile);
+
+  // GET_USERS => set user (id)
+  const dispatch = useDispatch();
   useEffect(() => {
-    const user = getUSerProfile(id);
-    setUserProfile(user);
-    setLoading(false);
+    dispatch(getUsers(id));
+
+    // setUserProfile(user);
+    // setLoading(false);
   }, []);
 
   return (
@@ -31,20 +38,20 @@ function Profile() {
         )}
 
         <Panel>
-          {loading && <div>Loading...</div>}
+          {/* {loading && <div>Loading...</div>}
           {!loading
-          && (
-            <AccountDetails
-              username={userProfile.username}
-              avatar={userProfile.avatar}
-              created_at={userProfile.created_at}
-              about={userProfile.about}
-              id={userProfile.id}
-            />
-          )}
+          && ( */}
+          <AccountDetails
+            username={user.pseudo}
+            avatar={user.avatar}
+            created_at={user.created_at}
+            about={user.description}
+            id={user.userId}
+          />
+          {/* )} */}
         </Panel>
         <Panel>
-          <UserPosts posts={userProfile.posts} title={`Les annonces de ${userProfile.username}`} />
+          <UserPosts posts={userPosts} title={`Les annonces de ${user.pseudo}`} />
         </Panel>
       </Container>
     </Page>
