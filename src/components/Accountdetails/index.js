@@ -23,7 +23,6 @@ function AccountDetails({
     navigate('/');
   };
   const date = rectifyFormat(created_at);
-
   return (
     <div className="account">
       <div className="account__avatar">

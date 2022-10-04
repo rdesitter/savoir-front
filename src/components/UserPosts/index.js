@@ -22,6 +22,7 @@ function UserPosts({ posts, title, isOwner }) {
                 title={post.title}
                 created_at={post.created_at}
                 id={post.id}
+                key={post.id}
               />
             ))}
           </div>
