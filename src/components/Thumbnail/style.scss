@@ -32,6 +32,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: vars.$space-10;
+
+    &.similar {
+      .thumbnail {
+        @include mixin.media('small') {
+          max-width: 50%;
+        }
+        @include mixin.media('medium') {
+          max-width: 35%;
+        }
+        @include mixin.media('large') {
+          max-width: 20%;
+        }
+      }
+    }
   }
 }
 
@@ -53,7 +67,7 @@
   @include mixin.media('medium') {
     flex-basis: 25%;
   }
-
+  
   @include mixin.media('large') {
     flex-basis: 20%;
   }
