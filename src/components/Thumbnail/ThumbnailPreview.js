@@ -24,16 +24,18 @@ function ThumbnailPreview({
         </div>
       </Link>
 
-      <Label label={category} color="light-grey" />
+      <Link className="thumbnail__link" to={`/categories/${category}`} title={`vers la catégorie "${category}"`}>
+        <Label label={category} color="light-grey" />
+      </Link>
 
-      <Link to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
         </div>
       </Link>
       <span className="spacer" />
-      <Link to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <Button label="Voir l'annonce" btnstyle="outlined" />
       </Link>
     </article>
