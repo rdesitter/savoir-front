@@ -24,7 +24,7 @@ function Type({ id }) {
         </header>
         {isLoading && <p>Chargement...</p>}
         <Panel>
-          <div className="thumbnails">
+          <div className="thumbnails__list">
             {!isLoading && posts.length > 0 && (
               posts.map((post) => (
                 <ThumbnailPreview
