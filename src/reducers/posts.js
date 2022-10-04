@@ -1,12 +1,16 @@
 import {
+  TOGGLE_POST_ERROR,
   SET_POSTS,
   SET_SELECTED_POST,
+  SET_SIMILAR_POSTS,
 } from '../actions';
 
 export const initialState = {
   posts: [],
   loading: true,
   selectedPost: {},
+  similarPosts: [],
+  isError: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +24,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         selectedPost: action.selectedPost,
+      };
+    case SET_SIMILAR_POSTS:
+      return {
+        ...state,
+        similarPosts: action.similarPosts,
+      };
+    case TOGGLE_POST_ERROR:
+      return {
+        ...state,
+        isError: !state.isError,
       };
     default:
       return state;

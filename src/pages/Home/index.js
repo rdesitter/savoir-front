@@ -8,7 +8,7 @@ import Hero from '../../components/Hero';
 // import fake data
 import data from '../../data/posts';
 
-console.log(data);
+// console.log(data);
 
 function Home() {
   const isLogged = useSelector((state) => state.user.logged);
