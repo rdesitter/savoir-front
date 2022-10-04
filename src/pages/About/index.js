@@ -43,10 +43,10 @@ function About() {
             </header>
             <div className="about__buttons">
               <Link to="/equipe" className="about__link">
-                <Button type="button" label="Découvrez notre belle équipe&nbsp;!" style={{ width: '100%' }} />
+                <Button type="button" label="Découvrez notre belle équipe&nbsp;!" style={{ width: '100%' }} btnstyle="outlined" />
               </Link>
               <Link to="/recherche" className="about__link">
-                <Button type="button" label="Faites votre première recherche&nbsp;!" style={{ width: '100%' }} />
+                <Button type="button" label="Faites votre première recherche&nbsp;!" style={{ width: '100%' }} btnstyle="outlined" />
               </Link>
               <Link to="/" className="about__link">
                 <Button type="button" label="Retourner à l'accueil" style={{ width: '100%' }} />
