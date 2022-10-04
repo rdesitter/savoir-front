@@ -1,8 +1,15 @@
 import axios from 'axios';
-
 import {
-  GET_CATEGORIES, LAUNCH_SEARCH, setCategories, toggleLoading, setResults, GET_POSTS_RESULTS,
+  LAUNCH_SEARCH,
+  GET_CATEGORIES,
+  GET_POSTS_RESULTS,
+  setCategories,
+  setResults,
+  setPostsResults,
+  toggleLoading,
 } from '../actions';
+
+import results from '../data/posts';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -34,15 +41,7 @@ const search = (store) => (next) => (action) => {
   }
 
   if (action.type === GET_POSTS_RESULTS) {
-    instance.get(`/api/annonces/category/${action.category}`)
-      .then((response) => {
-        store.dispatch(setDisplayResults(response.data));
-      })
-      .catch((error) => {
-      // en cas d’échec de la requête
-        console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
-      });
+    store.dispatch(setPostsResults(results));
   }
 
   next(action);

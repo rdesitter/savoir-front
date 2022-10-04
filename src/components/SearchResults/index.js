@@ -2,20 +2,19 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import OneSearchResult from './OneSearchResult';
-// import { Link } from 'react-router-dom';
-// import ThumbnailPreview from './ThumbnailPreview';
 import { getPostsResults } from '../../actions';
 import './style.scss';
 
 function SearchResults({ results }) {
+  console.log('premier test', results);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPostsResults());
   }, []);
   // console.log(list);
 
-  // const displayResults0 = useSelector((state) => state.search.results);
-  // console.log(displayResults0);
+  const displayResults = useSelector((state) => state.search.results);
+  console.log('mes résultats', displayResults);
 
   return (
     <>

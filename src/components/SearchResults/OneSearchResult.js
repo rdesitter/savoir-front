@@ -5,7 +5,7 @@ import Button from '../Button';
 
 import './style.scss';
 
-function ThumbnailPreview({
+function OneSearchResult({
   avatar,
   name,
   category,
@@ -40,7 +40,7 @@ function ThumbnailPreview({
   );
 }
 
-ThumbnailPreview.propTypes = {
+OneSearchResult.propTypes = {
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
@@ -50,4 +50,4 @@ ThumbnailPreview.propTypes = {
 
 };
 
-export default ThumbnailPreview;
+export default OneSearchResult;

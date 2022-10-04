@@ -229,3 +229,10 @@ export const GET_POSTS_RESULTS = 'GET_POSTS_RESULTS';
 export const getPostsResults = () => ({
   type: GET_POSTS_RESULTS,
 });
+
+export const SET_POSTS_RESULTS = 'SET_POSTS_RESULTS';
+
+export const setPostsResults = (results) => ({
+  type: SET_POSTS_RESULTS,
+  results,
+});
