@@ -244,3 +244,10 @@ export const getPostByCategory = (id) => ({
   type: GET_POSTS_BY_CATEGORY,
   id,
 });
+
+export const GET_TYPE_POSTS = 'GET_TYPE_POSTS';
+
+export const getTypePosts = (id) => ({
+  type: GET_TYPE_POSTS,
+  id,
+});

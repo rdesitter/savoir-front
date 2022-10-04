@@ -1,25 +1,16 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ThumbnailPreview from './ThumbnailPreview';
-import { getPosts } from '../../actions';
 import './style.scss';
 
 function Thumbnail({ list, title, url }) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPosts());
-  }, []);
-  // console.log(listOfPosts);
-
   return (
-    <>
-      <div className="thumbnails-type">
-        <h2 className="thumbnails-type__title">{title}</h2>
-        <Link className="thumbnails-type__link" to={`/${url}`}>voir toutes les annonces</Link>
-      </div>
-      <div className="thumbnails">
+    <div className="thumbnails">
+      <header className="section__header thumbnails__header">
+        <h1 className="section__title thumbnails__title">{title}</h1>
+        <Link className="thumbnails__title__link" to={`/${url}`}>Voir toutes les annonces</Link>
+      </header>
+      <div className="thumbnails__list">
         {list.map((post) => (
           <ThumbnailPreview
             key={post.id}
@@ -32,7 +23,7 @@ function Thumbnail({ list, title, url }) {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

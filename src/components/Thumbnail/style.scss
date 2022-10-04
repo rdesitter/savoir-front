@@ -4,69 +4,112 @@
 .thumbnails {
   display: flex;
   flex-wrap: wrap;
-  background-color: #FFFFFF;
+  flex-direction: column;
 
-  &-type{
+  &__header {
+    margin-bottom: vars.$space-10;
 
-    display: flex;
-    &__link{
-      text-decoration: underline;
-      color: skyblue;
-      margin-left: vars.$space-10;
+    @include mixin.media('small') {
+      margin-bottom: 0;
     }
   }
+
+  &__title {
+    display: block;
+
+    @include mixin.media('small') {
+      display: inline-block;
+      margin-right: vars.$space-10;
+    }
+
+    &__link{
+      text-decoration: underline;
+      color: vars.$primary-color;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$space-10;
+  }
 }
+
 .thumbnail {
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 11em;
+  align-items: flex-start;
   background-color: vars.$light-grey-color;
-  margin: .5em;
+  border-radius: vars.$btn-radius;
+  padding: vars.$space-10;
+  flex-basis: 100%;
+  flex-grow: 1;
+  gap: vars.$space-10;
 
-
-  &-user__infos {
-    display: flex;
-    padding: .5em;
+  @include mixin.media('small') {
+    flex-basis: 30%;
   }
 
-  &-user__img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FFFFFF;
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    border: 1px solid vars.$light-stroke-color;
+  @include mixin.media('medium') {
+    flex-basis: 25%;
+  }
 
-    &__avatar {
-      width: 1.3em;
-      height: 1.3em;
+  @include mixin.media('large') {
+    flex-basis: 20%;
+  }
+
+  &-user {
+    &__infos {
+      display: flex;
+      align-items: center;
     }
-  }
 
-  &-user__name {
-    padding: .5em;
+    &__img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: vars.$light-color;
+      width: 2em;
+      height: 2em;
+      border-radius: 50%;
+      border: 1px solid vars.$light-stroke-color;
+      margin-right: vars.$space-10;
+  
+      &__avatar {
+        width: 1.3em;
+        height: 1.3em;
+      }
+    }
   }
 
   &-infos{
-    padding-top: .5em;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: vars.$space-10;
 
     &__img{
-      max-width: 85%;
+      max-width: 100%;
     }
     &__title{
       text-align: left;
-      font-size: 1em;
+      font-weight: bold;
     }
     &__description {
       font-size: .8em;
       line-height: 1em;
       padding: .3em;
     }
+  }
+
+  &__link {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
   }
 }

@@ -11,6 +11,7 @@ export const initialState = {
   selectedPost: {},
   similarPosts: [],
   isError: false,
+  isLoading: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -19,6 +20,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         posts: action.posts,
+        isLoading: false,
       };
     case SET_SELECTED_POST:
       return {
