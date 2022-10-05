@@ -12,6 +12,7 @@ export const initialState = {
   selectedPost: {},
   similarPosts: [],
   isError: false,
+  loadindSelectedPost: true,
   selectedUserPost: [],
 };
 
@@ -41,6 +42,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         selectedUserPost: action.selectedUserPost,
+        loadingSelectedPost: false,
       };
     default:
       return state;

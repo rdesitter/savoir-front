@@ -19,6 +19,7 @@ function Profile() {
   // const [userProfile, setUserProfile] = useState({});
   // const [loading, setLoading] = useState(true);
   const loading = useSelector((state) => state.user.userLoading);
+  const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
   // console.log('USER', userProfile);
 
   const dispatch = useDispatch();
@@ -42,12 +43,16 @@ function Profile() {
             avatar={user.avatar}
             created_at={user.created_at}
             about={user.description}
-            id={user.userId}
+            id={user.id}
           />
           )}
         </Panel>
         <Panel>
+          {postLoading && <div>Loading...</div>}
+          {!postLoading
+          && (
           <UserPosts posts={userPosts} title={`Les annonces de ${user.pseudo}`} />
+          )}
         </Panel>
       </Container>
     </Page>
