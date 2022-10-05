@@ -26,6 +26,26 @@ export const logIn = () => ({
   type: LOGIN,
 });
 
+export const GET_USERS = 'GET_USERS';
+
+export const getUsers = (id) => ({
+  type: GET_USERS,
+  id,
+});
+
+export const SET_SELECTED_USER = 'SET_SELECTED_USER';
+
+export const setSelectedUser = (user) => ({
+  type: SET_SELECTED_USER,
+  user,
+});
+export const SET_SELECTED_USER_POST = 'SET_SELECTED_USER_POST';
+
+export const setSelectedUserPost = (selectedUserPost) => ({
+  type: SET_SELECTED_USER_POST,
+  selectedUserPost,
+});
+
 export const SET_USER = 'SET_USER';
 
 export const setUser = (data) => ({
@@ -174,8 +194,9 @@ export const initUser = () => ({
 
 export const GET_SELECTED_POST = 'GET_SELECTED_POST';
 
-export const getSelectedPost = () => ({
+export const getSelectedPost = (id) => ({
   type: GET_SELECTED_POST,
+  id,
 });
 
 export const SET_SELECTED_POST = 'SET_SELECTED_POST';
@@ -183,6 +204,13 @@ export const SET_SELECTED_POST = 'SET_SELECTED_POST';
 export const setSelectedPost = (selectedPost) => ({
   type: SET_SELECTED_POST,
   selectedPost,
+});
+
+export const SET_SIMILAR_POSTS = 'SET_SIMILAR_POSTS';
+
+export const setSimilarPosts = (posts) => ({
+  type: SET_SIMILAR_POSTS,
+  similarPosts: posts,
 });
 
 export const GET_POSTS = 'GET_POSTS';
@@ -224,15 +252,23 @@ export const resetNewPost = () => ({
   type: RESET_NEW_POST,
 });
 
-export const GET_POSTS_RESULTS = 'GET_POSTS_RESULTS';
+export const TOGGLE_POST_ERROR = 'TOGGLE_POST_ERROR';
 
-export const getPostsResults = () => ({
-  type: GET_POSTS_RESULTS,
+export const togglePostError = () => ({
+  type: TOGGLE_POST_ERROR,
 });
 
-export const SET_POSTS_RESULTS = 'SET_POSTS_RESULTS';
+export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY';
 
-export const setPostsResults = (results) => ({
-  type: SET_POSTS_RESULTS,
-  results,
+export const getPostByCategory = (id) => ({
+  type: GET_POSTS_BY_CATEGORY,
+  id,
+});
+
+export const GET_TYPE_POSTS = 'GET_TYPE_POSTS';
+
+export const getTypePosts = (id) => ({
+  type: GET_TYPE_POSTS,
+  id,
+
 });

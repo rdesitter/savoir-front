@@ -25,6 +25,8 @@ import ForgottenPassword from '../../pages/ForgottenPassword';
 import ResetPassword from '../../pages/ResetPassword';
 import Categories from '../../pages/Categories';
 import './styles.scss';
+import Category from '../../pages/Category';
+import Type from '../../pages/Type';
 
 // == Composant
 function App() {
@@ -54,6 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:slug" element={<Category />} />
         <Route path="/annonces/:id" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/a-propos" element={<About />} />
@@ -65,6 +68,8 @@ function App() {
         <Route path="/profil/:id" element={<Profile />} />
         <Route path="/recherche" element={<SearchPage />} />
         <Route path="/annonces/ajouter" element={<CreatePost />} />
+        <Route path="/besoin" element={<Type id={1} />} />
+        <Route path="/partage" element={<Type id={2} />} />
         <Route path="/oubli-mot-de-passe" element={<ForgottenPassword />} />
         {passwordToken && <Route path="/nouveau-mot-de-passe" element={<ResetPassword token={passwordToken} />} />}
         <Route path="*" element={<NotFound />} />
