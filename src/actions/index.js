@@ -270,4 +270,5 @@ export const GET_TYPE_POSTS = 'GET_TYPE_POSTS';
 export const getTypePosts = (id) => ({
   type: GET_TYPE_POSTS,
   id,
+
 });
