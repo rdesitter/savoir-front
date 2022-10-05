@@ -28,6 +28,7 @@ import './styles.scss';
 import Category from '../../pages/Category';
 import Type from '../../pages/Type';
 import ModifyPublicInfo from '../../pages/MyAccount/ModifyPublicInfo';
+import ModifyPersonalInfo from '../../pages/MyAccount/ModifyPersonalInfo';
 
 // == Composant
 function App() {
@@ -81,6 +82,7 @@ function App() {
           <>
             <Route path="/mon-compte" element={<MyAccount />} />
             <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
+            <Route path="/mon-compte/modifier-info-perso" element={<ModifyPersonalInfo />} />
             <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
           </>
         )}

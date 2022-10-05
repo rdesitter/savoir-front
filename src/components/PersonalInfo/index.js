@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Button from '../Button';
 import './style.scss';
 
@@ -18,7 +19,9 @@ function PersonalInfo({
         <li className="perso-infos__item"><span className="perso-infos__label">Code postal :</span>{postalCode}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Pronom :</span>{pronoun}</li>
       </ul>
-      <Button label="Modifier mes informations personnelles" btnstyle="outlined" />
+      <Link to="/mon-compte/modifier-info-perso">
+        <Button label="Modifier mes informations personnelles" btnstyle="outlined" />
+      </Link>
     </>
   );
 }
