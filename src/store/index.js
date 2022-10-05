@@ -8,6 +8,7 @@ import logOutSession from '../middlewares/logOutSession';
 import resetPassword from '../middlewares/resetPassword';
 import posts from '../middlewares/posts';
 import createPost from '../middlewares/createPost';
+import user from '../middlewares/user';
 
 const middlewares = applyMiddleware(
   contactForm,
@@ -17,6 +18,7 @@ const middlewares = applyMiddleware(
   posts,
   resetPassword,
   createPost,
+  user,
 );
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
