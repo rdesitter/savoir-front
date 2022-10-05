@@ -69,7 +69,7 @@ function Annonce() {
         <Container>
           <h2 className="more-posts__title">Annonces similaires</h2>
           <div className="thumbnails__list similar">
-            {similarPosts.map((post) => (
+            {similarPosts((post) => (
               <ThumbnailPreview
                 key={post.id}
                 avatar="BEARD01"

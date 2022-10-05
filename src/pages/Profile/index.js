@@ -10,6 +10,7 @@ import UserPosts from '../../components/UserPosts';
 // import getUSerProfile from '../../selectors/getUserProfile';
 import { getUsers } from '../../actions';
 import './style.scss';
+import PostPreview from '../../components/PostPreview';
 
 function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
@@ -20,7 +21,7 @@ function Profile() {
   // const [loading, setLoading] = useState(true);
   const loading = useSelector((state) => state.user.userLoading);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
-  // console.log('USER', userProfile);
+  console.log('USERPOST', userPosts);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -48,11 +49,25 @@ function Profile() {
           )}
         </Panel>
         <Panel>
-          {postLoading && <div>Loading...</div>}
-          {!postLoading
-          && (
-          <UserPosts posts={userPosts} title={`Les annonces de ${user.pseudo}`} />
-          )}
+          <h2 className="post-preview__title">Les annonces</h2>
+          <div className="post-preview">
+            {postLoading && <div>Loading...</div>}
+            {!postLoading
+            && (
+              <>  
+                {userPosts.map((userPost) => (
+                    <PostPreview
+                      cover={userPost.category_slug}
+                      category={userPost.category_name}
+                      title={userPost.title}
+                      created_at={userPost.created_at}
+                      id={userPost.id}
+                      key={userPost.id}
+                    />
+                ))}
+              </>
+            )}
+          </div>
         </Panel>
       </Container>
     </Page>

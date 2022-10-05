@@ -5,3 +5,12 @@
     margin-bottom: vars.$space-20;
   }
 }
+.post-preview {
+  width: 100%;
+  display: flex;
+}
+
+.display {
+  width: 100%;
+  border: 5px solid rebeccapurple;
+}
