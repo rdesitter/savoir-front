@@ -2,10 +2,8 @@ import axios from 'axios';
 import {
   LAUNCH_SEARCH,
   GET_CATEGORIES,
-  GET_POSTS_RESULTS,
   setCategories,
   setResults,
-  setPostsResults,
   toggleLoading,
 } from '../actions';
 
@@ -32,18 +30,6 @@ const search = (store) => (next) => (action) => {
     instance.get(`/api/annonces/category/${action.category}`)
       .then((response) => {
         store.dispatch(setResults(response.data));
-      })
-      .catch((error) => {
-      // en cas d’échec de la requête
-        console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
-      });
-  }
-
-  if (action.type === GET_POSTS_RESULTS) {
-    instance.get(`/api/annonces/category/${action.category}/type/${action.learnOrShare}`)
-      .then((response) => {
-        store.dispatch(setPostsResults(response.data));
       })
       .catch((error) => {
       // en cas d’échec de la requête
