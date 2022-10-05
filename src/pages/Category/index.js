@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { getCategories, getPostByCategory } from '../../actions';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -12,8 +12,9 @@ function Category() {
   const loading = useSelector((state) => state.categories.loading);
   const posts = useSelector((state) => state.posts.posts);
 
+  const [error404, setError404] = useState(false);
+
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [categoryName, setCategoryName] = useState('');
 
@@ -31,10 +32,14 @@ function Category() {
         setCategoryName(selectedCategory.name);
       }
       else {
-        navigate('/404');
+        setError404(true);
       }
     }
   }, [loading]);
+
+  if (error404) {
+    return <Navigate to="/404" replace />;
+  }
 
   return (
     <Page>

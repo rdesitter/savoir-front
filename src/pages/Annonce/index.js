@@ -1,6 +1,6 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Label from '../../components/Label';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -17,19 +17,24 @@ function Annonce() {
   useScrollTop();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const isAdmin = useSelector((state) => state.user.admin);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   const similarPosts = useSelector((state) => state.posts.similarPosts);
   const postError = useSelector((state) => state.posts.isError);
 
+  const [error404, setError404] = useState(false);
+
   useEffect(() => {
     dispatch(getSelectedPost(id));
     if (postError) {
-      navigate('/404');
+      setError404(true);
     }
   }, [postError, id]);
+
+  if (error404) {
+    return <Navigate to="/404" replace />;
+  }
 
   return (
     <Page style={{ paddingBottom: 0 }}>
