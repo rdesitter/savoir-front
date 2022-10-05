@@ -9,6 +9,7 @@ export const initialState = {
   results: [],
   categoryValue: '',
   learnOrShareValue: '',
+  resultsLoading: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -39,6 +40,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         results: action.results,
+        resultsLoading: false,
       };
     default:
       return state;
