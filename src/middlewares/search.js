@@ -37,7 +37,6 @@ const search = (store) => (next) => (action) => {
         alert('Erreur de chargement, veuillez réessayer');
       });
   }
-
   next(action);
 };
 
