@@ -42,7 +42,9 @@ function Connexion() {
     if (checkEmail) {
       dispatch(logIn());
     }
-    dispatch(setError('Email non valide'));
+    else {
+      dispatch(setError('Email non valide'));
+    }
   };
 
   // If logged succesfully redirect to home page

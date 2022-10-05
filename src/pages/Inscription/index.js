@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from 'src/components/Page';
-import { setError, signUp } from '../../actions';
+import {
+  initError, initUser, setError, signUp,
+} from '../../actions';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
-import './style.scss';
 import validateEmail from '../../selectors/validateEmail';
+import './style.scss';
 
 function Inscription() {
   /* Handle password visibility */
@@ -23,6 +25,12 @@ function Inscription() {
   const logged = useSelector((state) => state.user.logged);
   const dispatch = useDispatch();
 
+  // initialise error msg on first render
+  useEffect(() => {
+    dispatch(initError());
+    dispatch(initUser());
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password !== passwordConfirm) {
@@ -33,7 +41,9 @@ function Inscription() {
       if (checkEmail) {
         dispatch(signUp());
       }
-      dispatch(setError('Email non valide'));
+      else {
+        dispatch(setError('Email non valide'));
+      }
     }
   };
 
