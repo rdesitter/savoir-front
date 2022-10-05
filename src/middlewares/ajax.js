@@ -29,12 +29,12 @@ const ajax = (store) => (next) => (action) => {
         const token = response.data.tokens.accessToken;
         instance.defaults.headers.common.Authorization = `${token}`;
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(response.data.user[0]));
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
-        const data = { user: response.data.user[0], token };
+        const data = { user: response.data.user, token };
         store.dispatch(setUser(data));
       }).catch((error) => {
-        if (error.response.status === 401) {
+        if (error.status === 401) {
           store.dispatch(setError('Email ou mot de  passe incorrect.'));
         }
         else {
