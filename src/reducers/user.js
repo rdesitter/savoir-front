@@ -36,6 +36,7 @@ export const initialState = {
   },
   admin: false,
   displayElement: false,
+  userLoading: true,
   userProfil: {
     userId: '',
     username: '',
@@ -153,6 +154,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         userProfil: action.user,
+        userLoading: false,
       };
     default:
       return state;

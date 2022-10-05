@@ -17,14 +17,13 @@ function Profile() {
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
   // const [userProfile, setUserProfile] = useState({});
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
+  const loading = useSelector((state) => state.user.userLoading);
   // console.log('USER', userProfile);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers(id));
-    // setUserProfile(user);
-    setLoading(false);
   }, []);
 
   return (
