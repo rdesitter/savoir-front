@@ -38,7 +38,7 @@ export default [
     createdAt: '12/03/22',
     title: 'Souffleur de verre',
     condition: 'partage',
-    category: 'decouverte_metier',
+    category: 'decouverte-metier',
     location: 'Clermont-Ferrand',
     zipcode: 63000,
     description: 'Bonjour. Maître verrier, ce serait avec plaisir que je vous ferai découvrir mon métier de souffleur de verre. Nous serons en petits groupes, à mon atelier. Les enfants sont les bienvenus, mais compte tenu de la chaleur et de la pratique très délicate du matériau, je préfère réserver cette découverte à partir de 13 ans.',
