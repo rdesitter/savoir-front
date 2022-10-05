@@ -18,8 +18,9 @@
 
   &__all-sections {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    width: 100%;
+    gap: vars.$space-30;
     // responsive
     @include mixin.media('large') {
       flex-direction: row;
@@ -30,15 +31,21 @@
   &__choices {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding-bottom: vars.$space-30;
+    flex-basis: 30%;
     color: #444444;
+    position: relative;
     // responsive
     @include mixin.media('large') {
       justify-content: space-between;
-      border-right: 0.063em solid vars.$light-stroke-color;
-      margin: vars.$space-10;
-      padding-right: vars.$space-30;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: vars.$light-stroke-color;
+        right: -1.25em;
+        top: 0;
+      }
     }
 
     &__legend{
@@ -84,7 +91,7 @@
     }
 
     &__select {
-      width: fit-content;
+      width: 100%;
       margin-top: vars.$space-20;
       padding: vars.$space-10 vars.$space-30;
       border: 0.063em solid vars.$primary-color-alt;
@@ -97,12 +104,10 @@
   &__launch {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding-bottom: vars.$space-30;
+    flex-basis: 30%;
     color: #444444;
     // responsive
     @include mixin.media('medium') {
-      margin: vars.$space-10;
       justify-content: space-between;
     }
 
@@ -112,6 +117,10 @@
       align-items: center;
       gap: vars.$space-10;
       margin-bottom: vars.$space-20;
+    }
+    button {
+      justify-content: center;
+      width: 100%;
     }
 
   }
