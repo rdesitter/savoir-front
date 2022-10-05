@@ -10,6 +10,7 @@ import {
   SET_SELECTED_USER,
   SET_USER,
   TOGGLE_LOGGED,
+  TOGGLE_SAVED_DATA,
   TOOGLE_LOADING,
 } from '../actions';
 
@@ -37,6 +38,7 @@ export const initialState = {
   admin: false,
   displayElement: false,
   userLoading: true,
+  dataSaved: false,
   userProfil: {
     userId: '',
     username: '',
@@ -155,6 +157,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         userProfil: action.user,
         userLoading: false,
+      };
+    case TOGGLE_SAVED_DATA:
+      return {
+        ...state,
+        dataSaved: !state.dataSaved,
       };
     default:
       return state;

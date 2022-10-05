@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
 import {
-  LOGIN, setError, setUser, SIGNUP, toggleLoading,
+  LOGIN, setError, setUser, SIGNUP, toggleLoading, toggleSavedData, UPDATE_PROFILE,
 } from '../actions';
 
 const instance = axios.create({
@@ -71,6 +71,22 @@ const ajax = (store) => (next) => (action) => {
       }).catch((error) => {
         store.dispatch(setError(error.message));
       });
+    }
+    catch (error) {
+      store.dispatch(setError(error.message));
+    }
+  }
+  else if (action.type === UPDATE_PROFILE) {
+    try {
+      const { user: { userId, username: pseudo, description } } = store.getState();
+      instance.patch(`/api/user/${userId}`, { pseudo, description })
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(toggleSavedData());
+        })
+        .catch((error) => {
+          store.dispatch(setError(error.message));
+        });
     }
     catch (error) {
       store.dispatch(setError(error.message));

@@ -270,5 +270,16 @@ export const GET_TYPE_POSTS = 'GET_TYPE_POSTS';
 export const getTypePosts = (id) => ({
   type: GET_TYPE_POSTS,
   id,
+});
 
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+
+export const updateProfile = () => ({
+  type: UPDATE_PROFILE,
+});
+
+export const TOGGLE_SAVED_DATA = 'TOGGLE_SAVED_DATA';
+
+export const toggleSavedData = () => ({
+  type: TOGGLE_SAVED_DATA,
 });
