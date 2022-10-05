@@ -55,7 +55,7 @@ export const setUser = (data) => ({
   description: data.user.description,
   firstname: data.user.firstname,
   lastname: data.user.lastname,
-  avatar: data.user.picture_id,
+  avatar: data.user.picture_slug.toUpperCase(),
   about: data.user.about,
   created_at: data.user.created_at,
   userId: data.user.id,
