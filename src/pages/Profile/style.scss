@@ -5,12 +5,8 @@
     margin-bottom: vars.$space-20;
   }
 }
-
-.post-previews {
-  display: flex;
-  justify-content: space-between;
-    &__title {
-      padding-bottom: vars.$space-20;
-      font-weight: bold;
-  }
+ 
+.post-previews__title {
+  padding-bottom: vars.$space-20;
+  font-weight: bold;
 }

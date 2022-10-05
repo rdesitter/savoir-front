@@ -50,7 +50,7 @@ function Profile() {
             <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
             {!postLoading
             && (
-            <div className="post-previews">
+            <div className="thumbnails__list">
               {userPosts.map((userPost) => (
                 <PostPreview
                   cover={userPost.category_slug}
