@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { initError, initUser } from '../actions';
+import { initUser } from '../actions';
 
+/**
+ * Initialize user state on first render
+ */
 function useInitUser() {
   const dispatch = useDispatch();
 
-  // initialise error msg on first render
   useEffect(() => {
-    dispatch(initError());
     dispatch(initUser());
   }, []);
 }
