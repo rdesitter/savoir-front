@@ -8,9 +8,9 @@ import {
   togglePostError,
   GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
+  toggleLoading,
 } from '../actions';
 
-import posts from '../data/posts';
 // import selectedPost from '../data/selectedPost';
 
 const instance = axios.create({
@@ -19,10 +19,17 @@ const instance = axios.create({
 
 const selectPost = (store) => (next) => (action) => {
   if (action.type === GET_POSTS) {
-    // AXIOS - posts from back
-    store.dispatch(setPosts(posts));
+    instance.get('api/annonces')
+      .then((response) => {
+        store.dispatch(setPosts(response.data));
+        store.dispatch(toggleLoading());
+      })
+      .catch((error) => {
+        // en cas d’échec de la requête
+        console.log(error);
+      });
   }
-  
+
   else if (action.type === GET_SELECTED_POST) {
     instance(`/api/annonces/${action.id}`)
       .then((response) => {
