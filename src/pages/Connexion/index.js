@@ -7,8 +7,11 @@ import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
-import { initError, logIn, initUser } from '../../actions';
+import {
+  initError, logIn, initUser, setError,
+} from '../../actions';
 import './style.scss';
+import validateEmail from '../../selectors/validateEmail';
 
 function Connexion() {
   // Handle password visibility
@@ -30,11 +33,16 @@ function Connexion() {
   const logged = useSelector((state) => state.user.logged);
 
   const loading = useSelector((state) => state.user.loading);
+  const email = useSelector((state) => state.user.email);
 
   // TODO Gérer la soumission du formulaire avec data du back
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(logIn());
+    const checkEmail = validateEmail(email);
+    if (checkEmail) {
+      dispatch(logIn());
+    }
+    dispatch(setError('Email non valide'));
   };
 
   // If logged succesfully redirect to home page

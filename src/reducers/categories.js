@@ -2,7 +2,7 @@ import { SET_CATEGORIES } from '../actions';
 
 export const initialState = {
   list: [],
-  // loading: true,
+  loading: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -11,6 +11,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.categories,
+        loading: false,
       };
     default:
       return state;

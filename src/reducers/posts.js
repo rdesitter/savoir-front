@@ -14,6 +14,7 @@ export const initialState = {
   isError: false,
   loadindSelectedPost: true,
   selectedUserPost: [],
+  isLoading: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,6 +23,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         posts: action.posts,
+        isLoading: false,
       };
     case SET_SELECTED_POST:
       return {

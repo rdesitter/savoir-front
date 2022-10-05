@@ -32,7 +32,7 @@ function Annonce() {
   }, [postError, id]);
 
   return (
-    <Page>
+    <Page style={{ paddingBottom: 0 }}>
       {Object.keys(selectedPost).length !== 0 && (
       <Container>
         <div className="informations">
@@ -68,17 +68,19 @@ function Annonce() {
       <section className="more-posts">
         <Container>
           <h2 className="more-posts__title">Annonces similaires</h2>
-          {similarPosts.map((post) => (
-            <ThumbnailPreview
-              key={post.id}
-              avatar="BEARD01"
-              name="username"
-              category="categorie"
-              title={post.title}
-              userId={post.user_id}
-              postId={post.id}
-            />
-          ))}
+          <div className="thumbnails__list similar">
+            {similarPosts.map((post) => (
+              <ThumbnailPreview
+                key={post.id}
+                avatar="BEARD01"
+                name="username"
+                category="categorie"
+                title={post.title}
+                userId={post.user_id}
+                postId={post.id}
+              />
+            ))}
+          </div>
         </Container>
       </section>
       )}
