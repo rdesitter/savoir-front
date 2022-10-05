@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 import variables from '../../styles/variables.module.scss';
 import './style.scss';
@@ -36,7 +36,9 @@ function AccountDetails({
         <span className="spacer" />
         {logged && userId === id && (
           <>
-            <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} btnstyle="outlined" />
+            <Link to="/mon-compte/modifier-profil-public">
+              <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} btnstyle="outlined" />
+            </Link>
             <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />
           </>
         )}

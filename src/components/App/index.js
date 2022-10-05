@@ -27,6 +27,7 @@ import Categories from '../../pages/Categories';
 import './styles.scss';
 import Category from '../../pages/Category';
 import Type from '../../pages/Type';
+import ModifyPublicInfo from '../../pages/MyAccount/ModifyPublicInfo';
 
 // == Composant
 function App() {
@@ -79,6 +80,7 @@ function App() {
         && (
           <>
             <Route path="/mon-compte" element={<MyAccount />} />
+            <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
             <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
           </>
         )}
