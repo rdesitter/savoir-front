@@ -1,0 +1,83 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { changeValue, toggleSavedData, updateProfile } from '../../actions';
+import Button from '../../components/Button';
+import Container from '../../components/Container';
+import Error from '../../components/Error';
+import Input from '../../components/Input';
+import Page from '../../components/Page';
+import Panel from '../../components/Panel';
+import SectionHeader from '../../components/SectionHeader';
+import useInitError from '../../hooks/useInitError';
+
+function ModifyPublicInfo() {
+  useInitError();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isSaved = useSelector((state) => state.user.dataSaved);
+  const [checkIsSaved, setCheckIsSaved] = useState(false);
+
+  useEffect(() => {
+    if (isSaved) {
+      dispatch(toggleSavedData());
+    }
+    setCheckIsSaved(false);
+  }, []);
+
+  const isError = useSelector((state) => state.user.error);
+  const errorMsg = useSelector((state) => state.user.errorMsg);
+  const description = useSelector((state) => state.user.description);
+
+  const handleChangeTextArea = (event) => dispatch(changeValue(event.target.value, 'description'));
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(updateProfile());
+    setCheckIsSaved(true);
+  };
+
+  if (checkIsSaved) {
+    return <Navigate to="/mon-compte" replace />;
+  }
+
+  return (
+    <Page>
+      <Container>
+        <Panel>
+          <SectionHeader title="Modifier mon profil public" />
+          {isError && <Error msg={errorMsg} />}
+          <form onSubmit={handleSubmit}>
+            <div className="form__field">
+              <label htmlFor="username">Nom d'utilisateur</label>
+              <Input
+                name="username"
+                type="text"
+                required
+                placeholder="Nom d'utilisateur..."
+                aria-label="Changer votre nom d'utilisateur"
+                id="username"
+              />
+            </div>
+            <div className="form__field">
+              <label htmlFor="description">Description</label>
+              <textarea
+                name="description"
+                placeholder="Votre description..."
+                aria-label="Saisissez votre description"
+                id="description"
+                rows="5"
+                value={description}
+                onChange={handleChangeTextArea}
+              />
+            </div>
+            <Button label="Enregistrer mon profil" type="submit" tabIndex="0" />
+          </form>
+        </Panel>
+      </Container>
+    </Page>
+  );
+}
+
+export default ModifyPublicInfo;

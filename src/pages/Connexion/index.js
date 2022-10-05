@@ -8,10 +8,12 @@ import Panel from '../../components/Panel';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
 import {
-  initError, logIn, initUser, setError,
+  logIn, setError,
 } from '../../actions';
 import './style.scss';
 import validateEmail from '../../selectors/validateEmail';
+import useInitError from '../../hooks/useInitError';
+import useInitUser from '../../hooks/useInitUser';
 
 function Connexion() {
   // Handle password visibility
@@ -20,10 +22,8 @@ function Connexion() {
   const dispatch = useDispatch();
 
   // initialise error msg on first render
-  useEffect(() => {
-    dispatch(initError());
-    dispatch(initUser());
-  }, []);
+  useInitUser();
+  useInitError();
 
   // get error informations from state
   const isError = useSelector((state) => state.user.error);

@@ -19,7 +19,7 @@ function MyAccount() {
             username={user.username}
             avatar={user.avatar}
             created_at={user.created_at || ''}
-            about={user.about || 'Non renseignée'}
+            about={user.description || 'Non renseignée'}
             id={user.userId}
           />
         </div>
