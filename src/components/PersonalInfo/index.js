@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import getPronoun from '../../selectors/getPronoun';
 import Button from '../Button';
 import './style.scss';
 
 function PersonalInfo({
   firstname, lastname, birthdate, postalCode, pronoun,
 }) {
+  const pronom = getPronoun(pronoun);
   return (
     <>
       <header>
@@ -16,9 +19,11 @@ function PersonalInfo({
         <li className="perso-infos__item"><span className="perso-infos__label">Prénom :</span>{firstname}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Date de naissance :</span>{birthdate}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Code postal :</span>{postalCode}</li>
-        <li className="perso-infos__item"><span className="perso-infos__label">Pronom :</span>{pronoun}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Pronom :</span>{pronom}</li>
       </ul>
-      <Button label="Modifier mes informations personnelles" btnstyle="outlined" />
+      <Link to="/mon-compte/modifier-info-perso">
+        <Button label="Modifier mes informations personnelles" btnstyle="outlined" />
+      </Link>
     </>
   );
 }
