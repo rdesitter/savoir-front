@@ -23,6 +23,7 @@ const ajax = (store) => (next) => (action) => {
         instance.defaults.headers.common.Authorization = `${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user[0]));
+        localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
         const data = { user: response.data.user[0], token };
         store.dispatch(setUser(data));
       }).catch((error) => {

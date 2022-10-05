@@ -35,7 +35,6 @@ function Connexion() {
   const loading = useSelector((state) => state.user.loading);
   const email = useSelector((state) => state.user.email);
 
-  // TODO Gérer la soumission du formulaire avec data du back
   const handleSubmit = (event) => {
     event.preventDefault();
     const checkEmail = validateEmail(email);
