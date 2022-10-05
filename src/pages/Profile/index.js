@@ -49,25 +49,24 @@ function Profile() {
           )}
         </Panel>
         <Panel>
-          <h2 className="post-preview__title">Les annonces</h2>
-          <div className="post-preview">
-            {postLoading && <div>Loading...</div>}
-            {!postLoading
-            && (
-              <>  
-                {userPosts.map((userPost) => (
-                    <PostPreview
-                      cover={userPost.category_slug}
-                      category={userPost.category_name}
-                      title={userPost.title}
-                      created_at={userPost.created_at}
-                      id={userPost.id}
-                      key={userPost.id}
-                    />
-                ))}
-              </>
-            )}
-          </div>
+            <h2 className="post-previews__title">Les annonces</h2>
+              {postLoading && <div>Loading...</div>}
+              {!postLoading
+              && (
+                <div className="post-previews">
+                  {userPosts.map((userPost) => (
+                      <PostPreview
+                        cover={userPost.category_slug}
+                        category={userPost.category_name}
+                        title={userPost.title}
+                        created_at={userPost.created_at}
+                        id={userPost.id}
+                        key={userPost.id}
+                      />
+                  ))}
+                </div>
+              )}
+          
         </Panel>
       </Container>
     </Page>
