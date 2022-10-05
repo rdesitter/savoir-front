@@ -8,7 +8,7 @@ import {
   togglePostError,
   GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
-  toggleLoading,
+  // toggleLoading,
 } from '../actions';
 
 // import selectedPost from '../data/selectedPost';
@@ -22,7 +22,7 @@ const selectPost = (store) => (next) => (action) => {
     instance.get('api/annonces')
       .then((response) => {
         store.dispatch(setPosts(response.data));
-        store.dispatch(toggleLoading());
+        // store.dispatch(toggleLoading());
       })
       .catch((error) => {
         // en cas d’échec de la requête

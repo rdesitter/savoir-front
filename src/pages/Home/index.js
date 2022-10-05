@@ -14,27 +14,31 @@ function Home() {
   const isLogged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.posts.isLoading);
   const posts = useSelector((state) => state.posts.posts);
-  console.log('mes datas', posts);
+  let postsShare = [];
+  let postsLearn = [];
+  if (!loading) {
+    postsShare = posts.filter((post) => post.type_id === 2);
+    postsLearn = posts.filter((post) => post.type_id === 1);
+  }
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
   }, []);
-
   return (
     <Page>
       {!isLogged && <Hero />}
       <Container>
         <Search />
         <Panel>
-          {/* {loading && <div>Loading...</div>} */}
-          {posts.type_id === 1
-          && (<Thumbnail list={posts} title="Ils vous proposent" url="partage" />)}
+          {!loading && (
+          <Thumbnail list={postsShare} title="Ils proposent" url="partage" />
+          )}
         </Panel>
         <Panel>
-          {loading && <div>Loading...</div>}
-          {posts.type_id === 2
-          && (<Thumbnail list={posts} title="Ils recherchent" url="besoin" />)}
+          {!loading && (
+          <Thumbnail list={postsLearn} title="Ils recherchent" url="besoin" />
+          )}
         </Panel>
       </Container>
     </Page>
