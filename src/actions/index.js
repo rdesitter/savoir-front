@@ -283,3 +283,9 @@ export const TOGGLE_SAVED_DATA = 'TOGGLE_SAVED_DATA';
 export const toggleSavedData = () => ({
   type: TOGGLE_SAVED_DATA,
 });
+
+export const UPDATE_PERSONAL_INFO = 'UPDATE_PERSONAL_INFO';
+
+export const updatePersonalInfo = () => ({
+  type: UPDATE_PERSONAL_INFO,
+});

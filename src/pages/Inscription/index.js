@@ -125,7 +125,7 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="username">Date de naissance *</label>
+                <label htmlFor="birthdate">Date de naissance *</label>
                 <Input
                   type="date"
                   name="birthdate"
