@@ -20,7 +20,7 @@ import NotFound from '../../pages/404';
 import Annonce from '../../pages/Annonce';
 import SearchPage from '../../pages/Search';
 import CreatePost from '../../pages/CreatePost';
-import { logOut, setUser } from '../../actions';
+import { setUser } from '../../actions';
 import ForgottenPassword from '../../pages/ForgottenPassword';
 import ResetPassword from '../../pages/ResetPassword';
 import Categories from '../../pages/Categories';
@@ -40,12 +40,12 @@ function App() {
   const token = localStorage.getItem('token');
 
   // If token is expired clear localStorage
-  const tokenDate = localStorage.getItem('token-date');
-  const date = Math.floor(new Date().getTime() / 1000);
-  const isExpired = date - tokenDate > 1200;
-  if (isLogged && isExpired) {
-    dispatch(logOut());
-  }
+  // const tokenDate = localStorage.getItem('token-date');
+  // const date = Math.floor(new Date().getTime() / 1000);
+  // const isExpired = date - tokenDate > 1200;
+  // if (isLogged && isExpired) {
+  //   dispatch(logOut());
+  // }
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
