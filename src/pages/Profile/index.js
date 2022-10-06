@@ -13,7 +13,6 @@ import './style.scss';
 function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
   const user = useSelector((state) => state.user.userProfil);
-  console.log(user);
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.userLoading);
@@ -64,30 +63,48 @@ function Profile() {
                 <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
               )}
               {isLogged && (
-              <div>
-                {isVisible && (
-                <div className="user-infos__contact-btn">
-                  <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a>
-                  {!copy && (
-                  <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
-                  )}
-                  {copy && (
-                  <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                <div>
+                  {isVisible && (
+                    <>
+                      <div className="contact">
+                        <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
+                        {!copy && (
+                        <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                        )}
+                        {copy && (
+                        <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                        )}
+                      </div>
+                      <div className="disclaimer">
+                        <p className="disclaimer-text">
+                          <span className="disclaimer-text__span">Avertissement</span>: Vous êtes sur le point d’entrer en relation avec un utilisateur.
+                        </p>
+                        <p className="disclaimer-text">
+                          Veillez à ne jamais communiquer d’informations personnelles.
+                        </p>
+                        <p className="disclaimer-text">
+                          Si détectez le moindre comportement suspect ou ressentez le moindre doute,
+                          merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour en faire part à un membre de l’équipe.
+                        </p>
+                      </div>
+                    </>
+
                   )}
                 </div>
-                )}
-              </div>
               )}
+            </div>
+
               {!isLogged && (
               <div>
                 {isVisible && (
-                <Link to="/connexion">
-                  <Button label="Connexion" />
-                </Link>
+                  <div className="go-to-connection">
+                    <Link to="/connexion">
+                      <Button label="Connexion" />
+                    </Link>
+                  </div>
                 )}
               </div>
               )}
-            </div>
           </>
           )}
 
