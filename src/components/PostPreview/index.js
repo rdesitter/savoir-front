@@ -9,7 +9,7 @@ function PostPreview({
   cover, title, created_at, id, category,
 }) {
   const date = rectifyFormat(created_at);
-  
+
   return (
     <article className="post-preview">
       <div className="post-preview__cover">
@@ -18,7 +18,7 @@ function PostPreview({
       <h2 className="post-preview__title">{title}</h2>
       <p className="post-preview__date">Publiée le {date}</p>
       <div className="post-preview__buttons">
-        <Link to={`/annonce/${id}`}>
+        <Link to={`/annonces/${id}`}>
           <Button label="Voir l'annonce" />
         </Link>
         {/* <Link to={`/annonce/${id}/effacer`}>

@@ -31,15 +31,13 @@ function Profile() {
   // btn copy
   const [copy, setCopy] = useState(false);
   const handleCopy = () => {
-    navigator.clipboard.writeText(email);
+    navigator.clipboard.writeText(user.email);
     setCopy(true);
   };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUsers(id));
   }, []);
-
-
 
   return (
     <Page id="profil">
@@ -64,16 +62,16 @@ function Profile() {
             </div>
             )}
           </div>
-          )}
-          {!isLogged && (
-            <div>
-              {isVisible && (
-              <Link to="/connexion">
-                <Button label="Connexion" />
-              </Link>
-              )}
-            </div>
-          )}
+        )}
+        {!isLogged && (
+          <div>
+            {isVisible && (
+            <Link to="/connexion">
+              <Button label="Connexion" />
+            </Link>
+            )}
+          </div>
+        )}
         <Panel>
           {loading && <div>Loading...</div>}
           {!loading
@@ -86,27 +84,25 @@ function Profile() {
             id={user.id}
           />
           )}
-          
         </Panel>
-        
         <Panel>
           {postLoading && <div>Loading...</div>}
-            <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
-            {!postLoading
-            && (
-            <div className="thumbnails__list">
-              {userPosts.map((userPost) => (
-                <PostPreview
-                  cover={userPost.category_slug}
-                  category={userPost.category_name}
-                  title={userPost.title}
-                  created_at={userPost.created_at}
-                  id={userPost.id}
-                  key={userPost.id}
-                  />
-              ))}
-            </div>
-            )}
+          <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
+          {!postLoading
+          && (
+          <div className="thumbnails__list">
+            {userPosts.map((userPost) => (
+              <PostPreview
+                cover={userPost.category_slug}
+                category={userPost.category_name}
+                title={userPost.title}
+                created_at={userPost.created_at}
+                id={userPost.id}
+                key={userPost.id}
+              />
+            ))}
+          </div>
+          )}
         </Panel>
       </Container>
     </Page>
