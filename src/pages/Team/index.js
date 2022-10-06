@@ -23,21 +23,21 @@ function Team() {
             />
 
             <TeamMember
-              name="Séverine"
-              teamrole="Référente accessibilité"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              avatar="BEARD1"
-              github="https://github.com/#"
-              linkedin="https://linkedin.com/#"
-            />
-
-            <TeamMember
               name="Benoit"
               teamrole="Scrum Master"
               desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
               avatar="BEARD2"
               github="https://github.com/#"
               linkedin="https://www.linkedin.com/in/benoit-castang-802332117/"
+            />
+
+            <TeamMember
+              name="Séverine"
+              teamrole="Référente accessibilité"
+              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              avatar="BEARD1"
+              github="https://github.com/#"
+              linkedin="https://linkedin.com/#"
             />
 
             <TeamMember
