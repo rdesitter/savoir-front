@@ -63,10 +63,10 @@ function Profile() {
                 <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
               )}
               {isLogged && (
-                <div className="test">
+                <div>
                   {isVisible && (
                     <>
-                      <div className="user-infos__contact-btn">
+                      <div className="contact">
                         <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
                         {!copy && (
                         <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>

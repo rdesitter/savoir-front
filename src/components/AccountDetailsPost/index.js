@@ -43,7 +43,7 @@ function AccountDetailsPost({
           </section>
           <section className="user-infos">
             <h2 className="user-infos__name">{name}</h2>
-            <span className="user-infos__date">inscrit(e) depuis le {createdAt}</span>
+            <span className="user-infos__date">inscrit(e) depuis le 12/12/2022</span>
             {btnVisible && (
             <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
             )}
@@ -51,7 +51,7 @@ function AccountDetailsPost({
               <div className="email-user">
                   {isVisible && (
                     <div className="user-infos__contact-btn">
-                      <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
+                      <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>mimich@gmail.com</a></p>
                         {!copy && (
                         <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
                         )}

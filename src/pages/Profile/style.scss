@@ -12,6 +12,14 @@
   font-weight: bold;
 }
 
+.contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: vars.$space-20;
+  border: 2px solid vars.$primary-color;
+  border-radius: vars.$panel-radius;
+}
 .email{
   font-size: vars.$font-big;
   text-decoration: underline;
