@@ -29,6 +29,7 @@ import Category from '../../pages/Category';
 import Type from '../../pages/Type';
 import ModifyPublicInfo from '../../pages/MyAccount/ModifyPublicInfo';
 import ModifyPersonalInfo from '../../pages/MyAccount/ModifyPersonalInfo';
+import EditProfilPicture from '../../pages/EditProfilPic';
 
 // == Composant
 function App() {
@@ -92,6 +93,7 @@ function App() {
             <Route path="/mon-compte" element={<MyAccount />} />
             <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
             <Route path="/mon-compte/modifier-info-perso" element={<ModifyPersonalInfo />} />
+            <Route path="/mon-compte/modifier-avatar" element={<EditProfilPicture />} />
             <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
           </>
         )}

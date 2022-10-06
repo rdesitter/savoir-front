@@ -6,6 +6,7 @@ import {
   INIT_USER,
   LOGOUT,
   SENT_MSG,
+  SET_AVATARS,
   SET_ERROR,
   SET_SELECTED_USER,
   SET_USER,
@@ -47,6 +48,7 @@ export const initialState = {
     created_at: '',
     description: '',
   },
+  avatars: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -162,6 +164,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         dataSaved: !state.dataSaved,
+      };
+    case SET_AVATARS:
+      return {
+        ...state,
+        avatars: action.avatars,
       };
     default:
       return state;

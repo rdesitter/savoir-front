@@ -56,6 +56,7 @@ export const setUser = (data) => ({
   firstname: data.user.firstname,
   lastname: data.user.lastname,
   avatar: data.user.picture_slug.toUpperCase(),
+  avatarId: data.user.picture_id,
   about: data.user.about,
   created_at: data.user.created_at,
   userId: data.user.id,
@@ -288,4 +289,23 @@ export const UPDATE_PERSONAL_INFO = 'UPDATE_PERSONAL_INFO';
 
 export const updatePersonalInfo = () => ({
   type: UPDATE_PERSONAL_INFO,
+});
+
+export const GET_AVATARS = 'GET_AVATARS';
+
+export const getAvatars = () => ({
+  type: GET_AVATARS,
+});
+
+export const SET_AVATARS = 'SET_AVATARS';
+
+export const setAvatars = (avatars) => ({
+  type: SET_AVATARS,
+  avatars,
+});
+
+export const UPDATE_AVATAR = 'UPDATE_AVATAR';
+
+export const updateAvatar = () => ({
+  type: UPDATE_AVATAR,
 });
