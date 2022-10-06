@@ -48,7 +48,7 @@ function AccountDetailsPost({
             <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
             )}
             {isLogged && (
-              <div className="test">
+              <div className="email-user">
                   {isVisible && (
                     <div className="user-infos__contact-btn">
                       <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
