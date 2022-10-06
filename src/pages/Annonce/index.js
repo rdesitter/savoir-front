@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Label from '../../components/Label';
@@ -74,7 +74,7 @@ function Annonce() {
         <Container>
           <h2 className="more-posts__title">Annonces similaires</h2>
           <div className="thumbnails__list similar">
-            {similarPosts((post) => (
+            {similarPosts.map((post) => (
               <ThumbnailPreview
                 key={post.id}
                 avatar={post.picture_slug}
