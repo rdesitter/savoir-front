@@ -18,9 +18,8 @@ function Home() {
   let postsShare = [];
   let postsLearn = [];
   if (!loading) {
-    console.log(posts)
-    postsShare = posts.filter((post) => post.type_id === 2);
-    postsLearn = posts.filter((post) => post.type_id === 1);
+    postsShare = posts.filter((post) => post.type_id === 2).slice(0, 4);
+    postsLearn = posts.filter((post) => post.type_id === 1).slice(0, 4);
   }
 
   const dispatch = useDispatch();

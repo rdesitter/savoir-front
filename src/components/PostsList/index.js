@@ -9,7 +9,6 @@ function PostsList({ posts }) {
 
   const postsLearn = posts.filter((post) => post.type_id === 1);
   const postsShare = posts.filter((post) => post.type_id === 2);
-
   return (
     <>
       <div className="tab">
@@ -33,6 +32,7 @@ function PostsList({ posts }) {
                 name={post.user_name}
                 userId={post.user_id}
                 category={post.category_slug}
+                categoryName={post.category_name}
                 postId={post.id}
                 title={post.title}
               />
@@ -47,6 +47,7 @@ function PostsList({ posts }) {
                 name={post.user_name}
                 userId={post.userId}
                 category={post.category_slug}
+                categoryName={post.category_name}
                 postId={post.id}
                 title={post.title}
               />
