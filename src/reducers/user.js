@@ -17,7 +17,7 @@ import {
 export const initialState = {
   loading: false,
   userId: '',
-  logged: false,
+  logged: true,
   fullname: '',
   email: '',
   password: '',
