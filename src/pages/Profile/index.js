@@ -22,7 +22,7 @@ function Profile() {
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
-  
+
   const handleClick = () => {
     setIsVisible(true);
     setBtnVisible(false);
@@ -42,48 +42,55 @@ function Profile() {
   return (
     <Page id="profil">
       <Container>
-        {isAdmin && (
-        <Button label="Supprimer cet utilisateur" style={{ backgroundColor: 'red' }} />
-        )}
-        {btnVisible && (
-          <button onClick={handleClick} type="button" className="user-infos__contact" title="Contacter">Contacter</button>
-        )}
-        {isLogged && (
-          <div>
-            {isVisible && (
-            <div className="user-infos__contact-btn">
-              <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a>
-              {!copy && (
-              <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
-              )}
-              {copy && (
-              <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
-              )}
-            </div>
-            )}
-          </div>
-        )}
-        {!isLogged && (
-          <div>
-            {isVisible && (
-            <Link to="/connexion">
-              <Button label="Connexion" />
-            </Link>
-            )}
-          </div>
-        )}
         <Panel>
           {loading && <div>Loading...</div>}
           {!loading
           && (
-          <AccountDetails
-            username={user.pseudo}
-            avatar={user.avatar}
-            created_at={user.created_at}
-            about={user.description}
-            id={user.id}
-          />
+          <>
+            <div className="user-infos">
+              <AccountDetails
+                username={user.pseudo}
+                avatar={user.avatar}
+                created_at={user.created_at}
+                about={user.description}
+                id={user.id}
+              />
+            </div>
+            <div className="user-infos__contact">
+              {isAdmin && (
+                <Button label="Supprimer cet utilisateur" style={{ backgroundColor: 'red' }} />
+              )}
+              {btnVisible && (
+                <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
+              )}
+              {isLogged && (
+              <div>
+                {isVisible && (
+                <div className="user-infos__contact-btn">
+                  <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a>
+                  {!copy && (
+                  <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                  )}
+                  {copy && (
+                  <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                  )}
+                </div>
+                )}
+              </div>
+              )}
+              {!isLogged && (
+              <div>
+                {isVisible && (
+                <Link to="/connexion">
+                  <Button label="Connexion" />
+                </Link>
+                )}
+              </div>
+              )}
+            </div>
+          </>
           )}
+
         </Panel>
         <Panel>
           {postLoading && <div>Loading...</div>}
