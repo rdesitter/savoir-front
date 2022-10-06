@@ -42,8 +42,8 @@ function Annonce() {
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label="catgeory name" color="grey" />
-            <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} color="grey" />
+            <Label label="catgeory name" />
+            <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
           </section>
           <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           {isAdmin && (
