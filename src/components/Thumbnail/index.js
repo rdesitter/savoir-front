@@ -14,14 +14,10 @@ function Thumbnail({ list, title, url }) {
         {list.map((post) => (
           <ThumbnailPreview
             key={post.id}
-            // avatar={post.user.avatar}
-            // name={post.user.username}
-            // userId={post.user.userId}
-            userId={1}
-            avatar="Toto"
-            name="Tata"
-            category="Bidon"
-            // category={post.category}
+            avatar={post.picture_slug}
+            name={post.user_name}
+            userId={post.userId}
+            category={post.category_slug}
             postId={post.id}
             title={post.title}
           />

@@ -7,10 +7,22 @@ import './style.scss';
 
 function SearchResults() {
   const displayResults = useSelector((state) => state.search.results);
+  const resultsCount = displayResults.length;
+  // console.log('mon comptage', resultsCount);
+  let message;
+  if (resultsCount > 1) {
+    let message = `Votre recherche a donné ${resultsCount} résultats`;
+  }
+  else if (resultsCount === 1) {
+    let message = `Votre recherche a donné ${resultsCount} résultat`;
+  }
+  else {
+    let message = 'Votre recherche n\'a donné aucun résultat';
+  }
 
   return (
     <Panel>
-      <Thumbnail list={displayResults} title="Résultats de la recherche" />
+      <Thumbnail list={displayResults} title={message} />
       {/* <div className="thumbnails">
         {displayResults.map((post) => (
           <ThumbnailPreview

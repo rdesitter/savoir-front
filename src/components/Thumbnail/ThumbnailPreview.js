@@ -18,7 +18,7 @@ function ThumbnailPreview({
       <Link to={`/profil/${userId}`} title={`vers le profil de ${name}`}>
         <div className="thumbnail-user__infos">
           <div className="thumbnail-user__img">
-            <img className="thumbnail-user__img__avatar" src={`/images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
+            <img className="thumbnail-user__img__avatar" src={`/images/avatars/${avatar.toUpperCase()}.png`} alt={`profil de ${name}`} />
           </div>
           <h3 className="thumbnail-user__name">{name}</h3>
         </div>

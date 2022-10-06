@@ -14,9 +14,11 @@ function Home() {
   const isLogged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.posts.isLoading);
   const posts = useSelector((state) => state.posts.posts);
+  
   let postsShare = [];
   let postsLearn = [];
   if (!loading) {
+    console.log(posts)
     postsShare = posts.filter((post) => post.type_id === 2);
     postsLearn = posts.filter((post) => post.type_id === 1);
   }
