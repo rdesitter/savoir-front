@@ -12,6 +12,7 @@ function ThumbnailPreview({
   title,
   userId,
   postId,
+  categoryName,
 }) {
   return (
     <article className="thumbnail">
@@ -24,8 +25,8 @@ function ThumbnailPreview({
         </div>
       </Link>
 
-      <Link className="thumbnail__link" to={`/categories/${category}`} title={`vers la catégorie "${category}"`}>
-        <Label label={category} color="light-grey" />
+      <Link className="thumbnail__link" to={`/categories/${category}`} title={`vers la catégorie "${categoryName}"`}>
+        <Label label={categoryName} color="light-grey" />
       </Link>
 
       <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
@@ -49,7 +50,7 @@ ThumbnailPreview.propTypes = {
   title: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   postId: PropTypes.number.isRequired,
-
+  categoryName: PropTypes.string.isRequired,
 };
 
 export default ThumbnailPreview;
