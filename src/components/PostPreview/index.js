@@ -19,7 +19,7 @@ function PostPreview({
       <p className="post-preview__date">Publiée le {date}</p>
       <div className="post-preview__buttons">
         <Link to={`/annonces/${id}`}>
-          <Button label="Voir l'annonce" />
+          <Button label="Voir l'annonce" btnstyle="outlined" />
         </Link>
         {/* <Link to={`/annonce/${id}/effacer`}>
           <Button btnstyle="delete" icon="delete" />
