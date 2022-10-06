@@ -43,8 +43,8 @@ function Profile() {
     <Page id="profil">
       <Container>
         <Panel>
-          {loading && <div>Loading...</div>}
-          {!loading
+          {!loading && <div>Loading...</div>}
+          {loading
           && (
           <>
             <div className="user-infos">
@@ -63,22 +63,39 @@ function Profile() {
               {btnVisible && (
                 <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
               )}
-              {isLogged && (
-              <div>
-                {isVisible && (
-                <div className="user-infos__contact-btn">
-                  <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a>
-                  {!copy && (
-                  <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
-                  )}
-                  {copy && (
-                  <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+              {!isLogged && (
+                <div className="test">
+                  {isVisible && (
+                    <>
+                      <div className="user-infos__contact-btn">
+                        <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a>
+                        {!copy && (
+                        <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                        )}
+                        {copy && (
+                        <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                        )}
+                      </div>
+                      <div className="disclaimer">
+                        <p className="disclaimer-text">
+                          <span className="disclaimer-text__bold">Attention</span>, vous êtes sur le point d’entrer en relation avec un utilisateur.
+                        </p>
+                        <p className="disclaimer-text">
+                          Veillez à ne jamais communiquer d’informations personnelles.
+                        </p>
+                        <p className="disclaimer-text">
+                          Si détectez le moindre comportement suspect ou ressentez le moindre doute,
+                          merci d’utiliser le formulaire de <a className="disclaimer-text__bold" href="/contact">contact</a> pour en faire part à un membre de l’équipe.
+                        </p>
+                      </div>
+                    </>
+
                   )}
                 </div>
-                )}
-              </div>
               )}
-              {!isLogged && (
+            </div>
+
+              {isLogged && (
               <div>
                 {isVisible && (
                 <Link to="/connexion">
@@ -87,7 +104,6 @@ function Profile() {
                 )}
               </div>
               )}
-            </div>
           </>
           )}
 

@@ -21,3 +21,14 @@
     padding-right: vars.$space-30;
   }
 }
+
+.disclaimer {
+  padding: 1em;
+  background-color: vars.$primary-color;
+  &-text{
+    &__bold{
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
