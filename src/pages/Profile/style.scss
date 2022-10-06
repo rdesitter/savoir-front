@@ -1,4 +1,5 @@
 @use '../../styles/vars';
+@use '../../styles/mixin';
 
 #profil {
   .panel {
@@ -9,4 +10,14 @@
 .post-previews__title {
   padding-bottom: vars.$space-20;
   font-weight: bold;
+}
+
+.user-infos__contact {
+  display: flex;
+  justify-content: center;
+
+  @include mixin.media('medium') {
+    justify-content: right;
+    padding-right: vars.$space-30;
+  }
 }
