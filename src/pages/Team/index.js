@@ -14,8 +14,17 @@ function Team() {
           </header>
           <div className="team">
             <TeamMember
-              name="Benoit"
-              teamrole="Scrum Master"
+              name="Alizéa"
+              teamrole="Lead dev backend"
+              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              avatar="LONG2"
+              github="https://github.com/Alizea-Masse"
+              linkedin="https://www.linkedin.com/in/alizéamassé/"
+            />
+
+            <TeamMember
+              name="Séverine"
+              teamrole="Référente accessibilité"
               desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
               avatar="BEARD1"
               github="https://github.com/#"
@@ -26,14 +35,14 @@ function Team() {
               name="Benoit"
               teamrole="Scrum Master"
               desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              avatar="BEARD1"
+              avatar="BEARD2"
               github="https://github.com/#"
-              linkedin="https://linkedin.com/#"
+              linkedin="https://www.linkedin.com/in/benoit-castang-802332117/"
             />
 
             <TeamMember
-              name="Benoit"
-              teamrole="Scrum Master"
+              name="Raphaël"
+              teamrole="Lead dev front-end"
               desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
               avatar="BEARD1"
               github="https://github.com/#"
@@ -41,21 +50,12 @@ function Team() {
             />
 
             <TeamMember
-              name="Benoit"
-              teamrole="Scrum Master"
+              name="Cécile"
+              teamrole="Product owner"
               desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              avatar="BEARD1"
+              avatar="LONG1"
               github="https://github.com/#"
-              linkedin="https://linkedin.com/#"
-            />
-
-            <TeamMember
-              name="Benoit"
-              teamrole="Scrum Master"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-              avatar="BEARD1"
-              github="https://github.com/#"
-              linkedin="https://linkedin.com/#"
+              linkedin="https://www.linkedin.com/in/cecilebonnindevweb/"
             />
           </div>
         </section>
