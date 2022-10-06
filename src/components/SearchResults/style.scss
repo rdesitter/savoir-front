@@ -6,67 +6,13 @@
   flex-wrap: wrap;
   background-color: #FFFFFF;
 
-  &-type{
-
-    display: flex;
-    &__link{
-      text-decoration: underline;
-      color: skyblue;
-      margin-left: vars.$space-10;
-    }
-  }
-}
-.thumbnail {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 11em;
-  background-color: vars.$light-grey-color;
-  margin: .5em;
-
-
-  &-user__infos {
-    display: flex;
-    padding: .5em;
-  }
-
-  &-user__img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #FFFFFF;
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    border: 1px solid vars.$light-stroke-color;
-
-    &__avatar {
-      width: 1.3em;
-      height: 1.3em;
-    }
-  }
-
-  &-user__name {
-    padding: .5em;
-  }
-
-  &-infos{
-    padding-top: .5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__img{
-      max-width: 85%;
-    }
-    &__title{
-      text-align: left;
-      font-size: 1em;
-    }
-    &__description {
-      font-size: .8em;
-      line-height: 1em;
-      padding: .3em;
+  &__title {
+    font-size: vars.$font-big;
+    font-weight: bold;
+    margin-bottom: vars.$space-30;
+    // responsive
+    @include mixin.media('medium') {
+      margin-bottom: vars.$space-20;
     }
   }
 }

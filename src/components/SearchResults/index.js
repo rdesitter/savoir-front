@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
-import ThumbnailPreview from '../Thumbnail/ThumbnailPreview';
+import Panel from '../Panel';
+// import ThumbnailPreview from '../Thumbnail/ThumbnailPreview';
+import Thumbnail from '../Thumbnail';
 
 import './style.scss';
 
@@ -7,11 +9,12 @@ function SearchResults() {
   const displayResults = useSelector((state) => state.search.results);
 
   return (
-    <>
-      <div className="thumbnails-type">
-        <h2 className="thumbnails-type__title">Résultats de la recherche</h2>
-      </div>
+    <Panel>
       <div className="thumbnails">
+        <h2 className="thumbnails__title">Résultats de la recherche</h2>
+      </div>
+      <Thumbnail list={displayResults} />
+      {/* <div className="thumbnails">
         {displayResults.map((post) => (
           <ThumbnailPreview
             key={post.id}
@@ -23,8 +26,8 @@ function SearchResults() {
             postId={post.id}
           />
         ))}
-      </div>
-    </>
+      </div> */}
+    </Panel>
   );
 }
 
