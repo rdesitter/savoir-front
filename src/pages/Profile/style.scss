@@ -12,9 +12,14 @@
   font-weight: bold;
 }
 
+.email{
+  font-size: vars.$font-big;
+  text-decoration: underline;
+}
 .user-infos__contact {
   display: flex;
   justify-content: center;
+  padding: vars.$space-15;
 
   @include mixin.media('medium') {
     justify-content: right;
@@ -23,12 +28,24 @@
 }
 
 .disclaimer {
-  padding: 1em;
-  background-color: vars.$primary-color;
+  padding: vars.$space-15;
+  margin: vars.$space-10;
+  border-radius: vars.$panel-radius;
+  background-color: vars.$primary-color-alt;
   &-text{
-    &__bold{
+    &__span-bold{
       font-weight: bold;
       text-decoration: underline;
     }
   }
+}
+
+.go-to-connection{
+  display: flex;
+  justify-content: center;
+  @include mixin.media('medium') {
+  justify-content: right;
+  padding-right: vars.$space-30;
+  }
+  
 }
