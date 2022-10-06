@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { displayElement, setError, submitNewPasssword, toggleLoading } from '../../actions';
+import {
+  displayElement, setError, submitNewPasssword, toggleLoading,
+} from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Error from '../../components/Error';
