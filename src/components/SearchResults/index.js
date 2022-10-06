@@ -9,15 +9,15 @@ function SearchResults() {
   const displayResults = useSelector((state) => state.search.results);
   const resultsCount = displayResults.length;
   // console.log('mon comptage', resultsCount);
-  let message;
+  let message = '';
   if (resultsCount > 1) {
-    let message = `Votre recherche a donné ${resultsCount} résultats`;
+    message = `Votre recherche a donné ${resultsCount} résultats`;
   }
   else if (resultsCount === 1) {
-    let message = `Votre recherche a donné ${resultsCount} résultat`;
+    message = `Votre recherche a donné ${resultsCount} résultat`;
   }
   else {
-    let message = 'Votre recherche n\'a donné aucun résultat';
+    message = 'Votre recherche n\'a donné aucun résultat';
   }
 
   return (

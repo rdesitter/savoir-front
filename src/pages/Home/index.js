@@ -34,12 +34,12 @@ function Home() {
         <Search />
         <Panel>
           {!loading && (
-          <Thumbnail list={postsShare} title="Ils proposent" url="partage" />
+          <Thumbnail list={postsShare} title="Ils proposent" url="partage" link="Ils proposent" />
           )}
         </Panel>
         <Panel>
           {!loading && (
-          <Thumbnail list={postsLearn} title="Ils recherchent" url="besoin" />
+          <Thumbnail list={postsLearn} title="Ils recherchent" url="besoin" link="Ils recherchent" />
           )}
         </Panel>
       </Container>
