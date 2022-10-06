@@ -1,12 +1,7 @@
 @use '../../styles/vars';
 @use '../../styles/mixin';
 
-.thumbnails {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #FFFFFF;
-
-  &__title {
+.thumbnails__title {
     font-size: vars.$font-big;
     font-weight: bold;
     margin-bottom: vars.$space-30;
@@ -15,4 +10,3 @@
       margin-bottom: vars.$space-20;
     }
   }
-}

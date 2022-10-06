@@ -10,10 +10,7 @@ function SearchResults() {
 
   return (
     <Panel>
-      <div className="thumbnails">
-        <h2 className="thumbnails__title">Résultats de la recherche</h2>
-      </div>
-      <Thumbnail list={displayResults} />
+      <Thumbnail list={displayResults} title="Résultats de la recherche" />
       {/* <div className="thumbnails">
         {displayResults.map((post) => (
           <ThumbnailPreview
