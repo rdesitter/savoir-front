@@ -42,7 +42,7 @@ function Annonce() {
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label="catgeory name" />
+            <Label label={selectedPost.category_name} />
             <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
           </section>
           <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
@@ -59,8 +59,8 @@ function Annonce() {
               <MorePostInfos info="Animaux acceptés" />
 
               <AccountDetailsPost
-                avatar="avatar"
-                name="pseudo"
+                avatar={selectedPost.picture_slug}
+                name={selectedPost.user_name}
                 createdAt="user created at"
                 email="user email"
               />
