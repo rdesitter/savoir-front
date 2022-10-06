@@ -29,10 +29,10 @@ function PostsList({ posts }) {
             postsLearn.map((post) => (
               <ThumbnailPreview
                 key={post.id}
-                avatar="avatar"
-                name="pseudo"
+                avatar={post.picture_slug}
+                name={post.user_name}
                 userId={post.user_id}
-                category="category"
+                category={post.category_slug}
                 postId={post.id}
                 title={post.title}
               />
@@ -43,10 +43,10 @@ function PostsList({ posts }) {
             postsShare.map((post) => (
               <ThumbnailPreview
                 key={post.id}
-                avatar="avatar"
-                name="pseudo"
-                userId={post.user_id}
-                category="category"
+                avatar={post.picture_slug}
+                name={post.user_name}
+                userId={post.userId}
+                category={post.category_slug}
                 postId={post.id}
                 title={post.title}
               />

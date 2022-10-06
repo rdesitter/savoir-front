@@ -14,11 +14,10 @@ function Home() {
   const isLogged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.posts.isLoading);
   const posts = useSelector((state) => state.posts.posts);
-  
+
   let postsShare = [];
   let postsLearn = [];
   if (!loading) {
-    console.log(posts)
     postsShare = posts.filter((post) => post.type_id === 2);
     postsLearn = posts.filter((post) => post.type_id === 1);
   }
@@ -34,12 +33,12 @@ function Home() {
         <Search />
         <Panel>
           {!loading && (
-          <Thumbnail list={postsShare} title="Ils proposent" url="partage" link="Ils proposent" />
+          <Thumbnail list={postsShare} title="Ils proposent" url="partage" link="Voir toutes les annonces" />
           )}
         </Panel>
         <Panel>
           {!loading && (
-          <Thumbnail list={postsLearn} title="Ils recherchent" url="besoin" link="Ils recherchent" />
+          <Thumbnail list={postsLearn} title="Ils recherchent" url="besoin" link="Voir toutes les annonces" />
           )}
         </Panel>
       </Container>

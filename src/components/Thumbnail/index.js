@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import ThumbnailPreview from './ThumbnailPreview';
 import './style.scss';
 
-function Thumbnail({ list, title, url, link }) {
+function Thumbnail({
+  list, title, url, link,
+}) {
   return (
     <div className="thumbnails">
       <header className="section__header thumbnails__header">
@@ -16,7 +18,7 @@ function Thumbnail({ list, title, url, link }) {
             key={post.id}
             avatar={post.picture_slug}
             name={post.user_name}
-            userId={post.userId}
+            userId={post.user_id}
             category={post.category_slug}
             postId={post.id}
             title={post.title}
