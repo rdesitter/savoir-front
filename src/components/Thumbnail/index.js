@@ -31,10 +31,14 @@ function Thumbnail({ list, title, url }) {
   );
 }
 
+Thumbnail.defaultProps = {
+  url: '',
+};
+
 Thumbnail.propTypes = {
   list: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
 };
 
 export default Thumbnail;
