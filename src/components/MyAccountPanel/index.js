@@ -10,7 +10,7 @@ function MyAccountPanel({ email }) {
     <div className="account-panel">
       <div className="account-panel__bloc">
         <header>
-          <h2 className="section__title">Informations personnelles</h2>
+          <h2 className="section__title">Informations de connexion</h2>
           <h2 className="section__subtitle">Ces informations sont strictement confidentielles et nous servent à vous contacter ou à personnaliser votre interface.</h2>
         </header>
         <p className="account-panel__label">Email de contact / identifiant de connexion</p>

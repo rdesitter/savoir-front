@@ -20,6 +20,7 @@ function Annonce() {
 
   const isAdmin = useSelector((state) => state.user.admin);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
+  console.log(selectedPost);
   const similarPosts = useSelector((state) => state.posts.similarPosts);
   const postError = useSelector((state) => state.posts.isError);
 
@@ -59,6 +60,7 @@ function Annonce() {
               <MorePostInfos info="Animaux acceptés" />
 
               <AccountDetailsPost
+                id={selectedPost.user_id}
                 avatar={selectedPost.picture_slug}
                 name={selectedPost.user_name}
                 createdAt="user created at"
