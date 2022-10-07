@@ -62,8 +62,8 @@ function Search({ ...props }) {
               </div>
               <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select" onChange={handleLearnOrShareChange}>
                 <option value="">Choisissez une option...</option>
-                <option value="1">Apprendre</option>
-                <option value="2">Partager</option>
+                <option value="1">Partager</option>
+                <option value="2">Apprendre</option>
               </select>
             </div>
 
