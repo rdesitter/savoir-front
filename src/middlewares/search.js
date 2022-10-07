@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   LAUNCH_SEARCH,
   GET_CATEGORIES,
+  dbError,
   setCategories,
   setResults,
   toggleLoading,
@@ -23,18 +24,19 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
+        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
 
   if (action.type === LAUNCH_SEARCH) {
-    instance.get(`/api/annonces/category/${action.category}`)
+    instance.get(`/api/annonces/category/${action.category}/type/${action.learnOrShare}`)
       .then((response) => {
         store.dispatch(setResults(response.data));
       })
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
+        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
   next(action);

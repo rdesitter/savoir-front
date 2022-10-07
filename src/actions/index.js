@@ -291,6 +291,12 @@ export const updatePersonalInfo = () => ({
   type: UPDATE_PERSONAL_INFO,
 });
 
+export const DB_ERROR = 'DB_ERROR';
+
+export const dbError = (errorMessage) => ({
+  type: DB_ERROR,
+  errorMessage,
+
 export const GET_AVATARS = 'GET_AVATARS';
 
 export const getAvatars = () => ({
