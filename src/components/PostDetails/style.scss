@@ -3,7 +3,7 @@
 
 
 .post-informations {
-  margin-top: 4em;
+  margin-top: 7em;
 }
 
 .post-infos {
@@ -13,7 +13,7 @@
 
   &__frame{
     border-radius: vars.$panel-radius vars.$panel-radius 0 0; 
-    max-height: 5em;
+    max-height: 8em;
     width: 100%;
     overflow: hidden;
     position: absolute;
@@ -24,7 +24,7 @@
     width: 100%;
     top: 0;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-30%);
   }
 
   &__title{

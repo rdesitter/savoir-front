@@ -3,12 +3,17 @@ import Panel from '../Panel';
 
 import './style.scss';
 
-function PostDetails({ title, localisation, description }) {
+function PostDetails({
+  title,
+  localisation,
+  description,
+  category,
+}) {
   return (
     <article className="post-infos">
       <Panel>
         <section className="post-infos__frame">
-          <img className="post-infos__img" src="/images/categories/informatique.jpg" alt="informatique" />
+          <img className="post-infos__img" src={`/images/categories/${category}.jpg`} alt="informatique" />
         </section>
         <section className="post-informations">
           <h2 className="post-infos__title">{title}</h2>
@@ -25,6 +30,7 @@ PostDetails.propTypes = {
   title: PropTypes.string.isRequired,
   localisation: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default PostDetails;

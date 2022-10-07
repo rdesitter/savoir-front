@@ -55,6 +55,7 @@ function Annonce() {
               title={selectedPost.title}
               localisation={selectedPost.location || ''}
               description={selectedPost.description}
+              category={selectedPost.category_slug}
             />
             <div className="vignettes">
               <MorePostInfos info="Animaux acceptés" />
