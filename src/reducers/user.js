@@ -10,6 +10,7 @@ import {
   SET_ERROR,
   SET_SELECTED_USER,
   SET_USER,
+  TOGGLE_DELETED,
   TOGGLE_LOGGED,
   TOGGLE_SAVED_DATA,
   TOOGLE_LOADING,
@@ -49,6 +50,7 @@ export const initialState = {
     description: '',
   },
   avatars: [],
+  isDeleted: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -68,6 +70,7 @@ const reducer = (state = initialState, action = {}) => {
         error: false,
         errorMsg: '',
         loading: false,
+        isDeleted: false,
       };
     case INIT_ERROR:
       return {
@@ -169,6 +172,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         avatars: action.avatars,
+      };
+    case TOGGLE_DELETED:
+      return {
+        ...state,
+        isDeleted: true,
       };
     default:
       return state;

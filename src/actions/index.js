@@ -316,3 +316,15 @@ export const UPDATE_AVATAR = 'UPDATE_AVATAR';
 export const updateAvatar = () => ({
   type: UPDATE_AVATAR,
 });
+
+export const DELETE_USER = 'DELETE_USER';
+
+export const deleteUser = () => ({
+  type: DELETE_USER,
+});
+
+export const TOGGLE_DELETED = 'TOGGLE_DELETED';
+
+export const toggleDeleted = () => ({
+  type: TOGGLE_DELETED,
+});
