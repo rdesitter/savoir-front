@@ -29,7 +29,7 @@ const search = (store) => (next) => (action) => {
   }
 
   if (action.type === LAUNCH_SEARCH) {
-    instance.get(`/api/annonces/category/${action.category}`)
+    instance.get(`/api/annonces/category/${action.category}/type/${action.learnOrShare}`)
       .then((response) => {
         store.dispatch(setResults(response.data));
       })
