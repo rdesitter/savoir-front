@@ -23,7 +23,7 @@ const createPost = (store) => (next) => (action) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${token}`,
+        'Authorization': `Bearer ${token}`,
       },
     };
     // TODO supprimer le postal_code quand valeur par défaut sera ok côté back
