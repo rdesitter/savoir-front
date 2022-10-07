@@ -34,7 +34,6 @@ function PostDetails({
 
 PostDetails.propTypes = {
   title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
