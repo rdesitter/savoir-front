@@ -1,12 +1,16 @@
+/* eslint-disable quote-props */
 /* eslint-disable camelcase */
 import axios from 'axios';
 import {
+  DELETE_USER,
   GET_AVATARS,
+  initUser,
   LOGIN,
   setAvatars,
   setError,
   setUser,
   SIGNUP,
+  toggleDeleted,
   toggleLoading,
   toggleSavedData,
   UPDATE_AVATAR,
@@ -154,6 +158,24 @@ const ajax = (store) => (next) => (action) => {
       .catch((error) => {
         console.log(error);
         store.dispatch(setError('error.message'));
+      });
+  }
+  else if (action.type === DELETE_USER) {
+    const { user: { userId, token } } = store.getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${token}`,
+      },
+    };
+    instance.delete(`/api/user/${userId}`, config)
+      .then(() => {
+        store.dispatch(toggleDeleted());
+        store.dispatch(initUser());
+        localStorage.clear();
+      })
+      .catch((error) => {
+        store.dispatch(setError(error.response.data.status));
       });
   }
   next(action);

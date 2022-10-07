@@ -21,7 +21,9 @@ function MyAccountPanel({ email }) {
         <Link to="/modifier-mot-de-passe">
           <Button label="Modifier mon mot de passe" btnstyle="outlined" />
         </Link>
-        <Button label="Supprimer mon compte" style={{ backgroundColor: redColor }} />
+        <Link to="/supprimer-mon-compte">
+          <Button label="Supprimer mon compte" style={{ backgroundColor: redColor }} />
+        </Link>
       </div>
     </div>
   );
