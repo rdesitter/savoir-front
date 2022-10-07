@@ -23,6 +23,7 @@ function Thumbnail({
             categoryName={post.category_name}
             postId={post.id}
             title={post.title}
+            typeId={post.type_id}
           />
         ))}
       </div>

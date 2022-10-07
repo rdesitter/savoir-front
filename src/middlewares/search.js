@@ -2,6 +2,7 @@ import axios from 'axios';
 import {
   LAUNCH_SEARCH,
   GET_CATEGORIES,
+  dbError,
   setCategories,
   setResults,
   toggleLoading,
@@ -23,6 +24,7 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
+        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
 
@@ -34,7 +36,7 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
+        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
   next(action);

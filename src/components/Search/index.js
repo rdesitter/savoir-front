@@ -29,13 +29,13 @@ function Search({ ...props }) {
   // save the choice of category to fetch right posts
   const handleCategoryChange = (event) => {
     dispatch(changeCategoryValue(event.target.value));
-    console.log(event.target.value)
+    // console.log(event.target.value);
   };
 
   // save the choice of condition learn/share to fetch right posts
   const handleLearnOrShareChange = (event) => {
     dispatch(changeLearnOrShareValue(event.target.value));
-    // console.log(event.target.value)
+    console.log(event.target.value);
   };
 
   useEffect(() => {
