@@ -34,7 +34,7 @@ const ajax = (store) => (next) => (action) => {
       const { user: { email, password } } = store.getState();
       instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
-        instance.defaults.headers.common.Authorization = `${token}`;
+        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
@@ -147,7 +147,7 @@ const ajax = (store) => (next) => (action) => {
     instance.patch(`/api/user/${userId}`, { picture_id })
       .then((response) => {
         const token = response.data.token.accessToken;
-        instance.defaults.headers.common.Authorization = `${token}`;
+        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
@@ -165,7 +165,7 @@ const ajax = (store) => (next) => (action) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${token}`,
+        'Authorization': `Bearer ${token}`,
       },
     };
     instance.delete(`/api/user/${userId}`, config)
