@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import AccountDetails from '../../components/Accountdetails';
+import AccountDetailsProfile from '../../components/AccountDetailsProfile';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -13,7 +13,6 @@ import './style.scss';
 function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
   const user = useSelector((state) => state.user.userProfil);
-  console.log(user);
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.userLoading);
@@ -48,7 +47,7 @@ function Profile() {
           && (
           <>
             <div className="user-infos">
-              <AccountDetails
+              <AccountDetailsProfile
                 username={user.pseudo}
                 avatar={user.slug}
                 created_at={user.created_at}
