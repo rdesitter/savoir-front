@@ -62,3 +62,9 @@ p {
     background-color: vars.$medium-grey-color;
   }
 }
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$space-20;
+}

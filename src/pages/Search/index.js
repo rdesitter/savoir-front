@@ -9,8 +9,6 @@ function SearchPage() {
     <Page>
       <Container>
         <Search id="rechercher" />
-      </Container>
-      <Container>
         <SearchResult />
       </Container>
     </Page>
