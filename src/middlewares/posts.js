@@ -44,7 +44,7 @@ const selectPost = (store) => (next) => (action) => {
   }
 
   else if (action.type === GET_POSTS_BY_CATEGORY) {
-    instance(`/api/annonces/type/${action.id}`)
+    instance(`/api/annonces/category/${action.id}`)
       .then((response) => {
         store.dispatch(setPosts(response.data));
       })
