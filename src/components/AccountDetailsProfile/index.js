@@ -25,9 +25,7 @@ function AccountDetailsProfile({
   const date = rectifyFormat(created_at);
   return (
     <div className="account">
-      <div className="account__avatar">
-        <img className="account__avatar" src={`/images/avatars/${avatar}.png`} alt={avatar} />
-      </div>
+      <img className="account__avatar-img" src={`/images/avatars/${avatar}.png`} alt={avatar} />
       <div className="account__info">
         <h2 className="account__username">{username}</h2>
         <p className="account__creation">Inscrit depuis le {date}</p>
