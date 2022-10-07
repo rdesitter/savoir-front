@@ -25,9 +25,12 @@ function AccountDetails({
   const date = rectifyFormat(created_at);
   return (
     <div className="account">
-      <div className="account__avatar">
-        <img className="account__avatar__img" src={`/images/avatars/${avatar}.png`} alt={avatar} />
-      </div>
+      <Link to="/mon-compte/modifier-avatar" aria-label="Modifier mon avatar">
+        <div className="account__avatar">
+          <p className="account__avatar__legend button button--outlined">Modifier</p>
+          <img className="account__avatar__img" src={`/images/avatars/${avatar}.png`} alt={avatar} />
+        </div>
+      </Link>
       <div className="account__info">
         <h2 className="account__username">{username}</h2>
         <p className="account__creation">Inscrit depuis le {date}</p>

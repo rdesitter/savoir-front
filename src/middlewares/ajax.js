@@ -1,12 +1,15 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
 import {
+  GET_AVATARS,
   LOGIN,
+  setAvatars,
   setError,
   setUser,
   SIGNUP,
   toggleLoading,
   toggleSavedData,
+  UPDATE_AVATAR,
   UPDATE_PERSONAL_INFO,
   UPDATE_PROFILE,
 } from '../actions';
@@ -120,6 +123,38 @@ const ajax = (store) => (next) => (action) => {
     catch (error) {
       store.dispatch(setError(error.message));
     }
+  }
+  else if (action.type === GET_AVATARS) {
+    try {
+      instance('/api/avatar')
+        .then((response) => store.dispatch(setAvatars(response.data)))
+        .catch((error) => store.dispatch(setError(error.message)));
+    }
+    catch (error) {
+      store.dispatch(setError(error.message));
+    }
+  }
+  else if (action.type === UPDATE_AVATAR) {
+    const {
+      user: {
+        userId, avatarId: picture_id,
+      },
+    } = store.getState();
+    instance.patch(`/api/user/${userId}`, { picture_id })
+      .then((response) => {
+        const token = response.data.token.accessToken;
+        instance.defaults.headers.common.Authorization = `${token}`;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
+        const data = { user: response.data.user, token };
+        store.dispatch(setUser(data));
+        store.dispatch(toggleSavedData());
+      })
+      .catch((error) => {
+        console.log(error);
+        store.dispatch(setError('error.message'));
+      });
   }
   next(action);
 };
