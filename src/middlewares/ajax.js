@@ -137,21 +137,23 @@ const ajax = (store) => (next) => (action) => {
   else if (action.type === UPDATE_AVATAR) {
     const {
       user: {
-        userId, avatarId: picture_id, token,
+        userId, avatarId: picture_id,
       },
     } = store.getState();
     instance.patch(`/api/user/${userId}`, { picture_id })
       .then((response) => {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        const user = response.data;
-        const datas = { user, token };
-        console.log(datas);
-        store.dispatch(setUser(datas));
+        const token = response.data.token.accessToken;
+        instance.defaults.headers.common.Authorization = `${token}`;
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
+        const data = { user: response.data.user, token };
+        store.dispatch(setUser(data));
         store.dispatch(toggleSavedData());
       })
       .catch((error) => {
-        console.log(error)
-        // store.dispatch(setError('error.message'));
+        console.log(error);
+        store.dispatch(setError('error.message'));
       });
   }
   next(action);

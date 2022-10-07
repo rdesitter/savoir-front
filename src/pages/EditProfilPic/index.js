@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { changeValue, getAvatars, updateAvatar } from '../../actions';
+import { Navigate, useNavigate } from 'react-router-dom';
+import {
+  changeValue, getAvatars, toggleSavedData, updateAvatar,
+} from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Error from '../../components/Error';
@@ -18,8 +20,14 @@ function EditProfilPicture() {
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
   const userAvatar = useSelector((state) => state.user.avatarId);
+  const isSaved = useSelector((state) => state.user.dataSaved);
+  const [checkIsSaved, setCheckIsSaved] = useState(false);
 
   useEffect(() => {
+    if (isSaved) {
+      dispatch(toggleSavedData());
+    }
+    setCheckIsSaved(false);
     dispatch(getAvatars(userAvatar));
     setLoading(false);
   }, []);
@@ -29,11 +37,16 @@ function EditProfilPicture() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateAvatar());
+    setCheckIsSaved(true);
   };
 
   const handleBack = () => {
     navigate(-1);
   };
+
+  if (checkIsSaved) {
+    return <Navigate to="/mon-compte" replace />;
+  }
 
   return (
     <Page>
@@ -57,7 +70,7 @@ function EditProfilPicture() {
                       onChange={handleRadioChange}
                     />
                     <label className="avatar_label" htmlFor={avatar.slug} aria-label={`Choisir l'avatar ${avatar.name}`} style={{ backgroundImage: `/public/images/avatars/${avatar.slug.toUpperCase()}.png` }} />
-                    <img className="avatar__img" src={`/images/avatars/${avatar.slug.toUpperCase()}.png`} alt={avatar.name} />
+                    <img className="avatar__img" src={`/images/avatars/${avatar.slug}.png`} alt={avatar.name} />
                   </div>
                 ))
               )}
