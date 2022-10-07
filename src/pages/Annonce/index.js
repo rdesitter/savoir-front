@@ -53,7 +53,7 @@ function Annonce() {
           <div className="global-infos">
             <PostDetails
               title={selectedPost.title}
-              localisation={selectedPost.location || ''}
+              location={selectedPost.type_id === 1 ? selectedPost.postal_code : 'A distance'}
               description={selectedPost.description}
               category={selectedPost.category_slug}
             />
