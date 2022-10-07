@@ -7,7 +7,6 @@ import './style.scss';
 
 function UserPosts({ posts, title, isOwner }) {
   const hasPosts = posts.length;
-  console.log(posts);
   return (
     <>
       { hasPosts > 0 && (

@@ -70,16 +70,16 @@ const ajax = (store) => (next) => (action) => {
         instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({
-          email, password, pseudo, birthdate, created_at: date, id: response.data.newUser,
+          email, password, pseudo, birthdate, created_at: date, id: response.data.newUser.id,
         }));
         store.dispatch(setUser({
           user: {
-            email, pseudo, birthdate, created_at: date, userId: response.data.newUser,
+            email, pseudo, birthdate, created_at: date, id: response.data.newUser.id,
           },
         }));
         store.dispatch(toggleLoading());
       }).catch((error) => {
-        store.dispatch(setError(error.message));
+        store.dispatch(setError(error.response.data.message));
       });
     }
     catch (error) {

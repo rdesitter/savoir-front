@@ -48,6 +48,11 @@
     }
   }
 
+  &__username {
+    font-size: vars.$font-big;
+    font-weight: bold;
+  }
+
   &__title {
     font-size: vars.$font-medium;
     font-weight: bold;

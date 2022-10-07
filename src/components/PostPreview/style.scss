@@ -6,7 +6,6 @@
   margin-right: vars.$space-20;
   border: 1px solid vars.$light-stroke-color;
   border-radius: vars.$panel-radius;
-
   @include mixin.media('small') {
     max-width: 250px;
   }

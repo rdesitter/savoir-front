@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../actions';
 import AccountDetails from '../../components/Accountdetails';
 import Container from '../../components/Container';
 import MyAccountPanel from '../../components/MyAccountPanel';
@@ -10,7 +12,13 @@ import UserPosts from '../../components/UserPosts';
 import './style.scss';
 
 function MyAccount() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const myPosts = useSelector((state) => state.posts.selectedUserPost);
+  useEffect(() => {
+    dispatch(getUsers(user.userId));
+  }, []);
+
   return (
     <Page id="mon-compte">
       <Container>
@@ -24,7 +32,7 @@ function MyAccount() {
           />
         </div>
         <Panel id="mes-annonces">
-          <UserPosts posts={user.posts} title="Mes annonces" isOwner />
+          <UserPosts posts={myPosts} title="Mes annonces" isOwner />
         </Panel>
         <Panel id="info-personnelles">
           <PersonalInfo

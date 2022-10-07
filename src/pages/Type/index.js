@@ -29,12 +29,13 @@ function Type({ id }) {
               posts.map((post) => (
                 <ThumbnailPreview
                   key={post.id}
-                  avatar="BEARD01"
-                  name="username"
-                  category="categorie"
-                  title={post.title}
+                  avatar={post.picture_slug}
+                  name={post.user_name}
                   userId={post.user_id}
+                  category={post.category_slug}
+                  categoryName={post.category_name}
                   postId={post.id}
+                  title={post.title}
                 />
               ))
             )}

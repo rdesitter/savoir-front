@@ -32,7 +32,7 @@ function AccountDetails({
         </div>
       </Link>
       <div className="account__info">
-        <h2 className="account__title">{username}</h2>
+        <h2 className="account__username">{username}</h2>
         <p className="account__creation">Inscrit depuis le {date}</p>
         <h3 className="account__title">Description</h3>
         <p className="account__about">{about}</p>

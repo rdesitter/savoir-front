@@ -16,6 +16,7 @@ function AccountDetailsPost({
 }) {
   // condition logged
   const isLogged = useSelector((state) => state.user.logged);
+  const user = useSelector((state) => state.posts.selectedUserPost);
 
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
@@ -42,24 +43,24 @@ function AccountDetailsPost({
           </section>
           <section className="user-infos">
             <h2 className="user-infos__name">{name}</h2>
-            <span className="user-infos__date">inscrit(e) depuis le {createdAt}</span>
+            <span className="user-infos__date">inscrit(e) depuis le {user.createdAt}</span>
             {btnVisible && (
-            <button onClick={handleClick} type="button" className="user-infos__contact" title="Contacter">Contacter</button>
+            <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
             )}
             {isLogged && (
-            <div>
-              {isVisible && (
-              <div className="user-infos__contact-btn">
-                <a type="text" id="inputText" className="user-infos__mail" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
-                {!copy && (
-                <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
-                )}
-                {copy && (
-                <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
-                )}
+              <div className="email-user">
+                  {isVisible && (
+                    <div className="user-infos__contact-btn">
+                      <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
+                        {!copy && (
+                        <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+                        )}
+                        {copy && (
+                        <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                        )}
+                    </div>
+                  )}
               </div>
-              )}
-            </div>
             )}
             {!isLogged && (
               <div>
@@ -73,6 +74,26 @@ function AccountDetailsPost({
           </section>
         </div>
       </Panel>
+      {isLogged && (
+        <div>
+          {isVisible && (
+          <div className="disclaimer">
+            <p className="disclaimer-text">
+              <span className="disclaimer-text__span">Avertissement</span>: Vous êtes sur le point d’entrer en relation avec un utilisateur.
+            </p>
+            <p className="disclaimer-text">
+              Veillez à ne jamais communiquer d’informations personnelles.
+            </p>
+            <p className="disclaimer-text">
+              Si détectez le moindre comportement suspect ou ressentez le moindre doute,
+              merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour en faire part à un membre de l’équipe.
+            </p>
+          </div>
+          )}
+        </div>
+
+      )}
+
     </article>
   );
 }

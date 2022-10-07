@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Label from '../../components/Label';
@@ -42,8 +42,8 @@ function Annonce() {
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label="catgeory name" color="grey" />
-            <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} color="grey" />
+            <Label label={selectedPost.category_name} />
+            <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
           </section>
           <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           {isAdmin && (
@@ -59,8 +59,8 @@ function Annonce() {
               <MorePostInfos info="Animaux acceptés" />
 
               <AccountDetailsPost
-                avatar="avatar"
-                name="pseudo"
+                avatar={selectedPost.picture_slug}
+                name={selectedPost.user_name}
                 createdAt="user created at"
                 email="user email"
               />
@@ -77,12 +77,13 @@ function Annonce() {
             {similarPosts.map((post) => (
               <ThumbnailPreview
                 key={post.id}
-                avatar="BEARD01"
-                name="username"
-                category="categorie"
-                title={post.title}
+                avatar={post.picture_slug}
+                name={post.user_name}
                 userId={post.user_id}
+                category={post.category_slug}
+                categoryName={post.category_name}
                 postId={post.id}
+                title={post.title}
               />
             ))}
           </div>

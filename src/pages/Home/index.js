@@ -14,11 +14,12 @@ function Home() {
   const isLogged = useSelector((state) => state.user.logged);
   const loading = useSelector((state) => state.posts.isLoading);
   const posts = useSelector((state) => state.posts.posts);
+
   let postsShare = [];
   let postsLearn = [];
   if (!loading) {
-    postsShare = posts.filter((post) => post.type_id === 2);
-    postsLearn = posts.filter((post) => post.type_id === 1);
+    postsShare = posts.filter((post) => post.type_id === 2).slice(0, 4);
+    postsLearn = posts.filter((post) => post.type_id === 1).slice(0, 4);
   }
 
   const dispatch = useDispatch();
@@ -32,12 +33,12 @@ function Home() {
         <Search />
         <Panel>
           {!loading && (
-          <Thumbnail list={postsShare} title="Ils proposent" url="partage" />
+          <Thumbnail list={postsShare} title="Ils-Elles proposent" url="partage" link="Voir toutes les annonces" />
           )}
         </Panel>
         <Panel>
           {!loading && (
-          <Thumbnail list={postsLearn} title="Ils recherchent" url="besoin" />
+          <Thumbnail list={postsLearn} title="Ils-Elles recherchent" url="besoin" link="Voir toutes les annonces" />
           )}
         </Panel>
       </Container>

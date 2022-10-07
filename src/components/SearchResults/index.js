@@ -1,30 +1,30 @@
 import { useSelector } from 'react-redux';
-import ThumbnailPreview from '../Thumbnail/ThumbnailPreview';
+import Panel from '../Panel';
+import Thumbnail from '../Thumbnail';
 
 import './style.scss';
 
 function SearchResults() {
   const displayResults = useSelector((state) => state.search.results);
+  const resultsCount = displayResults.length;
+  let message = '';
+  if (resultsCount > 1) {
+    message = `Votre recherche a donné ${resultsCount} résultats`;
+  }
+  else if (resultsCount === 1) {
+    message = `Votre recherche a donné ${resultsCount} résultat`;
+  }
+  else if (resultsCount === 0) {
+    message = 'Votre recherche n\'a donné aucun résultat';
+  }
+  else {
+    message = 'Veuillez faire une recherche';
+  }
 
   return (
-    <>
-      <div className="thumbnails-type">
-        <h2 className="thumbnails-type__title">Résultats de la recherche</h2>
-      </div>
-      <div className="thumbnails">
-        {displayResults.map((post) => (
-          <ThumbnailPreview
-            key={post.id}
-            avatar="Toto"
-            name="Tata"
-            category="Bidon"
-            title={post.title}
-            userId={post.user_id}
-            postId={post.id}
-          />
-        ))}
-      </div>
-    </>
+    <Panel>
+      <Thumbnail list={displayResults} title={message} />
+    </Panel>
   );
 }
 
