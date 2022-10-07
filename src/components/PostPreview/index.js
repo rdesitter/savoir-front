@@ -17,6 +17,7 @@ function PostPreview({
       </div>
       <h2 className="post-preview__title">{title}</h2>
       <p className="post-preview__date">Publiée le {date}</p>
+      <span className="spacer" />
       <div className="post-preview__buttons">
         <Link to={`/annonces/${id}`}>
           <Button label="Voir l'annonce" btnstyle="outlined" />
