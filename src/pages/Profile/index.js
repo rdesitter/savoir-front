@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-import AccountDetailsProfile from '../../components/AccountDetailsProfile';
+import AccountDetails from '../../components/Accountdetails';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -47,9 +47,9 @@ function Profile() {
           && (
           <>
             <div className="user-infos">
-              <AccountDetailsProfile
+              <AccountDetails
                 username={user.pseudo}
-                avatar={user.slug}
+                avatar={user.avatar}
                 created_at={user.created_at}
                 about={user.description}
                 id={user.id}
