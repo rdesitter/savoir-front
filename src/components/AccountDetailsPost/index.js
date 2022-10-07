@@ -9,6 +9,7 @@ import Panel from '../Panel';
 import './style.scss';
 
 function AccountDetailsPost({
+  id,
   avatar,
   name,
   createdAt,
@@ -39,11 +40,11 @@ function AccountDetailsPost({
       <Panel>
         <div className="div-panel">
           <section className="user-infos__avatar">
-            <img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" />
+            <a href={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></a>
           </section>
           <section className="user-infos">
             <h2 className="user-infos__name">{name}</h2>
-            <span className="user-infos__date">inscrit(e) depuis le {user.createdAt}</span>
+            <span className="user-infos__date">inscrit(e) depuis le {createdAt}</span>
             {btnVisible && (
             <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
             )}
