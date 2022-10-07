@@ -17,14 +17,10 @@ function PostPreview({
       </div>
       <h2 className="post-preview__title">{title}</h2>
       <p className="post-preview__date">Publiée le {date}</p>
-      <div className="post-preview__buttons">
-        <Link to={`/annonces/${id}`}>
-          <Button label="Voir l'annonce" btnstyle="outlined" />
-        </Link>
-        {/* <Link to={`/annonce/${id}/effacer`}>
-          <Button btnstyle="delete" icon="delete" />
-        </Link> */}
-      </div>
+      <span className="spacer" />
+      <Link className="thumbnail__link" to={`/annonces/${id}`} title={`vers l'annonce "${title}"`}>
+        <Button label="Voir l'annonce" btnstyle="outlined" />
+      </Link>
     </article>
   );
 }

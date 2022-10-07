@@ -13,6 +13,7 @@ import './style.scss';
 function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
   const user = useSelector((state) => state.user.userProfil);
+  console.log(user);
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.userLoading);
@@ -49,7 +50,7 @@ function Profile() {
             <div className="user-infos">
               <AccountDetails
                 username={user.pseudo}
-                avatar={user.avatar}
+                avatar={user.slug}
                 created_at={user.created_at}
                 about={user.description}
                 id={user.id}
