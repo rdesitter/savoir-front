@@ -21,8 +21,13 @@ function MyAccount() {
 
   useEffect(() => {
     dispatch(getUsers(user.userId));
-    setLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (avatar) {
+      setLoading(false);
+    }
+  }, [avatar]);
 
   return (
     <Page id="mon-compte">
