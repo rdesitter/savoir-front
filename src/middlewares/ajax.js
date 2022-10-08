@@ -83,7 +83,15 @@ const ajax = (store) => (next) => (action) => {
         }));
         store.dispatch(toggleLoading());
       }).catch((error) => {
-        store.dispatch(setError(error.response.data.message));
+        if (error.response.data.constraint === 'user_email_key') {
+          store.dispatch(setError('Cet adresse email est déjà utilisée.'));
+        }
+        else if (error.response.data.constraint === 'user_pseudo_key') {
+          store.dispatch(setError('Ce nom d\'utilsateur est déjà utilisé.'));
+        }
+        else {
+          store.dispatch(setError('Inscription impossible merci de réessayer plus tard.'));
+        }
       });
     }
     catch (error) {
