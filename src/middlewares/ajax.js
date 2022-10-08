@@ -22,6 +22,10 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
+const tokenConfig = {
+  headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+};
+
 const ajax = (store) => (next) => (action) => {
   if (action.type === LOGIN) {
     store.dispatch(toggleLoading());
@@ -34,7 +38,7 @@ const ajax = (store) => (next) => (action) => {
       const { user: { email, password } } = store.getState();
       instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
-        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+        instance.defaults.headers.patch.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
@@ -101,9 +105,8 @@ const ajax = (store) => (next) => (action) => {
   else if (action.type === UPDATE_PROFILE) {
     try {
       const { user: { userId, username: pseudo, description } } = store.getState();
-      instance.patch(`/api/user/${userId}`, { pseudo, description })
-        .then((response) => {
-          console.log(response.data);
+      instance.patch(`/api/user/${userId}`, { pseudo, description }, tokenConfig)
+        .then(() => {
           store.dispatch(toggleSavedData());
         })
         .catch((error) => {
@@ -111,7 +114,12 @@ const ajax = (store) => (next) => (action) => {
         });
     }
     catch (error) {
-      store.dispatch(setError(error.message));
+      if (error.response.status === 401) {
+        store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+      }
+      else {
+        store.dispatch(setError(error.message));
+      }
     }
   }
   else if (action.type === UPDATE_PERSONAL_INFO) {
@@ -123,13 +131,16 @@ const ajax = (store) => (next) => (action) => {
       } = store.getState();
       instance.patch(`/api/user/${userId}`, {
         lastname, firstname, birthdate, postal_code, pronoun,
-      })
-        .then((response) => {
-          console.log(response.data);
+      }, tokenConfig)
+        .then(() => {
+          // console.log(response.data);
           store.dispatch(toggleSavedData());
         })
         .catch((error) => {
-          store.dispatch(setError(error.message));
+          if (error.response.status === 401) {
+            return store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+          }
+          return store.dispatch(setError(error.message));
         });
     }
     catch (error) {
@@ -152,31 +163,25 @@ const ajax = (store) => (next) => (action) => {
         userId, avatarId: picture_id,
       },
     } = store.getState();
-    instance.patch(`/api/user/${userId}`, { picture_id })
+    instance.patch(`/api/user/${userId}`, { picture_id }, tokenConfig)
       .then((response) => {
-        const token = response.data.token.accessToken;
-        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-        localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
-        localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
-        const data = { user: response.data.user, token };
+        const data = { user: response.data.user, token: localStorage.getItem('token') };
         store.dispatch(setUser(data));
         store.dispatch(toggleSavedData());
       })
       .catch((error) => {
-        console.log(error);
-        store.dispatch(setError('error.message'));
+        if (error.response.status === 401) {
+          store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+        }
+        else {
+          store.dispatch(setError(error.message));
+        }
       });
   }
   else if (action.type === DELETE_USER) {
-    const { user: { userId, token } } = store.getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-    };
-    instance.delete(`/api/user/${userId}`, config)
+    const { user: { userId } } = store.getState();
+    instance.delete(`/api/user/${userId}`, tokenConfig)
       .then(() => {
         store.dispatch(toggleDeleted());
         store.dispatch(initUser());
