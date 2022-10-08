@@ -22,6 +22,24 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
+const getUserData = (user) => ({
+  admin: user.admin,
+  userId: user.userId,
+  avatarId: user.avatarId,
+  birthdate: user.birthdate,
+  created_at: user.created_at,
+  description: user.description,
+  email: user.email,
+  firstname: user.firstname,
+  lastname: user.lastname,
+  logged: user.logged,
+  postalCode: user.postalCode,
+  pronoun: user.pronoun,
+  roleId: user.roleId,
+  userProfil: user.userProfil,
+  username: user.username,
+});
+
 const tokenConfig = {
   headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 };
@@ -104,9 +122,12 @@ const ajax = (store) => (next) => (action) => {
   }
   else if (action.type === UPDATE_PROFILE) {
     try {
-      const { user: { userId, username: pseudo, description } } = store.getState();
+      const { user } = store.getState();
+      const { userId, username: pseudo, description } = user;
+      const userData = getUserData(user);
       instance.patch(`/api/user/${userId}`, { pseudo, description }, tokenConfig)
         .then(() => {
+          localStorage.setItem('user', JSON.stringify(userData));
           store.dispatch(toggleSavedData());
         })
         .catch((error) => {
@@ -124,16 +145,18 @@ const ajax = (store) => (next) => (action) => {
   }
   else if (action.type === UPDATE_PERSONAL_INFO) {
     try {
+      const { user } = store.getState();
       const {
-        user: {
-          userId, lastname, firstname, birthdate, postal_code, pronoun,
-        },
-      } = store.getState();
+        userId, lastname, firstname, birthdate, postalCode, pronoun,
+      } = user;
+      const userData = getUserData(user);
+
       instance.patch(`/api/user/${userId}`, {
-        lastname, firstname, birthdate, postal_code, pronoun,
+        lastname, firstname, birthdate, postal_code: postalCode, pronoun,
       }, tokenConfig)
         .then(() => {
           // console.log(response.data);
+          localStorage.setItem('user', JSON.stringify(userData));
           store.dispatch(toggleSavedData());
         })
         .catch((error) => {
@@ -158,14 +181,13 @@ const ajax = (store) => (next) => (action) => {
     }
   }
   else if (action.type === UPDATE_AVATAR) {
-    const {
-      user: {
-        userId, avatarId: picture_id,
-      },
-    } = store.getState();
+    const { user } = store.getState();
+    const { userId, avatarId: picture_id } = user;
+    const userData = getUserData(user);
+
     instance.patch(`/api/user/${userId}`, { picture_id }, tokenConfig)
       .then((response) => {
-        localStorage.setItem('user', JSON.stringify(response.data.user));
+        localStorage.setItem('user', JSON.stringify(userData));
         const data = { user: response.data.user, token: localStorage.getItem('token') };
         store.dispatch(setUser(data));
         store.dispatch(toggleSavedData());

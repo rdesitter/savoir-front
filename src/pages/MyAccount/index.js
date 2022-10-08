@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../actions';
 import AccountDetails from '../../components/Accountdetails';
@@ -13,40 +13,49 @@ import './style.scss';
 
 function MyAccount() {
   const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(true);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
   const avatar = useSelector((state) => state.user.userProfil.slug);
+
   useEffect(() => {
     dispatch(getUsers(user.userId));
+    setLoading(false);
   }, []);
 
   return (
     <Page id="mon-compte">
       <Container>
-        <div id="profil">
-          <AccountDetails
-            username={user.username}
-            avatar={avatar}
-            created_at={user.created_at || ''}
-            about={user.description || 'Non renseignée'}
-            id={user.userId}
-          />
-        </div>
-        <Panel id="mes-annonces">
-          <UserPosts posts={myPosts} title="Mes annonces" isOwner />
-        </Panel>
-        <Panel id="info-personnelles">
-          <PersonalInfo
-            firstname={user.firstname || 'non renseigné'}
-            lastname={user.lastname || 'non renseigné'}
-            birthdate={user.birthdate}
-            postalCode={user.postalCode || 'non renseigné'}
-            pronoun={user.pronoun || 'non renseigné'}
-          />
-        </Panel>
-        <Panel>
-          <MyAccountPanel email={user.email} />
-        </Panel>
+        {loading && <p>Chargement en cours</p>}
+        {!loading && (
+          <>
+            <div id="profil">
+              <AccountDetails
+                username={user.username}
+                avatar={avatar}
+                created_at={user.created_at || ''}
+                about={user.description || 'Non renseignée'}
+                id={user.userId}
+              />
+            </div>
+            <Panel id="mes-annonces">
+              <UserPosts posts={myPosts} title="Mes annonces" isOwner />
+            </Panel>
+            <Panel id="info-personnelles">
+              <PersonalInfo
+                firstname={user.firstname || 'non renseigné'}
+                lastname={user.lastname || 'non renseigné'}
+                birthdate={user.birthdate}
+                postalCode={user.postalCode || 'non renseigné'}
+                pronoun={user.pronoun || 'non renseigné'}
+              />
+            </Panel>
+            <Panel>
+              <MyAccountPanel email={user.email} />
+            </Panel>
+          </>
+        )}
       </Container>
     </Page>
   );

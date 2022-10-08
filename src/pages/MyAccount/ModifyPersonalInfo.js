@@ -28,6 +28,8 @@ function ModifyPersonalInfo() {
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
 
+  const userPronoun = useSelector((state) => state.user.pronoun);
+
   const handleSelectPronoun = (event) => dispatch(changeValue(event.target.value, 'pronoun'));
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,20 +80,20 @@ function ModifyPersonalInfo() {
               />
             </div>
             <div className="form__field">
-              <label htmlFor="postal_code">Mon Code postal</label>
+              <label htmlFor="postal-code">Mon Code postal</label>
               <Input
-                name="postal_code"
+                name="postalCode"
                 type="text"
                 placeholder="Code postal..."
                 aria-label="Changer votre code postal"
-                id="postal_code"
+                id="postal-code"
               />
             </div>
             <div className="form__field">
               <label htmlFor="pronoun">Mon pronom</label>
-              <select name="condition" id="pronoun" className="select-input" onChange={handleSelectPronoun}>
+              <select name="condition" id="pronoun" className="select-input" onChange={handleSelectPronoun} value={userPronoun}>
                 <option className="select-input__option" value="">Choisissez une option...</option>
-                <option className="select-input__option" value="1">Il</option>
+                <option className="select-input__option" value="1" defaultValue>Il</option>
                 <option className="select-input__option" value="2">Elle</option>
                 <option className="select-input__option" value="3">Je me définis autrement</option>
               </select>
