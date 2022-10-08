@@ -49,7 +49,7 @@ function Profile() {
             <div className="user-infos">
               <AccountDetails
                 username={user.pseudo}
-                avatar={user.name}
+                avatar={user.slug}
                 created_at={user.created_at}
                 about={user.description}
                 id={user.id}

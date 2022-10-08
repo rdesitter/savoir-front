@@ -15,6 +15,7 @@ function MyAccount() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
+  const avatar = useSelector((state) => state.user.userProfil.slug);
   useEffect(() => {
     dispatch(getUsers(user.userId));
   }, []);
@@ -25,7 +26,7 @@ function MyAccount() {
         <div id="profil">
           <AccountDetails
             username={user.username}
-            avatar={user.avatar}
+            avatar={avatar}
             created_at={user.created_at || ''}
             about={user.description || 'Non renseignée'}
             id={user.userId}
