@@ -38,7 +38,7 @@ function MyAccount() {
         <Panel id="info-personnelles">
           <PersonalInfo
             firstname={user.firstname || 'non renseigné'}
-            lastname={user.lasname || 'non renseigné'}
+            lastname={user.lastname || 'non renseigné'}
             birthdate={user.birthdate}
             postalCode={user.postalCode || 'non renseigné'}
             pronoun={user.pronoun || 'non renseigné'}
