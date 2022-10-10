@@ -39,66 +39,51 @@ function AccountDetailsPost({
   const date = rectifyFormat(createdAt);
 
   return (
-    <article className="user-informations">
-      <Panel>
-        <div className="div-panel">
-          <section className="user-infos__avatar">
-            <a href={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></a>
-          </section>
-          <section className="user-infos">
-            <h2 className="user-infos__name">{name}</h2>
-            <span className="user-infos__date">inscrit(e) depuis le {date}</span>
-            {btnVisible && (
-            <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
-            )}
-            {isLogged && (
-              <div className="email-user">
-                  {isVisible && (
-                    <div className="user-infos__contact-btn">
-                      <p className="email"><a href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a></p>
-                        {!copy && (
-                        <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
-                        )}
-                        {copy && (
-                        <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
-                        )}
-                    </div>
-                  )}
-              </div>
-            )}
-            {!isLogged && (
-              <div>
-                {isVisible && (
-                <Link to="/connexion">
-                  <Button label="Connexion" />
-                </Link>
-                )}
-              </div>
-            )}
-          </section>
+    <Panel>
+      <section className="user-infos">
+        <div className="user-infos__avatar">
+          <a href={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></a>
+          <h2 className="user-infos__name">{name}</h2>
         </div>
-      </Panel>
-      {isLogged && (
-        <div>
-          {isVisible && (
-          <div className="disclaimer">
-            <p className="disclaimer-text">
-              <span className="disclaimer-text__span">Avertissement</span>: Vous êtes sur le point d’entrer en relation avec un utilisateur.
-            </p>
-            <p className="disclaimer-text">
-              Veillez à ne jamais communiquer d’informations personnelles.
-            </p>
-            <p className="disclaimer-text">
-              Si détectez le moindre comportement suspect ou ressentez le moindre doute,
-              merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour en faire part à un membre de l’équipe.
-            </p>
+        <span className="user-infos__date">inscrit(e) le {date}</span>
+      </section>
+
+      <section className="user-contact">
+        {btnVisible && (
+        <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
+        )}
+        {(isLogged && isVisible) && (
+          <div className="user-infos__contact-btn">
+            <a className="email" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
+            {!copy && (
+            <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+            )}
+            {copy && (
+            <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+            )}
           </div>
-          )}
+        )}
+        {(!isLogged && isVisible) && (
+          <Link to="/connexion">
+            <Button label="Connexion" />
+          </Link>
+        )}
+      </section>
+      {(isLogged && isVisible) && (
+        <div className="disclaimer">
+          <p className="disclaimer-text">
+            <span className="disclaimer-text__span">Avertissement</span>: Vous êtes sur le point d’entrer en relation avec un utilisateur.
+          </p>
+          <p className="disclaimer-text">
+            Veillez à ne jamais communiquer d’informations personnelles.
+          </p>
+          <p className="disclaimer-text">
+            Si détectez le moindre comportement suspect ou ressentez le moindre doute,
+            merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour en faire part à un membre de l’équipe.
+          </p>
         </div>
-
       )}
-
-    </article>
+    </Panel>
   );
 }
 

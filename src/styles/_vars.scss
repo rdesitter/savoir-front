@@ -12,10 +12,12 @@ $primary-color-alt: color.scale($primary-color, $blackness: 20%);
 $light-color: #FFFFFF;
 $light-grey-color: #F8F8F8;
 $medium-grey-color: #DADADA;
+$dark-grey-color: rgba(0,0,0, 0.5);
 
 $error-color: #eb5252;
 $error-color-alt:  color.scale($error-color, $blackness: 20%);
 $success-color: #19D258;
+$warning-color: #ffe9aa;
 
 $dark-color: #1C1C1C;
 

@@ -23,8 +23,6 @@ function Annonce() {
   const postError = useSelector((state) => state.posts.isError);
   const loading = useSelector((state) => state.posts.isLoading);
 
-  console.log(loading);
-
   const [error404, setError404] = useState(false);
 
   useEffect(() => {
@@ -52,7 +50,7 @@ function Annonce() {
                 <Label label={selectedPost.category_name} />
               </Link>
 
-              <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
+              {/* <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} /> */}
             </section>
             {isAdmin && (
             <Button label="Supprimer cette annonce" style={{ backgroundColor: 'red' }} />
