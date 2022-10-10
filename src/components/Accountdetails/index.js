@@ -27,7 +27,7 @@ function AccountDetails({
     <div className="account">
       <div className="account__avatar">
         {(logged && userId === id) && (
-        <Link to="/mon-compte/modifier-avatar" aria-label="Modifier mon avatar" className="account__avatar__legend">
+        <Link to="/mon-compte/modifier-avatar" aria-label="Modifier mon avatar" className="account__avatar__legend" title="Modifier mon avatar">
           <span className="material-symbols-outlined">
             photo_library
           </span>
