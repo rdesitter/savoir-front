@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 import Logo from '../Logo';
 import searchIcon from './search.svg';
+import variables from '../../styles/variables.module.scss';
 import { logOut } from '../../actions';
 
 import './style.scss';
@@ -13,7 +14,7 @@ function AppHeader() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { redColor } = variables;
+  const { redColor } = variables;
 
   const handleLogOut = () => {
     dispatch(logOut());
@@ -46,7 +47,9 @@ function AppHeader() {
             <Link to="/mon-compte" className="main-nav__link">
               <Button label="Mon compte" icon="profil" />
             </Link>
-            <Button label="Me déconnecter" style={{ backgroundColor: 'red' }} onClick={handleLogOut} />
+            <Link to="/" className="main-nav__link">
+              <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />
+            </Link>
           </li>
         )}
       </ul>
