@@ -68,3 +68,18 @@ p {
   flex-wrap: wrap;
   gap: vars.$space-20;
 }
+
+.password__toggle {
+  margin-bottom: 0;
+  background-color: transparent;
+  border: none;
+  color: vars.$primary-color;
+  transition: vars.$transition;
+  text-align: left;
+  padding-left: 0;
+  margin-top: vars.$space-20;
+
+  &:focus {
+    color: vars.$primary-color-alt;
+  }
+}

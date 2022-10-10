@@ -15,7 +15,6 @@ import './style.scss';
 function Inscription() {
   /* Handle password visibility */
   const [isVisible, setIsVisible] = useState(false);
-  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const password = useSelector((state) => state.user.password);
   const email = useSelector((state) => state.user.email);
   const passwordConfirm = useSelector((state) => state.user.passwordConfirm);
@@ -76,13 +75,6 @@ function Inscription() {
 
               <div className="form__field">
                 <label htmlFor="password">Mot de passe *</label>
-                <button
-                  className="password__helper"
-                  type="button"
-                  onClick={() => setIsVisible(!isVisible)}
-                >
-                  {isVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
-                </button>
                 <Input
                   type={isVisible ? 'text' : 'password'}
                   name="password"
@@ -95,21 +87,22 @@ function Inscription() {
 
               <div className="form__field">
                 <label htmlFor="password-confirm">Confirmation du mot de passe *</label>
-                <button
-                  className="password__helper"
-                  type="button"
-                  onClick={() => setIsConfirmVisible(!isConfirmVisible)}
-                >
-                  {isConfirmVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
-                </button>
                 <Input
-                  type={isConfirmVisible ? 'text' : 'password'}
+                  type={isVisible ? 'text' : 'password'}
                   name="passwordConfirm"
                   id="password-confirm"
                   required
                   placeholder="Votre mot de passe..."
                   aria-label="Saisissez votre mot de passe"
                 />
+
+                <button
+                  className="password__toggle"
+                  type="button"
+                  onClick={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
+                </button>
               </div>
 
               <div className="form__field">
