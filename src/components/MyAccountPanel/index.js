@@ -17,7 +17,9 @@ function MyAccountPanel({ email }) {
         <p>{email}</p>
       </div>
       <div className="account-panel__bloc">
-        <Button label="Modifier mon email" btnstyle="outlined" />
+        <Link to="/modifier-email">
+          <Button label="Modifier mon email" btnstyle="outlined" />
+        </Link>
         <Link to="/modifier-mot-de-passe">
           <Button label="Modifier mon mot de passe" btnstyle="outlined" />
         </Link>
