@@ -27,8 +27,10 @@ function AccountDetails({
     <div className="account">
       <div className="account__avatar">
         {(logged && userId === id) && (
-        <Link to="/mon-compte/modifier-avatar" aria-label="Modifier mon avatar">
-          <p className="account__avatar__legend button button--outlined">Modifier</p>
+        <Link to="/mon-compte/modifier-avatar" aria-label="Modifier mon avatar" className="account__avatar__legend">
+          <span className="material-symbols-outlined">
+            photo_library
+          </span>
         </Link>
         )}
         <img className="account__avatar__img" src={`/images/avatars/${avatar}.png`} alt={avatar} />

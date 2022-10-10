@@ -20,9 +20,10 @@
 
   &__avatar {
     margin-bottom: vars.$space-30;
+    flex-basis: 20%;
     min-width: 20%;
     border-radius: 500px;
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     display: inline-block;
     
@@ -33,14 +34,26 @@
 
     &__legend {
       position: absolute;
-      margin: 0 auto;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: 0;
+      left: 0;
+      border: 1px solid vars.$primary-color-alt;
+      background-color: vars.$primary-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: vars.$space-10;
+      border-radius: 500px;
+      color: vars.$light-color;
+      transition: vars.$transition;
+
+      &:hover, &:focus {
+        background-color: vars.$primary-color-alt;
+      }
     }
 
     &__img {
-      max-width: 80%;
+      // max-width: 80%;
+      width: 100%;
       border-radius: 500px;
       display: block;
       margin: 0 auto;
