@@ -20,7 +20,6 @@ function Annonce() {
 
   const isAdmin = useSelector((state) => state.user.admin);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
-  console.log(selectedPost);
   const similarPosts = useSelector((state) => state.posts.similarPosts);
   const postError = useSelector((state) => state.posts.isError);
 
