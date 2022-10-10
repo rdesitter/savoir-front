@@ -1,10 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-// import variables from '../../styles/variables.modules.scss';
 import Button from '../Button';
 import Logo from '../Logo';
 import searchIcon from './search.svg';
-import variables from '../../styles/variables.module.scss';
 import { logOut } from '../../actions';
 
 import './style.scss';
@@ -14,7 +12,6 @@ function AppHeader() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { redColor } = variables;
 
   const handleLogOut = () => {
     dispatch(logOut());
@@ -47,9 +44,9 @@ function AppHeader() {
             <Link to="/mon-compte" className="main-nav__link">
               <Button label="Mon compte" icon="profil" />
             </Link>
-            <Link to="/" className="main-nav__link">
-              <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />
-            </Link>
+            <button className="button button--logout" type="button" onClick={handleLogOut} title="Se déconnecter">
+              <span className="material-symbols-outlined">logout</span>
+            </button>
           </li>
         )}
       </ul>

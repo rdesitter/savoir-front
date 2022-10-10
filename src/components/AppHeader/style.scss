@@ -8,50 +8,47 @@
   color: vars.$light-color;
   display: flex;
   justify-content: space-between;
-  height: 6.85em;
+  height: 4.6875em;
   padding: vars.$space-10;
 
   position: relative;
   z-index: 1;
 
-  @include mixin.media('medium'){
-    height: 4.6875em;
-  }
-
   &__logo {
     display: flex;
     align-items: center;
+    transform: scale(0.8);
+
+    @include mixin.media('small') {
+      transform: scale(1);
+    }
+
+    svg {
+      width: fit-content;
+    }
   }
 
   &__list {
     display: flex;
+    gap: vars.$space-10;
   }
 
   &__item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-left: vars.$space-30;
     gap: vars.$space-10;
-
-    @include mixin.media('medium'){
-      flex-direction: row;
-    }
-    @include mixin.media('large'){
-      flex-direction: row;
-    }
 
     &--signup {
       display: none;
 
-      // @include mixin.media('small') {
-      //   display: flex;
-      // }
+      @include mixin.media('small') {
+        display: flex;
+      }
     }
 
     &--search {
       position: absolute;
-      top: 8em;
+      top: 4.6875em;
       left: 0;
       width: 100%;
       background-color: vars.$primary-color;
