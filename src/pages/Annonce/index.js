@@ -58,7 +58,8 @@ function Annonce() {
               category={selectedPost.category_slug}
             />
             <div className="vignettes">
-              <MorePostInfos info="Animaux acceptés" />
+            {/* waiting backend if possible */}
+              {/* <MorePostInfos info="Animaux acceptés" /> */}
 
               <AccountDetailsPost
                 id={selectedPost.user_id}
