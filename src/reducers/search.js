@@ -3,6 +3,7 @@ import {
   CHANGE_LEARNORSHARE_VALUE,
   DB_ERROR,
   LAUNCH_SEARCH,
+  NO_RESULT,
   SET_RESULTS,
 } from '../actions';
 
@@ -15,6 +16,7 @@ export const initialState = {
   learnOrShareValue: '',
   resultsLoading: true,
   errorMessage: '',
+  resultSaved: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -24,12 +26,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShare: action.learnOrShare,
         category: action.category,
+        resultSaved: false,
+        loading: true,
       };
     case SET_RESULTS:
       return {
         ...state,
         results: action.results,
         loading: false,
+        resultSaved: true,
       };
     case CHANGE_CATEGORY_VALUE:
       return {
@@ -45,6 +50,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         errorMessage: action.errorMessage,
+      };
+    case NO_RESULT:
+      return {
+        ...state,
+        results: [],
+        loading: false,
+        resultSaved: true,
       };
     default:
       return state;
