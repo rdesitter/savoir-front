@@ -1,5 +1,9 @@
 import {
-  CHANGE_CATEGORY_VALUE, CHANGE_LEARNORSHARE_VALUE, DB_ERROR, LAUNCH_SEARCH, SET_RESULTS,
+  CHANGE_CATEGORY_VALUE,
+  CHANGE_LEARNORSHARE_VALUE,
+  DB_ERROR,
+  LAUNCH_SEARCH,
+  SET_RESULTS,
 } from '../actions';
 
 export const initialState = {
@@ -38,6 +42,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShareValue: action.value,
       };
+    // case LOCATION_CHANGE:
+    //   return {
+    //     ...state,
+    //     results: [],
+    //   };
     case DB_ERROR:
       return {
         ...state,

@@ -36,7 +36,12 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
+        if (error.status === 502) {
+          store.dispatch(dbError('Erreur serveur, merci de réessayer dans quelques minutes.'));
+        }
+        else {
+          store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
+        }
       });
   }
   next(action);
