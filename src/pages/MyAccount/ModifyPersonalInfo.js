@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { changeValue, toggleSavedData, updatePersonalInfo } from '../../actions';
@@ -16,13 +16,11 @@ function ModifyPersonalInfo() {
   const dispatch = useDispatch();
 
   const isSaved = useSelector((state) => state.user.dataSaved);
-  const [checkIsSaved, setCheckIsSaved] = useState(false);
 
   useEffect(() => {
     if (isSaved) {
       dispatch(toggleSavedData());
     }
-    setCheckIsSaved(false);
   }, []);
 
   const isError = useSelector((state) => state.user.error);
@@ -34,10 +32,9 @@ function ModifyPersonalInfo() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updatePersonalInfo());
-    setCheckIsSaved(true);
   };
 
-  if (checkIsSaved) {
+  if (isSaved) {
     return <Navigate to="/mon-compte" replace />;
   }
 

@@ -36,7 +36,10 @@ const createPost = (store) => (next) => (action) => {
         }
       })
       .catch((error) => {
-        store.dispatch(msgSent(error.message));
+        if (error.response.status === 401) {
+          return store.dispatch(msgSent('Vous n\'êtes pas autorisé à faire cette modification'));
+        }
+        return store.dispatch(msgSent(error.message));
       });
   }
   next(action);

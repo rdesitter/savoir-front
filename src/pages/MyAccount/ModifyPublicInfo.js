@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { changeValue, toggleSavedData, updateProfile } from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
@@ -15,16 +14,13 @@ import useInitError from '../../hooks/useInitError';
 function ModifyPublicInfo() {
   useInitError();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const isSaved = useSelector((state) => state.user.dataSaved);
-  const [checkIsSaved, setCheckIsSaved] = useState(false);
 
   useEffect(() => {
     if (isSaved) {
       dispatch(toggleSavedData());
     }
-    setCheckIsSaved(false);
   }, []);
 
   const isError = useSelector((state) => state.user.error);
@@ -35,10 +31,9 @@ function ModifyPublicInfo() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateProfile());
-    setCheckIsSaved(true);
   };
 
-  if (checkIsSaved) {
+  if (isSaved) {
     return <Navigate to="/mon-compte" replace />;
   }
 

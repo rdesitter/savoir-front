@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { getUsers } from '../../actions';
 import AccountDetails from '../../components/Accountdetails';
 import Container from '../../components/Container';
@@ -13,21 +14,22 @@ import './style.scss';
 
 function MyAccount() {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const user = useSelector((state) => state.user);
   const [loading, setLoading] = useState(true);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
-  const avatar = useSelector((state) => state.user.userProfil.slug);
+  const userProfil = useSelector((state) => state.user.userProfil);
 
   useEffect(() => {
     dispatch(getUsers(user.userId));
-  }, []);
+  }, [location]);
 
   useEffect(() => {
-    if (avatar) {
+    if (userProfil.slug) {
       setLoading(false);
     }
-  }, [avatar]);
+  }, [userProfil.slug]);
 
   return (
     <Page id="mon-compte">
@@ -37,11 +39,11 @@ function MyAccount() {
           <>
             <div id="profil">
               <AccountDetails
-                username={user.username}
-                avatar={avatar}
-                created_at={user.created_at || ''}
-                about={user.description || 'Non renseignée'}
-                id={user.userId}
+                username={userProfil.pseudo}
+                avatar={userProfil.slug}
+                created_at={userProfil.created_at || ''}
+                about={userProfil.description || 'Non renseignée'}
+                id={userProfil.id}
               />
             </div>
             <Panel id="mes-annonces">
@@ -49,15 +51,15 @@ function MyAccount() {
             </Panel>
             <Panel id="info-personnelles">
               <PersonalInfo
-                firstname={user.firstname || 'non renseigné'}
-                lastname={user.lastname || 'non renseigné'}
-                birthdate={user.birthdate}
-                postalCode={user.postalCode || 'non renseigné'}
-                pronoun={user.pronoun || 'non renseigné'}
+                firstname={userProfil.firstname || 'non renseigné'}
+                lastname={userProfil.lastname || 'non renseigné'}
+                birthdate={userProfil.birthdate}
+                postalCode={userProfil.postalCode || 'non renseigné'}
+                pronoun={userProfil.pronoun || 'non renseigné'}
               />
             </Panel>
             <Panel>
-              <MyAccountPanel email={user.email} />
+              <MyAccountPanel email={userProfil.email} />
             </Panel>
           </>
         )}
