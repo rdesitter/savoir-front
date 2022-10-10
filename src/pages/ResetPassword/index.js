@@ -17,7 +17,6 @@ function ResetPassword({ token }) {
   useInitError();
   /* Handle password visibility */
   const [isVisible, setIsVisible] = useState(false);
-  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const password = useSelector((state) => state.user.password);
   const passwordConfirm = useSelector((state) => state.user.passwordConfirm);
   const isError = useSelector((state) => state.user.error);
@@ -30,7 +29,9 @@ function ResetPassword({ token }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    toggleLoading();
+    if (loading) {
+      dispatch(toggleLoading());
+    }
     if (displayElt) {
       dispatch(displayElement());
     }
@@ -59,13 +60,6 @@ function ResetPassword({ token }) {
           <form onSubmit={handleSubmit}>
             <div className="form__field">
               <label htmlFor="password">Nouveau mot de passe *</label>
-              <button
-                className="password__helper"
-                type="button"
-                onClick={() => setIsVisible(!isVisible)}
-              >
-                {isVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
-              </button>
               <Input
                 type={isVisible ? 'text' : 'password'}
                 name="password"
@@ -78,21 +72,21 @@ function ResetPassword({ token }) {
 
             <div className="form__field">
               <label htmlFor="password">Confirmer le nouveau mot de passe *</label>
-              <button
-                className="password__helper"
-                type="button"
-                onClick={() => setIsConfirmVisible(!isConfirmVisible)}
-              >
-                {isConfirmVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
-              </button>
               <Input
-                type={isConfirmVisible ? 'text' : 'password'}
+                type={isVisible ? 'text' : 'password'}
                 name="passwordConfirm"
                 id="password-confirm"
                 required
                 placeholder="Confirmez votre nouveau mot de passe..."
                 aria-label="Confirmez votre nouveau mot de passe"
               />
+              <button
+                className="password__toggle"
+                type="button"
+                onClick={() => setIsVisible(!isVisible)}
+              >
+                {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
+              </button>
             </div>
             <div className="form__submit">
               <button type="submit" className="button button--plain" title="Enregistrer mon mot de passe">Enregistrer mon mot de passe</button>
