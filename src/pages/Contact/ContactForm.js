@@ -75,7 +75,7 @@ function ContactForm() {
               onChange={handleChange}
             />
           </div>
-          <Button isSubmit label="Envoyer le message" />
+          <Button isSubmit label="Envoyer le message" tabIndex={0} />
         </form>
       )}
     </Panel>
