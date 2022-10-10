@@ -22,7 +22,7 @@ function Categories() {
           <h1 className="section__title">Toutes les catégories</h1>
         </header>
         <ul className="categories__list">
-          {categories((category) => (
+          {categories.map((category) => (
             <li className="categories__item" key={category.id}>
               <Link
                 to={`/categories/${category.slug}`}

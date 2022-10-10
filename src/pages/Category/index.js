@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useParams } from 'react-router-dom';
-import { getCategories, getPostByCategory } from '../../actions';
+import { Link, Navigate, useParams } from 'react-router-dom';
+import { getCategories, getPostByCategory, togglePostsLoading } from '../../actions';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
 import PostsList from '../../components/PostsList';
 
 function Category() {
   const { slug } = useParams();
+  const dispatch = useDispatch();
+
   const categories = useSelector((state) => state.categories.list);
   const loading = useSelector((state) => state.categories.loading);
   const posts = useSelector((state) => state.posts.posts);
+  const postsLoading = useSelector((state) => state.posts.isLoading);
 
   const [error404, setError404] = useState(false);
-
-  const dispatch = useDispatch();
-
   const [categoryName, setCategoryName] = useState('');
 
   useEffect(() => {
@@ -37,6 +37,12 @@ function Category() {
     }
   }, [loading]);
 
+  useEffect(() => {
+    if (!postsLoading) {
+      dispatch(togglePostsLoading());
+    }
+  }, []);
+
   if (error404) {
     return <Navigate to="/404" replace />;
   }
@@ -44,10 +50,14 @@ function Category() {
   return (
     <Page>
       <Container>
-        <header className="section__header">
+        <header className="section__header flex-header">
           <h1 className="section__title">Catégorie {categoryName}</h1>
+          <Link className="flex__title__link" to="/categories">Toutes les catégories</Link>
         </header>
-        <PostsList posts={posts} />
+        {postsLoading && <p>Veuillez patienter</p>}
+        {!postsLoading && (
+          <PostsList posts={posts} />
+        )}
       </Container>
     </Page>
   );
