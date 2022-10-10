@@ -328,3 +328,9 @@ export const TOGGLE_DELETED = 'TOGGLE_DELETED';
 export const toggleDeleted = () => ({
   type: TOGGLE_DELETED,
 });
+
+export const TOGGLE_POSTS_LOADING = 'TOGGLE_POSTS_LOADING';
+
+export const togglePostsLoading = () => ({
+  type: TOGGLE_POSTS_LOADING,
+});

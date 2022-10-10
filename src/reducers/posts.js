@@ -4,6 +4,7 @@ import {
   SET_SELECTED_POST,
   SET_SIMILAR_POSTS,
   SET_SELECTED_USER_POST,
+  TOGGLE_POSTS_LOADING,
 } from '../actions';
 
 export const initialState = {
@@ -28,6 +29,7 @@ const reducer = (state = initialState, action = {}) => {
     case SET_SELECTED_POST:
       return {
         ...state,
+        isLoading: false,
         selectedPost: action.selectedPost,
       };
     case SET_SIMILAR_POSTS:
@@ -45,6 +47,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         selectedUserPost: action.selectedUserPost,
         loadingSelectedPost: false,
+      };
+    case TOGGLE_POSTS_LOADING:
+      return {
+        ...state,
+        isLoading: !state.isLoading,
       };
     default:
       return state;

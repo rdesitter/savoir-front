@@ -8,6 +8,7 @@ import {
   togglePostError,
   GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
+  togglePostsLoading,
   // toggleLoading,
 } from '../actions';
 
@@ -31,6 +32,8 @@ const selectPost = (store) => (next) => (action) => {
   }
 
   else if (action.type === GET_SELECTED_POST) {
+    const { posts: { isLoading } } = store.getState();
+    if (!isLoading) store.dispatch(togglePostsLoading());
     instance(`/api/annonces/${action.id}`)
       .then((response) => {
         store.dispatch(setSelectedPost(response.data.post));
