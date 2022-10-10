@@ -131,16 +131,14 @@ const ajax = (store) => (next) => (action) => {
           store.dispatch(toggleSavedData());
         })
         .catch((error) => {
-          store.dispatch(setError(error.message));
+          if (error.response.status === 401) {
+            return store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+          }
+          return store.dispatch(setError(error.message));
         });
     }
     catch (error) {
-      if (error.response.status === 401) {
-        store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
-      }
-      else {
-        store.dispatch(setError(error.message));
-      }
+      store.dispatch(setError(error.message));
     }
   }
   else if (action.type === UPDATE_PERSONAL_INFO) {
