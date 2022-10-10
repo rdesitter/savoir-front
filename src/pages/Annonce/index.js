@@ -8,7 +8,7 @@ import Button from '../../components/Button';
 import ThumbnailPreview from '../../components/Thumbnail/ThumbnailPreview';
 import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
-import MorePostInfos from '../../components/MorePostInfos';
+// import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 import useScrollTop from '../../hooks/useScrollTop';
 import { getSelectedPost } from '../../actions';
