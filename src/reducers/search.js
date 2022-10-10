@@ -1,5 +1,9 @@
 import {
-  CHANGE_CATEGORY_VALUE, CHANGE_LEARNORSHARE_VALUE, DB_ERROR, LAUNCH_SEARCH, SET_RESULTS,
+  CHANGE_CATEGORY_VALUE,
+  CHANGE_LEARNORSHARE_VALUE,
+  DB_ERROR,
+  LAUNCH_SEARCH,
+  SET_RESULTS,
 } from '../actions';
 
 export const initialState = {
@@ -20,7 +24,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShare: action.learnOrShare,
         category: action.category,
-        // results: [],
       };
     case SET_RESULTS:
       return {

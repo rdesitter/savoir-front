@@ -8,8 +8,6 @@ import {
   toggleLoading,
 } from '../actions';
 
-// import results from '../data/posts';
-
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
@@ -36,7 +34,12 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
+        if (error.status === 502) {
+          store.dispatch(dbError('Erreur serveur, merci de réessayer dans quelques minutes.'));
+        }
+        else {
+          store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
+        }
       });
   }
   next(action);
