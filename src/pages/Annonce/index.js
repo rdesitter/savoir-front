@@ -70,6 +70,7 @@ function Annonce() {
                   name={selectedPost.user_name}
                   createdAt={selectedPost.created_at}
                   email={selectedPost.user_email}
+                  postId={id}
                 />
                 {/* waiting backend if possible */}
                 {/* <MorePostInfos info="Animaux acceptés" /> */}

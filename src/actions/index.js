@@ -334,3 +334,16 @@ export const TOGGLE_POSTS_LOADING = 'TOGGLE_POSTS_LOADING';
 export const togglePostsLoading = () => ({
   type: TOGGLE_POSTS_LOADING,
 });
+
+export const DELETE_POST = 'DELETE_POST';
+
+export const deletePost = (id) => ({
+  type: DELETE_POST,
+  id,
+});
+
+export const TOGGLE_POST_DELETED = 'TOGGLE_POST_DELETED';
+
+export const togglePostDeleted = () => ({
+  type: TOGGLE_POST_DELETED,
+});
