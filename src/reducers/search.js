@@ -24,7 +24,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShare: action.learnOrShare,
         category: action.category,
-        // results: [],
       };
     case SET_RESULTS:
       return {
@@ -42,11 +41,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShareValue: action.value,
       };
-    // case LOCATION_CHANGE:
-    //   return {
-    //     ...state,
-    //     results: [],
-    //   };
     case DB_ERROR:
       return {
         ...state,

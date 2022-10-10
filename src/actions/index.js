@@ -122,12 +122,6 @@ export const setResults = (results) => ({
   results,
 });
 
-export const RESET_RESULTS = 'RESET_RESULTS';
-
-export const resetResults = () => ({
-  type: RESET_RESULTS,
-});
-
 export const CHANGE_CATEGORY_VALUE = 'CHANGE_CATEGORY_VALUE';
 
 export const changeCategoryValue = (value) => ({

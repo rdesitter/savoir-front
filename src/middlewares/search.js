@@ -8,8 +8,6 @@ import {
   toggleLoading,
 } from '../actions';
 
-// import results from '../data/posts';
-
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
