@@ -46,7 +46,6 @@ function Annonce() {
             <Label label={selectedPost.category_name} />
             <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
           </section>
-          <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           {isAdmin && (
           <Button label="Supprimer cette annonce" style={{ backgroundColor: 'red' }} />
           )}
