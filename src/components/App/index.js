@@ -80,7 +80,6 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profil/:id" element={<Profile />} />
         <Route path="/recherche" element={<SearchPage />} />
-        <Route path="/annonces/ajouter" element={<CreatePost />} />
         <Route path="/besoin" element={<Type id={1} />} />
         <Route path="/partage" element={<Type id={2} />} />
         <Route path="/oubli-mot-de-passe" element={<ForgottenPassword />} />
@@ -91,6 +90,7 @@ function App() {
         {isLogged
         && (
           <>
+            <Route path="/annonces/ajouter" element={<CreatePost />} />
             <Route path="/mon-compte" element={<MyAccount />} />
             <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
             <Route path="/mon-compte/modifier-info-perso" element={<ModifyPersonalInfo />} />
