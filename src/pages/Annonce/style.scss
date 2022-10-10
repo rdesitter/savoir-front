@@ -28,6 +28,8 @@
   &__label {
   display: flex;
   justify-content: center;
+  gap: vars.$space-10;
+  margin-bottom: vars.$space-10;
 
   @include mixin.media('medium') {
     justify-content: start;

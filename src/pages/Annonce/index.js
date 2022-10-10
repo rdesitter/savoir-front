@@ -1,4 +1,4 @@
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Label from '../../components/Label';
@@ -8,7 +8,7 @@ import Button from '../../components/Button';
 import ThumbnailPreview from '../../components/Thumbnail/ThumbnailPreview';
 import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
-import MorePostInfos from '../../components/MorePostInfos';
+// import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 import useScrollTop from '../../hooks/useScrollTop';
 import { getSelectedPost } from '../../actions';
@@ -17,10 +17,8 @@ function Annonce() {
   useScrollTop();
   const { id } = useParams();
   const dispatch = useDispatch();
-
   const isAdmin = useSelector((state) => state.user.admin);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
-  console.log(selectedPost);
   const similarPosts = useSelector((state) => state.posts.similarPosts);
   const postError = useSelector((state) => state.posts.isError);
 
@@ -43,10 +41,12 @@ function Annonce() {
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label={selectedPost.category_name} />
+            <Link to={`/categories/${selectedPost.category_slug}`}>
+              <Label label={selectedPost.category_name} />
+            </Link>
+
             <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
           </section>
-          <p className="post-infos__date">Annonce publiée le {selectedPost.createdAt}</p>
           {isAdmin && (
           <Button label="Supprimer cette annonce" style={{ backgroundColor: 'red' }} />
           )}
@@ -59,14 +59,15 @@ function Annonce() {
               category={selectedPost.category_slug}
             />
             <div className="vignettes">
-              <MorePostInfos info="Animaux acceptés" />
+              {/* waiting backend if possible */}
+              {/* <MorePostInfos info="Animaux acceptés" /> */}
 
               <AccountDetailsPost
                 id={selectedPost.user_id}
                 avatar={selectedPost.picture_slug}
                 name={selectedPost.user_name}
-                createdAt="user created at"
-                email="user email"
+                createdAt={selectedPost.created_at}
+                email={selectedPost.user_email}
               />
             </div>
           </div>
