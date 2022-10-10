@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { submitNewEmail } from '../../actions';
 
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -9,14 +10,13 @@ import Input from '../../components/Input';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
 
-const isError = useSelector((state) => state.user.error);
-const errorMsg = useSelector((state) => state.user.errorMsg);
-const loading = useSelector((state) => state.user.loading);
-const displayElt = useSelector((state) => state.user.displayElement);
-const msg = useSelector((state) => state.informations.msg);
-const logged = useSelector((state) => state.user.logged);
-
 function ResetEmail() {
+  const isError = useSelector((state) => state.user.error);
+  const errorMsg = useSelector((state) => state.user.errorMsg);
+  const loading = useSelector((state) => state.user.loading);
+  const displayElt = useSelector((state) => state.user.displayElement);
+  const msg = useSelector((state) => state.informations.msg);
+  const logged = useSelector((state) => state.user.logged);
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();

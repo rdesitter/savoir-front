@@ -328,3 +328,15 @@ export const TOGGLE_DELETED = 'TOGGLE_DELETED';
 export const toggleDeleted = () => ({
   type: TOGGLE_DELETED,
 });
+
+export const SUBMIT_NEW_EMAIL = 'SUBMIT_NEW_EMAIL';
+
+export const submitNewEmail = () => ({
+  type: SUBMIT_NEW_EMAIL,
+});
+
+export const RESET_EMAIL = 'RESET_EMAIL';
+
+export const resetEmail = () => ({
+  type: RESET_EMAIL,
+});
