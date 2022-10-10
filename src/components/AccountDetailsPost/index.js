@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import rectifyFormat from '../../selectors/rectifyFormat';
 import Button from '../Button';
 import Panel from '../Panel';
 
@@ -12,12 +13,11 @@ function AccountDetailsPost({
   id,
   avatar,
   name,
-  createdAt,
   email,
+  createdAt,
 }) {
   // condition logged
   const isLogged = useSelector((state) => state.user.logged);
-  // const user = useSelector((state) => state.posts.selectedUserPost);
 
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
@@ -35,6 +35,9 @@ function AccountDetailsPost({
     setCopy(true);
   };
 
+  // formatting date with selector
+  const date = rectifyFormat(createdAt);
+
   return (
     <article className="user-informations">
       <Panel>
@@ -44,7 +47,7 @@ function AccountDetailsPost({
           </section>
           <section className="user-infos">
             <h2 className="user-infos__name">{name}</h2>
-            <span className="user-infos__date">inscrit(e) depuis le {createdAt}</span>
+            <span className="user-infos__date">inscrit(e) depuis le {date}</span>
             {btnVisible && (
             <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
             )}
