@@ -8,11 +8,15 @@
   color: vars.$light-color;
   display: flex;
   justify-content: space-between;
-  height: 4.6875em;
+  height: 6.85em;
   padding: vars.$space-10;
 
   position: relative;
   z-index: 1;
+
+  @include mixin.media('medium'){
+    height: 4.6875em;
+  }
 
   &__logo {
     display: flex;
@@ -21,25 +25,33 @@
 
   &__list {
     display: flex;
-
   }
 
   &__item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-left: vars.$space-30;
+    gap: vars.$space-10;
+
+    @include mixin.media('medium'){
+      flex-direction: row;
+    }
+    @include mixin.media('large'){
+      flex-direction: row;
+    }
 
     &--signup {
       display: none;
 
-      @include mixin.media('small') {
-        display: flex;
-      }
+      // @include mixin.media('small') {
+      //   display: flex;
+      // }
     }
 
     &--search {
       position: absolute;
-      top: 4.6875em;
+      top: 8em;
       left: 0;
       width: 100%;
       background-color: vars.$primary-color;
@@ -50,6 +62,10 @@
       justify-content: center;
       padding: vars.$space-10;
       margin-left: 0;
+
+      @include mixin.media('large'){
+        top: 4.6875em;
+      }
 
       &:hover {
         background-color: vars.$primary-color-alt;
@@ -72,5 +88,6 @@
     display: flex;
     align-items: center;
     width: max-content;
-  }
+    }
+
 }
