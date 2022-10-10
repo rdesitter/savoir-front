@@ -1,4 +1,4 @@
-import { Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Label from '../../components/Label';
@@ -43,7 +43,10 @@ function Annonce() {
       <Container>
         <div className="informations">
           <section className="post-infos__label">
-            <Label label={selectedPost.category_name} />
+            <Link to={`/categories/${selectedPost.category_slug}`}>
+              <Label label={selectedPost.category_name} />
+            </Link>
+
             <Label label={selectedPost.type_id === 1 ? 'Présentiel' : 'Distanciel'} />
           </section>
           {isAdmin && (
@@ -58,7 +61,7 @@ function Annonce() {
               category={selectedPost.category_slug}
             />
             <div className="vignettes">
-            {/* waiting backend if possible */}
+              {/* waiting backend if possible */}
               {/* <MorePostInfos info="Animaux acceptés" /> */}
 
               <AccountDetailsPost
