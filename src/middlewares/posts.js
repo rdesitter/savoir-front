@@ -8,6 +8,10 @@ import {
   togglePostError,
   GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
+  togglePostsLoading,
+  DELETE_POST,
+  setError,
+  togglePostDeleted,
   // toggleLoading,
 } from '../actions';
 
@@ -16,6 +20,10 @@ import {
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
+
+const tokenConfig = {
+  headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+};
 
 const selectPost = (store) => (next) => (action) => {
   if (action.type === GET_POSTS) {
@@ -31,6 +39,8 @@ const selectPost = (store) => (next) => (action) => {
   }
 
   else if (action.type === GET_SELECTED_POST) {
+    const { posts: { isLoading } } = store.getState();
+    if (!isLoading) store.dispatch(togglePostsLoading());
     instance(`/api/annonces/${action.id}`)
       .then((response) => {
         store.dispatch(setSelectedPost(response.data.post));
@@ -60,6 +70,17 @@ const selectPost = (store) => (next) => (action) => {
       })
       .catch((error) => {
         console.log(error);
+      });
+  }
+
+  else if (action.type === DELETE_POST) {
+    instance.delete(`/api/annonces/${action.id}`, tokenConfig)
+      .then(() => {
+        store.dispatch(togglePostDeleted());
+      })
+      .catch(() => {
+        // console.log(error);
+        store.dispatch(setError('L\'annonce n\'a pas pu être supprimée.'));
       });
   }
 
