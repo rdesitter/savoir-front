@@ -21,7 +21,6 @@ function Annonce() {
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   const similarPosts = useSelector((state) => state.posts.similarPosts);
   const postError = useSelector((state) => state.posts.isError);
-  console.log(selectedPost);
 
   const [error404, setError404] = useState(false);
 
