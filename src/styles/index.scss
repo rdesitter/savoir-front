@@ -17,7 +17,28 @@ body {
   padding: vars.$space-20 0;
   &__header {
     margin-bottom: vars.$space-30;
+    
+    &.flex-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: vars.$space-10;
+  
+      .section__title {
+        display: inline-block;
+      }
+
+      .flex__title__link {
+        color: vars.$primary-color;
+        text-decoration: underline;
+        transition: vars.$transition;
+
+        &:hover, &:focus {
+          color: vars.$primary-color-alt;
+        }
+      }
+    }
   }
+
   
   &__title {
     font-size: vars.$font-big;
