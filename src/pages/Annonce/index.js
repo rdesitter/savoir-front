@@ -17,11 +17,11 @@ function Annonce() {
   useScrollTop();
   const { id } = useParams();
   const dispatch = useDispatch();
-
   const isAdmin = useSelector((state) => state.user.admin);
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   const similarPosts = useSelector((state) => state.posts.similarPosts);
   const postError = useSelector((state) => state.posts.isError);
+  console.log(selectedPost);
 
   const [error404, setError404] = useState(false);
 
@@ -67,8 +67,8 @@ function Annonce() {
                 id={selectedPost.user_id}
                 avatar={selectedPost.picture_slug}
                 name={selectedPost.user_name}
-                createdAt="user created at"
-                email="user email"
+                createdAt={selectedPost.created_at}
+                email={selectedPost.user_email}
               />
             </div>
           </div>

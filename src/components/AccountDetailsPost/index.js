@@ -17,7 +17,7 @@ function AccountDetailsPost({
 }) {
   // condition logged
   const isLogged = useSelector((state) => state.user.logged);
-  const user = useSelector((state) => state.posts.selectedUserPost);
+  // const user = useSelector((state) => state.posts.selectedUserPost);
 
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +52,7 @@ function AccountDetailsPost({
               <div className="email-user">
                   {isVisible && (
                     <div className="user-infos__contact-btn">
-                      <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
+                      <p className="email"><a href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a></p>
                         {!copy && (
                         <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
                         )}
@@ -100,6 +100,7 @@ function AccountDetailsPost({
 }
 
 AccountDetailsPost.propTypes = {
+  id: PropTypes.number.isRequired,
   avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
