@@ -6,6 +6,7 @@ import {
   setCategories,
   setResults,
   toggleLoading,
+  noResult,
 } from '../actions';
 
 const instance = axios.create({
@@ -19,9 +20,9 @@ const search = (store) => (next) => (action) => {
         store.dispatch(setCategories(response.data));
         store.dispatch(toggleLoading());
       })
-      .catch((error) => {
+      .catch(() => {
       // en cas d’échec de la requête
-        console.log(error);
+        // console.log(error);
         store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
@@ -33,9 +34,12 @@ const search = (store) => (next) => (action) => {
       })
       .catch((error) => {
       // en cas d’échec de la requête
-        console.log(error);
-        if (error.status === 502) {
+        // console.log(error);
+        if (error.response.status === 502) {
           store.dispatch(dbError('Erreur serveur, merci de réessayer dans quelques minutes.'));
+        }
+        else if (error.response.status === 404) {
+          store.dispatch(noResult());
         }
         else {
           store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));

@@ -347,3 +347,9 @@ export const TOGGLE_POST_DELETED = 'TOGGLE_POST_DELETED';
 export const togglePostDeleted = () => ({
   type: TOGGLE_POST_DELETED,
 });
+
+export const NO_RESULT = 'NO_RESULT';
+
+export const noResult = () => ({
+  type: NO_RESULT,
+});
