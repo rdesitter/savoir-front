@@ -30,7 +30,7 @@ $breakpoints: (
 
 /// Mixin to manage padding
 @mixin padding() {
-  padding: vars.$space-10;
+  padding: vars.$space-20 vars.$space-10;
 
   @include media('medium') {
     padding: vars.$space-20;

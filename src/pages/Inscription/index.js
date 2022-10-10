@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Page from 'src/components/Page';
-import { setError, signUp } from '../../actions';
+import {
+  initError, initUser, setError, signUp,
+} from '../../actions';
 import Container from '../../components/Container';
 import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
+import validateEmail from '../../selectors/validateEmail';
 import './style.scss';
 
 function Inscription() {
@@ -14,6 +17,7 @@ function Inscription() {
   const [isVisible, setIsVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const password = useSelector((state) => state.user.password);
+  const email = useSelector((state) => state.user.email);
   const passwordConfirm = useSelector((state) => state.user.passwordConfirm);
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
@@ -21,13 +25,25 @@ function Inscription() {
   const logged = useSelector((state) => state.user.logged);
   const dispatch = useDispatch();
 
+  // initialise error msg on first render
+  useEffect(() => {
+    dispatch(initError());
+    dispatch(initUser());
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password !== passwordConfirm) {
       dispatch(setError('Les mots de passe ne sont pas identiques'));
     }
     else {
-      dispatch(signUp());
+      const checkEmail = validateEmail(email);
+      if (checkEmail) {
+        dispatch(signUp());
+      }
+      else {
+        dispatch(setError('Email non valide'));
+      }
     }
   };
 
@@ -109,7 +125,7 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="username">Date de naissance *</label>
+                <label htmlFor="birthdate">Date de naissance *</label>
                 <Input
                   type="date"
                   name="birthdate"

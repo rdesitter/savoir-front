@@ -1,7 +1,14 @@
 import axios from 'axios';
 import {
-  GET_CATEGORIES, LAUNCH_SEARCH, setCategories, toggleLoading, setResults,
+  LAUNCH_SEARCH,
+  GET_CATEGORIES,
+  dbError,
+  setCategories,
+  setResults,
+  toggleLoading,
 } from '../actions';
+
+// import results from '../data/posts';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -17,22 +24,21 @@ const search = (store) => (next) => (action) => {
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
+        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
 
   if (action.type === LAUNCH_SEARCH) {
-    instance.get(`/api/annonces/category/${action.category}`)
+    instance.get(`/api/annonces/category/${action.category}/type/${action.learnOrShare}`)
       .then((response) => {
         store.dispatch(setResults(response.data));
       })
       .catch((error) => {
       // en cas d’échec de la requête
         console.log(error);
-        alert('Erreur de chargement, veuillez réessayer');
+        store.dispatch(dbError('Erreur serveur, merci de réessayer plus tard.'));
       });
   }
-
   next(action);
 };
 

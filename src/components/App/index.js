@@ -25,6 +25,12 @@ import ForgottenPassword from '../../pages/ForgottenPassword';
 import ResetPassword from '../../pages/ResetPassword';
 import Categories from '../../pages/Categories';
 import './styles.scss';
+import Category from '../../pages/Category';
+import Type from '../../pages/Type';
+import ModifyPublicInfo from '../../pages/MyAccount/ModifyPublicInfo';
+import ModifyPersonalInfo from '../../pages/MyAccount/ModifyPersonalInfo';
+import EditProfilPicture from '../../pages/EditProfilPic';
+import DeleteAccount from '../../pages/DeleteAccount';
 
 // == Composant
 function App() {
@@ -34,6 +40,15 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const token = localStorage.getItem('token');
+
+  // If token is expired clear localStorage
+  // const tokenDate = localStorage.getItem('token-date');
+  // const date = Math.floor(new Date().getTime() / 1000);
+  // const isExpired = date - tokenDate > 1200;
+  // if (isLogged && isExpired) {
+  //   dispatch(logOut());
+  // }
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (token) {
@@ -54,6 +69,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:slug" element={<Category />} />
         <Route path="/annonces/:id" element={<Annonce />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/a-propos" element={<About />} />
@@ -64,7 +80,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/profil/:id" element={<Profile />} />
         <Route path="/recherche" element={<SearchPage />} />
-        <Route path="/annonces/ajouter" element={<CreatePost />} />
+        <Route path="/besoin" element={<Type id={1} />} />
+        <Route path="/partage" element={<Type id={2} />} />
         <Route path="/oubli-mot-de-passe" element={<ForgottenPassword />} />
         {passwordToken && <Route path="/nouveau-mot-de-passe" element={<ResetPassword token={passwordToken} />} />}
         <Route path="*" element={<NotFound />} />
@@ -73,8 +90,13 @@ function App() {
         {isLogged
         && (
           <>
+            <Route path="/annonces/ajouter" element={<CreatePost />} />
             <Route path="/mon-compte" element={<MyAccount />} />
+            <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
+            <Route path="/mon-compte/modifier-info-perso" element={<ModifyPersonalInfo />} />
+            <Route path="/mon-compte/modifier-avatar" element={<EditProfilPicture />} />
             <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
+            <Route path="/supprimer-mon-compte" element={<DeleteAccount />} />
           </>
         )}
       </Routes>

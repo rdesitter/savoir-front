@@ -5,8 +5,12 @@ import Container from '../../components/Container';
 import './style.scss';
 import Panel from '../../components/Panel';
 import Button from '../../components/Button';
+import facts from '../../data/randomFacts';
 
 function NotFound() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  const oneRandomFact = facts[randomIndex];
+
   return (
     <Page id="error">
       <Container>
@@ -19,7 +23,7 @@ function NotFound() {
           </header>
           <Panel>
             <h2 className="section__title">Mais au fait</h2>
-            <p>Savez-vous que les pingouins ont des genoux ?</p>
+            <p>{oneRandomFact.content}</p>
           </Panel>
           <div className="err404__buttons">
             <Link to="/rechercher">

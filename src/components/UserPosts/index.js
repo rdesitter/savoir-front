@@ -17,11 +17,12 @@ function UserPosts({ posts, title, isOwner }) {
           <div className="posts">
             {posts.map((post) => (
               <PostPreview
-                cover={post.cover}
-                category={post.category}
+                cover={post.category_slug}
+                category={post.category_name}
                 title={post.title}
                 created_at={post.created_at}
                 id={post.id}
+                key={post.id}
               />
             ))}
           </div>

@@ -22,20 +22,20 @@ function Search({ ...props }) {
   // handle submit when click on button
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(launchSearch(categoryValue, learnOrShareValue));
+    dispatch(launchSearch(learnOrShareValue, categoryValue));
     navigate(`/recherche?learnOrShare=${learnOrShareValue}&category=${categoryValue}`);
   };
 
   // save the choice of category to fetch right posts
   const handleCategoryChange = (event) => {
     dispatch(changeCategoryValue(event.target.value));
-    // console.log(event.target.value)
+    // console.log(event.target.value);
   };
 
   // save the choice of condition learn/share to fetch right posts
   const handleLearnOrShareChange = (event) => {
     dispatch(changeLearnOrShareValue(event.target.value));
-    // console.log(event.target.value)
+    console.log(event.target.value);
   };
 
   useEffect(() => {
@@ -62,8 +62,8 @@ function Search({ ...props }) {
               </div>
               <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select" onChange={handleLearnOrShareChange}>
                 <option value="">Choisissez une option...</option>
-                <option value="1">Apprendre</option>
-                <option value="2">Partager</option>
+                <option value="1">Partager</option>
+                <option value="2">Apprendre</option>
               </select>
             </div>
 

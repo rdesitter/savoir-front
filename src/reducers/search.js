@@ -1,5 +1,5 @@
 import {
-  CHANGE_CATEGORY_VALUE, CHANGE_LEARNORSHARE_VALUE, LAUNCH_SEARCH, SET_RESULTS,
+  CHANGE_CATEGORY_VALUE, CHANGE_LEARNORSHARE_VALUE, DB_ERROR, LAUNCH_SEARCH, SET_RESULTS,
 } from '../actions';
 
 export const initialState = {
@@ -9,6 +9,8 @@ export const initialState = {
   results: [],
   categoryValue: '',
   learnOrShareValue: '',
+  resultsLoading: true,
+  errorMessage: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -18,6 +20,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         learnOrShare: action.learnOrShare,
         category: action.category,
+        // results: [],
       };
     case SET_RESULTS:
       return {
@@ -34,6 +37,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         learnOrShareValue: action.value,
+      };
+    case DB_ERROR:
+      return {
+        ...state,
+        errorMessage: action.errorMessage,
       };
     default:
       return state;

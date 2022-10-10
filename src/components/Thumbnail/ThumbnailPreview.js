@@ -12,6 +12,7 @@ function ThumbnailPreview({
   title,
   userId,
   postId,
+  categoryName,
 }) {
   return (
     <article className="thumbnail">
@@ -24,16 +25,18 @@ function ThumbnailPreview({
         </div>
       </Link>
 
-      <Label label={category} color="light-grey" />
+      <Link className="thumbnail__link" to={`/categories/${category}`} title={`vers la catégorie "${categoryName}"`}>
+        <Label label={categoryName} color="light-grey" />
+      </Link>
 
-      <Link to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
         </div>
       </Link>
       <span className="spacer" />
-      <Link to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
+      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <Button label="Voir l'annonce" btnstyle="outlined" />
       </Link>
     </article>
@@ -47,7 +50,7 @@ ThumbnailPreview.propTypes = {
   title: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   postId: PropTypes.number.isRequired,
-
+  categoryName: PropTypes.string.isRequired,
 };
 
 export default ThumbnailPreview;

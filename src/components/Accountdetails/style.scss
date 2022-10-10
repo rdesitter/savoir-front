@@ -21,19 +21,36 @@
   &__avatar {
     margin-bottom: vars.$space-30;
     min-width: 20%;
+    border-radius: 500px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
     
     @include mixin.media('medium') {
       margin-bottom: 0;
       flex-grow: 0;
     }
 
+    &__legend {
+      position: absolute;
+      margin: 0 auto;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     &__img {
       max-width: 80%;
+      border-radius: 500px;
       display: block;
       margin: 0 auto;
-      border-radius: 500px;
       background: vars.$light-color;
     }
+  }
+
+  &__username {
+    font-size: vars.$font-big;
+    font-weight: bold;
   }
 
   &__title {

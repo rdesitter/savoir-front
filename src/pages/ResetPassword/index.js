@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setError, submitNewPasssword } from '../../actions';
+import {
+  displayElement, setError, submitNewPasssword, toggleLoading,
+} from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Error from '../../components/Error';
 import Input from '../../components/Input';
 import Page from '../../components/Page';
 import Panel from '../../components/Panel';
+import useInitError from '../../hooks/useInitError';
 
 function ResetPassword({ token }) {
+  useInitError();
   const [isVisible, setIsVisible] = useState(false);
   const password = useSelector((state) => state.user.password);
   const passwordConfirm = useSelector((state) => state.user.passwordConfirm);
@@ -22,6 +26,14 @@ function ResetPassword({ token }) {
   const logged = useSelector((state) => state.user.logged);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    toggleLoading();
+    if (displayElt) {
+      dispatch(displayElement());
+    }
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password !== passwordConfirm) {

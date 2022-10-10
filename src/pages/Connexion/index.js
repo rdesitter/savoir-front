@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import Page from 'src/components/Page';
@@ -7,8 +7,13 @@ import Input from '../../components/Input';
 import Panel from '../../components/Panel';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
-import { initError, logIn, initUser } from '../../actions';
+import {
+  logIn, setError,
+} from '../../actions';
 import './style.scss';
+import validateEmail from '../../selectors/validateEmail';
+import useInitError from '../../hooks/useInitError';
+import useInitUser from '../../hooks/useInitUser';
 
 function Connexion() {
   // Handle password visibility
@@ -17,10 +22,8 @@ function Connexion() {
   const dispatch = useDispatch();
 
   // initialise error msg on first render
-  useEffect(() => {
-    dispatch(initError());
-    dispatch(initUser());
-  }, []);
+  useInitUser();
+  useInitError();
 
   // get error informations from state
   const isError = useSelector((state) => state.user.error);
@@ -30,11 +33,17 @@ function Connexion() {
   const logged = useSelector((state) => state.user.logged);
 
   const loading = useSelector((state) => state.user.loading);
+  const email = useSelector((state) => state.user.email);
 
-  // TODO Gérer la soumission du formulaire avec data du back
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(logIn());
+    const checkEmail = validateEmail(email);
+    if (checkEmail) {
+      dispatch(logIn());
+    }
+    else {
+      dispatch(setError('Email non valide'));
+    }
   };
 
   // If logged succesfully redirect to home page

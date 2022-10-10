@@ -47,7 +47,7 @@ const resetPassword = (store) => (next) => (action) => {
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `${action.token}`,
+          'Authorization': `Bearer ${action.token}`,
         },
       };
       instance.patch('/api/newpassword', { password }, config)

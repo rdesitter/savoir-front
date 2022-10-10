@@ -6,6 +6,14 @@ export const changeValue = (value, name) => ({
   key: name,
 });
 
+export const CHANGE_VALUE_POST = 'CHANGE_VALUE_POST';
+
+export const changeValuePost = (value, name) => ({
+  type: CHANGE_VALUE_POST,
+  value: value,
+  key: name,
+});
+
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 
 export const sendMessage = () => ({
@@ -18,21 +26,42 @@ export const logIn = () => ({
   type: LOGIN,
 });
 
+export const GET_USERS = 'GET_USERS';
+
+export const getUsers = (id) => ({
+  type: GET_USERS,
+  id,
+});
+
+export const SET_SELECTED_USER = 'SET_SELECTED_USER';
+
+export const setSelectedUser = (user) => ({
+  type: SET_SELECTED_USER,
+  user,
+});
+export const SET_SELECTED_USER_POST = 'SET_SELECTED_USER_POST';
+
+export const setSelectedUserPost = (selectedUserPost) => ({
+  type: SET_SELECTED_USER_POST,
+  selectedUserPost,
+});
+
 export const SET_USER = 'SET_USER';
 
 export const setUser = (data) => ({
   type: SET_USER,
   email: data.user.email,
-  username: data.user.pseudo,
+  username: data.user.pseudo || data.user.username,
   description: data.user.description,
   firstname: data.user.firstname,
   lastname: data.user.lastname,
-  avatar: data.user.picture_id,
+  avatar: data.user.picture_slug,
+  avatarId: data.user.picture_id,
   about: data.user.about,
   created_at: data.user.created_at,
-  userId: data.user.id,
+  userId: data.user.userId || data.user.id,
   posts: data.user.posts,
-  postalCode: data.user.postal_code,
+  postalCode: data.user.postal_code || data.user.postalCode,
   roleId: data.user.role_id,
   birthdate: data.user.birthdate,
   pronoun: data.user.pronoun,
@@ -54,8 +83,9 @@ export const initError = () => ({
 
 export const SENT_MSG = 'SENT_MSG';
 
-export const sentMsg = () => ({
+export const sentMsg = (msg) => ({
   type: SENT_MSG,
+  msg,
 });
 
 export const INIT_INFO = 'INIT_INFO';
@@ -165,8 +195,9 @@ export const initUser = () => ({
 
 export const GET_SELECTED_POST = 'GET_SELECTED_POST';
 
-export const getSelectedPost = () => ({
+export const getSelectedPost = (id) => ({
   type: GET_SELECTED_POST,
+  id,
 });
 
 export const SET_SELECTED_POST = 'SET_SELECTED_POST';
@@ -174,6 +205,13 @@ export const SET_SELECTED_POST = 'SET_SELECTED_POST';
 export const setSelectedPost = (selectedPost) => ({
   type: SET_SELECTED_POST,
   selectedPost,
+});
+
+export const SET_SIMILAR_POSTS = 'SET_SIMILAR_POSTS';
+
+export const setSimilarPosts = (posts) => ({
+  type: SET_SIMILAR_POSTS,
+  similarPosts: posts,
 });
 
 export const GET_POSTS = 'GET_POSTS';
@@ -193,4 +231,100 @@ export const TOGGLE_LOGGED = 'TOGGLE_LOGGED';
 
 export const toggleLogged = () => ({
   type: TOGGLE_LOGGED,
+});
+
+export const NEW_POST = 'NEW_POST';
+
+export const newPost = (dataObject) => ({
+  type: NEW_POST,
+  data: dataObject,
+});
+
+export const SET_NEW_POST = 'SET_NEW_POST';
+
+export const setNewPost = (dataObject) => ({
+  type: SET_NEW_POST,
+  data: dataObject,
+});
+
+export const RESET_NEW_POST = 'RESET_NEW_POST';
+
+export const resetNewPost = () => ({
+  type: RESET_NEW_POST,
+});
+
+export const TOGGLE_POST_ERROR = 'TOGGLE_POST_ERROR';
+
+export const togglePostError = () => ({
+  type: TOGGLE_POST_ERROR,
+});
+
+export const GET_POSTS_BY_CATEGORY = 'GET_POSTS_BY_CATEGORY';
+
+export const getPostByCategory = (id) => ({
+  type: GET_POSTS_BY_CATEGORY,
+  id,
+});
+
+export const GET_TYPE_POSTS = 'GET_TYPE_POSTS';
+
+export const getTypePosts = (id) => ({
+  type: GET_TYPE_POSTS,
+  id,
+});
+
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+
+export const updateProfile = () => ({
+  type: UPDATE_PROFILE,
+});
+
+export const TOGGLE_SAVED_DATA = 'TOGGLE_SAVED_DATA';
+
+export const toggleSavedData = () => ({
+  type: TOGGLE_SAVED_DATA,
+});
+
+export const UPDATE_PERSONAL_INFO = 'UPDATE_PERSONAL_INFO';
+
+export const updatePersonalInfo = () => ({
+  type: UPDATE_PERSONAL_INFO,
+});
+
+export const DB_ERROR = 'DB_ERROR';
+
+export const dbError = (errorMessage) => ({
+  type: DB_ERROR,
+  errorMessage,
+});
+
+export const GET_AVATARS = 'GET_AVATARS';
+
+export const getAvatars = () => ({
+  type: GET_AVATARS,
+});
+
+export const SET_AVATARS = 'SET_AVATARS';
+
+export const setAvatars = (avatars) => ({
+  type: SET_AVATARS,
+  avatars,
+});
+
+export const UPDATE_AVATAR = 'UPDATE_AVATAR';
+
+export const updateAvatar = () => ({
+  type: UPDATE_AVATAR,
+});
+
+export const DELETE_USER = 'DELETE_USER';
+
+export const deleteUser = () => ({
+  type: DELETE_USER,
+});
+
+export const TOGGLE_DELETED = 'TOGGLE_DELETED';
+
+export const toggleDeleted = () => ({
+  type: TOGGLE_DELETED,
 });

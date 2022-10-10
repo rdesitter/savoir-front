@@ -6,9 +6,13 @@ import {
   INIT_USER,
   LOGOUT,
   SENT_MSG,
+  SET_AVATARS,
   SET_ERROR,
+  SET_SELECTED_USER,
   SET_USER,
+  TOGGLE_DELETED,
   TOGGLE_LOGGED,
+  TOGGLE_SAVED_DATA,
   TOOGLE_LOADING,
 } from '../actions';
 
@@ -35,6 +39,18 @@ export const initialState = {
   },
   admin: false,
   displayElement: false,
+  userLoading: true,
+  dataSaved: false,
+  userProfil: {
+    userId: '',
+    username: '',
+    avatar: '',
+    posts: [],
+    created_at: '',
+    description: '',
+  },
+  avatars: [],
+  isDeleted: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -54,6 +70,7 @@ const reducer = (state = initialState, action = {}) => {
         error: false,
         errorMsg: '',
         loading: false,
+        isDeleted: false,
       };
     case INIT_ERROR:
       return {
@@ -73,7 +90,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         info: {
           isDisplayed: true,
-          msg: 'Merci, votre message a bien été envoyé. Nous vous contacterons dans les plus brefs délais.',
+          msg: action.msg,
         },
       };
     case INIT_INFO:
@@ -139,6 +156,27 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: !state.logged,
+      };
+    case SET_SELECTED_USER:
+      return {
+        ...state,
+        userProfil: action.user,
+        userLoading: false,
+      };
+    case TOGGLE_SAVED_DATA:
+      return {
+        ...state,
+        dataSaved: !state.dataSaved,
+      };
+    case SET_AVATARS:
+      return {
+        ...state,
+        avatars: action.avatars,
+      };
+    case TOGGLE_DELETED:
+      return {
+        ...state,
+        isDeleted: true,
       };
     default:
       return state;

@@ -14,7 +14,7 @@ function AppFooter() {
             <Logo />
           </Link>
           <p className="footer__desc">
-            Partagez ou transmettez vos savoir-faire ou connaissances gratuitement.
+            Partagez vos savoir-faire ou connaissances gratuitement.
           </p>
         </div>
         <nav className="footer-nav">
