@@ -15,7 +15,7 @@ function Profile() {
   const user = useSelector((state) => state.user.userProfil);
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
-  const loading = useSelector((state) => state.user.userLoading);
+  const loading = useSelector((state) => state.user.loading);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
   const isLogged = useSelector((state) => state.user.logged);
   // handleClick mail
