@@ -64,7 +64,7 @@ function AccountDetailsPost({
       <section className="user-infos">
         <div className="user-infos__avatar">
           <a href={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></a>
-          <h2 className="user-infos__name">{name}</h2>
+          <a href={`/profil/${id}`} className="user-infos__name">{name}</a>
         </div>
         <span className="user-infos__date">inscrit(e) le {date}</span>
       </section>
