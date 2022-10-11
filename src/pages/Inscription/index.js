@@ -62,7 +62,7 @@ function Inscription() {
           {!loading && (
             <form className="form" onSubmit={handleSubmit}>
               <div className="form__field">
-                <label htmlFor="email">Adresse email *</label>
+                <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input
                   name="email"
                   type="email"
@@ -74,7 +74,7 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="password">Mot de passe *</label>
+                <label htmlFor="password">Mot de passe&nbsp;*</label>
                 <Input
                   type={isVisible ? 'text' : 'password'}
                   name="password"
@@ -86,7 +86,7 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="password-confirm">Confirmation du mot de passe *</label>
+                <label htmlFor="password-confirm">Confirmation du mot de passe&nbsp;*</label>
                 <Input
                   type={isVisible ? 'text' : 'password'}
                   name="passwordConfirm"
@@ -106,7 +106,7 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="username">Nom d'utilisateur *</label>
+                <label htmlFor="username">Nom d'utilisateur&nbsp;*</label>
                 <Input
                   type="text"
                   name="username"
@@ -118,7 +118,7 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="birthdate">Date de naissance *</label>
+                <label htmlFor="birthdate">Date de naissance&nbsp;*</label>
                 <Input
                   type="date"
                   name="birthdate"

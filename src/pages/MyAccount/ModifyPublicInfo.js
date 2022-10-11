@@ -45,13 +45,13 @@ function ModifyPublicInfo() {
           {isError && <Error msg={errorMsg} />}
           <form onSubmit={handleSubmit}>
             <div className="form__field">
-              <label htmlFor="username">Nom d'utilisateur</label>
+              <label htmlFor="username">Nom d'utilisateur&#xB7;trice</label>
               <Input
                 name="username"
                 type="text"
                 required
-                placeholder="Nom d'utilisateur..."
-                aria-label="Changer votre nom d'utilisateur"
+                placeholder="Nom d'utilisateur-trice..."
+                aria-label="Changer votre nom d'utilisateur-trice"
                 id="username"
               />
             </div>

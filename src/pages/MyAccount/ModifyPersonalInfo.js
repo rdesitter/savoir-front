@@ -66,7 +66,7 @@ function ModifyPersonalInfo() {
               />
             </div>
             <div className="form__field">
-              <label htmlFor="birthdate">Ma date de naissance *</label>
+              <label htmlFor="birthdate">Ma date de naissance&nbsp;*</label>
               <Input
                 type="date"
                 name="birthdate"

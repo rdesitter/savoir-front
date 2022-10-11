@@ -16,17 +16,15 @@ function About() {
           </header>
           <Panel>
             <div className="about__intro">
-              <em>Transmission du savoir</em> souhaite créer du lien social ou révéler de nouvelles vocations grâce à la mise en valeur des connaissances de chacun&#xB7;e.
+              <em>Saevoir</em> souhaite créer du lien social ('se voir') ou révéler de nouvelles vocations grâce à la mise en valeur des connaissances de chacun&#xB7;e ('savoir'&nbsp;!).
             </div>
             <p>
               Notre société évolue&nbsp;: la population vieillit, la précarité et l'isolement augmentent.
             </p>
             <p>
-              Contrairement à nos voisins méditerranéens, nous sommes moins attachés au sort de nos aînés&#xB7;ées, que ce soit dans les cercles familiaux (isolement des séniors) ou dans le milieu professionnel (difficulté à trouver un emploi, manque d'importance accordée à l'expérience). <br />
-              Ainsi, pour beaucoup, le départ à la retraite est synonyme de déprime (perte de statut social, diminution des contacts sociaux, recherche de sens...).
+              La crise sanitaire fut un facteur aggravant, non seulement à cause des restrictions mises en place à ce moment-là mais également en raison des craintes de chacun&#xB7;e.
             </p>
             <p>
-              La crise sanitaire fut un facteur aggravant de ce sentiment d'isolement, non seulement à cause des restrictions mises en place à ce moment-là mais également en raison des craintes de chacun&#xB7;e.<br />
               Cela a cependant permis le développement et la mise en avant de technologies telles que les visioconférences et le format téléprésentiel.
             </p>
             <p>

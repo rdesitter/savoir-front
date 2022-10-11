@@ -42,7 +42,7 @@ function ContactForm() {
         <form className="form" onSubmit={handleSubmit}>
           {isError && <Error msg={errorMsg} />}
           <div className="form__field">
-            <label htmlFor="email">Adresse email *</label>
+            <label htmlFor="email">Adresse email&nbsp;*</label>
             <Input
               name="email"
               type="email"
@@ -53,7 +53,7 @@ function ContactForm() {
             />
           </div>
           <div className="form__field">
-            <label htmlFor="email">Votre nom *</label>
+            <label htmlFor="email">Votre nom&nbsp;*</label>
             <Input
               name="fullname"
               type="text"
@@ -64,7 +64,7 @@ function ContactForm() {
             />
           </div>
           <div className="form__field">
-            <label htmlFor="email">Votre message *</label>
+            <label htmlFor="email">Votre message&nbsp;*</label>
             <textarea
               name="message"
               required

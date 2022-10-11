@@ -59,7 +59,7 @@ function ResetPassword({ token }) {
           {(!loading && !displayElt) && (
           <form onSubmit={handleSubmit}>
             <div className="form__field">
-              <label htmlFor="password">Nouveau mot de passe *</label>
+              <label htmlFor="password">Nouveau mot de passe&nbsp;*</label>
               <Input
                 type={isVisible ? 'text' : 'password'}
                 name="password"
@@ -71,7 +71,7 @@ function ResetPassword({ token }) {
             </div>
 
             <div className="form__field">
-              <label htmlFor="password">Confirmer le nouveau mot de passe *</label>
+              <label htmlFor="password">Confirmer le nouveau mot de passe&nbsp;*</label>
               <Input
                 type={isVisible ? 'text' : 'password'}
                 name="passwordConfirm"

@@ -63,7 +63,7 @@ function Connexion() {
           {!loading && (
             <form className="form" onSubmit={handleSubmit}>
               <div className="form__field">
-                <label htmlFor="email">Adresse email *</label>
+                <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input
                   name="email"
                   type="email"
@@ -75,7 +75,7 @@ function Connexion() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="password">Mot de passe *</label>
+                <label htmlFor="password">Mot de passe&nbsp;*</label>
                 <button
                   className="password__helper"
                   type="button"
