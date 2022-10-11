@@ -5,6 +5,8 @@
   display: flex;
   flex-direction: column;
   margin-bottom: vars.$space-20;
+  gap: vars.$space-15;
+  
 
   @include mixin.media('medium') {
     flex-direction: row;
