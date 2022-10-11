@@ -331,8 +331,9 @@ export const toggleDeleted = () => ({
 
 export const SUBMIT_NEW_EMAIL = 'SUBMIT_NEW_EMAIL';
 
-export const submitNewEmail = () => ({
+export const submitNewEmail = (token) => ({
   type: SUBMIT_NEW_EMAIL,
+  token,
 });
 
 export const RESET_EMAIL = 'RESET_EMAIL';
