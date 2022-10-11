@@ -41,11 +41,12 @@ const getUserData = (user) => ({
   username: user.username,
 });
 
-const tokenConfig = {
-  headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-};
-
 const ajax = (store) => (next) => (action) => {
+  const { user: { token: tokenState } } = store.getState();
+  const tokenConfig = {
+    headers: { Authorization: `Bearer ${tokenState}` },
+  };
+
   if (action.type === LOGIN) {
     store.dispatch(toggleLoading());
     try {
