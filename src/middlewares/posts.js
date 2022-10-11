@@ -59,7 +59,10 @@ const selectPost = (store) => (next) => (action) => {
         store.dispatch(setPosts(response.data));
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response.status === 404) {
+          return store.dispatch(setError('Aucune annonce trouvée.'));
+        }
+        return store.dispatch(setError(error.message));
       });
   }
 
