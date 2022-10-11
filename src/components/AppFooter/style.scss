@@ -63,6 +63,22 @@
     &__link {
       color: vars.$primary-color;
       text-decoration: underline;
+      transition: vars.$transition;
+
+      &:hover {
+        color: vars.$primary-color-alt;
+      }
+
+      &:focus, &:focus-visible {
+        outline-color: vars.$primary-color;
+        border-radius: vars.$btn-radius;
+        border: 2px solid vars.$primary-color;
+      }
+
+      &:hover .button {
+        text-decoration: none;
+      }
+    
     }
   }
 }

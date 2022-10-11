@@ -4,11 +4,18 @@
 .button {
   font-weight: bold;
   font-size: 1em;
+  font-family: vars.$font-family;
   border-radius: vars.$btn-radius;
   padding: vars.$space-10 vars.$space-30;
   display: flex;
   align-items: center;
   width: fit-content;
+
+  &:focus, &:focus-visible {
+    outline-color: vars.$primary-color;
+    border-radius: vars.$btn-radius;
+    border: 2px solid vars.$primary-color;
+  }
 
   &--plain {
     background-color: vars.$primary-color;

@@ -82,7 +82,7 @@ function Search({ ...props }) {
                 <div className="search__choices__circle"><span className="search__choices__circle__order">3</span></div>
                 <span>Lancez votre recherche</span>
               </div>
-              <Button label="Rechercher" type="submit" />
+              <Button label="Rechercher" type="submit" tabIndex="0" />
             </div>
           </div>
 

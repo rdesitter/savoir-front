@@ -94,10 +94,17 @@
       width: 100%;
       margin-top: vars.$space-20;
       padding: vars.$space-10 vars.$space-30;
-      border: 0.063em solid vars.$primary-color-alt;
-      border-radius: vars.$btn-radius;
       color: vars.$dark-color;
       font-size: 1em;
+      font-family: vars.$font-family;
+
+      border: 2px solid vars.$medium-grey-color;
+      border-radius: vars.$btn-radius;
+      background-color: transparent;
+
+      &:focus {
+        border: 2px solid vars.$primary-color;
+      }
     }
   }
 

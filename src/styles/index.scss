@@ -104,3 +104,16 @@ p {
     color: vars.$primary-color-alt;
   }
 }
+
+.select-input, input {
+  font-family: vars.$font-family;
+
+  &:focus-visible, :focus {
+    border: 2px solid vars.$primary-color;
+    outline-color: vars.$primary-color;
+  }
+}
+
+*:focus-visible, *:focus {
+  outline-color: vars.$primary-color;
+}
