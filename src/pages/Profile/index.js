@@ -18,6 +18,7 @@ function Profile() {
   const loading = useSelector((state) => state.user.loading);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
   const isLogged = useSelector((state) => state.user.logged);
+
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
@@ -42,7 +43,7 @@ function Profile() {
     <Page id="profil">
       <Container>
         <Panel>
-          {loading && <div>Loading...</div>}
+          {loading && <div>Chargement en cours...</div>}
           {!loading
           && (
           <>
@@ -110,7 +111,7 @@ function Profile() {
 
         </Panel>
         <Panel>
-          {postLoading && <div>Loading...</div>}
+          {postLoading && <div>Chargement en cours...</div>}
           <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
           {!postLoading
           && (
