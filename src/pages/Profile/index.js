@@ -43,7 +43,7 @@ function Profile() {
     <Page id="profil">
       <Container>
         <Panel>
-          {loading && <div>Loading...</div>}
+          {loading && <div>Chargement en cours...</div>}
           {!loading
           && (
           <>
@@ -111,7 +111,7 @@ function Profile() {
 
         </Panel>
         <Panel>
-          {postLoading && <div>Loading...</div>}
+          {postLoading && <div>Chargement en cours...</div>}
           <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
           {!postLoading
           && (
