@@ -63,8 +63,8 @@ function AccountDetailsPost({
     <Panel>
       <section className="user-infos">
         <div className="user-infos__avatar">
-          <a href={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></a>
-          <a href={`/profil/${id}`} className="user-infos__name">{name}</a>
+          <Link href={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></Link>
+          <Link href={`/profil/${id}`} className="user-infos__name">{name}</Link>
         </div>
         <span className="user-infos__date">inscrit&#xB7;e le {date}</span>
       </section>
