@@ -20,7 +20,8 @@ function ResetEmail() {
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(submitNewEmail());
+    console.log(event.target.value);
+    dispatch(submitNewEmail(event.target.value));
   };
 
   return (
