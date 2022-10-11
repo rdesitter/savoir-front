@@ -20,6 +20,7 @@ function MyAccount() {
   const [loading, setLoading] = useState(true);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
   const userProfil = useSelector((state) => state.user.userProfil);
+  console.log(userProfil);
 
   useEffect(() => {
     dispatch(getUsers(user.userId));
@@ -54,7 +55,7 @@ function MyAccount() {
                 firstname={userProfil.firstname || 'non renseigné'}
                 lastname={userProfil.lastname || 'non renseigné'}
                 birthdate={userProfil.birthdate}
-                postalCode={userProfil.postalCode || 'non renseigné'}
+                postalCode={userProfil.postal_code || 'non renseigné'}
                 pronoun={userProfil.pronoun || 'non renseigné'}
               />
             </Panel>
