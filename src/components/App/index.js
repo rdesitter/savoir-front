@@ -96,7 +96,7 @@ function App() {
             <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
             <Route path="/mon-compte/modifier-info-perso" element={<ModifyPersonalInfo />} />
             <Route path="/mon-compte/modifier-avatar" element={<EditProfilPicture />} />
-            <Route path="/modifier-email" element={<ResetEmail token={token} />} />
+            <Route path="/modifier-email" element={<ResetEmail />} />
             <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
             <Route path="/supprimer-mon-compte" element={<DeleteAccount />} />
           </>

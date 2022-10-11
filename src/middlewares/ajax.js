@@ -10,6 +10,7 @@ import {
   setError,
   setUser,
   SIGNUP,
+  SUBMIT_NEW_EMAIL,
   toggleDeleted,
   toggleLoading,
   toggleSavedData,
@@ -104,7 +105,7 @@ const ajax = (store) => (next) => (action) => {
         store.dispatch(toggleLoading());
       }).catch((error) => {
         if (error.response.data.constraint === 'user_email_key') {
-          store.dispatch(setError('Cet adresse email est déjà utilisée.'));
+          store.dispatch(setError('Cette adresse email est déjà utilisée.'));
         }
         else if (error.response.data.constraint === 'user_pseudo_key') {
           store.dispatch(setError('Ce nom d\'utilsateur est déjà utilisé.'));
@@ -182,10 +183,10 @@ const ajax = (store) => (next) => (action) => {
     const userData = getUserData(user);
 
     instance.patch(`/api/user/${userId}`, { picture_id }, tokenConfig)
-      .then((response) => {
+      .then(() => {
         localStorage.setItem('user', JSON.stringify(userData));
-        const data = { user: response.data.user, token: localStorage.getItem('token') };
-        store.dispatch(setUser(data));
+        // const data = { user: response.data.user, token: localStorage.getItem('token') };
+        // store.dispatch(setUser(data));
         store.dispatch(toggleSavedData());
       })
       .catch((error) => {
@@ -208,6 +209,30 @@ const ajax = (store) => (next) => (action) => {
       .catch((error) => {
         store.dispatch(setError(error.response.data.status));
       });
+  }
+  else if (action.type === SUBMIT_NEW_EMAIL) {
+    try {
+      const { user } = store.getState();
+      const { userId, email } = user;
+      const userData = getUserData(user);
+      instance.patch(`/api/user/${userId}`, { email }, tokenConfig)
+        .then(() => {
+          localStorage.setItem('user', JSON.stringify(userData));
+          store.dispatch(toggleSavedData());
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            return store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+          }
+          if (error.response.status === 404) {
+            return store.dispatch(setError('Cette adresse email est déjà utilisée.'));
+          }
+          return store.dispatch(setError(error.message));
+        });
+    }
+    catch (error) {
+      store.dispatch(setError(error.message));
+    }
   }
   next(action);
 };
