@@ -340,6 +340,7 @@ export const RESET_EMAIL = 'RESET_EMAIL';
 
 export const resetEmail = () => ({
   type: RESET_EMAIL,
+});
 
 export const TOGGLE_POSTS_LOADING = 'TOGGLE_POSTS_LOADING';
 

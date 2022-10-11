@@ -92,7 +92,6 @@ const ajax = (store) => (next) => (action) => {
         email, password, pseudo, birthdate,
       }, config).then((response) => {
         const token = response.data.newTokens.accessToken;
-        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({
           email, password, pseudo, birthdate, created_at: date, id: response.data.newUser.id,
