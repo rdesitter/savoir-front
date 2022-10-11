@@ -31,6 +31,7 @@ function InputCreatePost({ name, ...props }) {
       name={name}
       value={value || ''}
       onChange={handleChange}
+      spellCheck="true"
       {...props}
     />
   );
