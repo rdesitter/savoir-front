@@ -32,11 +32,13 @@ function Home() {
       <Container>
         <Search />
         <Panel>
+          {loading && <div>Chargement en cours, veuillez patienter ...</div>}
           {!loading && (
           <Thumbnail list={postsShare} title="Ils-Elles proposent" url="partage" link="Voir toutes les annonces" />
           )}
         </Panel>
         <Panel>
+          {loading && <div>Chargement en cours, veuillez patienter ...</div>}
           {!loading && (
           <Thumbnail list={postsLearn} title="Ils-Elles recherchent" url="besoin" link="Voir toutes les annonces" />
           )}
