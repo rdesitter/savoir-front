@@ -37,7 +37,7 @@ function AccountDetails({
       </div>
       <div className="account__info">
         <h2 className="account__username">{username}</h2>
-        <p className="account__creation">Inscrit depuis le {date}</p>
+        <p className="account__creation">Date d'inscription: {date}</p>
         <h3 className="account__title">Description</h3>
         <p className="account__about">{about}</p>
         <span className="spacer" />

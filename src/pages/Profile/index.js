@@ -18,6 +18,7 @@ function Profile() {
   const loading = useSelector((state) => state.user.loading);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
   const isLogged = useSelector((state) => state.user.logged);
+
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);

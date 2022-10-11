@@ -54,7 +54,7 @@ function MyAccount() {
                 firstname={userProfil.firstname || 'non renseigné'}
                 lastname={userProfil.lastname || 'non renseigné'}
                 birthdate={userProfil.birthdate}
-                postalCode={userProfil.postalCode || 'non renseigné'}
+                postalCode={userProfil.postal_code || 'non renseigné'}
                 pronoun={userProfil.pronoun || 'non renseigné'}
               />
             </Panel>
