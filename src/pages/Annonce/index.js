@@ -8,7 +8,6 @@ import Button from '../../components/Button';
 import ThumbnailPreview from '../../components/Thumbnail/ThumbnailPreview';
 import PostDetails from '../../components/PostDetails';
 import AccountDetailsPost from '../../components/AccountDetailsPost';
-// import MorePostInfos from '../../components/MorePostInfos';
 import './style.scss';
 import useScrollTop from '../../hooks/useScrollTop';
 import { getSelectedPost } from '../../actions';
@@ -59,7 +58,7 @@ function Annonce() {
               <PostDetails
                 title={selectedPost.title}
                 createdAt={selectedPost.created_at}
-                location={selectedPost.type_id === 1 ? selectedPost.postal_code : 'A distance'}
+                location={selectedPost.type_id === 1 ? selectedPost.postal_code : '&Agrave; distance'}
                 description={selectedPost.description}
                 category={selectedPost.category_slug}
               />

@@ -76,7 +76,7 @@ function CreatePost() {
           {!loading && (
             <form onSubmit={handleSubmit} className="form add-post">
               <fieldset className="add-post__fieldset">
-                <legend className="add-post__legend">Vous souhaitez publier une annonce pour ? *</legend>
+                <legend className="add-post__legend">Vous souhaitez publier une annonce pour&nbsp;? *</legend>
                 <div className="radio__group">
                   <InputCreatePost
                     className="radio__btn"
@@ -93,7 +93,7 @@ function CreatePost() {
                 </div>
               </fieldset>
               <div className="form__field">
-                <label htmlFor="post-title">Titre de l'annonce * <span className="label__helper">60 caractères maximum</span></label>
+                <label htmlFor="post-title">Titre de l'annonce&nbsp;* <span className="label__helper">60 caractères maximum</span></label>
                 <InputCreatePost
                   name="title"
                   type="text"
@@ -106,7 +106,7 @@ function CreatePost() {
               </div>
               <div className="form__group">
                 <div className="form__field">
-                  <label htmlFor="category">Catégorie *</label>
+                  <label htmlFor="category">Catégorie&nbsp;*</label>
                   <select name="category" id="category" className="select-input" onChange={handleSelectCategory}>
                     <option value="">Choisissez une option...</option>
                     {categories.map((categoryItem) => (
@@ -121,7 +121,7 @@ function CreatePost() {
                 </div>
 
                 <div className="form__field">
-                  <label htmlFor="post-place">Type d'échange *</label>
+                  <label htmlFor="post-place">Type d'échange&nbsp;*</label>
                   <select name="condition" id="post-place" className="select-input" onChange={handleSelectPlace}>
                     <option className="select-input__option" value="">Choisissez une option...</option>
                     <option className="select-input__option" value="2">Distanciel</option>
@@ -130,7 +130,7 @@ function CreatePost() {
                 </div>
               </div>
               <div className="form__field">
-                <label htmlFor="post-description">Votre annonce *</label>
+                <label htmlFor="post-description">Votre annonce&nbsp;*</label>
                 <textarea
                   name="description"
                   required
