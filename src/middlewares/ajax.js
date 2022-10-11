@@ -56,7 +56,6 @@ const ajax = (store) => (next) => (action) => {
       const { user: { email, password } } = store.getState();
       instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
-        instance.defaults.headers.patch.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));

@@ -11,10 +11,10 @@
   }
 
   @include mixin.media('large') {
-    max-width: 80%;
+    max-width: 1200px;
   }
 
   @include mixin.media('extra-large') {
-    max-width: 70%;
+    max-width: 1200px;
   }
 }

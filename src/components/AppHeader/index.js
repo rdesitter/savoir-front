@@ -1,14 +1,22 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../Button';
 import Logo from '../Logo';
 import searchIcon from './search.svg';
+import { logOut } from '../../actions';
 
 import './style.scss';
 
 function AppHeader() {
   const isLogged = useSelector((state) => state.user.logged);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+    navigate('/');
+  };
   return (
     <nav className="main-nav" aria-label="Navigation">
       <Link to="/" className="main-nav__logo"><Logo /></Link>
@@ -36,6 +44,9 @@ function AppHeader() {
             <Link to="/mon-compte" className="main-nav__link">
               <Button label="Mon compte" icon="profil" />
             </Link>
+            <button className="button button--logout" type="button" onClick={handleLogOut} title="Se déconnecter">
+              <span className="material-symbols-outlined">logout</span>
+            </button>
           </li>
         )}
       </ul>

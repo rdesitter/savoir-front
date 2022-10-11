@@ -1,5 +1,7 @@
 function rectifyFormat(date) {
-  return date.slice(0, 10);
+  const myDate = date.slice(0, 10);
+  const chunks = myDate.split('-');
+  return `${chunks[1]}/${chunks[2]}/${chunks[0]}`;
 }
 
 export default rectifyFormat;

@@ -17,17 +17,26 @@
   &__logo {
     display: flex;
     align-items: center;
+    transform: scale(0.8);
+
+    @include mixin.media('small') {
+      transform: scale(1);
+    }
+
+    svg {
+      width: fit-content;
+    }
   }
 
   &__list {
     display: flex;
-
+    gap: vars.$space-10;
   }
 
   &__item {
     display: flex;
     align-items: center;
-    margin-left: vars.$space-30;
+    gap: vars.$space-10;
 
     &--signup {
       display: none;
@@ -51,6 +60,10 @@
       padding: vars.$space-10;
       margin-left: 0;
 
+      @include mixin.media('large'){
+        top: 4.6875em;
+      }
+
       &:hover {
         background-color: vars.$primary-color-alt;
       }
@@ -72,5 +85,11 @@
     display: flex;
     align-items: center;
     width: max-content;
-  }
+
+    &:focus {
+      outline-color: vars.$primary-color;
+      border-radius: vars.$btn-radius;
+    }
+    }
+
 }

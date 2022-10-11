@@ -1,6 +1,7 @@
 import {
   CHANGE_VALUE,
   DISPLAY_ELEMENT,
+  GET_USERS,
   INIT_ERROR,
   INIT_INFO,
   INIT_USER,
@@ -157,11 +158,17 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         logged: !state.logged,
       };
+    case GET_USERS:
+      return {
+        ...state,
+        loading: true,
+      };
     case SET_SELECTED_USER:
       return {
         ...state,
         userProfil: action.user,
         userLoading: false,
+        loading: false,
       };
     case TOGGLE_SAVED_DATA:
       return {
