@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { getCategories, getPostByCategory, togglePostsLoading } from '../../actions';
 import Container from '../../components/Container';
+import Error from '../../components/Error';
 import Page from '../../components/Page';
 import PostsList from '../../components/PostsList';
+import useInitError from '../../hooks/useInitError';
 
 function Category() {
+  useInitError();
   const { slug } = useParams();
   const dispatch = useDispatch();
 
@@ -17,6 +20,9 @@ function Category() {
 
   const [error404, setError404] = useState(false);
   const [categoryName, setCategoryName] = useState('');
+
+  const isError = useSelector((state) => state.user.error);
+  const errorMsg = useSelector((state) => state.user.errorMsg);
 
   useEffect(() => {
     // If there is no categories => get categories from api
@@ -43,6 +49,12 @@ function Category() {
     }
   }, []);
 
+  useEffect(() => {
+    if (isError) {
+      dispatch(togglePostsLoading());
+    }
+  }, [isError]);
+
   if (error404) {
     return <Navigate to="/404" replace />;
   }
@@ -55,7 +67,8 @@ function Category() {
           <Link className="flex__title__link" to="/categories">Toutes les catégories</Link>
         </header>
         {postsLoading && <p>Veuillez patienter</p>}
-        {!postsLoading && (
+        {isError && <Error msg={errorMsg} />}
+        {!postsLoading && !isError && (
           <PostsList posts={posts} />
         )}
       </Container>
