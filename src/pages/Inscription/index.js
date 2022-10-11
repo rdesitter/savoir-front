@@ -106,14 +106,14 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="username">Nom d'utilisateur&nbsp;*</label>
+                <label htmlFor="username">Nom d'utilisateur&#xB7;trice&nbsp;*</label>
                 <Input
                   type="text"
                   name="username"
                   id="username"
                   required
-                  placeholder="Votre nom d'utilisateur..."
-                  aria-label="Saisissez votre nom d'utilisateur"
+                  placeholder="Votre nom d'utilisateur-trice..."
+                  aria-label="Saisissez votre nom d'utilisateur ou d'utilisatrice"
                 />
               </div>
 
