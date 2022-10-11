@@ -40,7 +40,7 @@ function Home() {
         <Panel>
           {loading && <div>Chargement en cours, veuillez patienter ...</div>}
           {!loading && (
-          <Thumbnail list={postsLearn} title="IIls-elles-iels recherchent" url="besoin" link="Voir toutes les annonces" />
+          <Thumbnail list={postsLearn} title="Ils-elles-iels recherchent" url="besoin" link="Voir toutes les annonces" />
           )}
         </Panel>
       </Container>
