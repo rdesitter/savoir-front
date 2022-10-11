@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { submitNewEmail } from '../../actions';
+import { submitNewEmail, toggleLoading, displayElement } from '../../actions';
 
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -10,18 +11,27 @@ import Input from '../../components/Input';
 import Error from '../../components/Error';
 import Button from '../../components/Button';
 
-function ResetEmail() {
+function ResetEmail({ token }) {
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
   const loading = useSelector((state) => state.user.loading);
   const displayElt = useSelector((state) => state.user.displayElement);
   const msg = useSelector((state) => state.informations.msg);
   const logged = useSelector((state) => state.user.logged);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    toggleLoading();
+    if (displayElt) {
+      dispatch(displayElement());
+    }
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
-    dispatch(submitNewEmail(event.target.value));
+    dispatch(submitNewEmail((token)));
+    // console.log(token);
   };
 
   return (
@@ -66,5 +76,9 @@ function ResetEmail() {
     </Page>
   );
 }
+
+ResetEmail.propTypes = {
+  token: PropTypes.string.isRequired,
+};
 
 export default ResetEmail;
