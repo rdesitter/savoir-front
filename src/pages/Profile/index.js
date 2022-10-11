@@ -72,19 +72,20 @@ function Profile() {
                         <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
                         )}
                         {copy && (
-                        <button className="user-infos__copy-ok" type="button" title="copié">Copié !</button>
+                        <button className="user-infos__copy-ok" type="button" title="copié">Copié&nbsp;!</button>
                         )}
                       </div>
                       <div className="disclaimer">
                         <p className="disclaimer-text">
-                          <span className="disclaimer-text__span">Avertissement</span>: Vous êtes sur le point d’entrer en relation avec un utilisateur.
+                          <span className="disclaimer-text__span">Avertissement</span>&nbsp;: Vous êtes sur le point d’entrer en relation avec un&#xB7;e utilisateur&#xB7;trice.
                         </p>
                         <p className="disclaimer-text">
                           Veillez à ne jamais communiquer d’informations personnelles.
                         </p>
                         <p className="disclaimer-text">
-                          Si détectez le moindre comportement suspect ou ressentez le moindre doute,
-                          merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour en faire part à un membre de l’équipe.
+                          Si vous détectez le moindre comportement suspect
+                          ou ressentez le moindre doute,
+                          merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour d'en faire part à un membre de l’équipe.
                         </p>
                       </div>
                     </>
