@@ -59,7 +59,7 @@ function ResetEmail() {
 
             <div className="form__submit">
               <button type="submit" className="button button--plain" title="Enregistrer mon e-mail">Enregistrer mon e-mail</button>
-              <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>
+              <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page mon compte.</p>
             </div>
           </form>
           )}
