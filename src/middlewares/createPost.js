@@ -26,9 +26,8 @@ const createPost = (store) => (next) => (action) => {
         'Authorization': `Bearer ${token}`,
       },
     };
-    // TODO supprimer le postal_code quand valeur par défaut sera ok côté back
     instance.post('/api/users/create-annonces', {
-      title, image, description, condition_id, type_id, category_id, postal_code: 34000, user_id,
+      title, image, description, condition_id, type_id, category_id, user_id,
     }, config)
       .then((response) => {
         if (response.status === 200) {
