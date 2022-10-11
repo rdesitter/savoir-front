@@ -12,14 +12,14 @@ function PersonalInfo({
     <>
       <header>
         <h2 className="section__title">Informations personnelles</h2>
-        <h2 className="section__subtitle">Ces informations sont strictement confidentielles et nous servent à vous contacter ou à personnaliser votre interface.</h2>
+        <h2 className="section__subtitle">Ces informations apparaîtront publiquement si vous les renseignez. Elles nous servent à vous contacter ou à personnaliser votre interface.</h2>
       </header>
       <ul className="perso-infos__list">
-        <li className="perso-infos__item"><span className="perso-infos__label">Nom :</span>{lastname}</li>
-        <li className="perso-infos__item"><span className="perso-infos__label">Prénom :</span>{firstname}</li>
-        <li className="perso-infos__item"><span className="perso-infos__label">Date de naissance :</span>{birthdate}</li>
-        <li className="perso-infos__item"><span className="perso-infos__label">Code postal :</span>{postalCode}</li>
-        <li className="perso-infos__item"><span className="perso-infos__label">Pronom :</span>{pronom}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Nom&nbsp;:</span>{lastname}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Prénom&nbsp;:</span>{firstname}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Date de naissance&nbsp;:</span>{birthdate}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Code postal&nbsp;:</span>{postalCode}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Pronom&nbsp;:</span>{pronom}</li>
       </ul>
       <Link to="/mon-compte/modifier-info-perso">
         <Button label="Modifier mes informations personnelles" btnstyle="outlined" />
