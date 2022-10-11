@@ -329,6 +329,18 @@ export const toggleDeleted = () => ({
   type: TOGGLE_DELETED,
 });
 
+export const SUBMIT_NEW_EMAIL = 'SUBMIT_NEW_EMAIL';
+
+export const submitNewEmail = (token) => ({
+  type: SUBMIT_NEW_EMAIL,
+  token,
+});
+
+export const RESET_EMAIL = 'RESET_EMAIL';
+
+export const resetEmail = () => ({
+  type: RESET_EMAIL,
+
 export const TOGGLE_POSTS_LOADING = 'TOGGLE_POSTS_LOADING';
 
 export const togglePostsLoading = () => ({
@@ -352,4 +364,5 @@ export const NO_RESULT = 'NO_RESULT';
 
 export const noResult = () => ({
   type: NO_RESULT,
+
 });
