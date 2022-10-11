@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  resetEmail, setError, SUBMIT_NEW_EMAIL,
+  setError, SUBMIT_NEW_EMAIL,
 } from '../actions';
 
 const instance = axios.create({
@@ -13,7 +13,6 @@ const ResetEmail = (store) => (next) => (action) => {
       const { user } = store.getState();
       instance.patch(`/api/user/${user.userId}`)
         .then(() => {
-          
         });
     }
     catch (error) {
