@@ -20,7 +20,6 @@ function MyAccount() {
   const [loading, setLoading] = useState(true);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
   const userProfil = useSelector((state) => state.user.userProfil);
-  console.log(userProfil);
 
   useEffect(() => {
     dispatch(getUsers(user.userId));
