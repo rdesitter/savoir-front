@@ -43,12 +43,6 @@ function CreatePost() {
   }, []);
 
   useEffect(() => {
-    if (isNewPost) {
-      navigate(`/annonces/${newPostObject.id}`);
-    }
-  }, [newPostObject]);
-
-  useEffect(() => {
     if (condition === '1') {
       setDisplayCode(true);
     }
@@ -70,32 +64,34 @@ function CreatePost() {
   }, []);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const key = event.which ? event.which : event.keyCode;
     if (
-      (postal_code.length === 5
+      (condition === '1' && postal_code.length === 5
         && key !== 8
         && key !== 37
         && key !== 38
         && key !== 39
         && key !== 40)
-      || (key === 18 || key === 189 || key === 229)
+      || (key === 18 || key === 189 || key === 229) || condition === '2'
     ) {
-      event.preventDefault();
       setLoading(true);
       dispatch(newPost({
         type, title, category, condition, description, postal_code,
       }, token));
       setLoading(false);
       setIsNewPost(true);
-      if (isNewPost) {
-        navigate(`/annonces/${newPostObject.id}`);
-      }
     }
     else {
-      event.preventDefault();
       dispatch(setError('Code postal invalide'));
     }
   };
+
+  useEffect(() => {
+    if (isNewPost && newPostObject.id) {
+      navigate(`/annonces/${newPostObject.id}`);
+    }
+  }, [newPostObject]);
 
   return (
     <Page>
