@@ -11,9 +11,11 @@ import AccountDetailsPost from '../../components/AccountDetailsPost';
 import './style.scss';
 import useScrollTop from '../../hooks/useScrollTop';
 import { getSelectedPost } from '../../actions';
+import useInitError from '../../hooks/useInitError';
 
 function Annonce() {
   useScrollTop();
+  useInitError();
   const { id } = useParams();
   const dispatch = useDispatch();
   const isAdmin = useSelector((state) => state.user.admin);
@@ -58,7 +60,7 @@ function Annonce() {
               <PostDetails
                 title={selectedPost.title}
                 createdAt={selectedPost.created_at}
-                location={selectedPost.type_id === 1 ? selectedPost.postal_code : '&Agrave; distance'}
+                location={selectedPost.condition_id === 2 ? selectedPost.postal_code : 'À distance'}
                 description={selectedPost.description}
                 category={selectedPost.category_slug}
               />

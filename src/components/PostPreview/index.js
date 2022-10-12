@@ -9,6 +9,7 @@ function PostPreview({
   cover, title, created_at, id, category,
 }) {
   const date = rectifyFormat(created_at);
+  console.log(id)
 
   return (
     <article className="post-preview">

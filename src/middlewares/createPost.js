@@ -17,6 +17,7 @@ const createPost = (store) => (next) => (action) => {
         condition: condition_id,
         type: type_id,
         category: category_id,
+        postal_code,
       },
     } = store.getState();
     const { user: { token, userId: user_id } } = store.getState();
@@ -27,7 +28,7 @@ const createPost = (store) => (next) => (action) => {
       },
     };
     instance.post('/api/users/create-annonces', {
-      title, image, description, condition_id, type_id, category_id, user_id,
+      title, image, description, condition_id, type_id, category_id, user_id, postal_code,
     }, config)
       .then((response) => {
         if (response.status === 200) {

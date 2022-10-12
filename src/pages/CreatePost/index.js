@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -22,10 +23,13 @@ function CreatePost() {
   const category = useSelector((state) => state.postCreation.category);
   const condition = useSelector((state) => state.postCreation.condition);
   const description = useSelector((state) => state.postCreation.description);
+  const postal_code = useSelector((state) => state.postCreation.postal_code);
   const token = useSelector((state) => state.user.token);
   const msg = useSelector((state) => state.informations.msg);
   const newPostObject = useSelector((state) => state.postCreation.newpost);
   const navigate = useNavigate();
+
+  const [displayCode, setDisplayCode] = useState(false);
 
   useEffect(() => {
     dispatch(resetNewPost());
@@ -38,18 +42,14 @@ function CreatePost() {
     }
   }, [newPostObject]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setLoading(true);
-    dispatch(newPost({
-      type, title, category, condition, description,
-    }, token));
-    setLoading(false);
-    setIsNewPost(true);
-    if (isNewPost) {
-      navigate(`/annonces/${newPostObject.id}`);
+  useEffect(() => {
+    if (condition === '2') {
+      setDisplayCode(true);
     }
-  };
+    else {
+      setDisplayCode(false);
+    }
+  }, [condition]);
 
   const handleChangeTextArea = (event) => dispatch(changeValuePost(event.target.value, 'description'));
   const handleSelectCategory = (event) => dispatch(changeValuePost(event.target.value, 'category'));
@@ -62,6 +62,20 @@ function CreatePost() {
       dispatch(getCategories());
     }
   }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('submit');
+    setLoading(true);
+    dispatch(newPost({
+      type, title, category, condition, description, postal_code,
+    }, token));
+    setLoading(false);
+    setIsNewPost(true);
+    if (isNewPost) {
+      navigate(`/annonces/${newPostObject.id}`);
+    }
+  };
 
   return (
     <Page>
@@ -124,10 +138,25 @@ function CreatePost() {
                   <label htmlFor="post-place">Type d'échange&nbsp;*</label>
                   <select name="condition" id="post-place" className="select-input" onChange={handleSelectPlace}>
                     <option className="select-input__option" value="">Choisissez une option...</option>
-                    <option className="select-input__option" value="2">Distanciel</option>
                     <option className="select-input__option" value="1">Présentiel</option>
+                    <option className="select-input__option" value="2">Distanciel</option>
                   </select>
                 </div>
+
+                {displayCode && (
+                  <div className="form__field">
+                    <label htmlFor="postal-code">Code postal&nbsp;*</label>
+                    <InputCreatePost
+                      name="postal_code"
+                      type="text"
+                      maxLength="60"
+                      required
+                      placeholder="Code postal..."
+                      aria-label="Saisissez un code postla"
+                      id="postal-code"
+                    />
+                  </div>
+                )}
               </div>
               <div className="form__field">
                 <label htmlFor="post-description">Votre annonce&nbsp;*</label>

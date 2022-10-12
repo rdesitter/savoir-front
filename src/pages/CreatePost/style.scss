@@ -79,8 +79,19 @@ input[type="radio"]:checked+label {
 .form__group {
   display: flex;
   gap: vars.$space-30;
+  margin-bottom: vars.$space-30;
+  flex-wrap: wrap;
+
+  @include mixin.media('extra-large') {
+    margin-bottom: 0;
+  }
   
   .form__field {
     flex-grow: 1;
+    margin-bottom: 0;
+
+    @include mixin.media('large') {
+      margin-bottom: vars.$space-30;
+    }
   }
 }
