@@ -16,7 +16,7 @@ function Team() {
             <TeamMember
               name="Alizéa"
               teamrole="Lead dev backend"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              desc=""
               avatar="long-2"
               github="https://github.com/Alizea-Masse"
               linkedin="https://www.linkedin.com/in/alizéamassé/"
@@ -25,7 +25,7 @@ function Team() {
             <TeamMember
               name="Benoit"
               teamrole="Scrum Master"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              desc=""
               avatar="beard-2"
               github="https://github.com/#"
               linkedin="https://www.linkedin.com/in/benoit-castang-802332117/"
@@ -35,6 +35,7 @@ function Team() {
               name="Séverine"
               teamrole="Référente accessibilité"
               desc="'Nobody understands me. Maybe I'm Javascript...'"
+
               avatar="rad-2"
               github="https://github.com/severine-cuenot"
               linkedin="https://www.linkedin.com/in/severine-cuenot/"
@@ -43,7 +44,7 @@ function Team() {
             <TeamMember
               name="Raphaël"
               teamrole="Lead dev front-end"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              desc=""
               avatar="beard-1"
               github="https://github.com/#"
               linkedin="https://linkedin.com/#"
@@ -52,7 +53,7 @@ function Team() {
             <TeamMember
               name="Cécile"
               teamrole="Product owner"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              desc=""
               avatar="long-1"
               github="https://github.com/#"
               linkedin="https://www.linkedin.com/in/cecilebonnindevweb/"
