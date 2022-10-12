@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import AccountDetails from '../../components/Accountdetails';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
@@ -14,42 +14,19 @@ function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
   const user = useSelector((state) => state.user.userProfil);
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
-  const userId = useSelector((state) => state.user.userId);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.loading);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
-  const isLogged = useSelector((state) => state.user.logged);
 
   const [idSaved, setIdSaved] = useState(false);
-  // handleClick mail
-  const [isVisible, setIsVisible] = useState(false);
-  const [btnVisible, setBtnVisible] = useState(true);
-
-  const handleClick = () => {
-    setIsVisible(true);
-    setBtnVisible(false);
-  };
-  // btn copy
-  const [copy, setCopy] = useState(false);
-
-  // TODO erreur a modifier
-  const handleCopy = () => {
-    navigator.clipboard.writeText(user.email).then(
-      () => {
-        setCopy(true);
-      },
-      () => {
-        console.log('error');
-      },
-    );
-  };
 
   const dispatch = useDispatch();
+
   useEffect(() => {
-    if (userId) {
+    if (user.id) {
       setIdSaved(true);
     }
-  }, [userId]);
+  }, [user.id]);
 
   useEffect(() => {
     dispatch(getUsers(id));
@@ -60,76 +37,23 @@ function Profile() {
       <Container>
         <Panel>
           {loading && <div>Chargement en cours...</div>}
-          {!loading
-          && (
-          <>
-            <div className="user-infos">
-              <AccountDetails
-                username={user.pseudo}
-                avatar={user.slug}
-                created_at={user.created_at}
-                about={user.description}
-                id={user.id}
-              />
-            </div>
-            <div className="user-infos__contact">
+          {!loading && idSaved && (
+          <div className="user-infos">
+            <AccountDetails
+              username={user.pseudo}
+              avatar={user.slug}
+              created_at={user.created_at}
+              about={user.description}
+              id={user.id}
+              email={user.email}
+            />
               {isAdmin && (
+              <div className="user-infos__contact">
                 <Button label="Supprimer cet utilisateur" style={{ backgroundColor: 'red' }} />
-              )}
-              {(idSaved && userId !== user.id) && (
-                <div>
-                  {btnVisible && (
-                  <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
-                  )}
-                </div>
-              )}
-              {isLogged && (
-                <div>
-                  {isVisible && (
-                    <>
-                      <div className="contact">
-                        <p className="email"><a href={`mailto:${user.email}`} title={`envoyer un mail à ${user.pseudo}`}>{user.email}</a></p>
-                        {!copy && (
-                        <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
-                        )}
-                        {copy && (
-                        <button className="user-infos__copy-ok" type="button" title="copié">Copié&nbsp;!</button>
-                        )}
-                      </div>
-                      <div className="disclaimer">
-                        <p className="disclaimer-text">
-                          <span className="disclaimer-text__span">Avertissement</span>&nbsp;: Vous êtes sur le point d’entrer en relation avec un&#xB7;e utilisateur&#xB7;trice.
-                        </p>
-                        <p className="disclaimer-text">
-                          Veillez à ne jamais communiquer d’informations personnelles.
-                        </p>
-                        <p className="disclaimer-text">
-                          Si vous détectez le moindre comportement suspect
-                          ou ressentez le moindre doute,
-                          merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour d'en faire part à un membre de l’équipe.
-                        </p>
-                      </div>
-                    </>
-
-                  )}
-                </div>
-              )}
-            </div>
-
-              {!isLogged && (
-              <div>
-                {isVisible && (
-                  <div className="go-to-connection">
-                    <Link to="/connexion">
-                      <Button label="Connexion" />
-                    </Link>
-                  </div>
-                )}
               </div>
               )}
-          </>
+          </div>
           )}
-
         </Panel>
         <Panel>
           {postLoading && <div>Chargement en cours...</div>}
