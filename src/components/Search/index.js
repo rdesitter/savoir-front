@@ -53,7 +53,7 @@ function Search({ ...props }) {
             <div className="search__choices">
               <div className="search__choices__legend">
                 <div className="search__choices__circle"><span className="search__choices__circle__order">1</span></div>
-                <label htmlFor="select__learn-or-share">Souhaitez-vous apprendre ou partager&nbsp;?</label>
+                <label htmlFor="select__learn-or-share">Souhaitez vous apprendre ou partager&nbsp;?</label>
               </div>
               <select name="learnOrShare" id="select__learn-or-share" className="search__choices__select" onChange={handleLearnOrShareChange} value={learnOrShareValue} required>
                 <option value="">Choisissez une option...</option>

@@ -37,13 +37,13 @@ function AccountDetails({
       </div>
       <div className="account__info">
         <h2 className="account__username">{username}</h2>
-        <p className="account__creation">Date d'inscription&nbsp;: {date}</p>
+        <p className="account__creation">Date d'inscription: {date}</p>
         <h3 className="account__title">Description</h3>
         <p className="account__about">{about}</p>
         <span className="spacer" />
         {logged && userId === id && (
           <>
-            <Link to="/mon-compte/modifier-profil-public" aria-label="Aller vers modifier mon profil public">
+            <Link to="/mon-compte/modifier-profil-public">
               <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} btnstyle="outlined" />
             </Link>
             <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />

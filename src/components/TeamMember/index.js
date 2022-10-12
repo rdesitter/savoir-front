@@ -16,12 +16,12 @@ function TeamMember({
       <ul className="team__member__socials">
         <li className="team__member__social__item">
           <a href={github} className="team__member__social__link" target="_blank" rel="noopener noreferrer">
-            <img src="/images/icones/github.svg" alt="" /> <span>Github</span>
+            <img src="/images/icones/github.svg" alt="null" /> <span>Github</span>
           </a>
         </li>
         <li className="team__member__social__item">
           <a href={linkedin} className="team__member__social__link" target="_blank" rel="noopener noreferrer">
-            <img src="/images/icones/linkedin.svg" alt="" /> <span>Linkedin</span>
+            <img src="/images/icones/linkedin.svg" alt="null" /> <span>Linkedin</span>
           </a>
         </li>
       </ul>

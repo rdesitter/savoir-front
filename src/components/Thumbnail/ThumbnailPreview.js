@@ -16,27 +16,27 @@ function ThumbnailPreview({
 }) {
   return (
     <article className="thumbnail">
-      <Link to={`/profil/${userId}`} aria-label={`Aller vers le profil de ${name}`} title={`vers le profil de ${name}`}>
+      <Link to={`/profil/${userId}`} title={`vers le profil de ${name}`}>
         <div className="thumbnail-user__infos">
           <div className="thumbnail-user__img">
-            <img className="thumbnail-user__img__avatar" src={`/images/avatars/${avatar}.png`} alt="" />
+            <img className="thumbnail-user__img__avatar" src={`/images/avatars/${avatar}.png`} alt={`profil de ${name}`} />
           </div>
           <h3 className="thumbnail-user__name">{name}</h3>
         </div>
       </Link>
 
-      <Link className="thumbnail__link" to={`/categories/${category}`} title={`vers la catégorie "${categoryName}"`} aria-label={`Aller vers la catégorie "${categoryName}"`}>
+      <Link className="thumbnail__link" to={`/categories/${category}`} title={`vers la catégorie "${categoryName}"`}>
         <Label label={categoryName} color="light-grey" />
       </Link>
 
-      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`} aria-label={`Aller vers l'annonce "${title}"`}>
+      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
           <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
           <h4 className="thumbnail-infos__title">{title}</h4>
         </div>
       </Link>
       <span className="spacer" />
-      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`} aria-label="Aller vers le détail de l'annonce">
+      <Link className="thumbnail__link" to={`/annonces/${postId}`} title={`vers l'annonce "${title}"`}>
         <Button label="Voir l'annonce" btnstyle="outlined" />
       </Link>
     </article>

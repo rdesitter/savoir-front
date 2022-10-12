@@ -21,7 +21,7 @@ function PostsList({ posts }) {
       </div>
       <Panel style={{ marginTop: 0 }}>
         <header>
-          <h1 className="section__title">{isLearn ? 'Partage de savoirs' : 'recherche de savoirs'}</h1>
+          <h1 className="section__title">{isLearn ? 'Ils-elles vous proposent' : 'Ils-elles ont besoin de vous'}</h1>
         </header>
         <div className="posts-list">
           {isLearn && (

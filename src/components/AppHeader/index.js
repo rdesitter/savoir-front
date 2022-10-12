@@ -41,7 +41,7 @@ function AppHeader() {
         )}
         {isLogged && (
           <li className="main-nav__item">
-            <Link to="/mon-compte" className="main-nav__link" aria-label="Aller vers mon compte">
+            <Link to="/mon-compte" className="main-nav__link">
               <Button label="Mon compte" icon="profil" />
             </Link>
             <button className="button button--logout" type="button" onClick={handleLogOut} title="Se déconnecter">

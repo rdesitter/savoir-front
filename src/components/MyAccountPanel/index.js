@@ -17,13 +17,13 @@ function MyAccountPanel({ email }) {
         <p>{email}</p>
       </div>
       <div className="account-panel__bloc">
-        <Link to="/modifier-email" aria-label="Aller vers modifier mon email">
+        <Link to="/modifier-email">
           <Button label="Modifier mon email" btnstyle="outlined" />
         </Link>
-        <Link to="/modifier-mot-de-passe" aria-label="Aller vers modifier mon mot de passe">
+        <Link to="/modifier-mot-de-passe">
           <Button label="Modifier mon mot de passe" btnstyle="outlined" />
         </Link>
-        <Link to="/supprimer-mon-compte" aria-label="Bouton de suppression du compte">
+        <Link to="/supprimer-mon-compte">
           <Button label="Supprimer mon compte" style={{ backgroundColor: redColor }} />
         </Link>
       </div>
