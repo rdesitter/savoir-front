@@ -17,9 +17,10 @@ function MyAccount() {
   const location = useLocation();
 
   const user = useSelector((state) => state.user);
-  const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(false);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
   const userProfil = useSelector((state) => state.user.userProfil);
+  const isLoading = useSelector((state) => state.user.loading);
 
   useEffect(() => {
     dispatch(getUsers(user.userId));
@@ -27,15 +28,15 @@ function MyAccount() {
 
   useEffect(() => {
     if (userProfil.slug) {
-      setLoading(false);
+      setUserData(true);
     }
   }, [userProfil.slug]);
 
   return (
     <Page id="mon-compte">
       <Container>
-        {loading && <p>Chargement en cours</p>}
-        {!loading && (
+        {!userData && <p>Chargement en cours</p>}
+        {userData && !isLoading && (
           <>
             <div id="profil">
               <AccountDetails

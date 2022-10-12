@@ -43,6 +43,7 @@ function Home() {
           <Thumbnail list={postsLearn} title="Ils-elles-iels recherchent" url="besoin" link="Voir toutes les annonces" />
           )}
         </Panel>
+
       </Container>
     </Page>
   );
