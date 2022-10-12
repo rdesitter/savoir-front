@@ -43,7 +43,7 @@ function CreatePost() {
   }, [newPostObject]);
 
   useEffect(() => {
-    if (condition === '2') {
+    if (condition === '1') {
       setDisplayCode(true);
     }
     else {
@@ -65,7 +65,6 @@ function CreatePost() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('submit');
     setLoading(true);
     dispatch(newPost({
       type, title, category, condition, description, postal_code,

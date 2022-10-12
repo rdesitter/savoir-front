@@ -60,7 +60,7 @@ function Annonce() {
               <PostDetails
                 title={selectedPost.title}
                 createdAt={selectedPost.created_at}
-                location={selectedPost.condition_id === 2 ? selectedPost.postal_code : 'À distance'}
+                location={selectedPost.condition_id === 1 ? selectedPost.postal_code : 'À distance'}
                 description={selectedPost.description}
                 category={selectedPost.category_slug}
               />
