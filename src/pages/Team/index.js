@@ -34,7 +34,7 @@ function Team() {
             <TeamMember
               name="Séverine"
               teamrole="Référente accessibilité"
-              desc="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+              desc="'Nobody understands me. Maybe I'm Javascript...'"
               avatar="rad-2"
               github="https://github.com/severine-cuenot"
               linkedin="https://www.linkedin.com/in/severine-cuenot/"
