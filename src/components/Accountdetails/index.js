@@ -28,13 +28,6 @@ function AccountDetails({
     navigate('/');
   };
 
-  // btn copy
-  const [copy, setCopy] = useState(false);
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email);
-    setCopy(true);
-  };
-
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
@@ -42,6 +35,21 @@ function AccountDetails({
   const handleClick = () => {
     setIsVisible(true);
     setBtnVisible(false);
+  };
+
+  // btn copy
+  const [copy, setCopy] = useState(false);
+
+  // TODO erreur a modifier
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email).then(
+      () => {
+        setCopy(true);
+      },
+      () => {
+        console.log('error');
+      },
+    );
   };
 
   const date = rectifyFormat(created_at);
