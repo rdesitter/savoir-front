@@ -43,7 +43,7 @@ function AccountDetails({
         <span className="spacer" />
         {logged && userId === id && (
           <>
-            <Link to="/mon-compte/modifier-profil-public">
+            <Link to="/mon-compte/modifier-profil-public" aria-label="Aller vers modifier mon profil public">
               <Button label="Modifier mon profil public" style={{ marginBottom: space20 }} btnstyle="outlined" />
             </Link>
             <Button label="Me déconnecter" style={{ backgroundColor: redColor }} onClick={handleLogOut} />
