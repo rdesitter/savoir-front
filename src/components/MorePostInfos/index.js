@@ -11,7 +11,7 @@ function MorePostInfos({ info }) {
         <div className="informations-bloc">
           <h3 className="more-infos__title">Informations complémentaires</h3>
           <ul className="more-infos__list">
-            <li className="more-infos__li"><img className="more-infos__icone" src="/images/icones/delete.svg" alt="null" />{info}</li>
+            <li className="more-infos__li"><img className="more-infos__icone" src="/images/icones/delete.svg" alt="" />{info}</li>
           </ul>
         </div>
       </Panel>
