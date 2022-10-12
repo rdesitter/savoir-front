@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import rectifyFormat from '../../selectors/rectifyFormat';
 import Button from '../Button';
 import Panel from '../Panel';
-import { deletePost } from '../../actions';
+import { deletePost, initPostDeleted } from '../../actions';
 
 import './style.scss';
 import Error from '../Error';
@@ -31,10 +31,17 @@ function AccountDetailsPost({
   const errorMsg = useSelector((state) => state.user.errorMsg);
 
   const isDeleted = useSelector((state) => state.posts.isDeleted);
+  const [deletedPost, setDeletedPost] = useState(false);
 
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
+
+  useEffect(() => {
+    if (isDeleted) {
+      dispatch(initPostDeleted());
+    }
+  }, []);
 
   const handleClick = () => {
     setIsVisible(true);
@@ -53,9 +60,10 @@ function AccountDetailsPost({
 
   const handleDelete = () => {
     dispatch(deletePost(postId));
+    setDeletedPost(true);
   };
 
-  if (isDeleted) {
+  if (deletedPost && isDeleted) {
     return <Navigate to="/" replace />;
   }
 

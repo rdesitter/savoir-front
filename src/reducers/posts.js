@@ -6,6 +6,7 @@ import {
   SET_SELECTED_USER_POST,
   TOGGLE_POSTS_LOADING,
   TOGGLE_POST_DELETED,
+  INIT_POST_DELETED,
 } from '../actions';
 
 export const initialState = {
@@ -59,6 +60,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isDeleted: !state.isDeleted,
+      };
+    case INIT_POST_DELETED:
+      return {
+        ...state,
+        isDeleted: false,
       };
     default:
       return state;

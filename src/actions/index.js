@@ -367,3 +367,9 @@ export const noResult = () => ({
   type: NO_RESULT,
 
 });
+
+export const INIT_POST_DELETED = 'INIT_POST_DELETED';
+
+export const initPostDeleted = () => ({
+  type: INIT_POST_DELETED,
+});
