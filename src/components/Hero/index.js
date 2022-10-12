@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 import Container from '../Container';
-import hero from './hero.png';
+import scene from './scene.png';
 import './style.scss';
 
 function Hero() {
@@ -17,7 +17,7 @@ function Hero() {
           </Link>
         </div>
       </Container>
-      <img className="hero__bg" src={hero} alt="null" />
+      <img className="hero__bg" src={scene} alt="null" />
     </div>
   );
 }
