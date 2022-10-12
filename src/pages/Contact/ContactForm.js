@@ -8,8 +8,10 @@ import Input from '../../components/Input';
 import './style.scss';
 import { sendMessage, changeValue, initInfo } from '../../actions';
 import Error from '../../components/Error';
+import useInitError from '../../hooks/useInitError';
 
 function ContactForm() {
+  useInitError();
   const dispatch = useDispatch();
 
   useEffect(() => {
