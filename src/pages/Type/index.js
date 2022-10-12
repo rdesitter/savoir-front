@@ -16,7 +16,7 @@ function Type({ id }) {
     dispatch(getTypePosts(id));
   }, []);
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <header className="section__header">
           <h1 className="section__title">{ id === 1 ? 'Ils-elles ont besoin de vous' : 'Ils-elles vous proposent'}</h1>

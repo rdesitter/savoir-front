@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { Link } from 'react-router-dom';
 
 import Page from '../../components/Page';
@@ -12,7 +10,7 @@ import Thumbnail from '../../components/Thumbnail';
 
 function AnnoncesCategorie() {
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <nav className="nav-buttons">
           <ul className="nav-buttons__ul">
@@ -35,9 +33,5 @@ function AnnoncesCategorie() {
     </Page>
   );
 }
-
-AnnoncesCategorie.propTypes = {
-
-};
 
 export default AnnoncesCategorie;

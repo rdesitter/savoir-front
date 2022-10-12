@@ -35,7 +35,7 @@ function ResetEmail() {
   }
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <Panel>
           <header className="section__header">

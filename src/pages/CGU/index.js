@@ -5,7 +5,7 @@ import './style.scss';
 function CGU() {
   return (
     <Page id="CGU">
-      <Container>
+      <Container id="contenu">
         <section className="section">
           <header className="section__header">
             <h1 className="section__title">CONDITIONS GÉNÉRALES</h1>

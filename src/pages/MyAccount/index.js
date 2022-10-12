@@ -38,7 +38,7 @@ function MyAccount() {
         {!userData && <p>Chargement en cours</p>}
         {userData && !isLoading && (
           <>
-            <div id="profil">
+            <div id="profil-public">
               <AccountDetails
                 username={userProfil.pseudo}
                 avatar={userProfil.slug}
@@ -60,7 +60,7 @@ function MyAccount() {
               />
             </Panel>
             <Panel>
-              <MyAccountPanel email={userProfil.email} />
+              <MyAccountPanel email={userProfil.email} id="info-connexion" />
             </Panel>
           </>
         )}

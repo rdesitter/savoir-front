@@ -7,7 +7,7 @@ function SearchPage() {
   return (
     <Page>
       <Container>
-        <Search id="rechercher" />
+        <Search id="recherche" />
         <SearchResult />
       </Container>
     </Page>

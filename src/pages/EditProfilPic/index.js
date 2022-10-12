@@ -48,7 +48,7 @@ function EditProfilPicture() {
   }
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <Panel>
           <SectionHeader title="Modifier mon avatar" />

@@ -50,7 +50,7 @@ input[type="radio"]+label {
   }
 }
 
-input[type="radio"]:checked+label {
+input[type="radio"]:checked+label, input[type="radio"]:focus+label {
   background-color: vars.$primary-color;
   color: vars.$light-color;
   transition: all linear 0.3s;

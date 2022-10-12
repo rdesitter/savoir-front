@@ -60,7 +60,7 @@ function Inscription() {
           </header>
           {isError && <Error msg={errorMsg} />}
           {!loading && (
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} id="inscription">
               <div className="form__field">
                 <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input

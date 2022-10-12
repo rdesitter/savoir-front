@@ -105,7 +105,7 @@ function CreatePost() {
           {isError && <Error msg={errorMsg} />}
           {loading && <p>Chargement en cours...</p>}
           {!loading && (
-            <form onSubmit={handleSubmit} className="form add-post">
+            <form onSubmit={handleSubmit} className="form add-post" id="formulaire">
               <fieldset className="add-post__fieldset">
                 <legend className="add-post__legend">Vous souhaitez publier une annonce pour&nbsp;? *</legend>
                 <div className="radio__group">

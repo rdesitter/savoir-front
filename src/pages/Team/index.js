@@ -6,7 +6,7 @@ import './style.scss';
 
 function Team() {
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <section className="section">
           <header className="section__header">

@@ -41,7 +41,7 @@ function ContactForm() {
       )}
       {!info.isDisplayed
       && (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit} id="formulaire">
           {isError && <Error msg={errorMsg} />}
           <div className="form__field">
             <label htmlFor="email">Adresse email&nbsp;*</label>
