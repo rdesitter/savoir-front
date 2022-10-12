@@ -32,7 +32,7 @@ function DeleteAccount() {
   }
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <Panel>
           <SectionHeader title="Supprimer mon compte" subtitle="Attention cette action est irréversible !" />

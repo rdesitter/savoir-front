@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import Button from '../Button';
 import Logo from '../Logo';
 import searchIcon from './search.svg';

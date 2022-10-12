@@ -16,7 +16,7 @@ function Categories() {
     }
   }, []);
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <header className="section__header">
           <h1 className="section__title">Toutes les catégories</h1>

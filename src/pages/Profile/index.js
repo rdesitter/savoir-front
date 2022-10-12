@@ -57,8 +57,9 @@ function Profile() {
           </div>
           )}
         </Panel>
-        <Panel>
-          {loading && <div>Chargement en cours...</div>}
+
+        <Panel id="annonces">
+          {postLoading && <div>Chargement en cours...</div>}
           <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
           {!loading
           && (

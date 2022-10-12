@@ -60,7 +60,7 @@ function Category() {
   }
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <header className="section__header flex-header">
           <h1 className="section__title">Catégorie {categoryName}</h1>

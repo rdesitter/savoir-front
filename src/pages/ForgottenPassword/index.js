@@ -44,7 +44,7 @@ function ForgottenPassword() {
           {isError && <Error msg={errorMsg} />}
           {msg && <p>{msg}</p>}
           {(!loading && !msg) && (
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} id="contenu">
               <div className="form__field">
                 <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input

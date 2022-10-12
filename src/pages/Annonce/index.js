@@ -38,7 +38,7 @@ function Annonce() {
   }
 
   return (
-    <Page style={{ paddingBottom: 0 }}>
+    <Page style={{ paddingBottom: 0 }} id="annonce">
       {Object.keys(selectedPost).length !== 0 && (
       <Container>
         {loading && (
@@ -82,7 +82,7 @@ function Annonce() {
       </Container>
       )}
       {(!loading && Object.keys(similarPosts).length !== 0) && (
-        <section className="more-posts">
+        <section className="more-posts" id="annonces-similaires">
           <Container>
             <h2 className="more-posts__title">Annonces similaires</h2>
             <div className="thumbnails__list similar">

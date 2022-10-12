@@ -2,6 +2,15 @@
 @use '../../styles/mixin';
 
 .about {
+  &.panel {
+    @include mixin.media('medium') {
+      background: vars.$light-color url(../../components/Hero/hero.png);
+      background-position: right;
+      background-size: 50%;
+      background-repeat: no-repeat;
+    }
+  }
+
   &__title {
   font-size: 3em;
   font-weight: bold;
