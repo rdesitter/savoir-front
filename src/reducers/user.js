@@ -1,5 +1,6 @@
 import {
   CHANGE_VALUE,
+  CHANGE_VALUE_POST,
   DISPLAY_ELEMENT,
   GET_USERS,
   INIT_ERROR,
@@ -61,6 +62,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         error: false,
         [action.key]: action.value,
+      };
+    case CHANGE_VALUE_POST:
+      return {
+        ...state,
+        error: false,
       };
     case SET_USER:
       return {
