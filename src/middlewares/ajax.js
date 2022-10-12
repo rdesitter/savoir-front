@@ -105,6 +105,7 @@ const ajax = (store) => (next) => (action) => {
           user: {
             email, pseudo, birthdate, created_at: date, id: response.data.newUser.id,
           },
+          token,
         }));
         store.dispatch(toggleLoading());
       }).catch((error) => {
