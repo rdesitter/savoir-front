@@ -14,11 +14,13 @@ function Profile() {
   const isAdmin = useSelector((state) => state.user.admin);
   const user = useSelector((state) => state.user.userProfil);
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
+  const userId = useSelector((state) => state.user.userId);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.loading);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
   const isLogged = useSelector((state) => state.user.logged);
 
+  const [idSaved, setIdSaved] = useState(false);
   // handleClick mail
   const [isVisible, setIsVisible] = useState(false);
   const [btnVisible, setBtnVisible] = useState(true);
@@ -35,6 +37,12 @@ function Profile() {
     setCopy(true);
   };
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (userId) {
+      setIdSaved(true);
+    }
+  }, [userId]);
+
   useEffect(() => {
     dispatch(getUsers(id));
   }, []);
@@ -60,8 +68,12 @@ function Profile() {
               {isAdmin && (
                 <Button label="Supprimer cet utilisateur" style={{ backgroundColor: 'red' }} />
               )}
-              {btnVisible && (
-                <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
+              {(idSaved && userId !== user.id) && (
+                <div>
+                  {btnVisible && (
+                  <Button label="Contacter" onClick={handleClick} type="button" title="Contacter" btnstyle="outlined" />
+                  )}
+                </div>
               )}
               {isLogged && (
                 <div>
