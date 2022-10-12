@@ -13,7 +13,6 @@ function PostDetails({
 }) {
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   const date = rectifyFormat(selectedPost.created_at);
-console.log(location)
   return (
     <article className="post-infos">
       <Panel>
