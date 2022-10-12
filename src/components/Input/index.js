@@ -31,7 +31,6 @@ function Input({ name, ...props }) {
       name={name}
       value={value || ''}
       onChange={handleChange}
-      spellCheck="true"
       {...props}
     />
   );
