@@ -29,13 +29,21 @@ function Profile() {
     setIsVisible(true);
     setBtnVisible(false);
   };
-
   // btn copy
   const [copy, setCopy] = useState(false);
+
+  // TODO erreur a modifier
   const handleCopy = () => {
-    navigator.clipboard.writeText(user.email);
-    setCopy(true);
+    navigator.clipboard.writeText(user.email).then(
+      () => {
+        setCopy(true);
+      },
+      () => {
+        console.log('error');
+      },
+    );
   };
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (userId) {
