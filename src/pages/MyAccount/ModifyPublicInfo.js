@@ -65,6 +65,7 @@ function ModifyPublicInfo() {
                 rows="5"
                 value={description}
                 onChange={handleChangeTextArea}
+                spellCheck="true"
               />
             </div>
             <Button label="Enregistrer mon profil" type="submit" tabIndex="0" />
