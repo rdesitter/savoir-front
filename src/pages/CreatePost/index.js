@@ -3,17 +3,20 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
-  changeValuePost, getCategories, newPost, resetNewPost,
+  changeValuePost, getCategories, newPost, resetNewPost, setError,
 } from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
+import Error from '../../components/Error';
 import InputCreatePost from '../../components/InputCreatePost';
 import Page from '../../components/Page';
 import Panel from '../../components/Panel';
+import useInitError from '../../hooks/useInitError';
 import './style.scss';
 
 function CreatePost() {
   const dispatch = useDispatch();
+  useInitError();
 
   const [loading, setLoading] = useState(false);
   const [isNewPost, setIsNewPost] = useState(false);
@@ -28,6 +31,9 @@ function CreatePost() {
   const msg = useSelector((state) => state.informations.msg);
   const newPostObject = useSelector((state) => state.postCreation.newpost);
   const navigate = useNavigate();
+
+  const isError = useSelector((state) => state.user.error);
+  const errorMsg = useSelector((state) => state.user.errorMsg);
 
   const [displayCode, setDisplayCode] = useState(false);
 
@@ -64,16 +70,30 @@ function CreatePost() {
   }, []);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('submit');
-    setLoading(true);
-    dispatch(newPost({
-      type, title, category, condition, description, postal_code,
-    }, token));
-    setLoading(false);
-    setIsNewPost(true);
-    if (isNewPost) {
-      navigate(`/annonces/${newPostObject.id}`);
+    const key = event.which ? event.which : event.keyCode;
+    if (
+      (postal_code.length === 5
+        && key !== 8
+        && key !== 37
+        && key !== 38
+        && key !== 39
+        && key !== 40)
+      || (key === 18 || key === 189 || key === 229)
+    ) {
+      event.preventDefault();
+      setLoading(true);
+      dispatch(newPost({
+        type, title, category, condition, description, postal_code,
+      }, token));
+      setLoading(false);
+      setIsNewPost(true);
+      if (isNewPost) {
+        navigate(`/annonces/${newPostObject.id}`);
+      }
+    }
+    else {
+      event.preventDefault();
+      dispatch(setError('Code postal invalide'));
     }
   };
 
@@ -86,6 +106,7 @@ function CreatePost() {
             <p className="section__subtitle">Les champs marqués d’une étoile sont obligatoires.</p>
           </header>
           {msg && <p>{msg}</p>}
+          {isError && <Error msg={errorMsg} />}
           {loading && <p>Chargement en cours...</p>}
           {!loading && (
             <form onSubmit={handleSubmit} className="form add-post">
