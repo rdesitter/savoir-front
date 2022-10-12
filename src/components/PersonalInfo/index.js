@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import getPronoun from '../../selectors/getPronoun';
+import rectifyFormat from '../../selectors/rectifyFormat';
 import Button from '../Button';
 import './style.scss';
 
@@ -8,6 +9,7 @@ function PersonalInfo({
   firstname, lastname, birthdate, postalCode, pronoun,
 }) {
   const pronom = getPronoun(pronoun);
+  const dateOfBirth = rectifyFormat(birthdate);
   return (
     <>
       <header>
@@ -17,7 +19,7 @@ function PersonalInfo({
       <ul className="perso-infos__list">
         <li className="perso-infos__item"><span className="perso-infos__label">Nom&nbsp;:</span>{lastname}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Prénom&nbsp;:</span>{firstname}</li>
-        <li className="perso-infos__item"><span className="perso-infos__label">Date de naissance&nbsp;:</span>{birthdate}</li>
+        <li className="perso-infos__item"><span className="perso-infos__label">Date de naissance&nbsp;:</span>{dateOfBirth}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Code postal&nbsp;:</span>{postalCode}</li>
         <li className="perso-infos__item"><span className="perso-infos__label">Pronom&nbsp;:</span>{pronom}</li>
       </ul>
