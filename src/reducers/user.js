@@ -11,6 +11,7 @@ import {
   SET_AVATARS,
   SET_ERROR,
   SET_SELECTED_USER,
+  SET_SELECTED_USER_POST,
   SET_USER,
   TOGGLE_DELETED,
   TOGGLE_LOGGED,
@@ -174,6 +175,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         userProfil: action.user,
         userLoading: false,
+        loading: false,
+      };
+    case SET_SELECTED_USER_POST:
+      return {
+        ...state,
         loading: false,
       };
     case TOGGLE_SAVED_DATA:
