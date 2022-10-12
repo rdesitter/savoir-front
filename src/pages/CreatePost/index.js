@@ -43,7 +43,7 @@ function CreatePost() {
   }, [newPostObject]);
 
   useEffect(() => {
-    if (condition === '2') {
+    if (condition === '1') {
       setDisplayCode(true);
     }
     else {
