@@ -116,6 +116,7 @@ function CreatePost() {
                   placeholder="Le titre de votre annonce..."
                   aria-label="Saisissez le titre de votre annonce"
                   id="post-title"
+                  spellCheck="true"
                 />
               </div>
               <div className="form__group">
@@ -168,6 +169,7 @@ function CreatePost() {
                   id="post-description"
                   rows="5"
                   onChange={handleChangeTextArea}
+                  spellCheck="true"
                 />
               </div>
               <Button type="submit" label="Publier l'annonce" />
