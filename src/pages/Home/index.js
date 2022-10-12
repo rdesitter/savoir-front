@@ -28,17 +28,19 @@ function Home() {
     <Page>
       {!isLogged && <Hero />}
       <Container>
+
         <Search id="recherche" />
         <Panel id="partage">
           {loading && <div>Chargement en cours, veuillez patienter ...</div>}
           {!loading && (
-          <Thumbnail list={postsShare} title="Ils-elles-iels proposent" url="partage" link="Voir toutes les annonces" />
+          <Thumbnail list={postsShare} title="Partage de savoirs" url="partage" link="Voir toutes les annonces" />
           )}
         </Panel>
+
         <Panel id="besoin">
           {loading && <div>Chargement en cours, veuillez patienter ...</div>}
           {!loading && (
-          <Thumbnail list={postsLearn} title="Ils-elles-iels recherchent" url="besoin" link="Voir toutes les annonces" />
+          <Thumbnail list={postsLearn} title="Recherche de savoirs" url="besoin" link="Voir toutes les annonces" />
           )}
         </Panel>
 

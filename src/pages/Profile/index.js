@@ -16,7 +16,9 @@ function Profile() {
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.loading);
+  const isLogged = useSelector((state) => state.user.logged);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
+
 
   const [idSaved, setIdSaved] = useState(false);
 
@@ -55,10 +57,11 @@ function Profile() {
           </div>
           )}
         </Panel>
+
         <Panel id="annonces">
           {postLoading && <div>Chargement en cours...</div>}
           <h2 className="post-previews__title">Les annonces de {user.pseudo}</h2>
-          {!postLoading
+          {!loading
           && (
           <div className="thumbnails__list">
             {userPosts.map((userPost) => (
