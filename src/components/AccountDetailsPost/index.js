@@ -114,7 +114,7 @@ function AccountDetailsPost({
       {(isLogged && isVisible) && (
         <div className="disclaimer">
           <p className="disclaimer-text">
-            <span className="disclaimer-text__span">Avertissement</span>&nbsp;: Vous êtes sur le point d’entrer en relation avec un&#xB7;e utilisateur&#xB7;trice.
+            <span className="disclaimer-text__span">Avertissement</span>&nbsp;: Vous êtes sur le point d’entrer en relation avec un utilisateur ou une utilisatrice.
           </p>
           <p className="disclaimer-text">
             Veillez à ne jamais communiquer d’informations personnelles.
