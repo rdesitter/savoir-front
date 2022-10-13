@@ -21,10 +21,6 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
 
-const tokenConfig = {
-  headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-};
-
 const selectPost = (store) => (next) => (action) => {
   if (action.type === GET_POSTS) {
     instance.get('api/annonces')
@@ -77,8 +73,8 @@ const selectPost = (store) => (next) => (action) => {
   }
 
   else if (action.type === DELETE_POST) {
-    const { user: { email, username: pseudo } } = store.getState();
-    instance.delete(`/api/annonces/${action.id}`, { email, pseudo }, tokenConfig)
+    const { user: { email, username: pseudo, token: tokenState } } = store.getState();
+    instance.delete(`/api/annonces/${action.id}`, { email, pseudo }, tokenState)
       .then(() => {
         store.dispatch(togglePostDeleted());
       })
