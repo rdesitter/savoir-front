@@ -53,12 +53,12 @@ function ResetEmail() {
                 id="new-email"
                 required
                 placeholder="Votre nouvel e-mail..."
-                aria-label="Saisissez votre votre nouvel e-mail"
+                aria-label="Saisissez votre nouvel e-mail"
               />
             </div>
 
             <div className="form__submit">
-              <button type="submit" className="button button--plain" title="Enregistrer mon e-mail">Enregistrer mon e-mail</button>
+              <button type="submit" className="button button--plain" aria-label="Enregistrer mon e-mail">Enregistrer mon e-mail</button>
               <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page mon compte.</p>
             </div>
           </form>

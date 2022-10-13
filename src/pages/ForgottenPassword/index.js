@@ -58,7 +58,7 @@ function ForgottenPassword() {
               </div>
               <p className="section__subtitle">Vous recevrez un e-mail vous permettant de réinitiliser votre mot de passe.</p>
               <div className="form__submit">
-                <button type="submit" className="button button--plain" title="Réinitialiser mon mot de passe" style={{ width: '100%' }}>Réinitialiser mon mot de passe</button>
+                <button type="submit" className="button button--plain" aria-label="Réinitialiser mon mot de passe" style={{ width: '100%' }}>Réinitialiser mon mot de passe</button>
               </div>
             </form>
           )}

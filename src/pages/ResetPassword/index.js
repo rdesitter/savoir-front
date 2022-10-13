@@ -89,7 +89,7 @@ function ResetPassword({ token }) {
               </button>
             </div>
             <div className="form__submit">
-              <button type="submit" className="button button--plain" title="Enregistrer mon mot de passe">Enregistrer mon mot de passe</button>
+              <button type="submit" className="button button--plain" aria-label="Valider mon mot de passe">Enregistrer mon mot de passe</button>
               <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>
             </div>
           </form>
