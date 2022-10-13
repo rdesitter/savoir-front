@@ -31,7 +31,7 @@ function ThumbnailPreview({
 
       <Link className="thumbnail__link" to={`/annonces/${postId}`} aria-label={`Aller vers l'annonce "${title}"`}>
         <div className="thumbnail-infos">
-          <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt="Cuisine" />
+          <img className="thumbnail-infos__img" src={`/images/categories/${category}.jpg`} alt={`${categoryName}`} />
           <h4 className="thumbnail-infos__title">{title}</h4>
         </div>
       </Link>
