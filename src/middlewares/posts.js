@@ -9,13 +9,8 @@ import {
   GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
   togglePostsLoading,
-  DELETE_POST,
   setError,
-  togglePostDeleted,
-  // toggleLoading,
 } from '../actions';
-
-// import selectedPost from '../data/selectedPost';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -69,18 +64,6 @@ const selectPost = (store) => (next) => (action) => {
       })
       .catch((error) => {
         console.log(error);
-      });
-  }
-
-  else if (action.type === DELETE_POST) {
-    const { user: { email, username: pseudo, token: tokenState } } = store.getState();
-    instance.delete(`/api/annonces/${action.id}`, { email, pseudo }, tokenState)
-      .then(() => {
-        store.dispatch(togglePostDeleted());
-      })
-      .catch(() => {
-        // console.log(error);
-        store.dispatch(setError('L\'annonce n\'a pas pu être supprimée.'));
       });
   }
 

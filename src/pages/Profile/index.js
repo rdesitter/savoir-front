@@ -16,7 +16,6 @@ function Profile() {
   const userPosts = useSelector((state) => state.posts.selectedUserPost);
   const { id } = useParams();
   const loading = useSelector((state) => state.user.loading);
-  const isLogged = useSelector((state) => state.user.logged);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
 
   const [idSaved, setIdSaved] = useState(false);
