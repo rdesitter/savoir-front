@@ -65,16 +65,7 @@ function CreatePost() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const key = event.which ? event.which : event.keyCode;
-    if (
-      (condition === '1' && postal_code.length === 5
-        && key !== 8
-        && key !== 37
-        && key !== 38
-        && key !== 39
-        && key !== 40)
-      || (key === 18 || key === 189 || key === 229) || condition === '2'
-    ) {
+    if ((condition === '1' && Number(postal_code).toString().length === 5) || condition === '2') {
       setLoading(true);
       dispatch(newPost({
         type, title, category, condition, description, postal_code,
