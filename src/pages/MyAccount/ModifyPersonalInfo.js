@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { changeValue, toggleSavedData, updatePersonalInfo } from '../../actions';
+import {
+  changeValue,
+  toggleSavedData,
+  updatePersonalInfo,
+  setError,
+} from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Error from '../../components/Error';
@@ -25,13 +30,18 @@ function ModifyPersonalInfo() {
 
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
-
+  const postalCode = useSelector((state) => state.user.postalCode);
   const userPronoun = useSelector((state) => state.user.pronoun);
 
   const handleSelectPronoun = (event) => dispatch(changeValue(event.target.value, 'pronoun'));
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(updatePersonalInfo());
+    if (Number(postalCode).toString().length === 5) {
+      dispatch(updatePersonalInfo());
+    }
+    else {
+      dispatch(setError('Code postal invalide'));
+    }
   };
 
   if (isSaved) {
