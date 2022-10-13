@@ -26,7 +26,7 @@ function NotFound() {
             <p>{oneRandomFact.content}</p>
           </Panel>
           <div className="err404__buttons">
-            <Link to="/rechercher">
+            <Link to="/recherche">
               <Button label="Faire une recherche" btnstyle="outlined" />
             </Link>
             <Link to="/" aria-label="Retourner à l'accueil">
