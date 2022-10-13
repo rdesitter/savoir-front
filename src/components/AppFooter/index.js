@@ -44,7 +44,7 @@ function AppFooter() {
           </ul>
         </nav>
       </div>
-      <p className="footer__copyright">&copy; Saevoirs {year}</p>
+      <p className="footer__copyright">&copy; Saevoir {year}</p>
     </footer>
   );
 }
