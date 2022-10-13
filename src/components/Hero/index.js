@@ -17,7 +17,7 @@ function Hero() {
           </Link>
         </div>
       </Container>
-      <img className="hero__bg" src={scene} alt="null" />
+      <img className="hero__bg" src={scene} alt="" />
     </div>
   );
 }

@@ -23,7 +23,7 @@ function AppHeader() {
       <Link to="/" className="main-nav__logo"><Logo /></Link>
       <ul className="main-nav__list">
         <li className="main-nav__item main-nav__item--search">
-          <Link to="recherche" className="main-nav__link" title="Faire une recherche"><img src={searchIcon} alt="null" className="main-nav__link__icon" /> Faire une recherche</Link>
+          <Link to="recherche" className="main-nav__link" title="Cliquez pour faire une recherche"><img src={searchIcon} alt="" className="main-nav__link__icon" /> Faire une recherche</Link>
         </li>
         {!isLogged && (
           <>
@@ -45,7 +45,7 @@ function AppHeader() {
             <Link to="/mon-compte" className="main-nav__link">
               <Button label="Mon compte" icon="profil" />
             </Link>
-            <button className="button button--logout" type="button" onClick={handleLogOut} title="Se déconnecter">
+            <button className="button button--logout" type="button" onClick={handleLogOut} title="Se déconnecter" aria-label="Se déconnecter">
               <span className="material-symbols-outlined">logout</span>
             </button>
           </li>

@@ -24,7 +24,7 @@ function PostDetails({
           <h2 className="post-infos__title">{title}</h2>
           <p className="post-infos__date">Annonce publiée le {date}</p>
           {location && (
-            <span className="post-infos__location"><img className="post-infos__location-icone" src="/images/icones/location.svg" alt="location icone" />{location}</span>
+            <span className="post-infos__location"><img className="post-infos__location-icone" src="/images/icones/location.svg" alt="localisation de l'annonce" />{location}</span>
           )}
           <p className="post-infos__description">{description}</p>
         </section>

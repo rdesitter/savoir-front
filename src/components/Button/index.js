@@ -13,7 +13,7 @@ function Button({
       title={label}
       {...props}
     >
-      {icon ? <img src={`/images/icones/${icon}.svg`} alt="null" className="button__icon" /> : ''}
+      {icon ? <img src={`/images/icones/${icon}.svg`} alt="" className="button__icon" /> : ''}
       <span>{label}</span>
     </button>
   );
