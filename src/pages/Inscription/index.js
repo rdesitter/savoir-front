@@ -74,6 +74,13 @@ function Inscription() {
               </div>
 
               <div className="form__field">
+                <button
+                  className="password__toggle"
+                  type="button"
+                  onClick={() => setIsVisible(!isVisible)}
+                >
+                  {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
+                </button>
                 <label htmlFor="password">Mot de passe&nbsp;*</label>
                 <Input
                   type={isVisible ? 'text' : 'password'}
@@ -95,14 +102,6 @@ function Inscription() {
                   placeholder="Confirmez mot de passe..."
                   aria-label="Saisissez à nouveau votre mot de passe pour le confirmer"
                 />
-
-                <button
-                  className="password__toggle"
-                  type="button"
-                  onClick={() => setIsVisible(!isVisible)}
-                >
-                  {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
-                </button>
               </div>
 
               <div className="form__field">
