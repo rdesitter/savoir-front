@@ -8,6 +8,7 @@ import variables from '../../styles/variables.module.scss';
 import './style.scss';
 import { logOut } from '../../actions';
 import rectifyFormat from '../../selectors/rectifyFormat';
+import AvatarIcon from '../AvatarIcon';
 
 function AccountDetails({
   id, username, avatar, created_at, about, email,
@@ -58,9 +59,7 @@ function AccountDetails({
       <div className="account__avatar">
         {(logged && userId === id) && (
         <Link to="/mon-compte/modifier-avatar" aria-label="Modifier mon avatar" className="account__avatar__legend" title="Modifier mon avatar">
-          <span className="material-symbols-outlined">
-            photo_library
-          </span>
+          <AvatarIcon />
         </Link>
         )}
         <img className="account__avatar__img" src={`/images/avatars/${avatar}.png`} alt={avatar} />
