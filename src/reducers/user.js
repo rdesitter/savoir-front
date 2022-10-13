@@ -14,6 +14,7 @@ import {
   SET_SELECTED_USER_POST,
   SET_USER,
   TOGGLE_DELETED,
+  DELETE_USER,
   TOGGLE_LOGGED,
   TOGGLE_SAVED_DATA,
   TOOGLE_LOADING,
@@ -193,6 +194,11 @@ const reducer = (state = initialState, action = {}) => {
         avatars: action.avatars,
       };
     case TOGGLE_DELETED:
+      return {
+        ...state,
+        isDeleted: true,
+      };
+    case DELETE_USER:
       return {
         ...state,
         isDeleted: true,
