@@ -82,17 +82,17 @@ function AccountDetails({
         {isUserProfile && userId !== id && (
           <>
             {btnVisible && (
-              <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
+              <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter l'utilisateur" />
             )}
             {isVisible && logged && (
               <>
                 <div className="user-infos__contact-btn">
                   <a className="email" href={`mailto:${email}`} title={`envoyer un mail à ${username}`}>{email}</a>
-                  <button className={copy ? 'button user-infos__copy-ok' : 'button user-infos__copy'} type="button" title="copier" onClick={handleCopy}>{copy ? 'Copié !' : 'Copier'}</button>
+                  <button className={copy ? 'button user-infos__copy-ok' : 'button user-infos__copy'} type="button" title="Copier l'email" onClick={handleCopy}>{copy ? 'Copié !' : 'Copier'}</button>
                 </div>
                 <div className="disclaimer">
                   <p className="disclaimer-text">
-                    <span className="disclaimer-text__span">Avertissement</span>&nbsp;: Vous êtes sur le point d’entrer en relation avec un&#xB7;e utilisateur&#xB7;trice.
+                    <span className="disclaimer-text__span">Avertissement</span>&nbsp;: Vous êtes sur le point d’entrer en relation avec un utilisateur ou une utilisatrice.
                   </p>
                   <p className="disclaimer-text">
                     Veillez à ne jamais communiquer d’informations personnelles.
@@ -100,7 +100,7 @@ function AccountDetails({
                   <p className="disclaimer-text">
                     Si vous détectez le moindre comportement suspect
                     ou ressentez le moindre doute,
-                    merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour d'en faire part à un membre de l’équipe.
+                    merci d’utiliser le formulaire de <a className="disclaimer-text__span-bold" href="/contact">contact</a> pour en faire part à un&#xB7;e membre de l’équipe.
                   </p>
                 </div>
               </>
