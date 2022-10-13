@@ -92,8 +92,8 @@ function Inscription() {
                   name="passwordConfirm"
                   id="password-confirm"
                   required
-                  placeholder="Votre mot de passe..."
-                  aria-label="Saisissez votre mot de passe"
+                  placeholder="Confirmez mot de passe..."
+                  aria-label="Saisissez à nouveau votre mot de passe pour le confirmer"
                 />
 
                 <button
@@ -106,13 +106,13 @@ function Inscription() {
               </div>
 
               <div className="form__field">
-                <label htmlFor="username">Nom d'utilisateur&#xB7;trice&nbsp;*</label>
+                <label htmlFor="username">Nom d'utilisateur ou d'utilisatrice&nbsp;*</label>
                 <Input
                   type="text"
                   name="username"
                   id="username"
                   required
-                  placeholder="Votre nom d'utilisateur-trice..."
+                  placeholder="Votre nom d'utilisateur ou d'utilisatrice..."
                   aria-label="Saisissez votre nom d'utilisateur ou d'utilisatrice"
                 />
               </div>
@@ -125,7 +125,7 @@ function Inscription() {
                   id="birthdate"
                   required
                   placeholder="Votre date de naissance..."
-                  aria-label="Saisissez votre  date de naissance"
+                  aria-label="Saisissez votre date de naissance"
                 />
               </div>
 
