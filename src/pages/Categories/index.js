@@ -33,7 +33,7 @@ function Categories() {
                   <img
                     src={`/images/categories/${category.slug}.jpg`}
                     className="categories__img"
-                    alt="null"
+                    alt=""
                   />
                 </div>
                 {category.name}

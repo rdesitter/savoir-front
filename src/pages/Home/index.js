@@ -31,14 +31,14 @@ function Home() {
 
         <Search id="recherche" />
         <Panel id="partage">
-          {loading && <div>Chargement en cours, veuillez patienter ...</div>}
+          {loading && <div>Chargement en cours, veuillez patienter...</div>}
           {!loading && (
           <Thumbnail list={postsShare} title="Partage de savoirs" url="partage" link="Voir toutes les annonces" />
           )}
         </Panel>
 
         <Panel id="besoin">
-          {loading && <div>Chargement en cours, veuillez patienter ...</div>}
+          {loading && <div>Chargement en cours, veuillez patienter...</div>}
           {!loading && (
           <Thumbnail list={postsLearn} title="Recherche de savoirs" url="besoin" link="Voir toutes les annonces" />
           )}
