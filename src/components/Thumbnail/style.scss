@@ -110,6 +110,7 @@
     &__title{
       text-align: left;
       font-weight: bold;
+      word-break: break-all;
     }
     &__description {
       font-size: .8em;
