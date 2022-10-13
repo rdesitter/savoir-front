@@ -77,7 +77,8 @@ const selectPost = (store) => (next) => (action) => {
   }
 
   else if (action.type === DELETE_POST) {
-    instance.delete(`/api/annonces/${action.id}`, tokenConfig)
+    const { user: { email, username: pseudo } } = store.getState();
+    instance.delete(`/api/annonces/${action.id}`, { email, pseudo }, tokenConfig)
       .then(() => {
         store.dispatch(togglePostDeleted());
       })
