@@ -170,8 +170,9 @@ function CreatePost() {
                       maxLength="60"
                       required
                       placeholder="Code postal..."
-                      aria-label="Saisissez un code postla"
+                      aria-label="Saisissez un code postal"
                       id="postal-code"
+                      spellCheck="false"
                     />
                   </div>
                 )}
