@@ -35,7 +35,6 @@ function Team() {
               name="Séverine"
               teamrole="Référente accessibilité"
               desc="'Nobody understands me. Maybe I'm Javascript...'"
-
               avatar="rad-2"
               github="https://github.com/severine-cuenot"
               linkedin="https://www.linkedin.com/in/severine-cuenot/"
