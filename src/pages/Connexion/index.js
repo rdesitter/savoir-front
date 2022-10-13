@@ -71,6 +71,7 @@ function Connexion() {
                   placeholder="Votre adresse email..."
                   aria-label="Saisissez votre email"
                   id="email"
+                  spellCheck="false"
                 />
               </div>
 
@@ -90,6 +91,7 @@ function Connexion() {
                   required
                   placeholder="Votre mot de passe..."
                   aria-label="Saisissez votre mot de passe"
+                  spellCheck="false"
                 />
               </div>
               <Link to="/oubli-mot-de-passe" className="reset-password">J'ai oublié mon mot de passe</Link>
