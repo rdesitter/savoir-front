@@ -74,7 +74,7 @@ function AccountDetailsPost({
           <Link to={`/profil/${id}`}><img className="user-infos__avatar-img" src={`/images/avatars/${avatar}.png`} alt="avatar" /></Link>
           <Link to={`/profil/${id}`} className="user-infos__name">{name}</Link>
         </div>
-        <span className="user-infos__date">inscrit&#xB7;e le {date}</span>
+        <span className="user-infos__date">inscription le {date}</span>
       </section>
 
       <section className="user-contact">
@@ -85,23 +85,23 @@ function AccountDetailsPost({
               className="button button--delete"
               onClick={handleDelete}
               type="button"
-              title="Supprimer mon annonce"
+              aria-label="Supprimer mon annonce"
             >
               Supprimer mon annonce
             </button>
           </>
         )}
         {(btnVisible && userId !== id) && (
-        <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" title="Contacter" />
+        <Button label="Contacter" onClick={handleClick} type="button" btnstyle="outlined" aria-label="Contacter l'utilisateur" />
         )}
         {(isLogged && isVisible && userId !== id) && (
           <div className="user-infos__contact-btn">
             <a className="email" href={`mailto:${email}`} title={`envoyer un mail à ${name}`}>{email}</a>
             {!copy && (
-            <button className="user-infos__copy" type="button" title="copier" onClick={handleCopy}>Copier</button>
+            <button className="user-infos__copy" type="button" title="Copier l'email dans le presse papier" onClick={handleCopy}>Copier</button>
             )}
             {copy && (
-            <button className="user-infos__copy-ok" type="button" title="copié">Copié&nbsp;!</button>
+            <button className="user-infos__copy-ok" type="button" title="L'email a bien été copié !">Copié&nbsp;!</button>
             )}
           </div>
         )}
