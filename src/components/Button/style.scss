@@ -63,6 +63,11 @@
     &:hover, &:focus {
       background-color: vars.$error-color;
       color: vars.$light-color;
+
+      .logout-icon {
+        fill: vars.$light-color;
+        transition: vars.$transition;
+      }
     }
   }
 
