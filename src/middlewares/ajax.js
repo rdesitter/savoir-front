@@ -276,8 +276,7 @@ const ajax = (store) => (next) => (action) => {
       });
   }
   else if (action.type === DELETE_POST) {
-    const { user: { email, username: pseudo } } = store.getState();
-    instance.delete(`/api/annonces/${action.id}`, tokenConfig, { email, pseudo })
+    instance.delete(`/api/annonces/${action.id}`, tokenConfig)
       .then(() => {
         store.dispatch(togglePostDeleted());
       })
