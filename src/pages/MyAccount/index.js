@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { getUsers } from '../../actions';
+import { getUsers, toggleSavedData } from '../../actions';
 import AccountDetails from '../../components/Accountdetails';
 import Container from '../../components/Container';
 import MyAccountPanel from '../../components/MyAccountPanel';
@@ -21,6 +21,14 @@ function MyAccount() {
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
   const userProfil = useSelector((state) => state.user.userProfil);
   const isLoading = useSelector((state) => state.user.loading);
+
+  const isSaved = useSelector((state) => state.user.dataSaved);
+
+  useEffect(() => {
+    if (isSaved) {
+      dispatch(toggleSavedData());
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(getUsers(user.userId));

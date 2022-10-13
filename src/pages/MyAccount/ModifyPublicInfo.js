@@ -53,6 +53,7 @@ function ModifyPublicInfo() {
                 placeholder="Nom d'utilisateur-trice..."
                 aria-label="Changer votre nom d'utilisateur-trice"
                 id="username"
+                spellCheck="false"
               />
             </div>
             <div className="form__field">

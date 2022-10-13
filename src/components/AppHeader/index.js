@@ -7,6 +7,7 @@ import searchIcon from './search.svg';
 import { logOut } from '../../actions';
 
 import './style.scss';
+import LogoutIcon from '../LogoutIcon';
 
 function AppHeader() {
   const isLogged = useSelector((state) => state.user.logged);
@@ -46,7 +47,7 @@ function AppHeader() {
               <Button label="Mon compte" icon="profil" />
             </Link>
             <button className="button button--logout" type="button" onClick={handleLogOut} title="Se déconnecter" aria-label="Se déconnecter">
-              <span className="material-symbols-outlined">logout</span>
+              <LogoutIcon />
             </button>
           </li>
         )}

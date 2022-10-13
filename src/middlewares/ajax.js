@@ -2,6 +2,7 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
 import {
+  DELETE_POST,
   DELETE_USER,
   GET_AVATARS,
   initUser,
@@ -16,6 +17,7 @@ import {
   SUBMIT_NEW_EMAIL,
   toggleDeleted,
   toggleLoading,
+  togglePostDeleted,
   toggleSavedData,
   UPDATE_AVATAR,
   UPDATE_PERSONAL_INFO,
@@ -271,6 +273,16 @@ const ajax = (store) => (next) => (action) => {
           return store.dispatch(msgSent('Vous n\'êtes pas autorisé à faire cette modification'));
         }
         return store.dispatch(msgSent(error.message));
+      });
+  }
+  else if (action.type === DELETE_POST) {
+    instance.delete(`/api/annonces/${action.id}`, tokenConfig)
+      .then(() => {
+        store.dispatch(togglePostDeleted());
+      })
+      .catch(() => {
+        // console.log(error);
+        store.dispatch(setError('L\'annonce n\'a pas pu être supprimée.'));
       });
   }
   next(action);
