@@ -19,7 +19,6 @@ function Profile() {
   const isLogged = useSelector((state) => state.user.logged);
   const postLoading = useSelector((state) => state.posts.loadingSelectedPost);
 
-
   const [idSaved, setIdSaved] = useState(false);
 
   const dispatch = useDispatch();

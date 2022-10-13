@@ -70,6 +70,7 @@ function Inscription() {
                   placeholder="Votre adresse email..."
                   aria-label="Saisissez votre email"
                   id="email"
+                  spellCheck="false"
                 />
               </div>
 
@@ -82,6 +83,7 @@ function Inscription() {
                   required
                   placeholder="Votre mot de passe..."
                   aria-label="Saisissez votre mot de passe"
+                  spellCheck="false"
                 />
               </div>
 
@@ -94,6 +96,7 @@ function Inscription() {
                   required
                   placeholder="Votre mot de passe..."
                   aria-label="Saisissez votre mot de passe"
+                  spellCheck="false"
                 />
 
                 <button
@@ -114,6 +117,7 @@ function Inscription() {
                   required
                   placeholder="Votre nom d'utilisateur-trice..."
                   aria-label="Saisissez votre nom d'utilisateur ou d'utilisatrice"
+                  spellCheck="false"
                 />
               </div>
 
