@@ -19,7 +19,7 @@ function Type({ id }) {
     <Page id="contenu">
       <Container>
         <header className="section__header">
-          <h1 className="section__title">{ id === 1 ? 'Ils-elles ont besoin de vous' : 'Ils-elles vous proposent'}</h1>
+          <h1 className="section__title">{ id === 1 ? 'Recherche de savoirs' : 'Partage de savoirs'}</h1>
           <p className="section__subtitle">N'hésitez pas à les contacter.</p>
         </header>
         {isLoading && <p>Chargement...</p>}
