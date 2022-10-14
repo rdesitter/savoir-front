@@ -73,7 +73,7 @@ function ModifyPersonalInfo() {
                 id="birthdate"
                 required
                 placeholder="Votre date de naissance..."
-                aria-label="Saisissez votre  date de naissance"
+                aria-label="Saisissez votre date de naissance"
               />
             </div>
             <div className="form__field">
