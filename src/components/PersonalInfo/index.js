@@ -14,7 +14,7 @@ function PersonalInfo({
     <>
       <header>
         <h2 className="section__title">Informations personnelles</h2>
-        <h2 className="section__subtitle">Ces informations apparaîtront publiquement si vous les renseignez. Elles nous servent à vous contacter ou à personnaliser votre interface.</h2>
+        <h2 className="section__subtitle">Ces informations sont strictement confidentielles. Elles nous servent uniquement à vous contacter en cas de besoin.</h2>
       </header>
       <ul className="perso-infos__list">
         <li className="perso-infos__item"><span className="perso-infos__label">Nom&nbsp;:</span>{lastname}</li>

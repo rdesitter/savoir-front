@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../Button';
@@ -11,7 +12,7 @@ function MyAccountPanel({ email }) {
       <div className="account-panel__bloc">
         <header>
           <h2 className="section__title">Informations de connexion</h2>
-          <h2 className="section__subtitle">Ces informations sont strictement confidentielles et nous servent à vous contacter ou à personnaliser votre interface.</h2>
+          {/* <h2 className="section__subtitle">Ces informations sont strictement confidentielles et nous servent à vous contacter ou à personnaliser votre interface.</h2> */}
         </header>
         <p className="account-panel__label">Email de contact / identifiant de connexion</p>
         <p>{email}</p>
