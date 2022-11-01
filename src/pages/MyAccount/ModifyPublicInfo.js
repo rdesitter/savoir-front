@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { changeValue, toggleSavedData, updateProfile } from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
@@ -15,16 +14,13 @@ import useInitError from '../../hooks/useInitError';
 function ModifyPublicInfo() {
   useInitError();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const isSaved = useSelector((state) => state.user.dataSaved);
-  const [checkIsSaved, setCheckIsSaved] = useState(false);
 
   useEffect(() => {
     if (isSaved) {
       dispatch(toggleSavedData());
     }
-    setCheckIsSaved(false);
   }, []);
 
   const isError = useSelector((state) => state.user.error);
@@ -35,10 +31,9 @@ function ModifyPublicInfo() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateProfile());
-    setCheckIsSaved(true);
   };
 
-  if (checkIsSaved) {
+  if (isSaved) {
     return <Navigate to="/mon-compte" replace />;
   }
 
@@ -50,14 +45,15 @@ function ModifyPublicInfo() {
           {isError && <Error msg={errorMsg} />}
           <form onSubmit={handleSubmit}>
             <div className="form__field">
-              <label htmlFor="username">Nom d'utilisateur</label>
+              <label htmlFor="username">Nom d'utilisateur&#xB7;trice</label>
               <Input
                 name="username"
                 type="text"
                 required
-                placeholder="Nom d'utilisateur..."
-                aria-label="Changer votre nom d'utilisateur"
+                placeholder="Nom d'utilisateur-trice..."
+                aria-label="Changer votre nom d'utilisateur-trice"
                 id="username"
+                spellCheck="false"
               />
             </div>
             <div className="form__field">
@@ -70,6 +66,7 @@ function ModifyPublicInfo() {
                 rows="5"
                 value={description}
                 onChange={handleChangeTextArea}
+                spellCheck="true"
               />
             </div>
             <Button label="Enregistrer mon profil" type="submit" tabIndex="0" />

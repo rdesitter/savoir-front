@@ -8,8 +8,10 @@ import Input from '../../components/Input';
 import './style.scss';
 import { sendMessage, changeValue, initInfo } from '../../actions';
 import Error from '../../components/Error';
+import useInitError from '../../hooks/useInitError';
 
 function ContactForm() {
+  useInitError();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,10 +41,10 @@ function ContactForm() {
       )}
       {!info.isDisplayed
       && (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit} id="formulaire">
           {isError && <Error msg={errorMsg} />}
           <div className="form__field">
-            <label htmlFor="email">Adresse email *</label>
+            <label htmlFor="email">Adresse email&nbsp;*</label>
             <Input
               name="email"
               type="email"
@@ -53,7 +55,7 @@ function ContactForm() {
             />
           </div>
           <div className="form__field">
-            <label htmlFor="email">Votre nom *</label>
+            <label htmlFor="email">Votre nom&nbsp;*</label>
             <Input
               name="fullname"
               type="text"
@@ -64,7 +66,7 @@ function ContactForm() {
             />
           </div>
           <div className="form__field">
-            <label htmlFor="email">Votre message *</label>
+            <label htmlFor="email">Votre message&nbsp;*</label>
             <textarea
               name="message"
               required
@@ -75,7 +77,7 @@ function ContactForm() {
               onChange={handleChange}
             />
           </div>
-          <Button isSubmit label="Envoyer le message" />
+          <Button isSubmit label="Envoyer le message" tabIndex={0} />
         </form>
       )}
     </Panel>

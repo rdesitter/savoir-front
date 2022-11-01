@@ -8,10 +8,9 @@ import {
   togglePostError,
   GET_POSTS_BY_CATEGORY,
   GET_TYPE_POSTS,
-  // toggleLoading,
+  togglePostsLoading,
+  setError,
 } from '../actions';
-
-// import selectedPost from '../data/selectedPost';
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -31,6 +30,8 @@ const selectPost = (store) => (next) => (action) => {
   }
 
   else if (action.type === GET_SELECTED_POST) {
+    const { posts: { isLoading } } = store.getState();
+    if (!isLoading) store.dispatch(togglePostsLoading());
     instance(`/api/annonces/${action.id}`)
       .then((response) => {
         store.dispatch(setSelectedPost(response.data.post));
@@ -49,7 +50,10 @@ const selectPost = (store) => (next) => (action) => {
         store.dispatch(setPosts(response.data));
       })
       .catch((error) => {
-        console.log(error);
+        if (error.response.status === 404) {
+          return store.dispatch(setError('Aucune annonce trouvée.'));
+        }
+        return store.dispatch(setError(error.message));
       });
   }
 

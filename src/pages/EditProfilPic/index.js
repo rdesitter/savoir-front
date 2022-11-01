@@ -10,9 +10,11 @@ import Error from '../../components/Error';
 import Page from '../../components/Page';
 import Panel from '../../components/Panel';
 import SectionHeader from '../../components/SectionHeader';
+import useInitError from '../../hooks/useInitError';
 import './style.scss';
 
 function EditProfilPicture() {
+  useInitError();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
@@ -21,13 +23,11 @@ function EditProfilPicture() {
   const errorMsg = useSelector((state) => state.user.errorMsg);
   const userAvatar = useSelector((state) => state.user.avatarId);
   const isSaved = useSelector((state) => state.user.dataSaved);
-  const [checkIsSaved, setCheckIsSaved] = useState(false);
 
   useEffect(() => {
     if (isSaved) {
       dispatch(toggleSavedData());
     }
-    setCheckIsSaved(false);
     dispatch(getAvatars(userAvatar));
     setLoading(false);
   }, []);
@@ -37,19 +37,18 @@ function EditProfilPicture() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateAvatar());
-    setCheckIsSaved(true);
   };
 
   const handleBack = () => {
     navigate(-1);
   };
 
-  if (checkIsSaved) {
+  if (isSaved) {
     return <Navigate to="/mon-compte" replace />;
   }
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <Panel>
           <SectionHeader title="Modifier mon avatar" />

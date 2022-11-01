@@ -16,13 +16,13 @@ function Categories() {
     }
   }, []);
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <header className="section__header">
           <h1 className="section__title">Toutes les catégories</h1>
         </header>
         <ul className="categories__list">
-          {categories((category) => (
+          {categories.map((category) => (
             <li className="categories__item" key={category.id}>
               <Link
                 to={`/categories/${category.slug}`}
@@ -33,7 +33,7 @@ function Categories() {
                   <img
                     src={`/images/categories/${category.slug}.jpg`}
                     className="categories__img"
-                    alt="null"
+                    alt=""
                   />
                 </div>
                 {category.name}

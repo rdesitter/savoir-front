@@ -6,8 +6,6 @@ import Container from 'src/components/Container';
 import Panel from '../../components/Panel';
 import Thumbnail from '../../components/Thumbnail';
 import Hero from '../../components/Hero';
-// import fake data
-// import data from '../../data/posts';
 import { getPosts } from '../../actions';
 
 function Home() {
@@ -30,17 +28,22 @@ function Home() {
     <Page>
       {!isLogged && <Hero />}
       <Container>
-        <Search />
-        <Panel>
+
+        <Search id="recherche" />
+        <Panel id="partage">
+          {loading && <div>Chargement en cours, veuillez patienter...</div>}
           {!loading && (
-          <Thumbnail list={postsShare} title="Ils-Elles proposent" url="partage" link="Voir toutes les annonces" />
+          <Thumbnail list={postsShare} title="Partage de savoirs" url="partage" link="Voir toutes les annonces" />
           )}
         </Panel>
-        <Panel>
+
+        <Panel id="besoin">
+          {loading && <div>Chargement en cours, veuillez patienter...</div>}
           {!loading && (
-          <Thumbnail list={postsLearn} title="Ils-Elles recherchent" url="besoin" link="Voir toutes les annonces" />
+          <Thumbnail list={postsLearn} title="Recherche de savoirs" url="besoin" link="Voir toutes les annonces" />
           )}
         </Panel>
+
       </Container>
     </Page>
   );

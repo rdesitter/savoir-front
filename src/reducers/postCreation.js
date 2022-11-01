@@ -6,6 +6,7 @@ const initialState = {
   type: null,
   category: null,
   place: null,
+  postal_code: null,
   description: '',
   newpost: {},
 };

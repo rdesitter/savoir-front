@@ -66,10 +66,12 @@
 
   @include mixin.media('medium') {
     flex-basis: 25%;
+    max-width: 50%;
   }
   
   @include mixin.media('large') {
     flex-basis: 20%;
+    max-width: 35%;
   }
 
   &-user {
@@ -108,6 +110,7 @@
     &__title{
       text-align: left;
       font-weight: bold;
+      word-break: break-all;
     }
     &__description {
       font-size: .8em;

@@ -4,6 +4,9 @@
 
 .post-informations {
   margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-10;
 }
 
 .post-infos {
@@ -29,23 +32,19 @@
 
   &__title{
     font-weight: bold;
-    padding: 1em;
   }
   &__date {
-    color: rgba(0, 0, 0, 0.502);
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.8em;
+    margin-top: -10px;
   }
   &__location{
-    font-size: 1em;
     font-weight: bold;
-    padding-top: 1.5em;
+    display: flex;
   }
   &__location-icone{
     width: 1.5em;
     height: 1.5em;
     margin-right: .5em;
-  }
-  &__description{
-    font-size: 1em;
-    padding: 1em;
   }
 }

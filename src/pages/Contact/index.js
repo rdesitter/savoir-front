@@ -10,7 +10,7 @@ function Contact() {
           <header className="section__header">
             <h1 className="section__title">Nous contacter</h1>
             <p className="section__subtitle">
-              Pour toute question vous pouvez nous envoyer un mail à <a href="mailto:contact@saevoir.fr" className="link">contact@saevoir.fr</a> ou nous contacter via le formulaire ci-dessous.
+              Pour toute question vous pouvez nous envoyer un e-mail à <a href="mailto:contact@saevoir.fr" className="link">contact@saevoir.fr</a> ou nous contacter via le formulaire ci-dessous.
             </p>
           </header>
         </section>

@@ -5,7 +5,7 @@ import './style.scss';
 function Policy() {
   return (
     <Page id="policy">
-      <Container>
+      <Container id="contenu">
         <section className="section">
           <header className="section__header">
             <h1 className="section__title">POLITIQUE DE CONFIDENTIALITÉ</h1>

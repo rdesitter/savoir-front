@@ -13,8 +13,8 @@ function PostDetails({
 }) {
   const selectedPost = useSelector((state) => state.posts.selectedPost);
   const date = rectifyFormat(selectedPost.created_at);
-  return (
 
+  return (
     <article className="post-infos">
       <Panel>
         <section className="post-infos__frame">
@@ -23,10 +23,11 @@ function PostDetails({
         <section className="post-informations">
           <h2 className="post-infos__title">{title}</h2>
           <p className="post-infos__date">Annonce publiée le {date}</p>
-          <span className="post-infos__location"><img className="post-infos__location-icone" src="/images/icones/location.svg" alt="location icone" />{location}</span>
+          {location && (
+            <span className="post-infos__location"><img className="post-infos__location-icone" src="/images/icones/location.svg" alt="localisation de l'annonce" />{location}</span>
+          )}
           <p className="post-infos__description">{description}</p>
         </section>
-
       </Panel>
     </article>
   );

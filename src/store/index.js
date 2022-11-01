@@ -7,7 +7,6 @@ import ajax from '../middlewares/ajax';
 import logOutSession from '../middlewares/logOutSession';
 import resetPassword from '../middlewares/resetPassword';
 import posts from '../middlewares/posts';
-import createPost from '../middlewares/createPost';
 import user from '../middlewares/user';
 
 const middlewares = applyMiddleware(
@@ -17,7 +16,6 @@ const middlewares = applyMiddleware(
   logOutSession,
   posts,
   resetPassword,
-  createPost,
   user,
 );
 

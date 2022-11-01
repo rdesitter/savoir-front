@@ -328,3 +328,48 @@ export const TOGGLE_DELETED = 'TOGGLE_DELETED';
 export const toggleDeleted = () => ({
   type: TOGGLE_DELETED,
 });
+
+export const SUBMIT_NEW_EMAIL = 'SUBMIT_NEW_EMAIL';
+
+export const submitNewEmail = (token) => ({
+  type: SUBMIT_NEW_EMAIL,
+  token,
+});
+
+export const RESET_EMAIL = 'RESET_EMAIL';
+
+export const resetEmail = () => ({
+  type: RESET_EMAIL,
+});
+
+export const TOGGLE_POSTS_LOADING = 'TOGGLE_POSTS_LOADING';
+
+export const togglePostsLoading = () => ({
+  type: TOGGLE_POSTS_LOADING,
+});
+
+export const DELETE_POST = 'DELETE_POST';
+
+export const deletePost = (id) => ({
+  type: DELETE_POST,
+  id,
+});
+
+export const TOGGLE_POST_DELETED = 'TOGGLE_POST_DELETED';
+
+export const togglePostDeleted = () => ({
+  type: TOGGLE_POST_DELETED,
+});
+
+export const NO_RESULT = 'NO_RESULT';
+
+export const noResult = () => ({
+  type: NO_RESULT,
+
+});
+
+export const INIT_POST_DELETED = 'INIT_POST_DELETED';
+
+export const initPostDeleted = () => ({
+  type: INIT_POST_DELETED,
+});

@@ -2,16 +2,22 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
 import {
+  DELETE_POST,
   DELETE_USER,
   GET_AVATARS,
   initUser,
   LOGIN,
+  msgSent,
+  NEW_POST,
   setAvatars,
   setError,
+  setNewPost,
   setUser,
   SIGNUP,
+  SUBMIT_NEW_EMAIL,
   toggleDeleted,
   toggleLoading,
+  togglePostDeleted,
   toggleSavedData,
   UPDATE_AVATAR,
   UPDATE_PERSONAL_INFO,
@@ -40,11 +46,12 @@ const getUserData = (user) => ({
   username: user.username,
 });
 
-const tokenConfig = {
-  headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-};
-
 const ajax = (store) => (next) => (action) => {
+  const { user: { token: tokenState } } = store.getState();
+  const tokenConfig = {
+    headers: { Authorization: `Bearer ${tokenState}` },
+  };
+
   if (action.type === LOGIN) {
     store.dispatch(toggleLoading());
     try {
@@ -56,7 +63,6 @@ const ajax = (store) => (next) => (action) => {
       const { user: { email, password } } = store.getState();
       instance.post('/api/login', { email, password }, config).then((response) => {
         const token = response.data.tokens.accessToken;
-        instance.defaults.headers.patch.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         localStorage.setItem('token-date', Math.floor(new Date().getTime() / 1000));
@@ -93,7 +99,6 @@ const ajax = (store) => (next) => (action) => {
         email, password, pseudo, birthdate,
       }, config).then((response) => {
         const token = response.data.newTokens.accessToken;
-        instance.defaults.headers.common.Authorization = `Bearer ${token}`;
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify({
           email, password, pseudo, birthdate, created_at: date, id: response.data.newUser.id,
@@ -102,11 +107,12 @@ const ajax = (store) => (next) => (action) => {
           user: {
             email, pseudo, birthdate, created_at: date, id: response.data.newUser.id,
           },
+          token,
         }));
         store.dispatch(toggleLoading());
       }).catch((error) => {
         if (error.response.data.constraint === 'user_email_key') {
-          store.dispatch(setError('Cet adresse email est déjà utilisée.'));
+          store.dispatch(setError('Cette adresse email est déjà utilisée.'));
         }
         else if (error.response.data.constraint === 'user_pseudo_key') {
           store.dispatch(setError('Ce nom d\'utilsateur est déjà utilisé.'));
@@ -131,16 +137,14 @@ const ajax = (store) => (next) => (action) => {
           store.dispatch(toggleSavedData());
         })
         .catch((error) => {
-          store.dispatch(setError(error.message));
+          if (error.response.status === 401) {
+            return store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+          }
+          return store.dispatch(setError(error.message));
         });
     }
     catch (error) {
-      if (error.response.status === 401) {
-        store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
-      }
-      else {
-        store.dispatch(setError(error.message));
-      }
+      store.dispatch(setError(error.message));
     }
   }
   else if (action.type === UPDATE_PERSONAL_INFO) {
@@ -186,10 +190,10 @@ const ajax = (store) => (next) => (action) => {
     const userData = getUserData(user);
 
     instance.patch(`/api/user/${userId}`, { picture_id }, tokenConfig)
-      .then((response) => {
+      .then(() => {
         localStorage.setItem('user', JSON.stringify(userData));
-        const data = { user: response.data.user, token: localStorage.getItem('token') };
-        store.dispatch(setUser(data));
+        // const data = { user: response.data.user, token: localStorage.getItem('token') };
+        // store.dispatch(setUser(data));
         store.dispatch(toggleSavedData());
       })
       .catch((error) => {
@@ -211,6 +215,74 @@ const ajax = (store) => (next) => (action) => {
       })
       .catch((error) => {
         store.dispatch(setError(error.response.data.status));
+      });
+  }
+  else if (action.type === SUBMIT_NEW_EMAIL) {
+    try {
+      const { user } = store.getState();
+      const { userId, email } = user;
+      const userData = getUserData(user);
+      instance.patch(`/api/user/${userId}`, { email }, tokenConfig)
+        .then(() => {
+          localStorage.setItem('user', JSON.stringify(userData));
+          store.dispatch(toggleSavedData());
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            return store.dispatch(setError('Vous n\'êtes pas autorisé à faire cette modification'));
+          }
+          if (error.response.status === 404) {
+            return store.dispatch(setError('Cette adresse email est déjà utilisée.'));
+          }
+          return store.dispatch(setError(error.message));
+        });
+    }
+    catch (error) {
+      store.dispatch(setError(error.message));
+    }
+  }
+  else if (action.type === NEW_POST) {
+    const {
+      postCreation: {
+        title,
+        category: image,
+        description,
+        condition: condition_id,
+        type: type_id,
+        category: category_id,
+        postal_code,
+      },
+    } = store.getState();
+    const { user: { token, userId: user_id } } = store.getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+    };
+    instance.post('/api/users/create-annonces', {
+      title, image, description, condition_id, type_id, category_id, user_id, postal_code,
+    }, config)
+      .then((response) => {
+        if (response.status === 200) {
+          store.dispatch(setNewPost(response.data));
+        }
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          return store.dispatch(msgSent('Vous n\'êtes pas autorisé à faire cette modification'));
+        }
+        return store.dispatch(msgSent(error.message));
+      });
+  }
+  else if (action.type === DELETE_POST) {
+    instance.delete(`/api/annonces/${action.id}`, tokenConfig)
+      .then(() => {
+        store.dispatch(togglePostDeleted());
+      })
+      .catch(() => {
+        // console.log(error);
+        store.dispatch(setError('L\'annonce n\'a pas pu être supprimée.'));
       });
   }
   next(action);

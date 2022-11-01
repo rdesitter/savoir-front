@@ -5,39 +5,38 @@ import Container from '../../components/Container';
 import Panel from '../../components/Panel';
 import Button from '../../components/Button';
 import './style.scss';
+import SectionHeader from '../../components/SectionHeader';
 
 function About() {
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <section className="about">
-          <header>
-            <h1 className="about__title">&Agrave; propos...</h1>
-          </header>
-          <Panel>
-            <div className="about__intro">
-              <em>Transmission du savoir</em> souhaite créer du lien social ou révéler de nouvelles vocations grâce à la mise en valeur des connaissances de chacun&#xB7;e.
-            </div>
-            <p>
-              Notre société évolue&nbsp;: la population vieillit, la précarité et l'isolement augmentent.
-            </p>
-            <p>
-              Contrairement à nos voisins méditerranéens, nous sommes moins attachés au sort de nos aînés&#xB7;ées, que ce soit dans les cercles familiaux (isolement des séniors) ou dans le milieu professionnel (difficulté à trouver un emploi, manque d'importance accordée à l'expérience). <br />
-              Ainsi, pour beaucoup, le départ à la retraite est synonyme de déprime (perte de statut social, diminution des contacts sociaux, recherche de sens...).
-            </p>
-            <p>
-              La crise sanitaire fut un facteur aggravant de ce sentiment d'isolement, non seulement à cause des restrictions mises en place à ce moment-là mais également en raison des craintes de chacun&#xB7;e.<br />
-              Cela a cependant permis le développement et la mise en avant de technologies telles que les visioconférences et le format téléprésentiel.
-            </p>
-            <p>
-              Partant de ce constat, l'idée est venue de proposer une plateforme valorisant l'expérience de nos aînés&#xB7;ées. <br />
-              Et pour aller plus loin, pourquoi ne pas étendre cette opportunité à toutes et à tous&nbsp;?
-            </p>
-            <p>
-              Nous vous offrons la possibilité d'apprendre et de partager gratuitement vos savoirs à travers un site qui se veut le plus accessible et inclusif possible.
-            </p>
-          </Panel>
-          <Panel>
+          <SectionHeader title="À propos..." />
+
+          <div className="about__intro">
+            <em>Saevoir</em> souhaite créer du lien social ('se voir') ou révéler de nouvelles vocations grâce à la mise en valeur des connaissances de chacun et chacune ('savoir'&nbsp;!).
+          </div>
+          <p>
+            Notre société évolue&nbsp;: la population vieillit, la précarité et l'isolement augmentent.
+          </p>
+          <p>
+            La crise sanitaire fut un facteur aggravant, non seulement à cause des restrictions mises en place à ce moment-là mais également en raison des craintes de chacun et chacune.
+          </p>
+          <p>
+            Cela a cependant permis le développement et la mise en avant de technologies telles que les visioconférences et le format téléprésentiel.
+          </p>
+          <p>
+            Partant de ce constat, l'idée est venue de proposer une plateforme valorisant l'expérience de nos aînés&#xB7;ées.
+          </p>
+          <p>
+            Et pour aller plus loin, pourquoi ne pas étendre cette opportunité à toutes et à tous&nbsp;?
+          </p>
+          <p>
+            Nous vous offrons la possibilité d'apprendre et de partager gratuitement vos savoirs à travers un site qui se veut le plus accessible et inclusif possible.
+          </p>
+
+          <Panel id="plus" className="panel about">
             <header>
               <h2 className="about__subtitle">Pour aller plus loin...</h2>
             </header>

@@ -32,11 +32,11 @@ function DeleteAccount() {
   }
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <Panel>
           <SectionHeader title="Supprimer mon compte" subtitle="Attention cette action est irréversible !" />
-          <p className="delete__warning">Êtes-vous sûr de vouloir supprimer votre compte ?</p>
+          <p className="delete__warning">Êtes-vous sûr de vouloir supprimer votre compte&nbsp;?</p>
           <p className="delete__warning">Vous perdrez toutes les informations et annonces liées à celui-ci.</p>
 
           {isError && <Error msg={errorMsg} />}

@@ -1,7 +1,8 @@
 /* eslint-disable camelcase */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../../actions';
+import { useLocation } from 'react-router-dom';
+import { getUsers, toggleSavedData } from '../../actions';
 import AccountDetails from '../../components/Accountdetails';
 import Container from '../../components/Container';
 import MyAccountPanel from '../../components/MyAccountPanel';
@@ -13,35 +14,45 @@ import './style.scss';
 
 function MyAccount() {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const user = useSelector((state) => state.user);
-  const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState(false);
   const myPosts = useSelector((state) => state.posts.selectedUserPost);
-  const avatar = useSelector((state) => state.user.userProfil.slug);
+  const userProfil = useSelector((state) => state.user.userProfil);
+  const isLoading = useSelector((state) => state.user.loading);
+
+  const isSaved = useSelector((state) => state.user.dataSaved);
 
   useEffect(() => {
-    dispatch(getUsers(user.userId));
+    if (isSaved) {
+      dispatch(toggleSavedData());
+    }
   }, []);
 
   useEffect(() => {
-    if (avatar) {
-      setLoading(false);
+    dispatch(getUsers(user.userId));
+  }, [location]);
+
+  useEffect(() => {
+    if (userProfil.slug) {
+      setUserData(true);
     }
-  }, [avatar]);
+  }, [userProfil.slug]);
 
   return (
     <Page id="mon-compte">
       <Container>
-        {loading && <p>Chargement en cours</p>}
-        {!loading && (
+        {!userData && <p>Chargement en cours</p>}
+        {userData && !isLoading && (
           <>
-            <div id="profil">
+            <div id="profil-public">
               <AccountDetails
-                username={user.username}
-                avatar={avatar}
-                created_at={user.created_at || ''}
-                about={user.description || 'Non renseignée'}
-                id={user.userId}
+                username={userProfil.pseudo}
+                avatar={userProfil.slug}
+                created_at={userProfil.created_at || ''}
+                about={userProfil.description || 'Non renseignée'}
+                id={userProfil.id}
               />
             </div>
             <Panel id="mes-annonces">
@@ -49,15 +60,15 @@ function MyAccount() {
             </Panel>
             <Panel id="info-personnelles">
               <PersonalInfo
-                firstname={user.firstname || 'non renseigné'}
-                lastname={user.lastname || 'non renseigné'}
-                birthdate={user.birthdate}
-                postalCode={user.postalCode || 'non renseigné'}
-                pronoun={user.pronoun || 'non renseigné'}
+                firstname={userProfil.firstname || 'non renseigné'}
+                lastname={userProfil.lastname || 'non renseigné'}
+                birthdate={userProfil.birthdate}
+                postalCode={userProfil.postal_code || 'non renseigné'}
+                pronoun={userProfil.pronoun || 'non renseigné'}
               />
             </Panel>
             <Panel>
-              <MyAccountPanel email={user.email} />
+              <MyAccountPanel email={userProfil.email} id="info-connexion" />
             </Panel>
           </>
         )}

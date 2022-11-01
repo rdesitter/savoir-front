@@ -44,9 +44,9 @@ function ForgottenPassword() {
           {isError && <Error msg={errorMsg} />}
           {msg && <p>{msg}</p>}
           {(!loading && !msg) && (
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} id="contenu">
               <div className="form__field">
-                <label htmlFor="email">Adresse email *</label>
+                <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input
                   name="email"
                   type="email"
@@ -56,9 +56,9 @@ function ForgottenPassword() {
                   id="email"
                 />
               </div>
-              <p className="section__subtitle">Vous recevrez un mail vous permettant de réinitiliser votre mot de passe.</p>
+              <p className="section__subtitle">Vous recevrez un e-mail vous permettant de réinitiliser votre mot de passe.</p>
               <div className="form__submit">
-                <button type="submit" className="button button--plain" title="Réinitialiser mon mot de passe" style={{ width: '100%' }}>Réinitialiser mon mot de passe</button>
+                <button type="submit" className="button button--plain" aria-label="Réinitialiser mon mot de passe" style={{ width: '100%' }}>Réinitialiser mon mot de passe</button>
               </div>
             </form>
           )}

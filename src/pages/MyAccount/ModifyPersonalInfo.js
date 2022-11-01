@@ -1,7 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { changeValue, toggleSavedData, updatePersonalInfo } from '../../actions';
+import {
+  changeValue,
+  toggleSavedData,
+  updatePersonalInfo,
+  setError,
+} from '../../actions';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Error from '../../components/Error';
@@ -16,28 +21,30 @@ function ModifyPersonalInfo() {
   const dispatch = useDispatch();
 
   const isSaved = useSelector((state) => state.user.dataSaved);
-  const [checkIsSaved, setCheckIsSaved] = useState(false);
 
   useEffect(() => {
     if (isSaved) {
       dispatch(toggleSavedData());
     }
-    setCheckIsSaved(false);
   }, []);
 
   const isError = useSelector((state) => state.user.error);
   const errorMsg = useSelector((state) => state.user.errorMsg);
-
+  const postalCode = useSelector((state) => state.user.postalCode);
   const userPronoun = useSelector((state) => state.user.pronoun);
 
   const handleSelectPronoun = (event) => dispatch(changeValue(event.target.value, 'pronoun'));
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(updatePersonalInfo());
-    setCheckIsSaved(true);
+    if (Number(postalCode).toString().length === 5) {
+      dispatch(updatePersonalInfo());
+    }
+    else {
+      dispatch(setError('Code postal invalide'));
+    }
   };
 
-  if (checkIsSaved) {
+  if (isSaved) {
     return <Navigate to="/mon-compte" replace />;
   }
 
@@ -69,14 +76,14 @@ function ModifyPersonalInfo() {
               />
             </div>
             <div className="form__field">
-              <label htmlFor="birthdate">Ma date de naissance *</label>
+              <label htmlFor="birthdate">Ma date de naissance&nbsp;*</label>
               <Input
                 type="date"
                 name="birthdate"
                 id="birthdate"
                 required
                 placeholder="Votre date de naissance..."
-                aria-label="Saisissez votre  date de naissance"
+                aria-label="Saisissez votre date de naissance"
               />
             </div>
             <div className="form__field">

@@ -1,6 +1,8 @@
 import {
   CHANGE_VALUE,
+  CHANGE_VALUE_POST,
   DISPLAY_ELEMENT,
+  GET_USERS,
   INIT_ERROR,
   INIT_INFO,
   INIT_USER,
@@ -9,8 +11,10 @@ import {
   SET_AVATARS,
   SET_ERROR,
   SET_SELECTED_USER,
+  SET_SELECTED_USER_POST,
   SET_USER,
   TOGGLE_DELETED,
+  DELETE_USER,
   TOGGLE_LOGGED,
   TOGGLE_SAVED_DATA,
   TOOGLE_LOADING,
@@ -60,6 +64,11 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         error: false,
         [action.key]: action.value,
+      };
+    case CHANGE_VALUE_POST:
+      return {
+        ...state,
+        error: false,
       };
     case SET_USER:
       return {
@@ -157,11 +166,22 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         logged: !state.logged,
       };
+    case GET_USERS:
+      return {
+        ...state,
+        loading: true,
+      };
     case SET_SELECTED_USER:
       return {
         ...state,
         userProfil: action.user,
         userLoading: false,
+        loading: false,
+      };
+    case SET_SELECTED_USER_POST:
+      return {
+        ...state,
+        loading: false,
       };
     case TOGGLE_SAVED_DATA:
       return {
@@ -174,6 +194,11 @@ const reducer = (state = initialState, action = {}) => {
         avatars: action.avatars,
       };
     case TOGGLE_DELETED:
+      return {
+        ...state,
+        isDeleted: true,
+      };
+    case DELETE_USER:
       return {
         ...state,
         isDeleted: true,

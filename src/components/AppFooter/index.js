@@ -21,7 +21,7 @@ function AppFooter() {
           <ul className="footer-nav__list">
             <h3 className="footer-nav__title">En savoir plus</h3>
             <li className="footer-nav__item">
-              <Link to="/a-propos" className="footer-nav__link">A propos</Link>
+              <Link to="/a-propos" className="footer-nav__link">&Agrave; propos</Link>
             </li>
             <li className="footer-nav__item">
               <Link to="/equipe" className="footer-nav__link">L'équipe</Link>
@@ -37,14 +37,14 @@ function AppFooter() {
             </li>
           </ul>
           <ul className="footer-nav__list">
-            <h3 className="footer-nav__title">Besoin d'aide ?</h3>
+            <h3 className="footer-nav__title">Besoin d'aide&nbsp;?</h3>
             <li className="footer-nav__item">
               <Link to="/contact" className="footer-nav__link"><Button label="Nous contacter" /></Link>
             </li>
           </ul>
         </nav>
       </div>
-      <p className="footer__copyright">&copy; Transmition des savoirs {year}</p>
+      <p className="footer__copyright">&copy; Saevoir {year}</p>
     </footer>
   );
 }

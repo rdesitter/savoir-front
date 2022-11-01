@@ -17,7 +17,28 @@ body {
   padding: vars.$space-20 0;
   &__header {
     margin-bottom: vars.$space-30;
+    
+    &.flex-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: vars.$space-10;
+  
+      .section__title {
+        display: inline-block;
+      }
+
+      .flex__title__link {
+        color: vars.$primary-color;
+        text-decoration: underline;
+        transition: vars.$transition;
+
+        &:hover, &:focus {
+          color: vars.$primary-color-alt;
+        }
+      }
+    }
   }
+
   
   &__title {
     font-size: vars.$font-big;
@@ -67,4 +88,32 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: vars.$space-20;
+}
+
+.password__toggle {
+  margin-bottom: vars.$space-10;
+  background-color: transparent;
+  border: none;
+  color: vars.$primary-color;
+  transition: vars.$transition;
+  text-align: left;
+  padding-left: 0;
+  margin-top: 0;
+
+  &:focus {
+    color: vars.$primary-color-alt;
+  }
+}
+
+.select-input, input {
+  font-family: vars.$font-family;
+
+  &:focus-visible, :focus {
+    border: 2px solid vars.$primary-color;
+    outline-color: vars.$primary-color;
+  }
+}
+
+*:focus-visible, *:focus {
+  outline-color: vars.$primary-color;
 }

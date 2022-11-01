@@ -15,7 +15,6 @@ import './style.scss';
 function Inscription() {
   /* Handle password visibility */
   const [isVisible, setIsVisible] = useState(false);
-  const [isConfirmVisible, setIsConfirmVisible] = useState(false);
   const password = useSelector((state) => state.user.password);
   const email = useSelector((state) => state.user.email);
   const passwordConfirm = useSelector((state) => state.user.passwordConfirm);
@@ -61,9 +60,9 @@ function Inscription() {
           </header>
           {isError && <Error msg={errorMsg} />}
           {!loading && (
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} id="inscription">
               <div className="form__field">
-                <label htmlFor="email">Adresse email *</label>
+                <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input
                   name="email"
                   type="email"
@@ -71,18 +70,19 @@ function Inscription() {
                   placeholder="Votre adresse email..."
                   aria-label="Saisissez votre email"
                   id="email"
+                  spellCheck="false"
                 />
               </div>
 
               <div className="form__field">
-                <label htmlFor="password">Mot de passe *</label>
                 <button
-                  className="password__helper"
+                  className="password__toggle"
                   type="button"
                   onClick={() => setIsVisible(!isVisible)}
                 >
-                  {isVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+                  {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
                 </button>
+                <label htmlFor="password">Mot de passe&nbsp;*</label>
                 <Input
                   type={isVisible ? 'text' : 'password'}
                   name="password"
@@ -90,49 +90,45 @@ function Inscription() {
                   required
                   placeholder="Votre mot de passe..."
                   aria-label="Saisissez votre mot de passe"
+                  spellCheck="false"
                 />
               </div>
 
               <div className="form__field">
-                <label htmlFor="password-confirm">Confirmation du mot de passe *</label>
-                <button
-                  className="password__helper"
-                  type="button"
-                  onClick={() => setIsConfirmVisible(!isConfirmVisible)}
-                >
-                  {isConfirmVisible ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
-                </button>
+                <label htmlFor="password-confirm">Confirmation du mot de passe&nbsp;*</label>
                 <Input
-                  type={isConfirmVisible ? 'text' : 'password'}
+                  type={isVisible ? 'text' : 'password'}
                   name="passwordConfirm"
                   id="password-confirm"
                   required
-                  placeholder="Votre mot de passe..."
-                  aria-label="Saisissez votre mot de passe"
+                  placeholder="Confirmez mot de passe..."
+                  aria-label="Saisissez à nouveau votre mot de passe pour le confirmer"
+                  spellCheck="false"
                 />
               </div>
 
               <div className="form__field">
-                <label htmlFor="username">Nom d'utilisateur *</label>
+                <label htmlFor="username">Nom d'utilisateur ou d'utilisatrice&nbsp;*</label>
                 <Input
                   type="text"
                   name="username"
                   id="username"
                   required
-                  placeholder="Votre nom d'utilisateur..."
-                  aria-label="Saisissez votre nom d'utilisateur"
+                  placeholder="Votre nom d'utilisateur ou d'utilisatrice..."
+                  aria-label="Saisissez votre nom d'utilisateur ou d'utilisatrice"
+                  spellCheck="false"
                 />
               </div>
 
               <div className="form__field">
-                <label htmlFor="birthdate">Date de naissance *</label>
+                <label htmlFor="birthdate">Date de naissance&nbsp;*</label>
                 <Input
                   type="date"
                   name="birthdate"
                   id="birthdate"
                   required
                   placeholder="Votre date de naissance..."
-                  aria-label="Saisissez votre  date de naissance"
+                  aria-label="Saisissez votre date de naissance"
                 />
               </div>
 

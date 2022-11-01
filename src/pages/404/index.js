@@ -26,16 +26,16 @@ function NotFound() {
             <p>{oneRandomFact.content}</p>
           </Panel>
           <div className="err404__buttons">
-            <Link to="/rechercher">
+            <Link to="/recherche">
               <Button label="Faire une recherche" btnstyle="outlined" />
             </Link>
-            <Link to="/">
+            <Link to="/" aria-label="Retourner à l'accueil">
               <Button label="Retourner à l'accueil" />
             </Link>
           </div>
         </section>
       </Container>
-      <img className="err404__bg" src={error} alt="error" />
+      <img className="err404__bg" src={error} alt="Page non trouvée" />
     </Page>
   );
 }

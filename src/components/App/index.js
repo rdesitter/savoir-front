@@ -31,6 +31,7 @@ import ModifyPublicInfo from '../../pages/MyAccount/ModifyPublicInfo';
 import ModifyPersonalInfo from '../../pages/MyAccount/ModifyPersonalInfo';
 import EditProfilPicture from '../../pages/EditProfilPic';
 import DeleteAccount from '../../pages/DeleteAccount';
+import ResetEmail from '../../pages/ResetEmail';
 
 // == Composant
 function App() {
@@ -95,6 +96,7 @@ function App() {
             <Route path="/mon-compte/modifier-profil-public" element={<ModifyPublicInfo />} />
             <Route path="/mon-compte/modifier-info-perso" element={<ModifyPersonalInfo />} />
             <Route path="/mon-compte/modifier-avatar" element={<EditProfilPicture />} />
+            <Route path="/modifier-email" element={<ResetEmail />} />
             <Route path="/modifier-mot-de-passe" element={<ResetPassword token={token} />} />
             <Route path="/supprimer-mon-compte" element={<DeleteAccount />} />
           </>

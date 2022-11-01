@@ -61,9 +61,9 @@ function Connexion() {
           </header>
           {isError && <Error msg={errorMsg} />}
           {!loading && (
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit} id="connexion">
               <div className="form__field">
-                <label htmlFor="email">Adresse email *</label>
+                <label htmlFor="email">Adresse email&nbsp;*</label>
                 <Input
                   name="email"
                   type="email"
@@ -71,11 +71,12 @@ function Connexion() {
                   placeholder="Votre adresse email..."
                   aria-label="Saisissez votre email"
                   id="email"
+                  spellCheck="false"
                 />
               </div>
 
               <div className="form__field">
-                <label htmlFor="password">Mot de passe *</label>
+                <label htmlFor="password">Mot de passe&nbsp;*</label>
                 <button
                   className="password__helper"
                   type="button"
@@ -90,6 +91,7 @@ function Connexion() {
                   required
                   placeholder="Votre mot de passe..."
                   aria-label="Saisissez votre mot de passe"
+                  spellCheck="false"
                 />
               </div>
               <Link to="/oubli-mot-de-passe" className="reset-password">J'ai oublié mon mot de passe</Link>
@@ -103,7 +105,7 @@ function Connexion() {
 
         </Panel>
         <p className="divider">ou</p>
-        <Panel>
+        <Panel id="inscription">
           <p className="section__subtitle">Si vous n'avez pas encore de compte vous pouvez nous rejoindre.</p>
           <Link to="/inscription" aria-label="Vers la page d'inscription">
             <Button label="Je m'inscris" />

@@ -6,6 +6,7 @@
 
   &__btn {
     background-color: vars.$light-color;
+    color: vars.$dark-color;
     border: 1px solid vars.$light-stroke-color;
     font-size: 1em;
     
@@ -23,12 +24,24 @@
     }
 
     &:first-child {
-      border-radius: vars.$btn-radius 0 0 0;
-      border-right: none;
+      border-radius: vars.$btn-radius vars.$btn-radius 0 0;
+      width: 100%;
+
+      @include mixin.media('small') {
+        border-radius: vars.$btn-radius 0 0 0;
+        border-right: none;
+        width: auto;
+      }
     }
 
     &:last-child {
-      border-radius: 0 vars.$btn-radius 0 0;
+      width: 100%;
+
+      @include mixin.media('small') {
+        border-radius: 0 vars.$btn-radius 0 0;
+        border-right: none;
+        width: auto;
+      }
     }
     
     &--active {

@@ -15,6 +15,7 @@ import useInitError from '../../hooks/useInitError';
 
 function ResetPassword({ token }) {
   useInitError();
+  /* Handle password visibility */
   const [isVisible, setIsVisible] = useState(false);
   const password = useSelector((state) => state.user.password);
   const passwordConfirm = useSelector((state) => state.user.passwordConfirm);
@@ -28,7 +29,9 @@ function ResetPassword({ token }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    toggleLoading();
+    if (loading) {
+      dispatch(toggleLoading());
+    }
     if (displayElt) {
       dispatch(displayElement());
     }
@@ -45,7 +48,7 @@ function ResetPassword({ token }) {
   };
 
   return (
-    <Page>
+    <Page id="contenu">
       <Container>
         <Panel>
           <header className="section__header">
@@ -56,7 +59,7 @@ function ResetPassword({ token }) {
           {(!loading && !displayElt) && (
           <form onSubmit={handleSubmit}>
             <div className="form__field">
-              <label htmlFor="password">Nouveau mot de passe *</label>
+              <label htmlFor="password">Nouveau mot de passe&nbsp;*</label>
               <Input
                 type={isVisible ? 'text' : 'password'}
                 name="password"
@@ -68,7 +71,7 @@ function ResetPassword({ token }) {
             </div>
 
             <div className="form__field">
-              <label htmlFor="password">Confirmer le nouveau mot de passe *</label>
+              <label htmlFor="password">Confirmer le nouveau mot de passe&nbsp;*</label>
               <Input
                 type={isVisible ? 'text' : 'password'}
                 name="passwordConfirm"
@@ -77,16 +80,16 @@ function ResetPassword({ token }) {
                 placeholder="Confirmez votre nouveau mot de passe..."
                 aria-label="Confirmez votre nouveau mot de passe"
               />
+              <button
+                className="password__toggle"
+                type="button"
+                onClick={() => setIsVisible(!isVisible)}
+              >
+                {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
+              </button>
             </div>
-            <button
-              className="password__toggle"
-              type="button"
-              onClick={() => setIsVisible(!isVisible)}
-            >
-              {isVisible ? 'Masquer les mots de passe' : 'Afficher les mots de passe'}
-            </button>
             <div className="form__submit">
-              <button type="submit" className="button button--plain" title="Enregistrer mon mot de passe">Enregistrer mon mot de passe</button>
+              <button type="submit" className="button button--plain" aria-label="Valider mon mot de passe">Enregistrer mon mot de passe</button>
               <p className="form__submit__info">En cliquant sur ce bouton vous serez redirigé vers la page d’accueil.</p>
             </div>
           </form>
