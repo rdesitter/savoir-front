@@ -45,6 +45,6 @@ export const menus = {
   ],
 };
 
-export const MenuContext = createContext(
-  menus.home, // default value
-);
+// export const MenuContext = createContext(
+//   menus.home, // default value
+// );

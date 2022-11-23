@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
-import { MenuContext, menus } from '../../contexts/menu-context';
+import { menus } from '../../contexts/menu-context';
 
 import './style.scss';
 
@@ -53,17 +53,15 @@ function AccessibilityMenu() {
   }, [location]);
 
   return (
-    <MenuContext.Provider value={menus}>
-      <nav>
-        <ul className="a11y-nav" tabIndex={0}>
-          {menusItems.map((menu) => (
-            <li key={menu.url}>
-              <Link to={`${location.pathname}${menu.url}`} className="a11y-nav__link">{menu.label}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </MenuContext.Provider>
+    <nav>
+      <ul className="a11y-nav" tabIndex={0}>
+        {menusItems.map((menu) => (
+          <li key={menu.url}>
+            <Link to={`${location.pathname}${menu.url}`} className="a11y-nav__link">{menu.label}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 

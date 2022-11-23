@@ -19,20 +19,16 @@ const resetPassword = (store) => (next) => (action) => {
         },
       };
       const { user: { email } } = store.getState();
+      console.log('email in middleware', email);
       instance.post('/api/resetpassword', { email }, config)
         .then((response) => {
-          store.dispatch(msgSent(response.data.status));
+          console.log('response', response);
+          store.dispatch(msgSent(response.data.message));
           store.dispatch(toggleLoading());
         })
         .catch((error) => {
-          if (error.response.status === 401) {
-            store.dispatch(msgSent(error.response.data.status));
-            store.dispatch(toggleLoading());
-          }
-          else {
-            store.dispatch(setError(error.message));
-            store.dispatch(toggleLoading());
-          }
+          console.log('error', error);
+          store.dispatch(setError(error.response.data.message));
         });
     }
     catch (error) {

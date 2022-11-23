@@ -30,6 +30,8 @@ function ForgottenPassword() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // console.log('submit');
+    // console.log(email);
     dispatch(resetPassword(email));
   };
 
